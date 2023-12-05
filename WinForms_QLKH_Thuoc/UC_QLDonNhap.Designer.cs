@@ -1,4 +1,4 @@
-﻿namespace GUI
+﻿namespace FormQLKH
 {
     partial class UC_QLDonNhap
     {
@@ -31,22 +31,6 @@
             DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
             tableLayoutPanel1 = new TableLayoutPanel();
             groupBox1 = new GroupBox();
-            dtpNgayNhapHang = new DateTimePicker();
-            txtNote = new TextBox();
-            txtTenDN = new TextBox();
-            txtMaDN = new TextBox();
-            txtMaThuoc = new TextBox();
-            txtMaNV = new TextBox();
-            txtMaNCC = new TextBox();
-            txtMaLo = new TextBox();
-            label9 = new Label();
-            label8 = new Label();
-            label7 = new Label();
-            label6 = new Label();
-            label5 = new Label();
-            label4 = new Label();
-            label3 = new Label();
-            label2 = new Label();
             panel1 = new Panel();
             label1 = new Label();
             groupBox3 = new GroupBox();
@@ -71,6 +55,24 @@
             btnXoaQLDN = new Button();
             btnSuaQLDN = new Button();
             btnThemQLDN = new Button();
+            textBox2 = new TextBox();
+            radioButton2 = new RadioButton();
+            dtpNgayNhapHang = new DateTimePicker();
+            txtNote = new TextBox();
+            txtTenDN = new TextBox();
+            txtMaDN = new TextBox();
+            txtMaThuoc = new TextBox();
+            txtMaNV = new TextBox();
+            txtMaNCC = new TextBox();
+            txtMaLo = new TextBox();
+            label9 = new Label();
+            label8 = new Label();
+            label7 = new Label();
+            label6 = new Label();
+            label5 = new Label();
+            label4 = new Label();
+            label3 = new Label();
+            label2 = new Label();
             tableLayoutPanel1.SuspendLayout();
             groupBox1.SuspendLayout();
             panel1.SuspendLayout();
@@ -93,15 +95,16 @@
             tableLayoutPanel1.Controls.Add(panel1, 0, 0);
             tableLayoutPanel1.Controls.Add(groupBox3, 0, 1);
             tableLayoutPanel1.Controls.Add(splitContainer1, 0, 3);
+            tableLayoutPanel1.Dock = DockStyle.Fill;
             tableLayoutPanel1.Location = new Point(0, 0);
             tableLayoutPanel1.Name = "tableLayoutPanel1";
             tableLayoutPanel1.RowCount = 4;
-            tableLayoutPanel1.RowStyles.Add(new RowStyle());
-            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
-            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 377F));
-            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 288F));
-            tableLayoutPanel1.Size = new Size(1514, 1104);
-            tableLayoutPanel1.TabIndex = 0;
+            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 78F));
+            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 354F));
+            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 311F));
+            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 8F));
+            tableLayoutPanel1.Size = new Size(1420, 1000);
+            tableLayoutPanel1.TabIndex = 1;
             // 
             // groupBox1
             // 
@@ -122,143 +125,12 @@
             groupBox1.Controls.Add(label3);
             groupBox1.Controls.Add(label2);
             groupBox1.Dock = DockStyle.Fill;
-            groupBox1.Location = new Point(3, 442);
+            groupBox1.Location = new Point(3, 435);
             groupBox1.Name = "groupBox1";
-            groupBox1.Size = new Size(1508, 371);
+            groupBox1.Size = new Size(1414, 305);
             groupBox1.TabIndex = 6;
             groupBox1.TabStop = false;
             groupBox1.Text = "Thông tin";
-            // 
-            // dtpNgayNhapHang
-            // 
-            dtpNgayNhapHang.CustomFormat = "dd/MM/yyyy";
-            dtpNgayNhapHang.Format = DateTimePickerFormat.Custom;
-            dtpNgayNhapHang.Location = new Point(1024, 200);
-            dtpNgayNhapHang.Name = "dtpNgayNhapHang";
-            dtpNgayNhapHang.Size = new Size(400, 39);
-            dtpNgayNhapHang.TabIndex = 16;
-            // 
-            // txtNote
-            // 
-            txtNote.Location = new Point(1024, 275);
-            txtNote.Multiline = true;
-            txtNote.Name = "txtNote";
-            txtNote.Size = new Size(400, 74);
-            txtNote.TabIndex = 15;
-            // 
-            // txtTenDN
-            // 
-            txtTenDN.Location = new Point(1024, 125);
-            txtTenDN.Name = "txtTenDN";
-            txtTenDN.Size = new Size(400, 39);
-            txtTenDN.TabIndex = 14;
-            // 
-            // txtMaDN
-            // 
-            txtMaDN.Location = new Point(289, 51);
-            txtMaDN.Name = "txtMaDN";
-            txtMaDN.Size = new Size(400, 39);
-            txtMaDN.TabIndex = 13;
-            // 
-            // txtMaThuoc
-            // 
-            txtMaThuoc.Location = new Point(289, 275);
-            txtMaThuoc.Name = "txtMaThuoc";
-            txtMaThuoc.Size = new Size(400, 39);
-            txtMaThuoc.TabIndex = 12;
-            // 
-            // txtMaNV
-            // 
-            txtMaNV.Location = new Point(289, 123);
-            txtMaNV.Name = "txtMaNV";
-            txtMaNV.Size = new Size(400, 39);
-            txtMaNV.TabIndex = 11;
-            // 
-            // txtMaNCC
-            // 
-            txtMaNCC.Location = new Point(289, 201);
-            txtMaNCC.Name = "txtMaNCC";
-            txtMaNCC.Size = new Size(400, 39);
-            txtMaNCC.TabIndex = 10;
-            // 
-            // txtMaLo
-            // 
-            txtMaLo.Location = new Point(1023, 51);
-            txtMaLo.Name = "txtMaLo";
-            txtMaLo.Size = new Size(402, 39);
-            txtMaLo.TabIndex = 9;
-            // 
-            // label9
-            // 
-            label9.AutoSize = true;
-            label9.Location = new Point(796, 275);
-            label9.Name = "label9";
-            label9.Size = new Size(96, 32);
-            label9.TabIndex = 7;
-            label9.Text = "Ghi chú";
-            // 
-            // label8
-            // 
-            label8.AutoSize = true;
-            label8.Location = new Point(796, 200);
-            label8.Name = "label8";
-            label8.Size = new Size(192, 32);
-            label8.TabIndex = 6;
-            label8.Text = "Ngày nhập hàng";
-            // 
-            // label7
-            // 
-            label7.AutoSize = true;
-            label7.Location = new Point(796, 129);
-            label7.Name = "label7";
-            label7.Size = new Size(162, 32);
-            label7.TabIndex = 5;
-            label7.Text = "Tên đơn nhập";
-            // 
-            // label6
-            // 
-            label6.AutoSize = true;
-            label6.Location = new Point(796, 51);
-            label6.Name = "label6";
-            label6.Size = new Size(75, 32);
-            label6.TabIndex = 4;
-            label6.Text = "Mã lô";
-            // 
-            // label5
-            // 
-            label5.AutoSize = true;
-            label5.Location = new Point(49, 279);
-            label5.Name = "label5";
-            label5.Size = new Size(116, 32);
-            label5.TabIndex = 3;
-            label5.Text = "Mã thuốc";
-            // 
-            // label4
-            // 
-            label4.AutoSize = true;
-            label4.Location = new Point(49, 201);
-            label4.Name = "label4";
-            label4.Size = new Size(199, 32);
-            label4.TabIndex = 2;
-            label4.Text = "Mã nhà cung cấp";
-            // 
-            // label3
-            // 
-            label3.AutoSize = true;
-            label3.Location = new Point(49, 123);
-            label3.Name = "label3";
-            label3.Size = new Size(161, 32);
-            label3.TabIndex = 1;
-            label3.Text = "Mã nhân viên";
-            // 
-            // label2
-            // 
-            label2.AutoSize = true;
-            label2.Location = new Point(49, 45);
-            label2.Name = "label2";
-            label2.Size = new Size(158, 32);
-            label2.TabIndex = 0;
-            label2.Text = "Mã đơn nhập";
             // 
             // panel1
             // 
@@ -267,14 +139,14 @@
             panel1.Dock = DockStyle.Fill;
             panel1.Location = new Point(3, 3);
             panel1.Name = "panel1";
-            panel1.Size = new Size(1508, 104);
+            panel1.Size = new Size(1414, 72);
             panel1.TabIndex = 0;
             // 
             // label1
             // 
             label1.AutoSize = true;
             label1.Font = new Font("Tahoma", 12F, FontStyle.Bold, GraphicsUnit.Point);
-            label1.Location = new Point(629, 41);
+            label1.Location = new Point(536, 18);
             label1.Name = "label1";
             label1.Size = new Size(348, 39);
             label1.TabIndex = 0;
@@ -285,9 +157,9 @@
             // 
             groupBox3.Controls.Add(dgvQLDN);
             groupBox3.Dock = DockStyle.Fill;
-            groupBox3.Location = new Point(3, 113);
+            groupBox3.Location = new Point(3, 81);
             groupBox3.Name = "groupBox3";
-            groupBox3.Size = new Size(1508, 323);
+            groupBox3.Size = new Size(1414, 348);
             groupBox3.TabIndex = 7;
             groupBox3.TabStop = false;
             groupBox3.Text = "Hiển thị";
@@ -311,7 +183,7 @@
             dgvQLDN.Name = "dgvQLDN";
             dgvQLDN.RowHeadersWidth = 82;
             dgvQLDN.RowTemplate.Height = 41;
-            dgvQLDN.Size = new Size(1502, 285);
+            dgvQLDN.Size = new Size(1408, 310);
             dgvQLDN.TabIndex = 0;
             // 
             // Column1
@@ -365,7 +237,7 @@
             // splitContainer1
             // 
             splitContainer1.Dock = DockStyle.Fill;
-            splitContainer1.Location = new Point(3, 819);
+            splitContainer1.Location = new Point(3, 746);
             splitContainer1.Name = "splitContainer1";
             // 
             // splitContainer1.Panel1
@@ -375,26 +247,28 @@
             // splitContainer1.Panel2
             // 
             splitContainer1.Panel2.Controls.Add(groupBox2);
-            splitContainer1.Size = new Size(1508, 282);
-            splitContainer1.SplitterDistance = 718;
+            splitContainer1.Size = new Size(1414, 251);
+            splitContainer1.SplitterDistance = 673;
             splitContainer1.TabIndex = 8;
             // 
             // groupBox4
             // 
+            groupBox4.Controls.Add(textBox2);
+            groupBox4.Controls.Add(radioButton2);
             groupBox4.Controls.Add(textBox1);
             groupBox4.Controls.Add(radioButton1);
             groupBox4.Controls.Add(btnSearchQLDN);
             groupBox4.Dock = DockStyle.Fill;
             groupBox4.Location = new Point(0, 0);
             groupBox4.Name = "groupBox4";
-            groupBox4.Size = new Size(718, 282);
+            groupBox4.Size = new Size(673, 251);
             groupBox4.TabIndex = 0;
             groupBox4.TabStop = false;
             groupBox4.Text = "Tìm kiếm";
             // 
             // textBox1
             // 
-            textBox1.Location = new Point(310, 59);
+            textBox1.Location = new Point(310, 49);
             textBox1.Name = "textBox1";
             textBox1.Size = new Size(333, 39);
             textBox1.TabIndex = 14;
@@ -402,7 +276,7 @@
             // radioButton1
             // 
             radioButton1.AutoSize = true;
-            radioButton1.Location = new Point(58, 59);
+            radioButton1.Location = new Point(58, 49);
             radioButton1.Name = "radioButton1";
             radioButton1.Size = new Size(189, 36);
             radioButton1.TabIndex = 10;
@@ -417,7 +291,7 @@
             btnSearchQLDN.FlatAppearance.BorderSize = 2;
             btnSearchQLDN.FlatStyle = FlatStyle.Popup;
             btnSearchQLDN.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
-            btnSearchQLDN.Location = new Point(539, 214);
+            btnSearchQLDN.Location = new Point(496, 182);
             btnSearchQLDN.Name = "btnSearchQLDN";
             btnSearchQLDN.Size = new Size(150, 46);
             btnSearchQLDN.TabIndex = 9;
@@ -435,7 +309,7 @@
             groupBox2.Dock = DockStyle.Fill;
             groupBox2.Location = new Point(0, 0);
             groupBox2.Name = "groupBox2";
-            groupBox2.Size = new Size(786, 282);
+            groupBox2.Size = new Size(737, 251);
             groupBox2.TabIndex = 10;
             groupBox2.TabStop = false;
             groupBox2.Text = "Chức năng";
@@ -450,7 +324,7 @@
             btnQLDN_Back.ForeColor = SystemColors.ButtonHighlight;
             btnQLDN_Back.Image = Properties.Resources.Logout;
             btnQLDN_Back.ImageAlign = ContentAlignment.MiddleLeft;
-            btnQLDN_Back.Location = new Point(563, 175);
+            btnQLDN_Back.Location = new Point(544, 168);
             btnQLDN_Back.Name = "btnQLDN_Back";
             btnQLDN_Back.Size = new Size(150, 46);
             btnQLDN_Back.TabIndex = 6;
@@ -464,7 +338,7 @@
             btnExQLDN.FlatAppearance.BorderSize = 2;
             btnExQLDN.FlatStyle = FlatStyle.Popup;
             btnExQLDN.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
-            btnExQLDN.Location = new Point(563, 86);
+            btnExQLDN.Location = new Point(544, 72);
             btnExQLDN.Name = "btnExQLDN";
             btnExQLDN.Size = new Size(150, 46);
             btnExQLDN.TabIndex = 4;
@@ -478,7 +352,7 @@
             btnImpQLDN.FlatAppearance.BorderSize = 2;
             btnImpQLDN.FlatStyle = FlatStyle.Popup;
             btnImpQLDN.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
-            btnImpQLDN.Location = new Point(327, 175);
+            btnImpQLDN.Location = new Point(308, 168);
             btnImpQLDN.Name = "btnImpQLDN";
             btnImpQLDN.Size = new Size(150, 46);
             btnImpQLDN.TabIndex = 3;
@@ -494,7 +368,7 @@
             btnXoaQLDN.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
             btnXoaQLDN.Image = Properties.Resources.Delete;
             btnXoaQLDN.ImageAlign = ContentAlignment.MiddleLeft;
-            btnXoaQLDN.Location = new Point(327, 86);
+            btnXoaQLDN.Location = new Point(308, 72);
             btnXoaQLDN.Name = "btnXoaQLDN";
             btnXoaQLDN.Size = new Size(150, 46);
             btnXoaQLDN.TabIndex = 2;
@@ -510,7 +384,7 @@
             btnSuaQLDN.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
             btnSuaQLDN.Image = Properties.Resources.Edit;
             btnSuaQLDN.ImageAlign = ContentAlignment.MiddleLeft;
-            btnSuaQLDN.Location = new Point(60, 175);
+            btnSuaQLDN.Location = new Point(41, 168);
             btnSuaQLDN.Name = "btnSuaQLDN";
             btnSuaQLDN.Size = new Size(150, 46);
             btnSuaQLDN.TabIndex = 1;
@@ -526,21 +400,169 @@
             btnThemQLDN.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
             btnThemQLDN.Image = Properties.Resources.New;
             btnThemQLDN.ImageAlign = ContentAlignment.MiddleLeft;
-            btnThemQLDN.Location = new Point(60, 86);
+            btnThemQLDN.Location = new Point(41, 72);
             btnThemQLDN.Name = "btnThemQLDN";
             btnThemQLDN.Size = new Size(150, 46);
             btnThemQLDN.TabIndex = 0;
             btnThemQLDN.Text = "Thêm";
             btnThemQLDN.UseVisualStyleBackColor = false;
             // 
+            // textBox2
+            // 
+            textBox2.Location = new Point(313, 119);
+            textBox2.Name = "textBox2";
+            textBox2.Size = new Size(333, 39);
+            textBox2.TabIndex = 16;
+            // 
+            // radioButton2
+            // 
+            radioButton2.AutoSize = true;
+            radioButton2.Location = new Point(61, 119);
+            radioButton2.Name = "radioButton2";
+            radioButton2.Size = new Size(192, 36);
+            radioButton2.TabIndex = 15;
+            radioButton2.TabStop = true;
+            radioButton2.Text = "Mã nhân viên";
+            radioButton2.UseVisualStyleBackColor = true;
+            // 
+            // dtpNgayNhapHang
+            // 
+            dtpNgayNhapHang.CustomFormat = "dd/MM/yyyy";
+            dtpNgayNhapHang.Format = DateTimePickerFormat.Custom;
+            dtpNgayNhapHang.Location = new Point(950, 164);
+            dtpNgayNhapHang.Name = "dtpNgayNhapHang";
+            dtpNgayNhapHang.Size = new Size(400, 39);
+            dtpNgayNhapHang.TabIndex = 32;
+            // 
+            // txtNote
+            // 
+            txtNote.Location = new Point(950, 231);
+            txtNote.Multiline = true;
+            txtNote.Name = "txtNote";
+            txtNote.Size = new Size(400, 64);
+            txtNote.TabIndex = 31;
+            // 
+            // txtTenDN
+            // 
+            txtTenDN.Location = new Point(950, 97);
+            txtTenDN.Name = "txtTenDN";
+            txtTenDN.Size = new Size(400, 39);
+            txtTenDN.TabIndex = 30;
+            // 
+            // txtMaDN
+            // 
+            txtMaDN.Location = new Point(319, 35);
+            txtMaDN.Name = "txtMaDN";
+            txtMaDN.Size = new Size(289, 39);
+            txtMaDN.TabIndex = 29;
+            // 
+            // txtMaThuoc
+            // 
+            txtMaThuoc.Location = new Point(319, 235);
+            txtMaThuoc.Name = "txtMaThuoc";
+            txtMaThuoc.Size = new Size(289, 39);
+            txtMaThuoc.TabIndex = 28;
+            // 
+            // txtMaNV
+            // 
+            txtMaNV.Location = new Point(319, 99);
+            txtMaNV.Name = "txtMaNV";
+            txtMaNV.Size = new Size(289, 39);
+            txtMaNV.TabIndex = 27;
+            // 
+            // txtMaNCC
+            // 
+            txtMaNCC.Location = new Point(319, 169);
+            txtMaNCC.Name = "txtMaNCC";
+            txtMaNCC.Size = new Size(289, 39);
+            txtMaNCC.TabIndex = 26;
+            // 
+            // txtMaLo
+            // 
+            txtMaLo.Location = new Point(949, 31);
+            txtMaLo.Name = "txtMaLo";
+            txtMaLo.Size = new Size(402, 39);
+            txtMaLo.TabIndex = 25;
+            // 
+            // label9
+            // 
+            label9.AutoSize = true;
+            label9.Location = new Point(715, 232);
+            label9.Name = "label9";
+            label9.Size = new Size(96, 32);
+            label9.TabIndex = 24;
+            label9.Text = "Ghi chú";
+            // 
+            // label8
+            // 
+            label8.AutoSize = true;
+            label8.Location = new Point(715, 166);
+            label8.Name = "label8";
+            label8.Size = new Size(192, 32);
+            label8.TabIndex = 23;
+            label8.Text = "Ngày nhập hàng";
+            // 
+            // label7
+            // 
+            label7.AutoSize = true;
+            label7.Location = new Point(715, 100);
+            label7.Name = "label7";
+            label7.Size = new Size(162, 32);
+            label7.TabIndex = 22;
+            label7.Text = "Tên đơn nhập";
+            // 
+            // label6
+            // 
+            label6.AutoSize = true;
+            label6.Location = new Point(715, 34);
+            label6.Name = "label6";
+            label6.Size = new Size(75, 32);
+            label6.TabIndex = 21;
+            label6.Text = "Mã lô";
+            // 
+            // label5
+            // 
+            label5.AutoSize = true;
+            label5.Location = new Point(61, 246);
+            label5.Name = "label5";
+            label5.Size = new Size(116, 32);
+            label5.TabIndex = 20;
+            label5.Text = "Mã thuốc";
+            // 
+            // label4
+            // 
+            label4.AutoSize = true;
+            label4.Location = new Point(61, 176);
+            label4.Name = "label4";
+            label4.Size = new Size(199, 32);
+            label4.TabIndex = 19;
+            label4.Text = "Mã nhà cung cấp";
+            // 
+            // label3
+            // 
+            label3.AutoSize = true;
+            label3.Location = new Point(61, 106);
+            label3.Name = "label3";
+            label3.Size = new Size(161, 32);
+            label3.TabIndex = 18;
+            label3.Text = "Mã nhân viên";
+            // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.Location = new Point(61, 36);
+            label2.Name = "label2";
+            label2.Size = new Size(158, 32);
+            label2.TabIndex = 17;
+            label2.Text = "Mã đơn nhập";
+            // 
             // UC_QLDonNhap
             // 
             AutoScaleDimensions = new SizeF(13F, 32F);
             AutoScaleMode = AutoScaleMode.Font;
-            BackColor = SystemColors.ButtonFace;
             Controls.Add(tableLayoutPanel1);
             Name = "UC_QLDonNhap";
-            Size = new Size(1514, 1202);
+            Size = new Size(1420, 1000);
             tableLayoutPanel1.ResumeLayout(false);
             groupBox1.ResumeLayout(false);
             groupBox1.PerformLayout();
@@ -561,27 +583,11 @@
         #endregion
 
         private TableLayoutPanel tableLayoutPanel1;
+        private GroupBox groupBox1;
         private Panel panel1;
         private Label label1;
-        private GroupBox groupBox1;
-        private Label label9;
-        private Label label8;
-        private Label label7;
-        private Label label6;
-        private Label label5;
-        private Label label4;
-        private Label label3;
-        private Label label2;
         private GroupBox groupBox3;
         private DataGridView dgvQLDN;
-        private TextBox txtTenDN;
-        private TextBox txtMaDN;
-        private TextBox txtMaThuoc;
-        private TextBox txtMaNV;
-        private TextBox txtMaNCC;
-        private TextBox txtMaLo;
-        private DateTimePicker dtpNgayNhapHang;
-        private TextBox txtNote;
         private DataGridViewTextBoxColumn Column1;
         private DataGridViewTextBoxColumn Column2;
         private DataGridViewTextBoxColumn Column6;
@@ -602,5 +608,23 @@
         private Button btnXoaQLDN;
         private Button btnSuaQLDN;
         private Button btnThemQLDN;
+        private TextBox textBox2;
+        private RadioButton radioButton2;
+        private DateTimePicker dtpNgayNhapHang;
+        private TextBox txtNote;
+        private TextBox txtTenDN;
+        private TextBox txtMaDN;
+        private TextBox txtMaThuoc;
+        private TextBox txtMaNV;
+        private TextBox txtMaNCC;
+        private TextBox txtMaLo;
+        private Label label9;
+        private Label label8;
+        private Label label7;
+        private Label label6;
+        private Label label5;
+        private Label label4;
+        private Label label3;
+        private Label label2;
     }
 }

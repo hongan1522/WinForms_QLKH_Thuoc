@@ -7,25 +7,19 @@
     <Compile Update="Frm_QuanLyKho.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="LoginForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
     <Compile Update="UC_CTDonNhap.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Update="UC_CTDonXuat.cs">
       <SubType>UserControl</SubType>
     </Compile>
+    <Compile Update="FormLogin.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="UC_CTThuoc.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Update="UC_Login.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Update="FormLogin.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Update="Text_Box_Custom.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Update="UC_Main.cs">
@@ -43,19 +37,19 @@
     <Compile Update="UC_QLDonXuat.cs">
       <SubType>UserControl</SubType>
     </Compile>
+    <Compile Update="UC_QLKho.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
     <Compile Update="UC_QLLo.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Update="UC_QLNT.cs">
+    <Compile Update="UC_QLNhomThuoc.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Update="UC_QLNV.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Update="UC_QLThuoc.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Update="UC_QuanLyKho.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Update="UC_User.cs">

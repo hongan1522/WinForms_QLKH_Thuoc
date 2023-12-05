@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace GUI
+namespace FormQLKH
 {
     public partial class UC_QLDonNhap : UserControl
     {
@@ -16,6 +16,5 @@ namespace GUI
         {
             InitializeComponent();
         }
-
     }
 }

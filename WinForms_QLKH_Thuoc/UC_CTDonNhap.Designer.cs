@@ -1,4 +1,4 @@
-﻿namespace GUI
+﻿namespace FormQLKH
 {
     partial class UC_CTDonNhap
     {
@@ -31,17 +31,17 @@
             tableLayoutPanel1 = new TableLayoutPanel();
             panel1 = new Panel();
             label1 = new Label();
-            label2 = new Label();
-            label3 = new Label();
+            grbCTDN_TT = new GroupBox();
+            btnCTDN_Sua = new Button();
+            txtCTDN_GhiChu = new TextBox();
+            txtCTDN_MaLo = new TextBox();
+            txtCTDN_MaDN = new TextBox();
             label4 = new Label();
-            textBox1 = new TextBox();
-            textBox2 = new TextBox();
-            textBox3 = new TextBox();
-            button1 = new Button();
-            groupBox1 = new GroupBox();
+            label3 = new Label();
+            label2 = new Label();
             tableLayoutPanel1.SuspendLayout();
             panel1.SuspendLayout();
-            groupBox1.SuspendLayout();
+            grbCTDN_TT.SuspendLayout();
             SuspendLayout();
             // 
             // tableLayoutPanel1
@@ -49,53 +49,86 @@
             tableLayoutPanel1.ColumnCount = 1;
             tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 50F));
             tableLayoutPanel1.Controls.Add(panel1, 0, 0);
-            tableLayoutPanel1.Controls.Add(groupBox1, 0, 1);
+            tableLayoutPanel1.Controls.Add(grbCTDN_TT, 0, 1);
             tableLayoutPanel1.Dock = DockStyle.Fill;
             tableLayoutPanel1.Location = new Point(0, 0);
             tableLayoutPanel1.Name = "tableLayoutPanel1";
             tableLayoutPanel1.RowCount = 2;
             tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 17.0520229F));
             tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 82.9479752F));
-            tableLayoutPanel1.Size = new Size(641, 543);
-            tableLayoutPanel1.TabIndex = 0;
+            tableLayoutPanel1.Size = new Size(649, 556);
+            tableLayoutPanel1.TabIndex = 1;
             // 
             // panel1
             // 
-            panel1.BackColor = SystemColors.ActiveCaption;
+            panel1.BackColor = Color.FromArgb(84, 128, 160);
             panel1.Controls.Add(label1);
             panel1.Dock = DockStyle.Fill;
             panel1.Location = new Point(3, 3);
             panel1.Name = "panel1";
-            panel1.Size = new Size(635, 86);
+            panel1.Size = new Size(643, 88);
             panel1.TabIndex = 0;
             // 
             // label1
             // 
             label1.AutoSize = true;
             label1.Font = new Font("Segoe UI", 13.875F, FontStyle.Bold, GraphicsUnit.Point);
+            label1.ForeColor = SystemColors.ButtonHighlight;
             label1.Location = new Point(149, 15);
             label1.Name = "label1";
             label1.Size = new Size(382, 50);
             label1.TabIndex = 0;
             label1.Text = "CHI TIẾT ĐƠN NHẬP";
             // 
-            // label2
+            // grbCTDN_TT
             // 
-            label2.AutoSize = true;
-            label2.Location = new Point(41, 65);
-            label2.Name = "label2";
-            label2.Size = new Size(158, 32);
-            label2.TabIndex = 0;
-            label2.Text = "Mã đơn nhập";
+            grbCTDN_TT.BackColor = SystemColors.ControlLight;
+            grbCTDN_TT.Controls.Add(btnCTDN_Sua);
+            grbCTDN_TT.Controls.Add(txtCTDN_GhiChu);
+            grbCTDN_TT.Controls.Add(txtCTDN_MaLo);
+            grbCTDN_TT.Controls.Add(txtCTDN_MaDN);
+            grbCTDN_TT.Controls.Add(label4);
+            grbCTDN_TT.Controls.Add(label3);
+            grbCTDN_TT.Controls.Add(label2);
+            grbCTDN_TT.Dock = DockStyle.Fill;
+            grbCTDN_TT.Location = new Point(3, 97);
+            grbCTDN_TT.Name = "grbCTDN_TT";
+            grbCTDN_TT.Size = new Size(643, 456);
+            grbCTDN_TT.TabIndex = 1;
+            grbCTDN_TT.TabStop = false;
+            grbCTDN_TT.Text = "Thông tin";
             // 
-            // label3
+            // btnCTDN_Sua
             // 
-            label3.AutoSize = true;
-            label3.Location = new Point(41, 148);
-            label3.Name = "label3";
-            label3.Size = new Size(75, 32);
-            label3.TabIndex = 1;
-            label3.Text = "Mã lô";
+            btnCTDN_Sua.BackColor = SystemColors.ActiveCaption;
+            btnCTDN_Sua.Location = new Point(443, 364);
+            btnCTDN_Sua.Name = "btnCTDN_Sua";
+            btnCTDN_Sua.Size = new Size(150, 46);
+            btnCTDN_Sua.TabIndex = 6;
+            btnCTDN_Sua.Text = "Sửa";
+            btnCTDN_Sua.UseVisualStyleBackColor = false;
+            // 
+            // txtCTDN_GhiChu
+            // 
+            txtCTDN_GhiChu.Location = new Point(247, 236);
+            txtCTDN_GhiChu.Multiline = true;
+            txtCTDN_GhiChu.Name = "txtCTDN_GhiChu";
+            txtCTDN_GhiChu.Size = new Size(284, 99);
+            txtCTDN_GhiChu.TabIndex = 5;
+            // 
+            // txtCTDN_MaLo
+            // 
+            txtCTDN_MaLo.Location = new Point(247, 151);
+            txtCTDN_MaLo.Name = "txtCTDN_MaLo";
+            txtCTDN_MaLo.Size = new Size(284, 39);
+            txtCTDN_MaLo.TabIndex = 4;
+            // 
+            // txtCTDN_MaDN
+            // 
+            txtCTDN_MaDN.Location = new Point(247, 72);
+            txtCTDN_MaDN.Name = "txtCTDN_MaDN";
+            txtCTDN_MaDN.Size = new Size(284, 39);
+            txtCTDN_MaDN.TabIndex = 3;
             // 
             // label4
             // 
@@ -106,54 +139,23 @@
             label4.TabIndex = 2;
             label4.Text = "Ghi chú";
             // 
-            // textBox1
+            // label3
             // 
-            textBox1.Location = new Point(247, 72);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(284, 39);
-            textBox1.TabIndex = 3;
+            label3.AutoSize = true;
+            label3.Location = new Point(41, 148);
+            label3.Name = "label3";
+            label3.Size = new Size(75, 32);
+            label3.TabIndex = 1;
+            label3.Text = "Mã lô";
             // 
-            // textBox2
+            // label2
             // 
-            textBox2.Location = new Point(247, 151);
-            textBox2.Name = "textBox2";
-            textBox2.Size = new Size(284, 39);
-            textBox2.TabIndex = 4;
-            // 
-            // textBox3
-            // 
-            textBox3.Location = new Point(247, 236);
-            textBox3.Multiline = true;
-            textBox3.Name = "textBox3";
-            textBox3.Size = new Size(284, 99);
-            textBox3.TabIndex = 5;
-            // 
-            // button1
-            // 
-            button1.Location = new Point(443, 364);
-            button1.Name = "button1";
-            button1.Size = new Size(150, 46);
-            button1.TabIndex = 6;
-            button1.Text = "Sửa";
-            button1.UseVisualStyleBackColor = true;
-            // 
-            // groupBox1
-            // 
-            groupBox1.BackColor = SystemColors.ControlLightLight;
-            groupBox1.Controls.Add(button1);
-            groupBox1.Controls.Add(textBox3);
-            groupBox1.Controls.Add(textBox2);
-            groupBox1.Controls.Add(textBox1);
-            groupBox1.Controls.Add(label4);
-            groupBox1.Controls.Add(label3);
-            groupBox1.Controls.Add(label2);
-            groupBox1.Dock = DockStyle.Fill;
-            groupBox1.Location = new Point(3, 95);
-            groupBox1.Name = "groupBox1";
-            groupBox1.Size = new Size(635, 445);
-            groupBox1.TabIndex = 1;
-            groupBox1.TabStop = false;
-            groupBox1.Text = "Thông tin";
+            label2.AutoSize = true;
+            label2.Location = new Point(41, 65);
+            label2.Name = "label2";
+            label2.Size = new Size(158, 32);
+            label2.TabIndex = 0;
+            label2.Text = "Mã đơn nhập";
             // 
             // UC_CTDonNhap
             // 
@@ -161,12 +163,12 @@
             AutoScaleMode = AutoScaleMode.Font;
             Controls.Add(tableLayoutPanel1);
             Name = "UC_CTDonNhap";
-            Size = new Size(641, 543);
+            Size = new Size(649, 556);
             tableLayoutPanel1.ResumeLayout(false);
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
-            groupBox1.ResumeLayout(false);
-            groupBox1.PerformLayout();
+            grbCTDN_TT.ResumeLayout(false);
+            grbCTDN_TT.PerformLayout();
             ResumeLayout(false);
         }
 
@@ -175,11 +177,11 @@
         private TableLayoutPanel tableLayoutPanel1;
         private Panel panel1;
         private Label label1;
-        private GroupBox groupBox1;
-        private Button button1;
-        private TextBox textBox3;
-        private TextBox textBox2;
-        private TextBox textBox1;
+        private GroupBox grbCTDN_TT;
+        private Button btnCTDN_Sua;
+        private TextBox txtCTDN_GhiChu;
+        private TextBox txtCTDN_MaLo;
+        private TextBox txtCTDN_MaDN;
         private Label label4;
         private Label label3;
         private Label label2;

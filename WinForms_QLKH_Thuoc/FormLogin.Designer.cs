@@ -31,32 +31,21 @@ namespace WinFormsApp
         /// </summary>
         private void InitializeComponent()
         {
-            form_Login1 = new UC_Login();
             SuspendLayout();
             // 
-            // form_Login1
+            // FormLogin
             // 
-            form_Login1.Dock = DockStyle.Fill;
-            form_Login1.Location = new Point(0, 0);
-            form_Login1.Name = "form_Login1";
-            form_Login1.Size = new Size(1013, 720);
-            form_Login1.TabIndex = 0;
-            // 
-            // LoginForm
-            // 
-            AutoScaleDimensions = new SizeF(10F, 25F);
+            AutoScaleDimensions = new SizeF(13F, 32F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.White;
-            ClientSize = new Size(1013, 720);
-            Controls.Add(form_Login1);
-            Name = "LoginForm";
+            ClientSize = new Size(1317, 922);
+            Margin = new Padding(4, 4, 4, 4);
+            Name = "FormLogin";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Đăng nhập";
             ResumeLayout(false);
         }
 
         #endregion
-
-        private UC_Login form_Login1;
     }
 }

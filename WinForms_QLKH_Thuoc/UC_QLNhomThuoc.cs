@@ -8,11 +8,11 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace GUI
+namespace FormQLKH
 {
-    public partial class UC_QuanLyKho : UserControl
+    public partial class UC_QLNhomThuoc : UserControl
     {
-        public UC_QuanLyKho()
+        public UC_QLNhomThuoc()
         {
             InitializeComponent();
         }

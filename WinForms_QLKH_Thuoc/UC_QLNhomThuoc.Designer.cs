@@ -1,6 +1,6 @@
-﻿namespace GUI
+﻿namespace FormQLKH
 {
-    partial class UC_QLNT
+    partial class UC_QLNhomThuoc
     {
         /// <summary> 
         /// Required designer variable.
@@ -32,7 +32,6 @@
             tableLayoutPanel1 = new TableLayoutPanel();
             panel1 = new Panel();
             label1 = new Label();
-            button4 = new Button();
             splitContainer1 = new SplitContainer();
             splitContainer2 = new SplitContainer();
             groupBox1 = new GroupBox();
@@ -56,6 +55,7 @@
             label2 = new Label();
             groupBox4 = new GroupBox();
             button7 = new Button();
+            button4 = new Button();
             button6 = new Button();
             button5 = new Button();
             button3 = new Button();
@@ -92,10 +92,10 @@
             tableLayoutPanel1.Location = new Point(0, 0);
             tableLayoutPanel1.Name = "tableLayoutPanel1";
             tableLayoutPanel1.RowCount = 2;
-            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 11.8865871F));
-            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 88.11341F));
-            tableLayoutPanel1.Size = new Size(1691, 923);
-            tableLayoutPanel1.TabIndex = 0;
+            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 9.447236F));
+            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 90.5527649F));
+            tableLayoutPanel1.Size = new Size(1420, 1000);
+            tableLayoutPanel1.TabIndex = 1;
             // 
             // panel1
             // 
@@ -104,33 +104,24 @@
             panel1.Dock = DockStyle.Fill;
             panel1.Location = new Point(3, 3);
             panel1.Name = "panel1";
-            panel1.Size = new Size(1685, 103);
+            panel1.Size = new Size(1414, 88);
             panel1.TabIndex = 0;
             // 
             // label1
             // 
             label1.AutoSize = true;
             label1.Font = new Font("Segoe UI", 13.875F, FontStyle.Bold, GraphicsUnit.Point);
-            label1.Location = new Point(675, 29);
+            label1.Location = new Point(513, 19);
             label1.Name = "label1";
             label1.Size = new Size(449, 50);
             label1.TabIndex = 0;
             label1.Text = "QUẢN LÝ NHÓM THUỐC";
             label1.TextAlign = ContentAlignment.MiddleCenter;
             // 
-            // button4
-            // 
-            button4.Location = new Point(453, 235);
-            button4.Name = "button4";
-            button4.Size = new Size(150, 46);
-            button4.TabIndex = 2;
-            button4.Text = "Thoát";
-            button4.UseVisualStyleBackColor = true;
-            // 
             // splitContainer1
             // 
             splitContainer1.Dock = DockStyle.Fill;
-            splitContainer1.Location = new Point(3, 112);
+            splitContainer1.Location = new Point(3, 97);
             splitContainer1.Name = "splitContainer1";
             // 
             // splitContainer1.Panel1
@@ -140,8 +131,8 @@
             // splitContainer1.Panel2
             // 
             splitContainer1.Panel2.Controls.Add(splitContainer3);
-            splitContainer1.Size = new Size(1685, 808);
-            splitContainer1.SplitterDistance = 1034;
+            splitContainer1.Size = new Size(1414, 900);
+            splitContainer1.SplitterDistance = 896;
             splitContainer1.TabIndex = 1;
             // 
             // splitContainer2
@@ -158,8 +149,8 @@
             // splitContainer2.Panel2
             // 
             splitContainer2.Panel2.Controls.Add(groupBox2);
-            splitContainer2.Size = new Size(1034, 808);
-            splitContainer2.SplitterDistance = 210;
+            splitContainer2.Size = new Size(896, 900);
+            splitContainer2.SplitterDistance = 203;
             splitContainer2.TabIndex = 0;
             // 
             // groupBox1
@@ -172,14 +163,14 @@
             groupBox1.Dock = DockStyle.Fill;
             groupBox1.Location = new Point(0, 0);
             groupBox1.Name = "groupBox1";
-            groupBox1.Size = new Size(1034, 210);
+            groupBox1.Size = new Size(896, 203);
             groupBox1.TabIndex = 0;
             groupBox1.TabStop = false;
             groupBox1.Text = "Tìm kiếm";
             // 
             // button1
             // 
-            button1.Location = new Point(770, 90);
+            button1.Location = new Point(711, 86);
             button1.Name = "button1";
             button1.Size = new Size(150, 46);
             button1.TabIndex = 4;
@@ -190,14 +181,14 @@
             // 
             textBox2.Location = new Point(267, 132);
             textBox2.Name = "textBox2";
-            textBox2.Size = new Size(428, 39);
+            textBox2.Size = new Size(346, 39);
             textBox2.TabIndex = 3;
             // 
             // textBox1
             // 
             textBox1.Location = new Point(267, 61);
             textBox1.Name = "textBox1";
-            textBox1.Size = new Size(428, 39);
+            textBox1.Size = new Size(346, 39);
             textBox1.TabIndex = 2;
             // 
             // radioButton2
@@ -228,7 +219,7 @@
             groupBox2.Dock = DockStyle.Fill;
             groupBox2.Location = new Point(0, 0);
             groupBox2.Name = "groupBox2";
-            groupBox2.Size = new Size(1034, 594);
+            groupBox2.Size = new Size(896, 693);
             groupBox2.TabIndex = 0;
             groupBox2.TabStop = false;
             groupBox2.Text = "Hiển thị";
@@ -252,7 +243,7 @@
             dataGridView1.Name = "dataGridView1";
             dataGridView1.RowHeadersWidth = 82;
             dataGridView1.RowTemplate.Height = 41;
-            dataGridView1.Size = new Size(1028, 556);
+            dataGridView1.Size = new Size(890, 655);
             dataGridView1.TabIndex = 0;
             // 
             // Column1
@@ -287,8 +278,8 @@
             // splitContainer3.Panel2
             // 
             splitContainer3.Panel2.Controls.Add(groupBox4);
-            splitContainer3.Size = new Size(647, 808);
-            splitContainer3.SplitterDistance = 488;
+            splitContainer3.Size = new Size(514, 900);
+            splitContainer3.SplitterDistance = 477;
             splitContainer3.TabIndex = 0;
             // 
             // groupBox3
@@ -302,38 +293,38 @@
             groupBox3.Dock = DockStyle.Fill;
             groupBox3.Location = new Point(0, 0);
             groupBox3.Name = "groupBox3";
-            groupBox3.Size = new Size(647, 488);
+            groupBox3.Size = new Size(514, 477);
             groupBox3.TabIndex = 0;
             groupBox3.TabStop = false;
             groupBox3.Text = "Thông tin";
             // 
             // textBox5
             // 
-            textBox5.Location = new Point(235, 310);
+            textBox5.Location = new Point(157, 302);
             textBox5.Multiline = true;
             textBox5.Name = "textBox5";
-            textBox5.Size = new Size(353, 122);
+            textBox5.Size = new Size(319, 122);
             textBox5.TabIndex = 5;
             // 
             // textBox4
             // 
-            textBox4.Location = new Point(235, 188);
+            textBox4.Location = new Point(157, 180);
             textBox4.Multiline = true;
             textBox4.Name = "textBox4";
-            textBox4.Size = new Size(353, 57);
+            textBox4.Size = new Size(319, 57);
             textBox4.TabIndex = 4;
             // 
             // textBox3
             // 
-            textBox3.Location = new Point(235, 90);
+            textBox3.Location = new Point(157, 82);
             textBox3.Name = "textBox3";
-            textBox3.Size = new Size(353, 39);
+            textBox3.Size = new Size(319, 39);
             textBox3.TabIndex = 3;
             // 
             // label4
             // 
             label4.AutoSize = true;
-            label4.Location = new Point(73, 313);
+            label4.Location = new Point(20, 302);
             label4.Name = "label4";
             label4.Size = new Size(96, 32);
             label4.TabIndex = 2;
@@ -342,7 +333,7 @@
             // label3
             // 
             label3.AutoSize = true;
-            label3.Location = new Point(60, 191);
+            label3.Location = new Point(20, 194);
             label3.Name = "label3";
             label3.Size = new Size(122, 32);
             label3.TabIndex = 1;
@@ -351,7 +342,7 @@
             // label2
             // 
             label2.AutoSize = true;
-            label2.Location = new Point(60, 97);
+            label2.Location = new Point(20, 86);
             label2.Name = "label2";
             label2.Size = new Size(118, 32);
             label2.TabIndex = 0;
@@ -368,23 +359,32 @@
             groupBox4.Dock = DockStyle.Fill;
             groupBox4.Location = new Point(0, 0);
             groupBox4.Name = "groupBox4";
-            groupBox4.Size = new Size(647, 316);
+            groupBox4.Size = new Size(514, 419);
             groupBox4.TabIndex = 0;
             groupBox4.TabStop = false;
             groupBox4.Text = "Chức năng";
             // 
             // button7
             // 
-            button7.Location = new Point(448, 84);
+            button7.Location = new Point(50, 196);
             button7.Name = "button7";
             button7.Size = new Size(150, 46);
             button7.TabIndex = 5;
             button7.Text = "Sửa";
             button7.UseVisualStyleBackColor = true;
             // 
+            // button4
+            // 
+            button4.Location = new Point(309, 313);
+            button4.Name = "button4";
+            button4.Size = new Size(150, 46);
+            button4.TabIndex = 2;
+            button4.Text = "Thoát";
+            button4.UseVisualStyleBackColor = true;
+            // 
             // button6
             // 
-            button6.Location = new Point(42, 235);
+            button6.Location = new Point(309, 196);
             button6.Name = "button6";
             button6.Size = new Size(150, 46);
             button6.TabIndex = 4;
@@ -393,7 +393,7 @@
             // 
             // button5
             // 
-            button5.Location = new Point(245, 235);
+            button5.Location = new Point(309, 79);
             button5.Name = "button5";
             button5.Size = new Size(150, 46);
             button5.TabIndex = 3;
@@ -402,7 +402,7 @@
             // 
             // button3
             // 
-            button3.Location = new Point(245, 84);
+            button3.Location = new Point(50, 313);
             button3.Name = "button3";
             button3.Size = new Size(150, 46);
             button3.TabIndex = 1;
@@ -411,20 +411,20 @@
             // 
             // button2
             // 
-            button2.Location = new Point(42, 84);
+            button2.Location = new Point(50, 79);
             button2.Name = "button2";
             button2.Size = new Size(150, 46);
             button2.TabIndex = 0;
             button2.Text = "Thêm";
             button2.UseVisualStyleBackColor = true;
             // 
-            // UC_QLNT
+            // UC_QLNhomThuoc
             // 
             AutoScaleDimensions = new SizeF(13F, 32F);
             AutoScaleMode = AutoScaleMode.Font;
             Controls.Add(tableLayoutPanel1);
-            Name = "UC_QLNT";
-            Size = new Size(1691, 923);
+            Name = "UC_QLNhomThuoc";
+            Size = new Size(1420, 1000);
             tableLayoutPanel1.ResumeLayout(false);
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
@@ -458,30 +458,30 @@
         private SplitContainer splitContainer1;
         private SplitContainer splitContainer2;
         private GroupBox groupBox1;
+        private Button button1;
         private TextBox textBox2;
         private TextBox textBox1;
         private RadioButton radioButton2;
         private RadioButton radioButton1;
-        private Button button1;
         private GroupBox groupBox2;
-        private SplitContainer splitContainer3;
-        private GroupBox groupBox3;
-        private Label label3;
-        private Label label2;
-        private GroupBox groupBox4;
-        private TextBox textBox5;
-        private TextBox textBox4;
-        private TextBox textBox3;
-        private Label label4;
-        private Button button4;
-        private Button button7;
-        private Button button6;
-        private Button button5;
-        private Button button3;
-        private Button button2;
         private DataGridView dataGridView1;
         private DataGridViewTextBoxColumn Column1;
         private DataGridViewTextBoxColumn Column2;
         private DataGridViewTextBoxColumn Column3;
+        private SplitContainer splitContainer3;
+        private GroupBox groupBox3;
+        private TextBox textBox5;
+        private TextBox textBox4;
+        private TextBox textBox3;
+        private Label label4;
+        private Label label3;
+        private Label label2;
+        private GroupBox groupBox4;
+        private Button button7;
+        private Button button4;
+        private Button button6;
+        private Button button5;
+        private Button button3;
+        private Button button2;
     }
 }

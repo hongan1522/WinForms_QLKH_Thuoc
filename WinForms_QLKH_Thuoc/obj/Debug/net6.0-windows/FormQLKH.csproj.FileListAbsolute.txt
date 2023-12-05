@@ -6,13 +6,11 @@ C:\Users\MyPC\Desktop\WinForms_QLKH_Thuoc\WinForms_QLKH_Thuoc\bin\Debug\net6.0-w
 C:\Users\MyPC\Desktop\WinForms_QLKH_Thuoc\WinForms_QLKH_Thuoc\obj\Debug\net6.0-windows\WinFormsApp.FormLogin.resources
 C:\Users\MyPC\Desktop\WinForms_QLKH_Thuoc\WinForms_QLKH_Thuoc\obj\Debug\net6.0-windows\WinFormsApp.FormMain.resources
 C:\Users\MyPC\Desktop\WinForms_QLKH_Thuoc\WinForms_QLKH_Thuoc\obj\Debug\net6.0-windows\WinFormsApp.Frm_QuanLyKho.resources
-C:\Users\MyPC\Desktop\WinForms_QLKH_Thuoc\WinForms_QLKH_Thuoc\obj\Debug\net6.0-windows\WinFormsApp.LoginForm.resources
 C:\Users\MyPC\Desktop\WinForms_QLKH_Thuoc\WinForms_QLKH_Thuoc\obj\Debug\net6.0-windows\FormQLKH.Properties.Resources.resources
 C:\Users\MyPC\Desktop\WinForms_QLKH_Thuoc\WinForms_QLKH_Thuoc\obj\Debug\net6.0-windows\WinFormsApp.Text_Box_Custom.resources
 C:\Users\MyPC\Desktop\WinForms_QLKH_Thuoc\WinForms_QLKH_Thuoc\obj\Debug\net6.0-windows\GUI.UC_CTDonNhap.resources
 C:\Users\MyPC\Desktop\WinForms_QLKH_Thuoc\WinForms_QLKH_Thuoc\obj\Debug\net6.0-windows\GUI.UC_CTDonXuat.resources
 C:\Users\MyPC\Desktop\WinForms_QLKH_Thuoc\WinForms_QLKH_Thuoc\obj\Debug\net6.0-windows\GUI.UC_CTThuoc.resources
-C:\Users\MyPC\Desktop\WinForms_QLKH_Thuoc\WinForms_QLKH_Thuoc\obj\Debug\net6.0-windows\WinFormsApp.UC_Login.resources
 C:\Users\MyPC\Desktop\WinForms_QLKH_Thuoc\WinForms_QLKH_Thuoc\obj\Debug\net6.0-windows\GUI.UC_Main.resources
 C:\Users\MyPC\Desktop\WinForms_QLKH_Thuoc\WinForms_QLKH_Thuoc\obj\Debug\net6.0-windows\GUI.UC_NCC.resources
 C:\Users\MyPC\Desktop\WinForms_QLKH_Thuoc\WinForms_QLKH_Thuoc\obj\Debug\net6.0-windows\GUI.UC_QLChiNhanh.resources
@@ -34,3 +32,4 @@ C:\Users\MyPC\Desktop\WinForms_QLKH_Thuoc\WinForms_QLKH_Thuoc\obj\Debug\net6.0-w
 C:\Users\MyPC\Desktop\WinForms_QLKH_Thuoc\WinForms_QLKH_Thuoc\obj\Debug\net6.0-windows\FormQLKH.pdb
 C:\Users\MyPC\Desktop\WinForms_QLKH_Thuoc\WinForms_QLKH_Thuoc\obj\Debug\net6.0-windows\FormQLKH.genruntimeconfig.cache
 C:\Users\MyPC\Desktop\WinForms_QLKH_Thuoc\WinForms_QLKH_Thuoc\obj\Debug\net6.0-windows\ref\FormQLKH.dll
+C:\Users\MyPC\Desktop\WinForms_QLKH_Thuoc\WinForms_QLKH_Thuoc\obj\Debug\net6.0-windows\FormQLKH.UC_Login.resources

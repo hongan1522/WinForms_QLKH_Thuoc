@@ -8,11 +8,11 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace GUI
+namespace FormQLKH
 {
-    public partial class UC_QLNT : UserControl
+    public partial class UC_QLKho : UserControl
     {
-        public UC_QLNT()
+        public UC_QLKho()
         {
             InitializeComponent();
         }
