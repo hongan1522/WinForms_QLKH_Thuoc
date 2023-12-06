@@ -9,10 +9,6 @@
       {
         "name": "Microsoft.WindowsDesktop.App",
         "version": "6.0.0"
-      },
-      {
-        "name": "Microsoft.AspNetCore.App",
-        "version": "6.0.0"
       }
     ],
     "additionalProbingPaths": [
@@ -20,7 +16,6 @@
       "C:\\Users\\MyPC\\.nuget\\packages"
     ],
     "configProperties": {
-      "System.Reflection.NullabilityInfoContext.IsSupported": true,
       "Microsoft.NETCore.DotNetHostPolicy.SetAppPaths": true
     }
   }
