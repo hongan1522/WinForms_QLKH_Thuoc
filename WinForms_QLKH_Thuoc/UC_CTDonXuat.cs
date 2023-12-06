@@ -15,6 +15,8 @@ namespace FormQLKH
         public UC_CTDonXuat()
         {
             InitializeComponent();
+
         }
+
     }
 }

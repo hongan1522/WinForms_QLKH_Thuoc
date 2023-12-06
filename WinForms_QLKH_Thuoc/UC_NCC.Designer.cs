@@ -29,359 +29,149 @@
         private void InitializeComponent()
         {
             DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
-            tableLayoutPanel1 = new TableLayoutPanel();
-            panel1 = new Panel();
-            label1 = new Label();
-            splitContainer1 = new SplitContainer();
-            groupBox1 = new GroupBox();
-            dataGridView1 = new DataGridView();
-            Column1 = new DataGridViewTextBoxColumn();
-            Column2 = new DataGridViewTextBoxColumn();
-            Column4 = new DataGridViewTextBoxColumn();
-            Column3 = new DataGridViewTextBoxColumn();
-            Column5 = new DataGridViewTextBoxColumn();
-            groupBox2 = new GroupBox();
-            button6 = new Button();
-            button5 = new Button();
-            button4 = new Button();
-            button3 = new Button();
-            button2 = new Button();
-            button1 = new Button();
-            tableLayoutPanel2 = new TableLayoutPanel();
-            panel2 = new Panel();
-            label2 = new Label();
-            splitContainer2 = new SplitContainer();
-            groupBox3 = new GroupBox();
-            dataGridView2 = new DataGridView();
+            tlpNCC = new TableLayoutPanel();
+            pnNCC = new Panel();
+            lbNCC = new Label();
+            splNCC_HT_CN = new SplitContainer();
+            grbNCC_HT = new GroupBox();
+            dgvNCC = new DataGridView();
             dataGridViewTextBoxColumn1 = new DataGridViewTextBoxColumn();
             dataGridViewTextBoxColumn2 = new DataGridViewTextBoxColumn();
             dataGridViewTextBoxColumn3 = new DataGridViewTextBoxColumn();
             dataGridViewTextBoxColumn4 = new DataGridViewTextBoxColumn();
             dataGridViewTextBoxColumn5 = new DataGridViewTextBoxColumn();
-            groupBox4 = new GroupBox();
-            button7 = new Button();
-            button8 = new Button();
-            button9 = new Button();
-            button10 = new Button();
-            button11 = new Button();
-            button12 = new Button();
-            splitContainer3 = new SplitContainer();
-            groupBox5 = new GroupBox();
-            button13 = new Button();
-            textBox2 = new TextBox();
-            radioButton2 = new RadioButton();
-            textBox1 = new TextBox();
-            radioButton1 = new RadioButton();
-            groupBox6 = new GroupBox();
-            numericUpDown1 = new NumericUpDown();
-            textBox6 = new TextBox();
-            textBox5 = new TextBox();
-            textBox4 = new TextBox();
-            textBox3 = new TextBox();
-            label6 = new Label();
-            label5 = new Label();
-            label4 = new Label();
-            label3 = new Label();
-            label7 = new Label();
-            tableLayoutPanel1.SuspendLayout();
-            panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)splitContainer1).BeginInit();
-            splitContainer1.Panel1.SuspendLayout();
-            splitContainer1.Panel2.SuspendLayout();
-            splitContainer1.SuspendLayout();
-            groupBox1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
-            groupBox2.SuspendLayout();
-            tableLayoutPanel2.SuspendLayout();
-            panel2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)splitContainer2).BeginInit();
-            splitContainer2.Panel1.SuspendLayout();
-            splitContainer2.Panel2.SuspendLayout();
-            splitContainer2.SuspendLayout();
-            groupBox3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)dataGridView2).BeginInit();
-            groupBox4.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)splitContainer3).BeginInit();
-            splitContainer3.Panel1.SuspendLayout();
-            splitContainer3.Panel2.SuspendLayout();
-            splitContainer3.SuspendLayout();
-            groupBox5.SuspendLayout();
-            groupBox6.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)numericUpDown1).BeginInit();
+            grbNCC_CN = new GroupBox();
+            btnNCC_Thoat = new Button();
+            btnNCC_Export = new Button();
+            btnNCC_Import = new Button();
+            btnNCC_Xoa = new Button();
+            btnNCC_Sua = new Button();
+            btnNCC_Them = new Button();
+            splNCC_TK_TT = new SplitContainer();
+            grbNCC_TK = new GroupBox();
+            btnNCC_Tim = new Button();
+            txtNCC_TK_TenNCC = new TextBox();
+            rdbNCC_TenNCC = new RadioButton();
+            txtNCC_TK_MaNCC = new TextBox();
+            rdbNCC_MaNCC = new RadioButton();
+            grbNCC_TT = new GroupBox();
+            numNCC_SoLuongDN = new NumericUpDown();
+            txtNCC_DiaChi = new TextBox();
+            txtNCC_SDT = new TextBox();
+            txtNCC_TenNCC = new TextBox();
+            txtNCC_MaNCC = new TextBox();
+            lbNCC_DiaChi = new Label();
+            lbNCC_SoLuongDN = new Label();
+            lbNCC_SDT = new Label();
+            lbNCC_TenNCC = new Label();
+            lbNCC_MaNCC = new Label();
+            tlpNCC.SuspendLayout();
+            pnNCC.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)splNCC_HT_CN).BeginInit();
+            splNCC_HT_CN.Panel1.SuspendLayout();
+            splNCC_HT_CN.Panel2.SuspendLayout();
+            splNCC_HT_CN.SuspendLayout();
+            grbNCC_HT.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)dgvNCC).BeginInit();
+            grbNCC_CN.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)splNCC_TK_TT).BeginInit();
+            splNCC_TK_TT.Panel1.SuspendLayout();
+            splNCC_TK_TT.Panel2.SuspendLayout();
+            splNCC_TK_TT.SuspendLayout();
+            grbNCC_TK.SuspendLayout();
+            grbNCC_TT.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)numNCC_SoLuongDN).BeginInit();
             SuspendLayout();
             // 
-            // tableLayoutPanel1
+            // tlpNCC
             // 
-            tableLayoutPanel1.BackColor = SystemColors.ControlLightLight;
-            tableLayoutPanel1.ColumnCount = 1;
-            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 50F));
-            tableLayoutPanel1.Controls.Add(panel1, 0, 0);
-            tableLayoutPanel1.Location = new Point(0, 0);
-            tableLayoutPanel1.Name = "tableLayoutPanel1";
-            tableLayoutPanel1.RowCount = 2;
-            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 20F));
-            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 20F));
-            tableLayoutPanel1.Size = new Size(200, 100);
-            tableLayoutPanel1.TabIndex = 0;
+            tlpNCC.BackColor = SystemColors.Control;
+            tlpNCC.ColumnCount = 1;
+            tlpNCC.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
+            tlpNCC.Controls.Add(pnNCC, 0, 0);
+            tlpNCC.Controls.Add(splNCC_HT_CN, 0, 1);
+            tlpNCC.Controls.Add(splNCC_TK_TT, 0, 2);
+            tlpNCC.Dock = DockStyle.Fill;
+            tlpNCC.Location = new Point(0, 0);
+            tlpNCC.Name = "tlpNCC";
+            tlpNCC.RowCount = 3;
+            tlpNCC.RowStyles.Add(new RowStyle(SizeType.Absolute, 83F));
+            tlpNCC.RowStyles.Add(new RowStyle(SizeType.Absolute, 579F));
+            tlpNCC.RowStyles.Add(new RowStyle(SizeType.Absolute, 29F));
+            tlpNCC.Size = new Size(1420, 1000);
+            tlpNCC.TabIndex = 1;
             // 
-            // panel1
+            // pnNCC
             // 
-            panel1.BackColor = SystemColors.ActiveCaption;
-            panel1.Controls.Add(label1);
-            panel1.Dock = DockStyle.Fill;
-            panel1.Location = new Point(3, 3);
-            panel1.Name = "panel1";
-            panel1.Size = new Size(194, 14);
-            panel1.TabIndex = 0;
+            pnNCC.BackColor = Color.FromArgb(63, 139, 208);
+            pnNCC.Controls.Add(lbNCC);
+            pnNCC.Dock = DockStyle.Fill;
+            pnNCC.Location = new Point(3, 3);
+            pnNCC.Name = "pnNCC";
+            pnNCC.Size = new Size(1414, 77);
+            pnNCC.TabIndex = 0;
             // 
-            // label1
+            // lbNCC
             // 
-            label1.AutoSize = true;
-            label1.Font = new Font("Segoe UI", 13.875F, FontStyle.Bold, GraphicsUnit.Point);
-            label1.Location = new Point(597, 24);
-            label1.Name = "label1";
-            label1.Size = new Size(471, 50);
-            label1.TabIndex = 0;
-            label1.Text = "QUẢN LÝ NHÀ CUNG CẤP";
+            lbNCC.AutoSize = true;
+            lbNCC.Font = new Font("Segoe UI", 13.875F, FontStyle.Bold, GraphicsUnit.Point);
+            lbNCC.ForeColor = SystemColors.ButtonHighlight;
+            lbNCC.Location = new Point(483, 15);
+            lbNCC.Name = "lbNCC";
+            lbNCC.Size = new Size(471, 50);
+            lbNCC.TabIndex = 0;
+            lbNCC.Text = "QUẢN LÝ NHÀ CUNG CẤP";
             // 
-            // splitContainer1
+            // splNCC_HT_CN
             // 
-            splitContainer1.Dock = DockStyle.Fill;
-            splitContainer1.Location = new Point(3, 109);
-            splitContainer1.Name = "splitContainer1";
+            splNCC_HT_CN.Dock = DockStyle.Fill;
+            splNCC_HT_CN.Font = new Font("Segoe UI", 10.125F, FontStyle.Regular, GraphicsUnit.Point);
+            splNCC_HT_CN.Location = new Point(3, 86);
+            splNCC_HT_CN.Name = "splNCC_HT_CN";
             // 
-            // splitContainer1.Panel1
+            // splNCC_HT_CN.Panel1
             // 
-            splitContainer1.Panel1.Controls.Add(groupBox1);
+            splNCC_HT_CN.Panel1.Controls.Add(grbNCC_HT);
             // 
-            // splitContainer1.Panel2
+            // splNCC_HT_CN.Panel2
             // 
-            splitContainer1.Panel2.Controls.Add(groupBox2);
-            splitContainer1.Size = new Size(194, 550);
-            splitContainer1.SplitterDistance = 138;
-            splitContainer1.TabIndex = 1;
+            splNCC_HT_CN.Panel2.Controls.Add(grbNCC_CN);
+            splNCC_HT_CN.Size = new Size(1414, 573);
+            splNCC_HT_CN.SplitterDistance = 1156;
+            splNCC_HT_CN.TabIndex = 1;
             // 
-            // groupBox1
+            // grbNCC_HT
             // 
-            groupBox1.Controls.Add(dataGridView1);
-            groupBox1.Dock = DockStyle.Fill;
-            groupBox1.Location = new Point(0, 0);
-            groupBox1.Name = "groupBox1";
-            groupBox1.Size = new Size(138, 550);
-            groupBox1.TabIndex = 2;
-            groupBox1.TabStop = false;
-            groupBox1.Text = "Hiển thị";
+            grbNCC_HT.Controls.Add(dgvNCC);
+            grbNCC_HT.Dock = DockStyle.Fill;
+            grbNCC_HT.Location = new Point(0, 0);
+            grbNCC_HT.Name = "grbNCC_HT";
+            grbNCC_HT.Size = new Size(1156, 573);
+            grbNCC_HT.TabIndex = 2;
+            grbNCC_HT.TabStop = false;
+            grbNCC_HT.Text = "Hiển thị";
             // 
-            // dataGridView1
+            // dgvNCC
             // 
-            dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-            dataGridView1.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
+            dgvNCC.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dgvNCC.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
             dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle1.BackColor = SystemColors.Control;
-            dataGridViewCellStyle1.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
+            dataGridViewCellStyle1.Font = new Font("Segoe UI", 10.125F, FontStyle.Regular, GraphicsUnit.Point);
             dataGridViewCellStyle1.ForeColor = SystemColors.WindowText;
             dataGridViewCellStyle1.SelectionBackColor = SystemColors.Highlight;
             dataGridViewCellStyle1.SelectionForeColor = SystemColors.HighlightText;
             dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
-            dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
-            dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Columns.AddRange(new DataGridViewColumn[] { Column1, Column2, Column4, Column3, Column5 });
-            dataGridView1.Dock = DockStyle.Fill;
-            dataGridView1.Location = new Point(3, 35);
-            dataGridView1.Name = "dataGridView1";
-            dataGridView1.RowHeadersWidth = 82;
-            dataGridView1.RowTemplate.Height = 41;
-            dataGridView1.Size = new Size(132, 512);
-            dataGridView1.TabIndex = 0;
-            // 
-            // Column1
-            // 
-            Column1.HeaderText = "Mã NCC";
-            Column1.MinimumWidth = 10;
-            Column1.Name = "Column1";
-            // 
-            // Column2
-            // 
-            Column2.HeaderText = "Tên NCC";
-            Column2.MinimumWidth = 10;
-            Column2.Name = "Column2";
-            // 
-            // Column4
-            // 
-            Column4.HeaderText = "Số lượng đơn nhập";
-            Column4.MinimumWidth = 10;
-            Column4.Name = "Column4";
-            // 
-            // Column3
-            // 
-            Column3.HeaderText = "SĐT";
-            Column3.MinimumWidth = 10;
-            Column3.Name = "Column3";
-            // 
-            // Column5
-            // 
-            Column5.HeaderText = "Địa chỉ";
-            Column5.MinimumWidth = 10;
-            Column5.Name = "Column5";
-            // 
-            // groupBox2
-            // 
-            groupBox2.Controls.Add(button6);
-            groupBox2.Controls.Add(button5);
-            groupBox2.Controls.Add(button4);
-            groupBox2.Controls.Add(button3);
-            groupBox2.Controls.Add(button2);
-            groupBox2.Controls.Add(button1);
-            groupBox2.Dock = DockStyle.Fill;
-            groupBox2.Location = new Point(0, 0);
-            groupBox2.Name = "groupBox2";
-            groupBox2.Size = new Size(52, 550);
-            groupBox2.TabIndex = 0;
-            groupBox2.TabStop = false;
-            groupBox2.Text = "Chức năng";
-            // 
-            // button6
-            // 
-            button6.Location = new Point(263, 456);
-            button6.Name = "button6";
-            button6.Size = new Size(150, 46);
-            button6.TabIndex = 5;
-            button6.Text = "Thoát";
-            button6.UseVisualStyleBackColor = true;
-            // 
-            // button5
-            // 
-            button5.Location = new Point(263, 265);
-            button5.Name = "button5";
-            button5.Size = new Size(150, 46);
-            button5.TabIndex = 4;
-            button5.Text = "Export";
-            button5.UseVisualStyleBackColor = true;
-            // 
-            // button4
-            // 
-            button4.Location = new Point(263, 84);
-            button4.Name = "button4";
-            button4.Size = new Size(150, 46);
-            button4.TabIndex = 3;
-            button4.Text = "Import";
-            button4.UseVisualStyleBackColor = true;
-            // 
-            // button3
-            // 
-            button3.Location = new Point(33, 456);
-            button3.Name = "button3";
-            button3.Size = new Size(150, 46);
-            button3.TabIndex = 2;
-            button3.Text = "Xóa";
-            button3.UseVisualStyleBackColor = true;
-            // 
-            // button2
-            // 
-            button2.Location = new Point(33, 265);
-            button2.Name = "button2";
-            button2.Size = new Size(150, 46);
-            button2.TabIndex = 1;
-            button2.Text = "Sửa";
-            button2.UseVisualStyleBackColor = true;
-            // 
-            // button1
-            // 
-            button1.Location = new Point(33, 84);
-            button1.Name = "button1";
-            button1.Size = new Size(150, 46);
-            button1.TabIndex = 0;
-            button1.Text = "Thêm";
-            button1.UseVisualStyleBackColor = true;
-            // 
-            // tableLayoutPanel2
-            // 
-            tableLayoutPanel2.BackColor = SystemColors.ControlLightLight;
-            tableLayoutPanel2.ColumnCount = 1;
-            tableLayoutPanel2.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
-            tableLayoutPanel2.Controls.Add(panel2, 0, 0);
-            tableLayoutPanel2.Controls.Add(splitContainer2, 0, 1);
-            tableLayoutPanel2.Controls.Add(splitContainer3, 0, 2);
-            tableLayoutPanel2.Dock = DockStyle.Fill;
-            tableLayoutPanel2.Location = new Point(0, 0);
-            tableLayoutPanel2.Name = "tableLayoutPanel2";
-            tableLayoutPanel2.RowCount = 3;
-            tableLayoutPanel2.RowStyles.Add(new RowStyle(SizeType.Absolute, 83F));
-            tableLayoutPanel2.RowStyles.Add(new RowStyle(SizeType.Absolute, 579F));
-            tableLayoutPanel2.RowStyles.Add(new RowStyle(SizeType.Absolute, 29F));
-            tableLayoutPanel2.Size = new Size(1420, 1000);
-            tableLayoutPanel2.TabIndex = 1;
-            // 
-            // panel2
-            // 
-            panel2.BackColor = SystemColors.ActiveCaption;
-            panel2.Controls.Add(label2);
-            panel2.Dock = DockStyle.Fill;
-            panel2.Location = new Point(3, 3);
-            panel2.Name = "panel2";
-            panel2.Size = new Size(1414, 77);
-            panel2.TabIndex = 0;
-            // 
-            // label2
-            // 
-            label2.AutoSize = true;
-            label2.Font = new Font("Segoe UI", 13.875F, FontStyle.Bold, GraphicsUnit.Point);
-            label2.Location = new Point(483, 15);
-            label2.Name = "label2";
-            label2.Size = new Size(471, 50);
-            label2.TabIndex = 0;
-            label2.Text = "QUẢN LÝ NHÀ CUNG CẤP";
-            // 
-            // splitContainer2
-            // 
-            splitContainer2.Dock = DockStyle.Fill;
-            splitContainer2.Location = new Point(3, 86);
-            splitContainer2.Name = "splitContainer2";
-            // 
-            // splitContainer2.Panel1
-            // 
-            splitContainer2.Panel1.Controls.Add(groupBox3);
-            // 
-            // splitContainer2.Panel2
-            // 
-            splitContainer2.Panel2.Controls.Add(groupBox4);
-            splitContainer2.Size = new Size(1414, 573);
-            splitContainer2.SplitterDistance = 1156;
-            splitContainer2.TabIndex = 1;
-            // 
-            // groupBox3
-            // 
-            groupBox3.Controls.Add(dataGridView2);
-            groupBox3.Dock = DockStyle.Fill;
-            groupBox3.Location = new Point(0, 0);
-            groupBox3.Name = "groupBox3";
-            groupBox3.Size = new Size(1156, 573);
-            groupBox3.TabIndex = 2;
-            groupBox3.TabStop = false;
-            groupBox3.Text = "Hiển thị";
-            // 
-            // dataGridView2
-            // 
-            dataGridView2.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-            dataGridView2.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
-            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle2.BackColor = SystemColors.Control;
-            dataGridViewCellStyle2.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
-            dataGridViewCellStyle2.ForeColor = SystemColors.WindowText;
-            dataGridViewCellStyle2.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = DataGridViewTriState.True;
-            dataGridView2.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
-            dataGridView2.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView2.Columns.AddRange(new DataGridViewColumn[] { dataGridViewTextBoxColumn1, dataGridViewTextBoxColumn2, dataGridViewTextBoxColumn3, dataGridViewTextBoxColumn4, dataGridViewTextBoxColumn5 });
-            dataGridView2.Dock = DockStyle.Fill;
-            dataGridView2.Location = new Point(3, 35);
-            dataGridView2.Name = "dataGridView2";
-            dataGridView2.RowHeadersWidth = 82;
-            dataGridView2.RowTemplate.Height = 41;
-            dataGridView2.Size = new Size(1150, 535);
-            dataGridView2.TabIndex = 0;
+            dgvNCC.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dgvNCC.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dgvNCC.Columns.AddRange(new DataGridViewColumn[] { dataGridViewTextBoxColumn1, dataGridViewTextBoxColumn2, dataGridViewTextBoxColumn3, dataGridViewTextBoxColumn4, dataGridViewTextBoxColumn5 });
+            dgvNCC.Dock = DockStyle.Fill;
+            dgvNCC.Location = new Point(3, 39);
+            dgvNCC.Name = "dgvNCC";
+            dgvNCC.RowHeadersWidth = 82;
+            dgvNCC.RowTemplate.Height = 41;
+            dgvNCC.Size = new Size(1150, 531);
+            dgvNCC.TabIndex = 0;
             // 
             // dataGridViewTextBoxColumn1
             // 
@@ -413,350 +203,351 @@
             dataGridViewTextBoxColumn5.MinimumWidth = 10;
             dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
             // 
-            // groupBox4
+            // grbNCC_CN
             // 
-            groupBox4.Controls.Add(button7);
-            groupBox4.Controls.Add(button8);
-            groupBox4.Controls.Add(button9);
-            groupBox4.Controls.Add(button10);
-            groupBox4.Controls.Add(button11);
-            groupBox4.Controls.Add(button12);
-            groupBox4.Dock = DockStyle.Fill;
-            groupBox4.Location = new Point(0, 0);
-            groupBox4.Name = "groupBox4";
-            groupBox4.Size = new Size(254, 573);
-            groupBox4.TabIndex = 0;
-            groupBox4.TabStop = false;
-            groupBox4.Text = "Chức năng";
+            grbNCC_CN.Controls.Add(btnNCC_Thoat);
+            grbNCC_CN.Controls.Add(btnNCC_Export);
+            grbNCC_CN.Controls.Add(btnNCC_Import);
+            grbNCC_CN.Controls.Add(btnNCC_Xoa);
+            grbNCC_CN.Controls.Add(btnNCC_Sua);
+            grbNCC_CN.Controls.Add(btnNCC_Them);
+            grbNCC_CN.Dock = DockStyle.Fill;
+            grbNCC_CN.Location = new Point(0, 0);
+            grbNCC_CN.Name = "grbNCC_CN";
+            grbNCC_CN.Size = new Size(254, 573);
+            grbNCC_CN.TabIndex = 0;
+            grbNCC_CN.TabStop = false;
+            grbNCC_CN.Text = "Chức năng";
             // 
-            // button7
+            // btnNCC_Thoat
             // 
-            button7.Location = new Point(50, 497);
-            button7.Name = "button7";
-            button7.Size = new Size(150, 46);
-            button7.TabIndex = 5;
-            button7.Text = "Thoát";
-            button7.UseVisualStyleBackColor = true;
+            btnNCC_Thoat.BackColor = SystemColors.ButtonHighlight;
+            btnNCC_Thoat.FlatAppearance.BorderSize = 0;
+            btnNCC_Thoat.FlatStyle = FlatStyle.Flat;
+            btnNCC_Thoat.Font = new Font("Segoe UI", 10.125F, FontStyle.Bold, GraphicsUnit.Point);
+            btnNCC_Thoat.Location = new Point(56, 494);
+            btnNCC_Thoat.Name = "btnNCC_Thoat";
+            btnNCC_Thoat.Size = new Size(135, 61);
+            btnNCC_Thoat.TabIndex = 5;
+            btnNCC_Thoat.Text = "Thoát";
+            btnNCC_Thoat.UseVisualStyleBackColor = false;
             // 
-            // button8
+            // btnNCC_Export
             // 
-            button8.Location = new Point(50, 410);
-            button8.Name = "button8";
-            button8.Size = new Size(150, 46);
-            button8.TabIndex = 4;
-            button8.Text = "Export";
-            button8.UseVisualStyleBackColor = true;
+            btnNCC_Export.BackColor = SystemColors.ButtonHighlight;
+            btnNCC_Export.FlatAppearance.BorderSize = 0;
+            btnNCC_Export.FlatStyle = FlatStyle.Flat;
+            btnNCC_Export.Font = new Font("Segoe UI", 10.125F, FontStyle.Bold, GraphicsUnit.Point);
+            btnNCC_Export.Location = new Point(56, 407);
+            btnNCC_Export.Name = "btnNCC_Export";
+            btnNCC_Export.Size = new Size(135, 61);
+            btnNCC_Export.TabIndex = 4;
+            btnNCC_Export.Text = "Export";
+            btnNCC_Export.UseVisualStyleBackColor = false;
             // 
-            // button9
+            // btnNCC_Import
             // 
-            button9.Location = new Point(50, 323);
-            button9.Name = "button9";
-            button9.Size = new Size(150, 46);
-            button9.TabIndex = 3;
-            button9.Text = "Import";
-            button9.UseVisualStyleBackColor = true;
+            btnNCC_Import.BackColor = SystemColors.ButtonHighlight;
+            btnNCC_Import.FlatAppearance.BorderSize = 0;
+            btnNCC_Import.FlatStyle = FlatStyle.Flat;
+            btnNCC_Import.Font = new Font("Segoe UI", 10.125F, FontStyle.Bold, GraphicsUnit.Point);
+            btnNCC_Import.Location = new Point(56, 320);
+            btnNCC_Import.Name = "btnNCC_Import";
+            btnNCC_Import.Size = new Size(135, 61);
+            btnNCC_Import.TabIndex = 3;
+            btnNCC_Import.Text = "Import";
+            btnNCC_Import.UseVisualStyleBackColor = false;
             // 
-            // button10
+            // btnNCC_Xoa
             // 
-            button10.Location = new Point(50, 236);
-            button10.Name = "button10";
-            button10.Size = new Size(150, 46);
-            button10.TabIndex = 2;
-            button10.Text = "Xóa";
-            button10.UseVisualStyleBackColor = true;
+            btnNCC_Xoa.BackColor = SystemColors.ButtonHighlight;
+            btnNCC_Xoa.FlatAppearance.BorderSize = 0;
+            btnNCC_Xoa.FlatStyle = FlatStyle.Flat;
+            btnNCC_Xoa.Font = new Font("Segoe UI", 10.125F, FontStyle.Bold, GraphicsUnit.Point);
+            btnNCC_Xoa.Location = new Point(56, 233);
+            btnNCC_Xoa.Name = "btnNCC_Xoa";
+            btnNCC_Xoa.Size = new Size(135, 61);
+            btnNCC_Xoa.TabIndex = 2;
+            btnNCC_Xoa.Text = "Xóa";
+            btnNCC_Xoa.UseVisualStyleBackColor = false;
             // 
-            // button11
+            // btnNCC_Sua
             // 
-            button11.Location = new Point(50, 149);
-            button11.Name = "button11";
-            button11.Size = new Size(150, 46);
-            button11.TabIndex = 1;
-            button11.Text = "Sửa";
-            button11.UseVisualStyleBackColor = true;
+            btnNCC_Sua.BackColor = SystemColors.ButtonHighlight;
+            btnNCC_Sua.FlatAppearance.BorderSize = 0;
+            btnNCC_Sua.FlatStyle = FlatStyle.Flat;
+            btnNCC_Sua.Font = new Font("Segoe UI", 10.125F, FontStyle.Bold, GraphicsUnit.Point);
+            btnNCC_Sua.Location = new Point(56, 146);
+            btnNCC_Sua.Name = "btnNCC_Sua";
+            btnNCC_Sua.Size = new Size(135, 61);
+            btnNCC_Sua.TabIndex = 1;
+            btnNCC_Sua.Text = "Sửa";
+            btnNCC_Sua.UseVisualStyleBackColor = false;
             // 
-            // button12
+            // btnNCC_Them
             // 
-            button12.Location = new Point(50, 62);
-            button12.Name = "button12";
-            button12.Size = new Size(150, 46);
-            button12.TabIndex = 0;
-            button12.Text = "Thêm";
-            button12.UseVisualStyleBackColor = true;
+            btnNCC_Them.BackColor = SystemColors.ButtonHighlight;
+            btnNCC_Them.FlatAppearance.BorderSize = 0;
+            btnNCC_Them.FlatStyle = FlatStyle.Flat;
+            btnNCC_Them.Font = new Font("Segoe UI", 10.125F, FontStyle.Bold, GraphicsUnit.Point);
+            btnNCC_Them.Location = new Point(56, 59);
+            btnNCC_Them.Name = "btnNCC_Them";
+            btnNCC_Them.Size = new Size(135, 61);
+            btnNCC_Them.TabIndex = 0;
+            btnNCC_Them.Text = "Thêm";
+            btnNCC_Them.UseVisualStyleBackColor = false;
             // 
-            // splitContainer3
+            // splNCC_TK_TT
             // 
-            splitContainer3.Dock = DockStyle.Fill;
-            splitContainer3.Location = new Point(3, 665);
-            splitContainer3.Name = "splitContainer3";
+            splNCC_TK_TT.Dock = DockStyle.Fill;
+            splNCC_TK_TT.Font = new Font("Segoe UI", 10.125F, FontStyle.Regular, GraphicsUnit.Point);
+            splNCC_TK_TT.Location = new Point(3, 665);
+            splNCC_TK_TT.Name = "splNCC_TK_TT";
             // 
-            // splitContainer3.Panel1
+            // splNCC_TK_TT.Panel1
             // 
-            splitContainer3.Panel1.Controls.Add(groupBox5);
+            splNCC_TK_TT.Panel1.Controls.Add(grbNCC_TK);
             // 
-            // splitContainer3.Panel2
+            // splNCC_TK_TT.Panel2
             // 
-            splitContainer3.Panel2.Controls.Add(groupBox6);
-            splitContainer3.Size = new Size(1414, 332);
-            splitContainer3.SplitterDistance = 532;
-            splitContainer3.TabIndex = 2;
+            splNCC_TK_TT.Panel2.Controls.Add(grbNCC_TT);
+            splNCC_TK_TT.Size = new Size(1414, 332);
+            splNCC_TK_TT.SplitterDistance = 532;
+            splNCC_TK_TT.TabIndex = 2;
             // 
-            // groupBox5
+            // grbNCC_TK
             // 
-            groupBox5.Controls.Add(button13);
-            groupBox5.Controls.Add(textBox2);
-            groupBox5.Controls.Add(radioButton2);
-            groupBox5.Controls.Add(textBox1);
-            groupBox5.Controls.Add(radioButton1);
-            groupBox5.Dock = DockStyle.Fill;
-            groupBox5.Location = new Point(0, 0);
-            groupBox5.Name = "groupBox5";
-            groupBox5.Size = new Size(532, 332);
-            groupBox5.TabIndex = 0;
-            groupBox5.TabStop = false;
-            groupBox5.Text = "Tìm kiếm";
+            grbNCC_TK.Controls.Add(btnNCC_Tim);
+            grbNCC_TK.Controls.Add(txtNCC_TK_TenNCC);
+            grbNCC_TK.Controls.Add(rdbNCC_TenNCC);
+            grbNCC_TK.Controls.Add(txtNCC_TK_MaNCC);
+            grbNCC_TK.Controls.Add(rdbNCC_MaNCC);
+            grbNCC_TK.Dock = DockStyle.Fill;
+            grbNCC_TK.Location = new Point(0, 0);
+            grbNCC_TK.Name = "grbNCC_TK";
+            grbNCC_TK.Size = new Size(532, 332);
+            grbNCC_TK.TabIndex = 0;
+            grbNCC_TK.TabStop = false;
+            grbNCC_TK.Text = "Tìm kiếm";
             // 
-            // button13
+            // btnNCC_Tim
             // 
-            button13.Location = new Point(340, 253);
-            button13.Name = "button13";
-            button13.Size = new Size(150, 46);
-            button13.TabIndex = 4;
-            button13.Text = "Tìm kiếm";
-            button13.UseVisualStyleBackColor = true;
+            btnNCC_Tim.BackColor = SystemColors.ControlLightLight;
+            btnNCC_Tim.FlatAppearance.BorderSize = 0;
+            btnNCC_Tim.FlatStyle = FlatStyle.Flat;
+            btnNCC_Tim.Font = new Font("Segoe UI", 10.125F, FontStyle.Bold, GraphicsUnit.Point);
+            btnNCC_Tim.Location = new Point(355, 235);
+            btnNCC_Tim.Name = "btnNCC_Tim";
+            btnNCC_Tim.Size = new Size(135, 61);
+            btnNCC_Tim.TabIndex = 4;
+            btnNCC_Tim.Text = "Tìm ";
+            btnNCC_Tim.UseVisualStyleBackColor = false;
             // 
-            // textBox2
+            // txtNCC_TK_TenNCC
             // 
-            textBox2.Location = new Point(194, 141);
-            textBox2.Multiline = true;
-            textBox2.Name = "textBox2";
-            textBox2.Size = new Size(296, 58);
-            textBox2.TabIndex = 3;
+            txtNCC_TK_TenNCC.Location = new Point(194, 141);
+            txtNCC_TK_TenNCC.Multiline = true;
+            txtNCC_TK_TenNCC.Name = "txtNCC_TK_TenNCC";
+            txtNCC_TK_TenNCC.Size = new Size(296, 58);
+            txtNCC_TK_TenNCC.TabIndex = 3;
             // 
-            // radioButton2
+            // rdbNCC_TenNCC
             // 
-            radioButton2.AutoSize = true;
-            radioButton2.Location = new Point(31, 141);
-            radioButton2.Name = "radioButton2";
-            radioButton2.Size = new Size(137, 36);
-            radioButton2.TabIndex = 2;
-            radioButton2.TabStop = true;
-            radioButton2.Text = "Tên NCC";
-            radioButton2.UseVisualStyleBackColor = true;
+            rdbNCC_TenNCC.AutoSize = true;
+            rdbNCC_TenNCC.Location = new Point(31, 141);
+            rdbNCC_TenNCC.Name = "rdbNCC_TenNCC";
+            rdbNCC_TenNCC.Size = new Size(148, 41);
+            rdbNCC_TenNCC.TabIndex = 2;
+            rdbNCC_TenNCC.TabStop = true;
+            rdbNCC_TenNCC.Text = "Tên NCC";
+            rdbNCC_TenNCC.UseVisualStyleBackColor = true;
             // 
-            // textBox1
+            // txtNCC_TK_MaNCC
             // 
-            textBox1.Location = new Point(194, 59);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(296, 39);
-            textBox1.TabIndex = 1;
+            txtNCC_TK_MaNCC.Location = new Point(194, 59);
+            txtNCC_TK_MaNCC.Name = "txtNCC_TK_MaNCC";
+            txtNCC_TK_MaNCC.Size = new Size(296, 43);
+            txtNCC_TK_MaNCC.TabIndex = 1;
             // 
-            // radioButton1
+            // rdbNCC_MaNCC
             // 
-            radioButton1.AutoSize = true;
-            radioButton1.Location = new Point(31, 59);
-            radioButton1.Name = "radioButton1";
-            radioButton1.Size = new Size(133, 36);
-            radioButton1.TabIndex = 0;
-            radioButton1.TabStop = true;
-            radioButton1.Text = "Mã NCC";
-            radioButton1.UseVisualStyleBackColor = true;
+            rdbNCC_MaNCC.AutoSize = true;
+            rdbNCC_MaNCC.Location = new Point(31, 59);
+            rdbNCC_MaNCC.Name = "rdbNCC_MaNCC";
+            rdbNCC_MaNCC.Size = new Size(146, 41);
+            rdbNCC_MaNCC.TabIndex = 0;
+            rdbNCC_MaNCC.TabStop = true;
+            rdbNCC_MaNCC.Text = "Mã NCC";
+            rdbNCC_MaNCC.UseVisualStyleBackColor = true;
             // 
-            // groupBox6
+            // grbNCC_TT
             // 
-            groupBox6.Controls.Add(numericUpDown1);
-            groupBox6.Controls.Add(textBox6);
-            groupBox6.Controls.Add(textBox5);
-            groupBox6.Controls.Add(textBox4);
-            groupBox6.Controls.Add(textBox3);
-            groupBox6.Controls.Add(label6);
-            groupBox6.Controls.Add(label5);
-            groupBox6.Controls.Add(label4);
-            groupBox6.Controls.Add(label3);
-            groupBox6.Controls.Add(label7);
-            groupBox6.Dock = DockStyle.Fill;
-            groupBox6.Location = new Point(0, 0);
-            groupBox6.Name = "groupBox6";
-            groupBox6.Size = new Size(878, 332);
-            groupBox6.TabIndex = 0;
-            groupBox6.TabStop = false;
-            groupBox6.Text = "Thông tin";
+            grbNCC_TT.Controls.Add(numNCC_SoLuongDN);
+            grbNCC_TT.Controls.Add(txtNCC_DiaChi);
+            grbNCC_TT.Controls.Add(txtNCC_SDT);
+            grbNCC_TT.Controls.Add(txtNCC_TenNCC);
+            grbNCC_TT.Controls.Add(txtNCC_MaNCC);
+            grbNCC_TT.Controls.Add(lbNCC_DiaChi);
+            grbNCC_TT.Controls.Add(lbNCC_SoLuongDN);
+            grbNCC_TT.Controls.Add(lbNCC_SDT);
+            grbNCC_TT.Controls.Add(lbNCC_TenNCC);
+            grbNCC_TT.Controls.Add(lbNCC_MaNCC);
+            grbNCC_TT.Dock = DockStyle.Fill;
+            grbNCC_TT.Location = new Point(0, 0);
+            grbNCC_TT.Name = "grbNCC_TT";
+            grbNCC_TT.Size = new Size(878, 332);
+            grbNCC_TT.TabIndex = 0;
+            grbNCC_TT.TabStop = false;
+            grbNCC_TT.Text = "Thông tin";
             // 
-            // numericUpDown1
+            // numNCC_SoLuongDN
             // 
-            numericUpDown1.Location = new Point(275, 245);
-            numericUpDown1.Name = "numericUpDown1";
-            numericUpDown1.Size = new Size(144, 39);
-            numericUpDown1.TabIndex = 9;
+            numNCC_SoLuongDN.Location = new Point(275, 245);
+            numNCC_SoLuongDN.Name = "numNCC_SoLuongDN";
+            numNCC_SoLuongDN.Size = new Size(144, 43);
+            numNCC_SoLuongDN.TabIndex = 9;
             // 
-            // textBox6
+            // txtNCC_DiaChi
             // 
-            textBox6.Location = new Point(592, 196);
-            textBox6.Multiline = true;
-            textBox6.Name = "textBox6";
-            textBox6.Size = new Size(270, 103);
-            textBox6.TabIndex = 8;
+            txtNCC_DiaChi.Location = new Point(592, 196);
+            txtNCC_DiaChi.Multiline = true;
+            txtNCC_DiaChi.Name = "txtNCC_DiaChi";
+            txtNCC_DiaChi.Size = new Size(270, 103);
+            txtNCC_DiaChi.TabIndex = 8;
             // 
-            // textBox5
+            // txtNCC_SDT
             // 
-            textBox5.Location = new Point(156, 160);
-            textBox5.Name = "textBox5";
-            textBox5.Size = new Size(263, 39);
-            textBox5.TabIndex = 7;
+            txtNCC_SDT.Location = new Point(156, 160);
+            txtNCC_SDT.Name = "txtNCC_SDT";
+            txtNCC_SDT.Size = new Size(263, 43);
+            txtNCC_SDT.TabIndex = 7;
             // 
-            // textBox4
+            // txtNCC_TenNCC
             // 
-            textBox4.Location = new Point(592, 75);
-            textBox4.Multiline = true;
-            textBox4.Name = "textBox4";
-            textBox4.Size = new Size(263, 74);
-            textBox4.TabIndex = 6;
+            txtNCC_TenNCC.Location = new Point(592, 75);
+            txtNCC_TenNCC.Multiline = true;
+            txtNCC_TenNCC.Name = "txtNCC_TenNCC";
+            txtNCC_TenNCC.Size = new Size(263, 74);
+            txtNCC_TenNCC.TabIndex = 6;
             // 
-            // textBox3
+            // txtNCC_MaNCC
             // 
-            textBox3.Location = new Point(156, 71);
-            textBox3.Name = "textBox3";
-            textBox3.Size = new Size(263, 39);
-            textBox3.TabIndex = 5;
+            txtNCC_MaNCC.Location = new Point(156, 71);
+            txtNCC_MaNCC.Name = "txtNCC_MaNCC";
+            txtNCC_MaNCC.Size = new Size(263, 43);
+            txtNCC_MaNCC.TabIndex = 5;
             // 
-            // label6
+            // lbNCC_DiaChi
             // 
-            label6.AutoSize = true;
-            label6.Location = new Point(470, 199);
-            label6.Name = "label6";
-            label6.Size = new Size(87, 32);
-            label6.TabIndex = 4;
-            label6.Text = "Địa chỉ";
+            lbNCC_DiaChi.AutoSize = true;
+            lbNCC_DiaChi.Location = new Point(470, 199);
+            lbNCC_DiaChi.Name = "lbNCC_DiaChi";
+            lbNCC_DiaChi.Size = new Size(98, 37);
+            lbNCC_DiaChi.TabIndex = 4;
+            lbNCC_DiaChi.Text = "Địa chỉ";
             // 
-            // label5
+            // lbNCC_SoLuongDN
             // 
-            label5.AutoSize = true;
-            label5.Location = new Point(24, 250);
-            label5.Name = "label5";
-            label5.Size = new Size(220, 32);
-            label5.TabIndex = 3;
-            label5.Text = "Số lượng đơn nhập";
+            lbNCC_SoLuongDN.AutoSize = true;
+            lbNCC_SoLuongDN.Location = new Point(24, 250);
+            lbNCC_SoLuongDN.Name = "lbNCC_SoLuongDN";
+            lbNCC_SoLuongDN.Size = new Size(245, 37);
+            lbNCC_SoLuongDN.TabIndex = 3;
+            lbNCC_SoLuongDN.Text = "Số lượng đơn nhập";
             // 
-            // label4
+            // lbNCC_SDT
             // 
-            label4.AutoSize = true;
-            label4.Location = new Point(24, 158);
-            label4.Name = "label4";
-            label4.Size = new Size(57, 32);
-            label4.TabIndex = 2;
-            label4.Text = "SĐT";
+            lbNCC_SDT.AutoSize = true;
+            lbNCC_SDT.Location = new Point(24, 158);
+            lbNCC_SDT.Name = "lbNCC_SDT";
+            lbNCC_SDT.Size = new Size(64, 37);
+            lbNCC_SDT.TabIndex = 2;
+            lbNCC_SDT.Text = "SĐT";
             // 
-            // label3
+            // lbNCC_TenNCC
             // 
-            label3.AutoSize = true;
-            label3.Location = new Point(470, 72);
-            label3.Name = "label3";
-            label3.Size = new Size(106, 32);
-            label3.TabIndex = 1;
-            label3.Text = "Tên NCC";
+            lbNCC_TenNCC.AutoSize = true;
+            lbNCC_TenNCC.Location = new Point(470, 72);
+            lbNCC_TenNCC.Name = "lbNCC_TenNCC";
+            lbNCC_TenNCC.Size = new Size(117, 37);
+            lbNCC_TenNCC.TabIndex = 1;
+            lbNCC_TenNCC.Text = "Tên NCC";
             // 
-            // label7
+            // lbNCC_MaNCC
             // 
-            label7.AutoSize = true;
-            label7.Location = new Point(17, 61);
-            label7.Name = "label7";
-            label7.Size = new Size(102, 32);
-            label7.TabIndex = 0;
-            label7.Text = "Mã NCC";
+            lbNCC_MaNCC.AutoSize = true;
+            lbNCC_MaNCC.Location = new Point(24, 74);
+            lbNCC_MaNCC.Name = "lbNCC_MaNCC";
+            lbNCC_MaNCC.Size = new Size(115, 37);
+            lbNCC_MaNCC.TabIndex = 0;
+            lbNCC_MaNCC.Text = "Mã NCC";
             // 
             // UC_NCC
             // 
             AutoScaleDimensions = new SizeF(13F, 32F);
             AutoScaleMode = AutoScaleMode.Font;
-            Controls.Add(tableLayoutPanel2);
+            Controls.Add(tlpNCC);
             Name = "UC_NCC";
             Size = new Size(1420, 1000);
-            tableLayoutPanel1.ResumeLayout(false);
-            panel1.ResumeLayout(false);
-            panel1.PerformLayout();
-            splitContainer1.Panel1.ResumeLayout(false);
-            splitContainer1.Panel2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)splitContainer1).EndInit();
-            splitContainer1.ResumeLayout(false);
-            groupBox1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
-            groupBox2.ResumeLayout(false);
-            tableLayoutPanel2.ResumeLayout(false);
-            panel2.ResumeLayout(false);
-            panel2.PerformLayout();
-            splitContainer2.Panel1.ResumeLayout(false);
-            splitContainer2.Panel2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)splitContainer2).EndInit();
-            splitContainer2.ResumeLayout(false);
-            groupBox3.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)dataGridView2).EndInit();
-            groupBox4.ResumeLayout(false);
-            splitContainer3.Panel1.ResumeLayout(false);
-            splitContainer3.Panel2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)splitContainer3).EndInit();
-            splitContainer3.ResumeLayout(false);
-            groupBox5.ResumeLayout(false);
-            groupBox5.PerformLayout();
-            groupBox6.ResumeLayout(false);
-            groupBox6.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)numericUpDown1).EndInit();
+            tlpNCC.ResumeLayout(false);
+            pnNCC.ResumeLayout(false);
+            pnNCC.PerformLayout();
+            splNCC_HT_CN.Panel1.ResumeLayout(false);
+            splNCC_HT_CN.Panel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)splNCC_HT_CN).EndInit();
+            splNCC_HT_CN.ResumeLayout(false);
+            grbNCC_HT.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)dgvNCC).EndInit();
+            grbNCC_CN.ResumeLayout(false);
+            splNCC_TK_TT.Panel1.ResumeLayout(false);
+            splNCC_TK_TT.Panel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)splNCC_TK_TT).EndInit();
+            splNCC_TK_TT.ResumeLayout(false);
+            grbNCC_TK.ResumeLayout(false);
+            grbNCC_TK.PerformLayout();
+            grbNCC_TT.ResumeLayout(false);
+            grbNCC_TT.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)numNCC_SoLuongDN).EndInit();
             ResumeLayout(false);
         }
 
         #endregion
 
-        private TableLayoutPanel tableLayoutPanel1;
-        private Panel panel1;
-        private Label label1;
-        private SplitContainer splitContainer1;
-        private GroupBox groupBox1;
-        private DataGridView dataGridView1;
-        private DataGridViewTextBoxColumn Column1;
-        private DataGridViewTextBoxColumn Column2;
-        private DataGridViewTextBoxColumn Column4;
-        private DataGridViewTextBoxColumn Column3;
-        private DataGridViewTextBoxColumn Column5;
-        private GroupBox groupBox2;
-        private Button button6;
-        private Button button5;
-        private Button button4;
-        private Button button3;
-        private Button button2;
-        private Button button1;
-        private TableLayoutPanel tableLayoutPanel2;
-        private Panel panel2;
-        private Label label2;
-        private SplitContainer splitContainer2;
-        private GroupBox groupBox3;
-        private DataGridView dataGridView2;
+        private TableLayoutPanel tlpNCC;
+        private Panel pnNCC;
+        private Label lbNCC;
+        private SplitContainer splNCC_HT_CN;
+        private GroupBox grbNCC_HT;
+        private DataGridView dgvNCC;
         private DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
         private DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
         private DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
         private DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
         private DataGridViewTextBoxColumn dataGridViewTextBoxColumn5;
-        private GroupBox groupBox4;
-        private Button button7;
-        private Button button8;
-        private Button button9;
-        private Button button10;
-        private Button button11;
-        private Button button12;
-        private SplitContainer splitContainer3;
-        private GroupBox groupBox5;
-        private Button button13;
-        private TextBox textBox2;
-        private RadioButton radioButton2;
-        private TextBox textBox1;
-        private RadioButton radioButton1;
-        private GroupBox groupBox6;
-        private NumericUpDown numericUpDown1;
-        private TextBox textBox6;
-        private TextBox textBox5;
-        private TextBox textBox4;
-        private TextBox textBox3;
-        private Label label6;
-        private Label label5;
-        private Label label4;
-        private Label label3;
-        private Label label7;
+        private GroupBox grbNCC_CN;
+        private Button btnNCC_Thoat;
+        private Button btnNCC_Export;
+        private Button btnNCC_Import;
+        private Button btnNCC_Xoa;
+        private Button btnNCC_Sua;
+        private Button btnNCC_Them;
+        private SplitContainer splNCC_TK_TT;
+        private GroupBox grbNCC_TK;
+        private Button btnNCC_Tim;
+        private TextBox txtNCC_TK_TenNCC;
+        private RadioButton rdbNCC_TenNCC;
+        private TextBox txtNCC_TK_MaNCC;
+        private RadioButton rdbNCC_MaNCC;
+        private GroupBox grbNCC_TT;
+        private NumericUpDown numNCC_SoLuongDN;
+        private TextBox txtNCC_DiaChi;
+        private TextBox txtNCC_SDT;
+        private TextBox txtNCC_TenNCC;
+        private TextBox txtNCC_MaNCC;
+        private Label lbNCC_DiaChi;
+        private Label lbNCC_SoLuongDN;
+        private Label lbNCC_SDT;
+        private Label lbNCC_TenNCC;
+        private Label lbNCC_MaNCC;
     }
 }

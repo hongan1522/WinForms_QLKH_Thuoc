@@ -28,27 +28,12 @@
         /// </summary>
         private void InitializeComponent()
         {
-            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
-            tableLayoutPanel1 = new TableLayoutPanel();
-            panel1 = new Panel();
-            label1 = new Label();
-            groupBox2 = new GroupBox();
-            dgvQLNV = new DataGridView();
-            Column1 = new DataGridViewTextBoxColumn();
-            Column2 = new DataGridViewTextBoxColumn();
-            Column3 = new DataGridViewTextBoxColumn();
-            Column4 = new DataGridViewTextBoxColumn();
-            Column5 = new DataGridViewTextBoxColumn();
-            Column6 = new DataGridViewTextBoxColumn();
-            Column7 = new DataGridViewTextBoxColumn();
-            Column8 = new DataGridViewTextBoxColumn();
-            Column9 = new DataGridViewTextBoxColumn();
-            tableLayoutPanel2 = new TableLayoutPanel();
-            panel2 = new Panel();
-            label2 = new Label();
-            groupBox1 = new GroupBox();
-            dataGridView1 = new DataGridView();
+            tlpQLNV = new TableLayoutPanel();
+            pnQLNV = new Panel();
+            lbQLNV = new Label();
+            grbQLNV_HT = new GroupBox();
+            dgvNV = new DataGridView();
             dataGridViewTextBoxColumn1 = new DataGridViewTextBoxColumn();
             dataGridViewTextBoxColumn2 = new DataGridViewTextBoxColumn();
             dataGridViewTextBoxColumn3 = new DataGridViewTextBoxColumn();
@@ -58,256 +43,132 @@
             dataGridViewTextBoxColumn7 = new DataGridViewTextBoxColumn();
             dataGridViewTextBoxColumn8 = new DataGridViewTextBoxColumn();
             dataGridViewTextBoxColumn9 = new DataGridViewTextBoxColumn();
-            panel3 = new Panel();
-            groupBox3 = new GroupBox();
-            label6 = new Label();
+            pnQLNV_TT = new Panel();
+            grbQLNV_TT = new GroupBox();
+            lbQLNV_GioiTinh = new Label();
             gboxGioiTinh = new GroupBox();
-            radNam = new RadioButton();
-            radNu = new RadioButton();
-            dtpNgaySinh = new DateTimePicker();
-            txtHoTen = new TextBox();
-            txtEmail = new TextBox();
-            txtDiaChi = new TextBox();
-            txtSDT = new TextBox();
-            txtUserID = new TextBox();
-            txtMaCN = new TextBox();
-            txtMaNV = new TextBox();
-            label10 = new Label();
-            label9 = new Label();
-            label8 = new Label();
-            label7 = new Label();
-            label5 = new Label();
-            label4 = new Label();
-            label3 = new Label();
-            label11 = new Label();
-            splitContainer1 = new SplitContainer();
-            groupBox4 = new GroupBox();
-            textBox2 = new TextBox();
-            radioButton2 = new RadioButton();
-            textBox1 = new TextBox();
-            radioButton1 = new RadioButton();
-            button7 = new Button();
-            groupBox5 = new GroupBox();
-            btnQLNV_Back = new Button();
-            button5 = new Button();
-            button4 = new Button();
-            button3 = new Button();
-            button2 = new Button();
-            button1 = new Button();
-            tableLayoutPanel1.SuspendLayout();
-            panel1.SuspendLayout();
-            groupBox2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)dgvQLNV).BeginInit();
-            tableLayoutPanel2.SuspendLayout();
-            panel2.SuspendLayout();
-            groupBox1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
-            panel3.SuspendLayout();
-            groupBox3.SuspendLayout();
+            rdbQLNV_Nam = new RadioButton();
+            rdbQLNV_Nu = new RadioButton();
+            dtpQLNV_NgaySinh = new DateTimePicker();
+            txtQLNV_HoTen = new TextBox();
+            txtQLNV_Email = new TextBox();
+            txtQLNV_DiaChi = new TextBox();
+            txtQLNV_SDT = new TextBox();
+            txtQLNV_UserID = new TextBox();
+            txtQLNV_MaCN = new TextBox();
+            txtQLNV_MaNV = new TextBox();
+            lbQLNV_DiaChi = new Label();
+            lbQLNV_Email = new Label();
+            lbQLNV_SDT = new Label();
+            lbQLNV_NgaySinh = new Label();
+            lbQLNV_HoTen = new Label();
+            lbQLNV_MaCN = new Label();
+            lbQLNV_UserID = new Label();
+            lbQLNV_MaNV = new Label();
+            splQLNV_TK_CN = new SplitContainer();
+            grbQLNV_TK = new GroupBox();
+            txtQLNV_TK_TenNV = new TextBox();
+            rdbQLNV_TenNV = new RadioButton();
+            txtQLNV_TK_MaNV = new TextBox();
+            rdbQLNV_MaNV = new RadioButton();
+            btnQLNV_Tim = new Button();
+            grbQLNV_CN = new GroupBox();
+            btnQLNV_Thoat = new Button();
+            btnQLNV_Export = new Button();
+            btnQLNV_Import = new Button();
+            btnQLNV_Xoa = new Button();
+            btnQLNV_Sua = new Button();
+            btnQLNV_Them = new Button();
+            tlpQLNV.SuspendLayout();
+            pnQLNV.SuspendLayout();
+            grbQLNV_HT.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)dgvNV).BeginInit();
+            pnQLNV_TT.SuspendLayout();
+            grbQLNV_TT.SuspendLayout();
             gboxGioiTinh.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)splitContainer1).BeginInit();
-            splitContainer1.Panel1.SuspendLayout();
-            splitContainer1.Panel2.SuspendLayout();
-            splitContainer1.SuspendLayout();
-            groupBox4.SuspendLayout();
-            groupBox5.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)splQLNV_TK_CN).BeginInit();
+            splQLNV_TK_CN.Panel1.SuspendLayout();
+            splQLNV_TK_CN.Panel2.SuspendLayout();
+            splQLNV_TK_CN.SuspendLayout();
+            grbQLNV_TK.SuspendLayout();
+            grbQLNV_CN.SuspendLayout();
             SuspendLayout();
             // 
-            // tableLayoutPanel1
+            // tlpQLNV
             // 
-            tableLayoutPanel1.BackColor = SystemColors.ButtonHighlight;
-            tableLayoutPanel1.ColumnCount = 1;
-            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
-            tableLayoutPanel1.Controls.Add(panel1, 0, 0);
-            tableLayoutPanel1.Location = new Point(0, 0);
-            tableLayoutPanel1.Name = "tableLayoutPanel1";
-            tableLayoutPanel1.RowCount = 2;
-            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 20F));
-            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 20F));
-            tableLayoutPanel1.Size = new Size(200, 100);
-            tableLayoutPanel1.TabIndex = 0;
+            tlpQLNV.BackColor = SystemColors.Control;
+            tlpQLNV.ColumnCount = 1;
+            tlpQLNV.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
+            tlpQLNV.Controls.Add(pnQLNV, 0, 0);
+            tlpQLNV.Controls.Add(grbQLNV_HT, 0, 1);
+            tlpQLNV.Controls.Add(pnQLNV_TT, 0, 2);
+            tlpQLNV.Controls.Add(splQLNV_TK_CN, 0, 3);
+            tlpQLNV.Dock = DockStyle.Fill;
+            tlpQLNV.Font = new Font("Segoe UI", 10.125F, FontStyle.Regular, GraphicsUnit.Point);
+            tlpQLNV.Location = new Point(0, 0);
+            tlpQLNV.Name = "tlpQLNV";
+            tlpQLNV.RowCount = 4;
+            tlpQLNV.RowStyles.Add(new RowStyle(SizeType.Absolute, 82F));
+            tlpQLNV.RowStyles.Add(new RowStyle(SizeType.Absolute, 378F));
+            tlpQLNV.RowStyles.Add(new RowStyle(SizeType.Absolute, 307F));
+            tlpQLNV.RowStyles.Add(new RowStyle(SizeType.Absolute, 14F));
+            tlpQLNV.Size = new Size(1420, 1000);
+            tlpQLNV.TabIndex = 1;
             // 
-            // panel1
+            // pnQLNV
             // 
-            panel1.BackColor = SystemColors.ActiveCaption;
-            panel1.Controls.Add(label1);
-            panel1.Dock = DockStyle.Fill;
-            panel1.Location = new Point(3, 3);
-            panel1.Name = "panel1";
-            panel1.Size = new Size(194, 14);
-            panel1.TabIndex = 0;
+            pnQLNV.BackColor = Color.FromArgb(63, 139, 208);
+            pnQLNV.Controls.Add(lbQLNV);
+            pnQLNV.Dock = DockStyle.Fill;
+            pnQLNV.Location = new Point(3, 3);
+            pnQLNV.Name = "pnQLNV";
+            pnQLNV.Size = new Size(1414, 76);
+            pnQLNV.TabIndex = 0;
             // 
-            // label1
+            // lbQLNV
             // 
-            label1.AutoSize = true;
-            label1.Font = new Font("Segoe UI", 13.875F, FontStyle.Bold, GraphicsUnit.Point);
-            label1.Location = new Point(552, 18);
-            label1.Name = "label1";
-            label1.Size = new Size(399, 50);
-            label1.TabIndex = 0;
-            label1.Text = "QUẢN LÝ NHÂN VIÊN";
-            label1.TextAlign = ContentAlignment.MiddleCenter;
+            lbQLNV.AutoSize = true;
+            lbQLNV.Font = new Font("Segoe UI", 13.875F, FontStyle.Bold, GraphicsUnit.Point);
+            lbQLNV.ForeColor = SystemColors.ButtonHighlight;
+            lbQLNV.Location = new Point(552, 18);
+            lbQLNV.Name = "lbQLNV";
+            lbQLNV.Size = new Size(399, 50);
+            lbQLNV.TabIndex = 0;
+            lbQLNV.Text = "QUẢN LÝ NHÂN VIÊN";
+            lbQLNV.TextAlign = ContentAlignment.MiddleCenter;
             // 
-            // groupBox2
+            // grbQLNV_HT
             // 
-            groupBox2.Controls.Add(dgvQLNV);
-            groupBox2.Dock = DockStyle.Fill;
-            groupBox2.Location = new Point(3, 89);
-            groupBox2.Name = "groupBox2";
-            groupBox2.Size = new Size(194, 440);
-            groupBox2.TabIndex = 3;
-            groupBox2.TabStop = false;
-            groupBox2.Text = "Hiển thị";
+            grbQLNV_HT.Controls.Add(dgvNV);
+            grbQLNV_HT.Dock = DockStyle.Fill;
+            grbQLNV_HT.Location = new Point(3, 85);
+            grbQLNV_HT.Name = "grbQLNV_HT";
+            grbQLNV_HT.Size = new Size(1414, 372);
+            grbQLNV_HT.TabIndex = 3;
+            grbQLNV_HT.TabStop = false;
+            grbQLNV_HT.Text = "Hiển thị";
             // 
-            // dgvQLNV
+            // dgvNV
             // 
-            dgvQLNV.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-            dgvQLNV.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
-            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle1.BackColor = SystemColors.Control;
-            dataGridViewCellStyle1.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
-            dataGridViewCellStyle1.ForeColor = SystemColors.WindowText;
-            dataGridViewCellStyle1.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
-            dgvQLNV.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
-            dgvQLNV.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgvQLNV.Columns.AddRange(new DataGridViewColumn[] { Column1, Column2, Column3, Column4, Column5, Column6, Column7, Column8, Column9 });
-            dgvQLNV.Dock = DockStyle.Fill;
-            dgvQLNV.Location = new Point(3, 35);
-            dgvQLNV.Name = "dgvQLNV";
-            dgvQLNV.RowHeadersWidth = 82;
-            dgvQLNV.RowTemplate.Height = 41;
-            dgvQLNV.Size = new Size(188, 402);
-            dgvQLNV.TabIndex = 1;
-            // 
-            // Column1
-            // 
-            Column1.HeaderText = "Mã NV";
-            Column1.MinimumWidth = 10;
-            Column1.Name = "Column1";
-            // 
-            // Column2
-            // 
-            Column2.HeaderText = "UserID";
-            Column2.MinimumWidth = 10;
-            Column2.Name = "Column2";
-            // 
-            // Column3
-            // 
-            Column3.HeaderText = "Mã chi nhánh";
-            Column3.MinimumWidth = 10;
-            Column3.Name = "Column3";
-            // 
-            // Column4
-            // 
-            Column4.HeaderText = "Họ tên";
-            Column4.MinimumWidth = 10;
-            Column4.Name = "Column4";
-            // 
-            // Column5
-            // 
-            Column5.HeaderText = "Ngày sinh";
-            Column5.MinimumWidth = 10;
-            Column5.Name = "Column5";
-            // 
-            // Column6
-            // 
-            Column6.HeaderText = "Giới tính";
-            Column6.MinimumWidth = 10;
-            Column6.Name = "Column6";
-            // 
-            // Column7
-            // 
-            Column7.HeaderText = "SĐT";
-            Column7.MinimumWidth = 10;
-            Column7.Name = "Column7";
-            // 
-            // Column8
-            // 
-            Column8.HeaderText = "Email";
-            Column8.MinimumWidth = 10;
-            Column8.Name = "Column8";
-            // 
-            // Column9
-            // 
-            Column9.HeaderText = "Địa chỉ";
-            Column9.MinimumWidth = 10;
-            Column9.Name = "Column9";
-            // 
-            // tableLayoutPanel2
-            // 
-            tableLayoutPanel2.BackColor = SystemColors.ButtonHighlight;
-            tableLayoutPanel2.ColumnCount = 1;
-            tableLayoutPanel2.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
-            tableLayoutPanel2.Controls.Add(panel2, 0, 0);
-            tableLayoutPanel2.Controls.Add(groupBox1, 0, 1);
-            tableLayoutPanel2.Controls.Add(panel3, 0, 2);
-            tableLayoutPanel2.Controls.Add(splitContainer1, 0, 3);
-            tableLayoutPanel2.Dock = DockStyle.Fill;
-            tableLayoutPanel2.Location = new Point(0, 0);
-            tableLayoutPanel2.Name = "tableLayoutPanel2";
-            tableLayoutPanel2.RowCount = 4;
-            tableLayoutPanel2.RowStyles.Add(new RowStyle(SizeType.Absolute, 82F));
-            tableLayoutPanel2.RowStyles.Add(new RowStyle(SizeType.Absolute, 378F));
-            tableLayoutPanel2.RowStyles.Add(new RowStyle(SizeType.Absolute, 307F));
-            tableLayoutPanel2.RowStyles.Add(new RowStyle(SizeType.Absolute, 14F));
-            tableLayoutPanel2.Size = new Size(1420, 1000);
-            tableLayoutPanel2.TabIndex = 1;
-            // 
-            // panel2
-            // 
-            panel2.BackColor = SystemColors.ActiveCaption;
-            panel2.Controls.Add(label2);
-            panel2.Dock = DockStyle.Fill;
-            panel2.Location = new Point(3, 3);
-            panel2.Name = "panel2";
-            panel2.Size = new Size(1414, 76);
-            panel2.TabIndex = 0;
-            // 
-            // label2
-            // 
-            label2.AutoSize = true;
-            label2.Font = new Font("Segoe UI", 13.875F, FontStyle.Bold, GraphicsUnit.Point);
-            label2.Location = new Point(552, 18);
-            label2.Name = "label2";
-            label2.Size = new Size(399, 50);
-            label2.TabIndex = 0;
-            label2.Text = "QUẢN LÝ NHÂN VIÊN";
-            label2.TextAlign = ContentAlignment.MiddleCenter;
-            // 
-            // groupBox1
-            // 
-            groupBox1.Controls.Add(dataGridView1);
-            groupBox1.Dock = DockStyle.Fill;
-            groupBox1.Location = new Point(3, 85);
-            groupBox1.Name = "groupBox1";
-            groupBox1.Size = new Size(1414, 372);
-            groupBox1.TabIndex = 3;
-            groupBox1.TabStop = false;
-            groupBox1.Text = "Hiển thị";
-            // 
-            // dataGridView1
-            // 
-            dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-            dataGridView1.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
+            dgvNV.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dgvNV.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
             dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle2.BackColor = SystemColors.Control;
-            dataGridViewCellStyle2.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
+            dataGridViewCellStyle2.Font = new Font("Segoe UI", 10.125F, FontStyle.Regular, GraphicsUnit.Point);
             dataGridViewCellStyle2.ForeColor = SystemColors.WindowText;
             dataGridViewCellStyle2.SelectionBackColor = SystemColors.Highlight;
             dataGridViewCellStyle2.SelectionForeColor = SystemColors.HighlightText;
             dataGridViewCellStyle2.WrapMode = DataGridViewTriState.True;
-            dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
-            dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Columns.AddRange(new DataGridViewColumn[] { dataGridViewTextBoxColumn1, dataGridViewTextBoxColumn2, dataGridViewTextBoxColumn3, dataGridViewTextBoxColumn4, dataGridViewTextBoxColumn5, dataGridViewTextBoxColumn6, dataGridViewTextBoxColumn7, dataGridViewTextBoxColumn8, dataGridViewTextBoxColumn9 });
-            dataGridView1.Dock = DockStyle.Fill;
-            dataGridView1.Location = new Point(3, 35);
-            dataGridView1.Name = "dataGridView1";
-            dataGridView1.RowHeadersWidth = 82;
-            dataGridView1.RowTemplate.Height = 41;
-            dataGridView1.Size = new Size(1408, 334);
-            dataGridView1.TabIndex = 1;
+            dgvNV.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            dgvNV.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dgvNV.Columns.AddRange(new DataGridViewColumn[] { dataGridViewTextBoxColumn1, dataGridViewTextBoxColumn2, dataGridViewTextBoxColumn3, dataGridViewTextBoxColumn4, dataGridViewTextBoxColumn5, dataGridViewTextBoxColumn6, dataGridViewTextBoxColumn7, dataGridViewTextBoxColumn8, dataGridViewTextBoxColumn9 });
+            dgvNV.Dock = DockStyle.Fill;
+            dgvNV.Location = new Point(3, 39);
+            dgvNV.Name = "dgvNV";
+            dgvNV.RowHeadersWidth = 82;
+            dgvNV.RowTemplate.Height = 41;
+            dgvNV.Size = new Size(1408, 330);
+            dgvNV.TabIndex = 1;
             // 
             // dataGridViewTextBoxColumn1
             // 
@@ -363,57 +224,57 @@
             dataGridViewTextBoxColumn9.MinimumWidth = 10;
             dataGridViewTextBoxColumn9.Name = "dataGridViewTextBoxColumn9";
             // 
-            // panel3
+            // pnQLNV_TT
             // 
-            panel3.Controls.Add(groupBox3);
-            panel3.Dock = DockStyle.Fill;
-            panel3.Location = new Point(3, 463);
-            panel3.Name = "panel3";
-            panel3.Size = new Size(1414, 301);
-            panel3.TabIndex = 4;
+            pnQLNV_TT.Controls.Add(grbQLNV_TT);
+            pnQLNV_TT.Dock = DockStyle.Fill;
+            pnQLNV_TT.Location = new Point(3, 463);
+            pnQLNV_TT.Name = "pnQLNV_TT";
+            pnQLNV_TT.Size = new Size(1414, 301);
+            pnQLNV_TT.TabIndex = 4;
             // 
-            // groupBox3
+            // grbQLNV_TT
             // 
-            groupBox3.Controls.Add(label6);
-            groupBox3.Controls.Add(gboxGioiTinh);
-            groupBox3.Controls.Add(dtpNgaySinh);
-            groupBox3.Controls.Add(txtHoTen);
-            groupBox3.Controls.Add(txtEmail);
-            groupBox3.Controls.Add(txtDiaChi);
-            groupBox3.Controls.Add(txtSDT);
-            groupBox3.Controls.Add(txtUserID);
-            groupBox3.Controls.Add(txtMaCN);
-            groupBox3.Controls.Add(txtMaNV);
-            groupBox3.Controls.Add(label10);
-            groupBox3.Controls.Add(label9);
-            groupBox3.Controls.Add(label8);
-            groupBox3.Controls.Add(label7);
-            groupBox3.Controls.Add(label5);
-            groupBox3.Controls.Add(label4);
-            groupBox3.Controls.Add(label3);
-            groupBox3.Controls.Add(label11);
-            groupBox3.Dock = DockStyle.Fill;
-            groupBox3.Location = new Point(0, 0);
-            groupBox3.Name = "groupBox3";
-            groupBox3.Size = new Size(1414, 301);
-            groupBox3.TabIndex = 0;
-            groupBox3.TabStop = false;
-            groupBox3.Text = "Thông tin";
+            grbQLNV_TT.Controls.Add(lbQLNV_GioiTinh);
+            grbQLNV_TT.Controls.Add(gboxGioiTinh);
+            grbQLNV_TT.Controls.Add(dtpQLNV_NgaySinh);
+            grbQLNV_TT.Controls.Add(txtQLNV_HoTen);
+            grbQLNV_TT.Controls.Add(txtQLNV_Email);
+            grbQLNV_TT.Controls.Add(txtQLNV_DiaChi);
+            grbQLNV_TT.Controls.Add(txtQLNV_SDT);
+            grbQLNV_TT.Controls.Add(txtQLNV_UserID);
+            grbQLNV_TT.Controls.Add(txtQLNV_MaCN);
+            grbQLNV_TT.Controls.Add(txtQLNV_MaNV);
+            grbQLNV_TT.Controls.Add(lbQLNV_DiaChi);
+            grbQLNV_TT.Controls.Add(lbQLNV_Email);
+            grbQLNV_TT.Controls.Add(lbQLNV_SDT);
+            grbQLNV_TT.Controls.Add(lbQLNV_NgaySinh);
+            grbQLNV_TT.Controls.Add(lbQLNV_HoTen);
+            grbQLNV_TT.Controls.Add(lbQLNV_MaCN);
+            grbQLNV_TT.Controls.Add(lbQLNV_UserID);
+            grbQLNV_TT.Controls.Add(lbQLNV_MaNV);
+            grbQLNV_TT.Dock = DockStyle.Fill;
+            grbQLNV_TT.Location = new Point(0, 0);
+            grbQLNV_TT.Name = "grbQLNV_TT";
+            grbQLNV_TT.Size = new Size(1414, 301);
+            grbQLNV_TT.TabIndex = 0;
+            grbQLNV_TT.TabStop = false;
+            grbQLNV_TT.Text = "Thông tin";
             // 
-            // label6
+            // lbQLNV_GioiTinh
             // 
-            label6.AutoSize = true;
-            label6.Location = new Point(468, 227);
-            label6.Name = "label6";
-            label6.Size = new Size(105, 32);
-            label6.TabIndex = 20;
-            label6.Text = "Giới tính";
+            lbQLNV_GioiTinh.AutoSize = true;
+            lbQLNV_GioiTinh.Location = new Point(468, 227);
+            lbQLNV_GioiTinh.Name = "lbQLNV_GioiTinh";
+            lbQLNV_GioiTinh.Size = new Size(119, 37);
+            lbQLNV_GioiTinh.TabIndex = 20;
+            lbQLNV_GioiTinh.Text = "Giới tính";
             // 
             // gboxGioiTinh
             // 
-            gboxGioiTinh.Controls.Add(radNam);
-            gboxGioiTinh.Controls.Add(radNu);
-            gboxGioiTinh.Location = new Point(650, 207);
+            gboxGioiTinh.Controls.Add(rdbQLNV_Nam);
+            gboxGioiTinh.Controls.Add(rdbQLNV_Nu);
+            gboxGioiTinh.Location = new Point(650, 203);
             gboxGioiTinh.Margin = new Padding(4);
             gboxGioiTinh.Name = "gboxGioiTinh";
             gboxGioiTinh.Padding = new Padding(4);
@@ -421,405 +282,386 @@
             gboxGioiTinh.TabIndex = 19;
             gboxGioiTinh.TabStop = false;
             // 
-            // radNam
-            // 
-            radNam.AutoSize = true;
-            radNam.Checked = true;
-            radNam.Location = new Point(21, 31);
-            radNam.Name = "radNam";
-            radNam.Size = new Size(96, 36);
-            radNam.TabIndex = 17;
-            radNam.TabStop = true;
-            radNam.Text = "Nam";
-            radNam.UseVisualStyleBackColor = true;
-            // 
-            // radNu
-            // 
-            radNu.AutoSize = true;
-            radNu.Location = new Point(151, 33);
-            radNu.Name = "radNu";
-            radNu.Size = new Size(77, 36);
-            radNu.TabIndex = 18;
-            radNu.TabStop = true;
-            radNu.Text = "Nữ";
-            radNu.UseVisualStyleBackColor = true;
-            // 
-            // dtpNgaySinh
-            // 
-            dtpNgaySinh.CustomFormat = "dd/MM/yyyy";
-            dtpNgaySinh.Format = DateTimePickerFormat.Custom;
-            dtpNgaySinh.Location = new Point(650, 130);
-            dtpNgaySinh.Name = "dtpNgaySinh";
-            dtpNgaySinh.Size = new Size(242, 39);
-            dtpNgaySinh.TabIndex = 16;
-            // 
-            // txtHoTen
-            // 
-            txtHoTen.Location = new Point(141, 203);
-            txtHoTen.Multiline = true;
-            txtHoTen.Name = "txtHoTen";
-            txtHoTen.Size = new Size(284, 82);
-            txtHoTen.TabIndex = 15;
-            // 
-            // txtEmail
-            // 
-            txtEmail.Location = new Point(1081, 124);
-            txtEmail.Name = "txtEmail";
-            txtEmail.Size = new Size(290, 39);
-            txtEmail.TabIndex = 14;
-            // 
-            // txtDiaChi
-            // 
-            txtDiaChi.Location = new Point(1081, 203);
-            txtDiaChi.Multiline = true;
-            txtDiaChi.Name = "txtDiaChi";
-            txtDiaChi.Size = new Size(290, 86);
-            txtDiaChi.TabIndex = 13;
-            // 
-            // txtSDT
-            // 
-            txtSDT.Location = new Point(1081, 48);
-            txtSDT.Name = "txtSDT";
-            txtSDT.Size = new Size(290, 39);
-            txtSDT.TabIndex = 12;
-            // 
-            // txtUserID
-            // 
-            txtUserID.Location = new Point(141, 127);
-            txtUserID.Name = "txtUserID";
-            txtUserID.Size = new Size(284, 39);
-            txtUserID.TabIndex = 11;
-            // 
-            // txtMaCN
-            // 
-            txtMaCN.Location = new Point(650, 47);
-            txtMaCN.Name = "txtMaCN";
-            txtMaCN.Size = new Size(242, 39);
-            txtMaCN.TabIndex = 10;
-            // 
-            // txtMaNV
-            // 
-            txtMaNV.Location = new Point(141, 51);
-            txtMaNV.Name = "txtMaNV";
-            txtMaNV.Size = new Size(284, 39);
-            txtMaNV.TabIndex = 9;
-            // 
-            // label10
-            // 
-            label10.AutoSize = true;
-            label10.Location = new Point(969, 219);
-            label10.Name = "label10";
-            label10.Size = new Size(87, 32);
-            label10.TabIndex = 8;
-            label10.Text = "Địa chỉ";
-            // 
-            // label9
-            // 
-            label9.AutoSize = true;
-            label9.Location = new Point(969, 133);
-            label9.Name = "label9";
-            label9.Size = new Size(71, 32);
-            label9.TabIndex = 7;
-            label9.Text = "Email";
-            // 
-            // label8
-            // 
-            label8.AutoSize = true;
-            label8.Location = new Point(969, 47);
-            label8.Name = "label8";
-            label8.Size = new Size(57, 32);
-            label8.TabIndex = 6;
-            label8.Text = "SĐT";
-            // 
-            // label7
-            // 
-            label7.AutoSize = true;
-            label7.Location = new Point(472, 138);
-            label7.Name = "label7";
-            label7.Size = new Size(121, 32);
-            label7.TabIndex = 5;
-            label7.Text = "Ngày sinh";
-            // 
-            // label5
-            // 
-            label5.AutoSize = true;
-            label5.Location = new Point(35, 203);
-            label5.Name = "label5";
-            label5.Size = new Size(87, 32);
-            label5.TabIndex = 3;
-            label5.Text = "Họ tên";
-            // 
-            // label4
-            // 
-            label4.AutoSize = true;
-            label4.Location = new Point(468, 49);
-            label4.Name = "label4";
-            label4.Size = new Size(161, 32);
-            label4.TabIndex = 2;
-            label4.Text = "Mã chi nhánh";
-            // 
-            // label3
-            // 
-            label3.AutoSize = true;
-            label3.Location = new Point(32, 125);
-            label3.Name = "label3";
-            label3.Size = new Size(84, 32);
-            label3.TabIndex = 1;
-            label3.Text = "UserID";
-            // 
-            // label11
-            // 
-            label11.AutoSize = true;
-            label11.Location = new Point(32, 47);
-            label11.Name = "label11";
-            label11.Size = new Size(88, 32);
-            label11.TabIndex = 0;
-            label11.Text = "Mã NV";
-            // 
-            // splitContainer1
-            // 
-            splitContainer1.Dock = DockStyle.Fill;
-            splitContainer1.Location = new Point(3, 770);
-            splitContainer1.Name = "splitContainer1";
-            // 
-            // splitContainer1.Panel1
-            // 
-            splitContainer1.Panel1.Controls.Add(groupBox4);
-            // 
-            // splitContainer1.Panel2
-            // 
-            splitContainer1.Panel2.Controls.Add(groupBox5);
-            splitContainer1.Size = new Size(1414, 227);
-            splitContainer1.SplitterDistance = 689;
-            splitContainer1.TabIndex = 5;
-            // 
-            // groupBox4
-            // 
-            groupBox4.Controls.Add(textBox2);
-            groupBox4.Controls.Add(radioButton2);
-            groupBox4.Controls.Add(textBox1);
-            groupBox4.Controls.Add(radioButton1);
-            groupBox4.Controls.Add(button7);
-            groupBox4.Dock = DockStyle.Fill;
-            groupBox4.Location = new Point(0, 0);
-            groupBox4.Name = "groupBox4";
-            groupBox4.Size = new Size(689, 227);
-            groupBox4.TabIndex = 0;
-            groupBox4.TabStop = false;
-            groupBox4.Text = "Tìm kiếm";
-            // 
-            // textBox2
-            // 
-            textBox2.Location = new Point(214, 137);
-            textBox2.Multiline = true;
-            textBox2.Name = "textBox2";
-            textBox2.Size = new Size(255, 71);
-            textBox2.TabIndex = 24;
-            // 
-            // radioButton2
-            // 
-            radioButton2.AutoSize = true;
-            radioButton2.Location = new Point(35, 138);
-            radioButton2.Name = "radioButton2";
-            radioButton2.Size = new Size(123, 36);
-            radioButton2.TabIndex = 23;
-            radioButton2.TabStop = true;
-            radioButton2.Text = "Tên NV";
-            radioButton2.UseVisualStyleBackColor = true;
-            // 
-            // textBox1
-            // 
-            textBox1.Location = new Point(214, 66);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(255, 39);
-            textBox1.TabIndex = 22;
-            // 
-            // radioButton1
-            // 
-            radioButton1.AutoSize = true;
-            radioButton1.Location = new Point(35, 66);
-            radioButton1.Name = "radioButton1";
-            radioButton1.Size = new Size(119, 36);
-            radioButton1.TabIndex = 21;
-            radioButton1.TabStop = true;
-            radioButton1.Text = "Mã NV";
-            radioButton1.UseVisualStyleBackColor = true;
-            // 
-            // button7
-            // 
-            button7.BackColor = SystemColors.MenuBar;
-            button7.FlatAppearance.BorderColor = Color.Gainsboro;
-            button7.FlatAppearance.BorderSize = 2;
-            button7.FlatStyle = FlatStyle.Popup;
-            button7.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
-            button7.Location = new Point(515, 103);
-            button7.Name = "button7";
-            button7.Size = new Size(150, 46);
-            button7.TabIndex = 8;
-            button7.Text = "Tìm kiếm";
-            button7.UseVisualStyleBackColor = false;
-            // 
-            // groupBox5
-            // 
-            groupBox5.Controls.Add(btnQLNV_Back);
-            groupBox5.Controls.Add(button5);
-            groupBox5.Controls.Add(button4);
-            groupBox5.Controls.Add(button3);
-            groupBox5.Controls.Add(button2);
-            groupBox5.Controls.Add(button1);
-            groupBox5.Dock = DockStyle.Fill;
-            groupBox5.Location = new Point(0, 0);
-            groupBox5.Name = "groupBox5";
-            groupBox5.Size = new Size(721, 227);
-            groupBox5.TabIndex = 11;
-            groupBox5.TabStop = false;
-            groupBox5.Text = "Chức năng";
-            // 
-            // btnQLNV_Back
-            // 
-            btnQLNV_Back.BackColor = Color.Red;
-            btnQLNV_Back.FlatAppearance.BorderColor = Color.Gainsboro;
-            btnQLNV_Back.FlatAppearance.BorderSize = 2;
-            btnQLNV_Back.FlatStyle = FlatStyle.Popup;
-            btnQLNV_Back.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
-            btnQLNV_Back.ForeColor = SystemColors.ButtonHighlight;
-            btnQLNV_Back.ImageAlign = ContentAlignment.MiddleLeft;
-            btnQLNV_Back.Location = new Point(539, 151);
-            btnQLNV_Back.Name = "btnQLNV_Back";
-            btnQLNV_Back.Size = new Size(150, 46);
-            btnQLNV_Back.TabIndex = 5;
-            btnQLNV_Back.Text = "Thoát";
-            btnQLNV_Back.UseVisualStyleBackColor = false;
-            // 
-            // button5
-            // 
-            button5.BackColor = SystemColors.MenuBar;
-            button5.FlatAppearance.BorderColor = Color.Gainsboro;
-            button5.FlatAppearance.BorderSize = 2;
-            button5.FlatStyle = FlatStyle.Popup;
-            button5.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
-            button5.Location = new Point(539, 66);
-            button5.Name = "button5";
-            button5.Size = new Size(150, 46);
-            button5.TabIndex = 4;
-            button5.Text = "Export";
-            button5.UseVisualStyleBackColor = false;
-            // 
-            // button4
-            // 
-            button4.BackColor = SystemColors.MenuBar;
-            button4.FlatAppearance.BorderColor = Color.Gainsboro;
-            button4.FlatAppearance.BorderSize = 2;
-            button4.FlatStyle = FlatStyle.Popup;
-            button4.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
-            button4.Location = new Point(295, 151);
-            button4.Name = "button4";
-            button4.Size = new Size(150, 46);
-            button4.TabIndex = 3;
-            button4.Text = "Import";
-            button4.UseVisualStyleBackColor = false;
-            // 
-            // button3
-            // 
-            button3.BackColor = SystemColors.MenuBar;
-            button3.FlatAppearance.BorderColor = Color.Gainsboro;
-            button3.FlatAppearance.BorderSize = 2;
-            button3.FlatStyle = FlatStyle.Popup;
-            button3.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
-            button3.Image = Properties.Resources.Delete;
-            button3.ImageAlign = ContentAlignment.MiddleLeft;
-            button3.Location = new Point(51, 151);
-            button3.Name = "button3";
-            button3.Size = new Size(150, 46);
-            button3.TabIndex = 2;
-            button3.Text = "Xóa";
-            button3.UseVisualStyleBackColor = false;
-            // 
-            // button2
-            // 
-            button2.BackColor = SystemColors.MenuBar;
-            button2.FlatAppearance.BorderColor = Color.Gainsboro;
-            button2.FlatAppearance.BorderSize = 2;
-            button2.FlatStyle = FlatStyle.Popup;
-            button2.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
-            button2.Image = Properties.Resources.Edit;
-            button2.ImageAlign = ContentAlignment.MiddleLeft;
-            button2.Location = new Point(295, 66);
-            button2.Name = "button2";
-            button2.Size = new Size(150, 46);
-            button2.TabIndex = 1;
-            button2.Text = "Sửa";
-            button2.UseVisualStyleBackColor = false;
-            // 
-            // button1
-            // 
-            button1.BackColor = SystemColors.MenuBar;
-            button1.FlatAppearance.BorderColor = Color.Gainsboro;
-            button1.FlatAppearance.BorderSize = 2;
-            button1.FlatStyle = FlatStyle.Popup;
-            button1.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
-            button1.Image = Properties.Resources.New;
-            button1.ImageAlign = ContentAlignment.MiddleLeft;
-            button1.Location = new Point(51, 66);
-            button1.Name = "button1";
-            button1.Size = new Size(150, 46);
-            button1.TabIndex = 0;
-            button1.Text = "Thêm";
-            button1.UseVisualStyleBackColor = false;
+            // rdbQLNV_Nam
+            // 
+            rdbQLNV_Nam.AutoSize = true;
+            rdbQLNV_Nam.Checked = true;
+            rdbQLNV_Nam.Location = new Point(21, 31);
+            rdbQLNV_Nam.Name = "rdbQLNV_Nam";
+            rdbQLNV_Nam.Size = new Size(105, 41);
+            rdbQLNV_Nam.TabIndex = 17;
+            rdbQLNV_Nam.TabStop = true;
+            rdbQLNV_Nam.Text = "Nam";
+            rdbQLNV_Nam.UseVisualStyleBackColor = true;
+            // 
+            // rdbQLNV_Nu
+            // 
+            rdbQLNV_Nu.AutoSize = true;
+            rdbQLNV_Nu.Location = new Point(151, 33);
+            rdbQLNV_Nu.Name = "rdbQLNV_Nu";
+            rdbQLNV_Nu.Size = new Size(84, 41);
+            rdbQLNV_Nu.TabIndex = 18;
+            rdbQLNV_Nu.TabStop = true;
+            rdbQLNV_Nu.Text = "Nữ";
+            rdbQLNV_Nu.UseVisualStyleBackColor = true;
+            // 
+            // dtpQLNV_NgaySinh
+            // 
+            dtpQLNV_NgaySinh.CustomFormat = "dd/MM/yyyy";
+            dtpQLNV_NgaySinh.Format = DateTimePickerFormat.Custom;
+            dtpQLNV_NgaySinh.Location = new Point(650, 130);
+            dtpQLNV_NgaySinh.Name = "dtpQLNV_NgaySinh";
+            dtpQLNV_NgaySinh.Size = new Size(242, 43);
+            dtpQLNV_NgaySinh.TabIndex = 16;
+            // 
+            // txtQLNV_HoTen
+            // 
+            txtQLNV_HoTen.Location = new Point(141, 203);
+            txtQLNV_HoTen.Multiline = true;
+            txtQLNV_HoTen.Name = "txtQLNV_HoTen";
+            txtQLNV_HoTen.Size = new Size(284, 82);
+            txtQLNV_HoTen.TabIndex = 15;
+            // 
+            // txtQLNV_Email
+            // 
+            txtQLNV_Email.Location = new Point(1081, 124);
+            txtQLNV_Email.Name = "txtQLNV_Email";
+            txtQLNV_Email.Size = new Size(290, 43);
+            txtQLNV_Email.TabIndex = 14;
+            // 
+            // txtQLNV_DiaChi
+            // 
+            txtQLNV_DiaChi.Location = new Point(1081, 203);
+            txtQLNV_DiaChi.Multiline = true;
+            txtQLNV_DiaChi.Name = "txtQLNV_DiaChi";
+            txtQLNV_DiaChi.Size = new Size(290, 86);
+            txtQLNV_DiaChi.TabIndex = 13;
+            // 
+            // txtQLNV_SDT
+            // 
+            txtQLNV_SDT.Location = new Point(1081, 48);
+            txtQLNV_SDT.Name = "txtQLNV_SDT";
+            txtQLNV_SDT.Size = new Size(290, 43);
+            txtQLNV_SDT.TabIndex = 12;
+            // 
+            // txtQLNV_UserID
+            // 
+            txtQLNV_UserID.Location = new Point(141, 127);
+            txtQLNV_UserID.Name = "txtQLNV_UserID";
+            txtQLNV_UserID.Size = new Size(284, 43);
+            txtQLNV_UserID.TabIndex = 11;
+            // 
+            // txtQLNV_MaCN
+            // 
+            txtQLNV_MaCN.Location = new Point(650, 47);
+            txtQLNV_MaCN.Name = "txtQLNV_MaCN";
+            txtQLNV_MaCN.Size = new Size(242, 43);
+            txtQLNV_MaCN.TabIndex = 10;
+            // 
+            // txtQLNV_MaNV
+            // 
+            txtQLNV_MaNV.Location = new Point(141, 51);
+            txtQLNV_MaNV.Name = "txtQLNV_MaNV";
+            txtQLNV_MaNV.Size = new Size(284, 43);
+            txtQLNV_MaNV.TabIndex = 9;
+            // 
+            // lbQLNV_DiaChi
+            // 
+            lbQLNV_DiaChi.AutoSize = true;
+            lbQLNV_DiaChi.Location = new Point(969, 219);
+            lbQLNV_DiaChi.Name = "lbQLNV_DiaChi";
+            lbQLNV_DiaChi.Size = new Size(98, 37);
+            lbQLNV_DiaChi.TabIndex = 8;
+            lbQLNV_DiaChi.Text = "Địa chỉ";
+            // 
+            // lbQLNV_Email
+            // 
+            lbQLNV_Email.AutoSize = true;
+            lbQLNV_Email.Location = new Point(969, 133);
+            lbQLNV_Email.Name = "lbQLNV_Email";
+            lbQLNV_Email.Size = new Size(82, 37);
+            lbQLNV_Email.TabIndex = 7;
+            lbQLNV_Email.Text = "Email";
+            // 
+            // lbQLNV_SDT
+            // 
+            lbQLNV_SDT.AutoSize = true;
+            lbQLNV_SDT.Location = new Point(969, 47);
+            lbQLNV_SDT.Name = "lbQLNV_SDT";
+            lbQLNV_SDT.Size = new Size(64, 37);
+            lbQLNV_SDT.TabIndex = 6;
+            lbQLNV_SDT.Text = "SĐT";
+            // 
+            // lbQLNV_NgaySinh
+            // 
+            lbQLNV_NgaySinh.AutoSize = true;
+            lbQLNV_NgaySinh.Location = new Point(472, 138);
+            lbQLNV_NgaySinh.Name = "lbQLNV_NgaySinh";
+            lbQLNV_NgaySinh.Size = new Size(135, 37);
+            lbQLNV_NgaySinh.TabIndex = 5;
+            lbQLNV_NgaySinh.Text = "Ngày sinh";
+            // 
+            // lbQLNV_HoTen
+            // 
+            lbQLNV_HoTen.AutoSize = true;
+            lbQLNV_HoTen.Location = new Point(35, 203);
+            lbQLNV_HoTen.Name = "lbQLNV_HoTen";
+            lbQLNV_HoTen.Size = new Size(97, 37);
+            lbQLNV_HoTen.TabIndex = 3;
+            lbQLNV_HoTen.Text = "Họ tên";
+            // 
+            // lbQLNV_MaCN
+            // 
+            lbQLNV_MaCN.AutoSize = true;
+            lbQLNV_MaCN.Location = new Point(468, 49);
+            lbQLNV_MaCN.Name = "lbQLNV_MaCN";
+            lbQLNV_MaCN.Size = new Size(177, 37);
+            lbQLNV_MaCN.TabIndex = 2;
+            lbQLNV_MaCN.Text = "Mã chi nhánh";
+            // 
+            // lbQLNV_UserID
+            // 
+            lbQLNV_UserID.AutoSize = true;
+            lbQLNV_UserID.Location = new Point(32, 125);
+            lbQLNV_UserID.Name = "lbQLNV_UserID";
+            lbQLNV_UserID.Size = new Size(96, 37);
+            lbQLNV_UserID.TabIndex = 1;
+            lbQLNV_UserID.Text = "UserID";
+            // 
+            // lbQLNV_MaNV
+            // 
+            lbQLNV_MaNV.AutoSize = true;
+            lbQLNV_MaNV.Location = new Point(32, 47);
+            lbQLNV_MaNV.Name = "lbQLNV_MaNV";
+            lbQLNV_MaNV.Size = new Size(99, 37);
+            lbQLNV_MaNV.TabIndex = 0;
+            lbQLNV_MaNV.Text = "Mã NV";
+            // 
+            // splQLNV_TK_CN
+            // 
+            splQLNV_TK_CN.Dock = DockStyle.Fill;
+            splQLNV_TK_CN.Location = new Point(3, 770);
+            splQLNV_TK_CN.Name = "splQLNV_TK_CN";
+            // 
+            // splQLNV_TK_CN.Panel1
+            // 
+            splQLNV_TK_CN.Panel1.Controls.Add(grbQLNV_TK);
+            // 
+            // splQLNV_TK_CN.Panel2
+            // 
+            splQLNV_TK_CN.Panel2.Controls.Add(grbQLNV_CN);
+            splQLNV_TK_CN.Size = new Size(1414, 227);
+            splQLNV_TK_CN.SplitterDistance = 689;
+            splQLNV_TK_CN.TabIndex = 5;
+            // 
+            // grbQLNV_TK
+            // 
+            grbQLNV_TK.Controls.Add(txtQLNV_TK_TenNV);
+            grbQLNV_TK.Controls.Add(rdbQLNV_TenNV);
+            grbQLNV_TK.Controls.Add(txtQLNV_TK_MaNV);
+            grbQLNV_TK.Controls.Add(rdbQLNV_MaNV);
+            grbQLNV_TK.Controls.Add(btnQLNV_Tim);
+            grbQLNV_TK.Dock = DockStyle.Fill;
+            grbQLNV_TK.Location = new Point(0, 0);
+            grbQLNV_TK.Name = "grbQLNV_TK";
+            grbQLNV_TK.Size = new Size(689, 227);
+            grbQLNV_TK.TabIndex = 0;
+            grbQLNV_TK.TabStop = false;
+            grbQLNV_TK.Text = "Tìm kiếm";
+            // 
+            // txtQLNV_TK_TenNV
+            // 
+            txtQLNV_TK_TenNV.Location = new Point(214, 137);
+            txtQLNV_TK_TenNV.Multiline = true;
+            txtQLNV_TK_TenNV.Name = "txtQLNV_TK_TenNV";
+            txtQLNV_TK_TenNV.Size = new Size(255, 71);
+            txtQLNV_TK_TenNV.TabIndex = 24;
+            // 
+            // rdbQLNV_TenNV
+            // 
+            rdbQLNV_TenNV.AutoSize = true;
+            rdbQLNV_TenNV.Location = new Point(35, 138);
+            rdbQLNV_TenNV.Name = "rdbQLNV_TenNV";
+            rdbQLNV_TenNV.Size = new Size(132, 41);
+            rdbQLNV_TenNV.TabIndex = 23;
+            rdbQLNV_TenNV.TabStop = true;
+            rdbQLNV_TenNV.Text = "Tên NV";
+            rdbQLNV_TenNV.UseVisualStyleBackColor = true;
+            // 
+            // txtQLNV_TK_MaNV
+            // 
+            txtQLNV_TK_MaNV.Location = new Point(214, 66);
+            txtQLNV_TK_MaNV.Name = "txtQLNV_TK_MaNV";
+            txtQLNV_TK_MaNV.Size = new Size(255, 43);
+            txtQLNV_TK_MaNV.TabIndex = 22;
+            // 
+            // rdbQLNV_MaNV
+            // 
+            rdbQLNV_MaNV.AutoSize = true;
+            rdbQLNV_MaNV.Location = new Point(35, 66);
+            rdbQLNV_MaNV.Name = "rdbQLNV_MaNV";
+            rdbQLNV_MaNV.Size = new Size(130, 41);
+            rdbQLNV_MaNV.TabIndex = 21;
+            rdbQLNV_MaNV.TabStop = true;
+            rdbQLNV_MaNV.Text = "Mã NV";
+            rdbQLNV_MaNV.UseVisualStyleBackColor = true;
+            // 
+            // btnQLNV_Tim
+            // 
+            btnQLNV_Tim.BackColor = SystemColors.ButtonHighlight;
+            btnQLNV_Tim.FlatAppearance.BorderColor = Color.Gainsboro;
+            btnQLNV_Tim.FlatAppearance.BorderSize = 0;
+            btnQLNV_Tim.FlatStyle = FlatStyle.Flat;
+            btnQLNV_Tim.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
+            btnQLNV_Tim.Location = new Point(534, 102);
+            btnQLNV_Tim.Name = "btnQLNV_Tim";
+            btnQLNV_Tim.Size = new Size(124, 68);
+            btnQLNV_Tim.TabIndex = 8;
+            btnQLNV_Tim.Text = "Tìm";
+            btnQLNV_Tim.UseVisualStyleBackColor = false;
+            // 
+            // grbQLNV_CN
+            // 
+            grbQLNV_CN.Controls.Add(btnQLNV_Thoat);
+            grbQLNV_CN.Controls.Add(btnQLNV_Export);
+            grbQLNV_CN.Controls.Add(btnQLNV_Import);
+            grbQLNV_CN.Controls.Add(btnQLNV_Xoa);
+            grbQLNV_CN.Controls.Add(btnQLNV_Sua);
+            grbQLNV_CN.Controls.Add(btnQLNV_Them);
+            grbQLNV_CN.Dock = DockStyle.Fill;
+            grbQLNV_CN.Location = new Point(0, 0);
+            grbQLNV_CN.Name = "grbQLNV_CN";
+            grbQLNV_CN.Size = new Size(721, 227);
+            grbQLNV_CN.TabIndex = 11;
+            grbQLNV_CN.TabStop = false;
+            grbQLNV_CN.Text = "Chức năng";
+            // 
+            // btnQLNV_Thoat
+            // 
+            btnQLNV_Thoat.BackColor = Color.Red;
+            btnQLNV_Thoat.FlatAppearance.BorderColor = Color.Gainsboro;
+            btnQLNV_Thoat.FlatAppearance.BorderSize = 0;
+            btnQLNV_Thoat.FlatStyle = FlatStyle.Flat;
+            btnQLNV_Thoat.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
+            btnQLNV_Thoat.ForeColor = SystemColors.ButtonHighlight;
+            btnQLNV_Thoat.ImageAlign = ContentAlignment.MiddleLeft;
+            btnQLNV_Thoat.Location = new Point(539, 140);
+            btnQLNV_Thoat.Name = "btnQLNV_Thoat";
+            btnQLNV_Thoat.Size = new Size(124, 68);
+            btnQLNV_Thoat.TabIndex = 5;
+            btnQLNV_Thoat.Text = "Thoát";
+            btnQLNV_Thoat.UseVisualStyleBackColor = false;
+            // 
+            // btnQLNV_Export
+            // 
+            btnQLNV_Export.BackColor = SystemColors.ButtonHighlight;
+            btnQLNV_Export.FlatAppearance.BorderColor = Color.Gainsboro;
+            btnQLNV_Export.FlatAppearance.BorderSize = 0;
+            btnQLNV_Export.FlatStyle = FlatStyle.Flat;
+            btnQLNV_Export.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
+            btnQLNV_Export.Location = new Point(539, 42);
+            btnQLNV_Export.Name = "btnQLNV_Export";
+            btnQLNV_Export.Size = new Size(124, 68);
+            btnQLNV_Export.TabIndex = 4;
+            btnQLNV_Export.Text = "Export";
+            btnQLNV_Export.UseVisualStyleBackColor = false;
+            // 
+            // btnQLNV_Import
+            // 
+            btnQLNV_Import.BackColor = SystemColors.ButtonHighlight;
+            btnQLNV_Import.FlatAppearance.BorderColor = Color.Gainsboro;
+            btnQLNV_Import.FlatAppearance.BorderSize = 0;
+            btnQLNV_Import.FlatStyle = FlatStyle.Flat;
+            btnQLNV_Import.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
+            btnQLNV_Import.Location = new Point(295, 140);
+            btnQLNV_Import.Name = "btnQLNV_Import";
+            btnQLNV_Import.Size = new Size(124, 68);
+            btnQLNV_Import.TabIndex = 3;
+            btnQLNV_Import.Text = "Import";
+            btnQLNV_Import.UseVisualStyleBackColor = false;
+            // 
+            // btnQLNV_Xoa
+            // 
+            btnQLNV_Xoa.BackColor = SystemColors.ButtonHighlight;
+            btnQLNV_Xoa.FlatAppearance.BorderColor = Color.Gainsboro;
+            btnQLNV_Xoa.FlatAppearance.BorderSize = 0;
+            btnQLNV_Xoa.FlatStyle = FlatStyle.Flat;
+            btnQLNV_Xoa.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
+            btnQLNV_Xoa.Image = Properties.Resources.Delete;
+            btnQLNV_Xoa.ImageAlign = ContentAlignment.MiddleLeft;
+            btnQLNV_Xoa.Location = new Point(51, 140);
+            btnQLNV_Xoa.Name = "btnQLNV_Xoa";
+            btnQLNV_Xoa.Size = new Size(124, 68);
+            btnQLNV_Xoa.TabIndex = 2;
+            btnQLNV_Xoa.Text = "Xóa";
+            btnQLNV_Xoa.UseVisualStyleBackColor = false;
+            // 
+            // btnQLNV_Sua
+            // 
+            btnQLNV_Sua.BackColor = SystemColors.ButtonHighlight;
+            btnQLNV_Sua.FlatAppearance.BorderColor = Color.Gainsboro;
+            btnQLNV_Sua.FlatAppearance.BorderSize = 0;
+            btnQLNV_Sua.FlatStyle = FlatStyle.Flat;
+            btnQLNV_Sua.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
+            btnQLNV_Sua.Image = Properties.Resources.Edit;
+            btnQLNV_Sua.ImageAlign = ContentAlignment.MiddleLeft;
+            btnQLNV_Sua.Location = new Point(295, 42);
+            btnQLNV_Sua.Name = "btnQLNV_Sua";
+            btnQLNV_Sua.Size = new Size(124, 68);
+            btnQLNV_Sua.TabIndex = 1;
+            btnQLNV_Sua.Text = "Sửa";
+            btnQLNV_Sua.UseVisualStyleBackColor = false;
+            // 
+            // btnQLNV_Them
+            // 
+            btnQLNV_Them.BackColor = SystemColors.ButtonHighlight;
+            btnQLNV_Them.FlatAppearance.BorderColor = Color.Gainsboro;
+            btnQLNV_Them.FlatAppearance.BorderSize = 0;
+            btnQLNV_Them.FlatStyle = FlatStyle.Flat;
+            btnQLNV_Them.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
+            btnQLNV_Them.Image = Properties.Resources.New;
+            btnQLNV_Them.ImageAlign = ContentAlignment.MiddleLeft;
+            btnQLNV_Them.Location = new Point(51, 42);
+            btnQLNV_Them.Name = "btnQLNV_Them";
+            btnQLNV_Them.Size = new Size(124, 68);
+            btnQLNV_Them.TabIndex = 0;
+            btnQLNV_Them.Text = "Thêm";
+            btnQLNV_Them.UseVisualStyleBackColor = false;
             // 
             // UC_QLNV
             // 
             AutoScaleDimensions = new SizeF(13F, 32F);
             AutoScaleMode = AutoScaleMode.Font;
-            Controls.Add(tableLayoutPanel2);
+            Controls.Add(tlpQLNV);
             Name = "UC_QLNV";
             Size = new Size(1420, 1000);
-            tableLayoutPanel1.ResumeLayout(false);
-            panel1.ResumeLayout(false);
-            panel1.PerformLayout();
-            groupBox2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)dgvQLNV).EndInit();
-            tableLayoutPanel2.ResumeLayout(false);
-            panel2.ResumeLayout(false);
-            panel2.PerformLayout();
-            groupBox1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
-            panel3.ResumeLayout(false);
-            groupBox3.ResumeLayout(false);
-            groupBox3.PerformLayout();
+            tlpQLNV.ResumeLayout(false);
+            pnQLNV.ResumeLayout(false);
+            pnQLNV.PerformLayout();
+            grbQLNV_HT.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)dgvNV).EndInit();
+            pnQLNV_TT.ResumeLayout(false);
+            grbQLNV_TT.ResumeLayout(false);
+            grbQLNV_TT.PerformLayout();
             gboxGioiTinh.ResumeLayout(false);
             gboxGioiTinh.PerformLayout();
-            splitContainer1.Panel1.ResumeLayout(false);
-            splitContainer1.Panel2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)splitContainer1).EndInit();
-            splitContainer1.ResumeLayout(false);
-            groupBox4.ResumeLayout(false);
-            groupBox4.PerformLayout();
-            groupBox5.ResumeLayout(false);
+            splQLNV_TK_CN.Panel1.ResumeLayout(false);
+            splQLNV_TK_CN.Panel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)splQLNV_TK_CN).EndInit();
+            splQLNV_TK_CN.ResumeLayout(false);
+            grbQLNV_TK.ResumeLayout(false);
+            grbQLNV_TK.PerformLayout();
+            grbQLNV_CN.ResumeLayout(false);
             ResumeLayout(false);
         }
 
         #endregion
 
-        private TableLayoutPanel tableLayoutPanel1;
-        private Panel panel1;
-        private Label label1;
-        private GroupBox groupBox2;
-        private DataGridView dgvQLNV;
-        private DataGridViewTextBoxColumn Column1;
-        private DataGridViewTextBoxColumn Column2;
-        private DataGridViewTextBoxColumn Column3;
-        private DataGridViewTextBoxColumn Column4;
-        private DataGridViewTextBoxColumn Column5;
-        private DataGridViewTextBoxColumn Column6;
-        private DataGridViewTextBoxColumn Column7;
-        private DataGridViewTextBoxColumn Column8;
-        private DataGridViewTextBoxColumn Column9;
-        private TableLayoutPanel tableLayoutPanel2;
-        private Panel panel2;
-        private Label label2;
-        private GroupBox groupBox1;
-        private DataGridView dataGridView1;
+        private TableLayoutPanel tlpQLNV;
+        private Panel pnQLNV;
+        private Label lbQLNV;
+        private GroupBox grbQLNV_HT;
+        private DataGridView dgvNV;
         private DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
         private DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
         private DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
@@ -829,41 +671,41 @@
         private DataGridViewTextBoxColumn dataGridViewTextBoxColumn7;
         private DataGridViewTextBoxColumn dataGridViewTextBoxColumn8;
         private DataGridViewTextBoxColumn dataGridViewTextBoxColumn9;
-        private Panel panel3;
-        private GroupBox groupBox3;
-        private Label label6;
+        private Panel pnQLNV_TT;
+        private GroupBox grbQLNV_TT;
+        private Label lbQLNV_GioiTinh;
         private GroupBox gboxGioiTinh;
-        private RadioButton radNam;
-        private RadioButton radNu;
-        private DateTimePicker dtpNgaySinh;
-        private TextBox txtHoTen;
-        private TextBox txtEmail;
-        private TextBox txtDiaChi;
-        private TextBox txtSDT;
-        private TextBox txtUserID;
-        private TextBox txtMaCN;
-        private TextBox txtMaNV;
-        private Label label10;
-        private Label label9;
-        private Label label8;
-        private Label label7;
-        private Label label5;
-        private Label label4;
-        private Label label3;
-        private Label label11;
-        private SplitContainer splitContainer1;
-        private GroupBox groupBox4;
-        private TextBox textBox2;
-        private RadioButton radioButton2;
-        private TextBox textBox1;
-        private RadioButton radioButton1;
-        private Button button7;
-        private GroupBox groupBox5;
-        private Button btnQLNV_Back;
-        private Button button5;
-        private Button button4;
-        private Button button3;
-        private Button button2;
-        private Button button1;
+        private RadioButton rdbQLNV_Nam;
+        private RadioButton rdbQLNV_Nu;
+        private DateTimePicker dtpQLNV_NgaySinh;
+        private TextBox txtQLNV_HoTen;
+        private TextBox txtQLNV_Email;
+        private TextBox txtQLNV_DiaChi;
+        private TextBox txtQLNV_SDT;
+        private TextBox txtQLNV_UserID;
+        private TextBox txtQLNV_MaCN;
+        private TextBox txtQLNV_MaNV;
+        private Label lbQLNV_DiaChi;
+        private Label lbQLNV_Email;
+        private Label lbQLNV_SDT;
+        private Label lbQLNV_NgaySinh;
+        private Label lbQLNV_HoTen;
+        private Label lbQLNV_MaCN;
+        private Label lbQLNV_UserID;
+        private Label lbQLNV_MaNV;
+        private SplitContainer splQLNV_TK_CN;
+        private GroupBox grbQLNV_TK;
+        private TextBox txtQLNV_TK_TenNV;
+        private RadioButton rdbQLNV_TenNV;
+        private TextBox txtQLNV_TK_MaNV;
+        private RadioButton rdbQLNV_MaNV;
+        private Button btnQLNV_Tim;
+        private GroupBox grbQLNV_CN;
+        private Button btnQLNV_Thoat;
+        private Button btnQLNV_Export;
+        private Button btnQLNV_Import;
+        private Button btnQLNV_Xoa;
+        private Button btnQLNV_Sua;
+        private Button btnQLNV_Them;
     }
 }

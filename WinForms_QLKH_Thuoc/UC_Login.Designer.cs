@@ -28,77 +28,78 @@
         /// </summary>
         private void InitializeComponent()
         {
-            tableLayoutPanel1 = new TableLayoutPanel();
-            panel1 = new Panel();
-            label1 = new Label();
-            panel2 = new Panel();
+            tlpLogin = new TableLayoutPanel();
+            pnLogin = new Panel();
+            lbLogin = new Label();
+            pnLoginText = new Panel();
             btnLogin = new Button();
-            pictureBox1 = new PictureBox();
+            picLogin = new PictureBox();
             txtLogin_Password = new TextBox();
-            label3 = new Label();
+            lbLogin_Password = new Label();
             txtLogin_UserName = new TextBox();
-            label2 = new Label();
-            tableLayoutPanel1.SuspendLayout();
-            panel1.SuspendLayout();
-            panel2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
+            lbLogin_UserName = new Label();
+            tlpLogin.SuspendLayout();
+            pnLogin.SuspendLayout();
+            pnLoginText.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)picLogin).BeginInit();
             SuspendLayout();
             // 
-            // tableLayoutPanel1
+            // tlpLogin
             // 
-            tableLayoutPanel1.ColumnCount = 1;
-            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 50F));
-            tableLayoutPanel1.Controls.Add(panel1, 0, 0);
-            tableLayoutPanel1.Controls.Add(panel2, 0, 1);
-            tableLayoutPanel1.Dock = DockStyle.Fill;
-            tableLayoutPanel1.Location = new Point(0, 0);
-            tableLayoutPanel1.Name = "tableLayoutPanel1";
-            tableLayoutPanel1.RowCount = 2;
-            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 25.2809F));
-            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 74.7191F));
-            tableLayoutPanel1.Size = new Size(864, 897);
-            tableLayoutPanel1.TabIndex = 0;
+            tlpLogin.ColumnCount = 1;
+            tlpLogin.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 50F));
+            tlpLogin.Controls.Add(pnLogin, 0, 0);
+            tlpLogin.Controls.Add(pnLoginText, 0, 1);
+            tlpLogin.Dock = DockStyle.Fill;
+            tlpLogin.Location = new Point(0, 0);
+            tlpLogin.Name = "tlpLogin";
+            tlpLogin.RowCount = 2;
+            tlpLogin.RowStyles.Add(new RowStyle(SizeType.Percent, 25.2809F));
+            tlpLogin.RowStyles.Add(new RowStyle(SizeType.Percent, 74.7191F));
+            tlpLogin.Size = new Size(864, 897);
+            tlpLogin.TabIndex = 0;
             // 
-            // panel1
+            // pnLogin
             // 
-            panel1.BackgroundImage = Properties.Resources.bgThuoc1;
-            panel1.Controls.Add(label1);
-            panel1.Dock = DockStyle.Fill;
-            panel1.Location = new Point(3, 3);
-            panel1.Name = "panel1";
-            panel1.Size = new Size(858, 220);
-            panel1.TabIndex = 0;
+            pnLogin.BackgroundImage = Properties.Resources.bgThuoc1;
+            pnLogin.Controls.Add(lbLogin);
+            pnLogin.Dock = DockStyle.Fill;
+            pnLogin.Location = new Point(3, 3);
+            pnLogin.Name = "pnLogin";
+            pnLogin.Size = new Size(858, 220);
+            pnLogin.TabIndex = 0;
             // 
-            // label1
+            // lbLogin
             // 
-            label1.AutoSize = true;
-            label1.BackColor = Color.Transparent;
-            label1.Font = new Font("Segoe UI", 30F, FontStyle.Bold, GraphicsUnit.Point);
-            label1.Location = new Point(64, 59);
-            label1.Name = "label1";
-            label1.Size = new Size(290, 106);
-            label1.TabIndex = 0;
-            label1.Text = "LOGIN";
+            lbLogin.AutoSize = true;
+            lbLogin.BackColor = Color.Transparent;
+            lbLogin.Font = new Font("Segoe UI", 30F, FontStyle.Bold, GraphicsUnit.Point);
+            lbLogin.Location = new Point(64, 59);
+            lbLogin.Name = "lbLogin";
+            lbLogin.Size = new Size(290, 106);
+            lbLogin.TabIndex = 0;
+            lbLogin.Text = "LOGIN";
             // 
-            // panel2
+            // pnLoginText
             // 
-            panel2.BackColor = SystemColors.ControlLightLight;
-            panel2.Controls.Add(btnLogin);
-            panel2.Controls.Add(pictureBox1);
-            panel2.Controls.Add(txtLogin_Password);
-            panel2.Controls.Add(label3);
-            panel2.Controls.Add(txtLogin_UserName);
-            panel2.Controls.Add(label2);
-            panel2.Dock = DockStyle.Fill;
-            panel2.Location = new Point(3, 229);
-            panel2.Name = "panel2";
-            panel2.Size = new Size(858, 665);
-            panel2.TabIndex = 1;
+            pnLoginText.BackColor = SystemColors.Control;
+            pnLoginText.Controls.Add(btnLogin);
+            pnLoginText.Controls.Add(picLogin);
+            pnLoginText.Controls.Add(txtLogin_Password);
+            pnLoginText.Controls.Add(lbLogin_Password);
+            pnLoginText.Controls.Add(txtLogin_UserName);
+            pnLoginText.Controls.Add(lbLogin_UserName);
+            pnLoginText.Dock = DockStyle.Fill;
+            pnLoginText.Location = new Point(3, 229);
+            pnLoginText.Name = "pnLoginText";
+            pnLoginText.Size = new Size(858, 665);
+            pnLoginText.TabIndex = 1;
             // 
             // btnLogin
             // 
-            btnLogin.BackColor = SystemColors.ActiveCaption;
+            btnLogin.BackColor = SystemColors.Highlight;
             btnLogin.Font = new Font("Segoe UI", 16.125F, FontStyle.Bold, GraphicsUnit.Point);
+            btnLogin.ForeColor = SystemColors.ButtonHighlight;
             btnLogin.Location = new Point(568, 425);
             btnLogin.Name = "btnLogin";
             btnLogin.Size = new Size(206, 113);
@@ -106,16 +107,16 @@
             btnLogin.Text = "Login";
             btnLogin.UseVisualStyleBackColor = false;
             // 
-            // pictureBox1
+            // picLogin
             // 
-            pictureBox1.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
-            pictureBox1.Image = Properties.Resources.bgThuoc2;
-            pictureBox1.Location = new Point(-3, 282);
-            pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(646, 386);
-            pictureBox1.SizeMode = PictureBoxSizeMode.AutoSize;
-            pictureBox1.TabIndex = 4;
-            pictureBox1.TabStop = false;
+            picLogin.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
+            picLogin.Image = Properties.Resources.bgThuoc2;
+            picLogin.Location = new Point(-3, 282);
+            picLogin.Name = "picLogin";
+            picLogin.Size = new Size(646, 386);
+            picLogin.SizeMode = PictureBoxSizeMode.AutoSize;
+            picLogin.TabIndex = 4;
+            picLogin.TabStop = false;
             // 
             // txtLogin_Password
             // 
@@ -126,15 +127,15 @@
             txtLogin_Password.Size = new Size(423, 54);
             txtLogin_Password.TabIndex = 3;
             // 
-            // label3
+            // lbLogin_Password
             // 
-            label3.AutoSize = true;
-            label3.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            label3.Location = new Point(64, 171);
-            label3.Name = "label3";
-            label3.Size = new Size(153, 45);
-            label3.TabIndex = 2;
-            label3.Text = "Password";
+            lbLogin_Password.AutoSize = true;
+            lbLogin_Password.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            lbLogin_Password.Location = new Point(64, 171);
+            lbLogin_Password.Name = "lbLogin_Password";
+            lbLogin_Password.Size = new Size(153, 45);
+            lbLogin_Password.TabIndex = 2;
+            lbLogin_Password.Text = "Password";
             // 
             // txtLogin_UserName
             // 
@@ -144,43 +145,43 @@
             txtLogin_UserName.Size = new Size(423, 54);
             txtLogin_UserName.TabIndex = 1;
             // 
-            // label2
+            // lbLogin_UserName
             // 
-            label2.AutoSize = true;
-            label2.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            label2.Location = new Point(64, 60);
-            label2.Name = "label2";
-            label2.Size = new Size(169, 45);
-            label2.TabIndex = 0;
-            label2.Text = "UserName";
+            lbLogin_UserName.AutoSize = true;
+            lbLogin_UserName.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            lbLogin_UserName.Location = new Point(64, 60);
+            lbLogin_UserName.Name = "lbLogin_UserName";
+            lbLogin_UserName.Size = new Size(169, 45);
+            lbLogin_UserName.TabIndex = 0;
+            lbLogin_UserName.Text = "UserName";
             // 
             // UC_Login
             // 
             AutoScaleDimensions = new SizeF(13F, 32F);
             AutoScaleMode = AutoScaleMode.Font;
-            Controls.Add(tableLayoutPanel1);
+            Controls.Add(tlpLogin);
             Name = "UC_Login";
             Size = new Size(864, 897);
-            tableLayoutPanel1.ResumeLayout(false);
-            panel1.ResumeLayout(false);
-            panel1.PerformLayout();
-            panel2.ResumeLayout(false);
-            panel2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
+            tlpLogin.ResumeLayout(false);
+            pnLogin.ResumeLayout(false);
+            pnLogin.PerformLayout();
+            pnLoginText.ResumeLayout(false);
+            pnLoginText.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)picLogin).EndInit();
             ResumeLayout(false);
         }
 
         #endregion
 
-        private TableLayoutPanel tableLayoutPanel1;
-        private Panel panel1;
-        private Label label1;
-        private Panel panel2;
-        private PictureBox pictureBox1;
+        private TableLayoutPanel tlpLogin;
+        private Panel pnLogin;
+        private Label lbLogin;
+        private Panel pnLoginText;
+        private PictureBox picLogin;
         private TextBox txtLogin_Password;
-        private Label label3;
+        private Label lbLogin_Password;
         private TextBox txtLogin_UserName;
-        private Label label2;
+        private Label lbLogin_UserName;
         private Button btnLogin;
     }
 }

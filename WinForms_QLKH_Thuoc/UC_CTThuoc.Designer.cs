@@ -28,98 +28,104 @@
         /// </summary>
         private void InitializeComponent()
         {
-            tableLayoutPanel1 = new TableLayoutPanel();
-            panel1 = new Panel();
-            label1 = new Label();
+            tlpCTT = new TableLayoutPanel();
+            pnCTT = new Panel();
+            lbCTT = new Label();
             grbCCT_TT = new GroupBox();
             btnCTT_Sua = new Button();
             numCTT_SoLuong = new NumericUpDown();
             txtCTT_GhiChu = new TextBox();
             txtCTT_MaThuoc = new TextBox();
             txtCTT_MaLo = new TextBox();
-            label5 = new Label();
-            label4 = new Label();
-            label3 = new Label();
-            label2 = new Label();
-            tableLayoutPanel1.SuspendLayout();
-            panel1.SuspendLayout();
+            lbCTT_GhiChu = new Label();
+            lbCTT_MaThuoc = new Label();
+            lbCTT_SoLuong = new Label();
+            lbCTT_MaLo = new Label();
+            tlpCTT.SuspendLayout();
+            pnCTT.SuspendLayout();
             grbCCT_TT.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)numCTT_SoLuong).BeginInit();
             SuspendLayout();
             // 
-            // tableLayoutPanel1
+            // tlpCTT
             // 
-            tableLayoutPanel1.ColumnCount = 1;
-            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 50F));
-            tableLayoutPanel1.Controls.Add(panel1, 0, 0);
-            tableLayoutPanel1.Controls.Add(grbCCT_TT, 0, 1);
-            tableLayoutPanel1.Location = new Point(0, 0);
-            tableLayoutPanel1.Name = "tableLayoutPanel1";
-            tableLayoutPanel1.RowCount = 2;
-            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 19.545454F));
-            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 80.4545441F));
-            tableLayoutPanel1.Size = new Size(634, 642);
-            tableLayoutPanel1.TabIndex = 1;
+            tlpCTT.ColumnCount = 1;
+            tlpCTT.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 50F));
+            tlpCTT.Controls.Add(pnCTT, 0, 0);
+            tlpCTT.Controls.Add(grbCCT_TT, 0, 1);
+            tlpCTT.Dock = DockStyle.Fill;
+            tlpCTT.Location = new Point(0, 0);
+            tlpCTT.Name = "tlpCTT";
+            tlpCTT.RowCount = 2;
+            tlpCTT.RowStyles.Add(new RowStyle(SizeType.Percent, 16.9781933F));
+            tlpCTT.RowStyles.Add(new RowStyle(SizeType.Percent, 83.0218048F));
+            tlpCTT.Size = new Size(634, 641);
+            tlpCTT.TabIndex = 1;
             // 
-            // panel1
+            // pnCTT
             // 
-            panel1.BackColor = SystemColors.ActiveCaption;
-            panel1.Controls.Add(label1);
-            panel1.Dock = DockStyle.Fill;
-            panel1.Location = new Point(3, 3);
-            panel1.Name = "panel1";
-            panel1.Size = new Size(628, 119);
-            panel1.TabIndex = 0;
+            pnCTT.BackColor = Color.FromArgb(63, 139, 208);
+            pnCTT.Controls.Add(lbCTT);
+            pnCTT.Dock = DockStyle.Fill;
+            pnCTT.Location = new Point(3, 3);
+            pnCTT.Name = "pnCTT";
+            pnCTT.Size = new Size(628, 102);
+            pnCTT.TabIndex = 0;
             // 
-            // label1
+            // lbCTT
             // 
-            label1.AutoSize = true;
-            label1.Font = new Font("Segoe UI", 13.875F, FontStyle.Bold, GraphicsUnit.Point);
-            label1.Location = new Point(161, 33);
-            label1.Name = "label1";
-            label1.Size = new Size(309, 50);
-            label1.TabIndex = 0;
-            label1.Text = "CHI TIẾT THUỐC";
+            lbCTT.AutoSize = true;
+            lbCTT.Font = new Font("Segoe UI", 13.875F, FontStyle.Bold, GraphicsUnit.Point);
+            lbCTT.ForeColor = SystemColors.ButtonHighlight;
+            lbCTT.Location = new Point(161, 33);
+            lbCTT.Name = "lbCTT";
+            lbCTT.Size = new Size(309, 50);
+            lbCTT.TabIndex = 0;
+            lbCTT.Text = "CHI TIẾT THUỐC";
             // 
             // grbCCT_TT
             // 
-            grbCCT_TT.BackColor = SystemColors.ControlLightLight;
+            grbCCT_TT.BackColor = SystemColors.Control;
             grbCCT_TT.Controls.Add(btnCTT_Sua);
             grbCCT_TT.Controls.Add(numCTT_SoLuong);
             grbCCT_TT.Controls.Add(txtCTT_GhiChu);
             grbCCT_TT.Controls.Add(txtCTT_MaThuoc);
             grbCCT_TT.Controls.Add(txtCTT_MaLo);
-            grbCCT_TT.Controls.Add(label5);
-            grbCCT_TT.Controls.Add(label4);
-            grbCCT_TT.Controls.Add(label3);
-            grbCCT_TT.Controls.Add(label2);
+            grbCCT_TT.Controls.Add(lbCTT_GhiChu);
+            grbCCT_TT.Controls.Add(lbCTT_MaThuoc);
+            grbCCT_TT.Controls.Add(lbCTT_SoLuong);
+            grbCCT_TT.Controls.Add(lbCTT_MaLo);
             grbCCT_TT.Dock = DockStyle.Fill;
-            grbCCT_TT.Location = new Point(3, 128);
+            grbCCT_TT.Font = new Font("Segoe UI", 10.125F, FontStyle.Regular, GraphicsUnit.Point);
+            grbCCT_TT.Location = new Point(3, 111);
             grbCCT_TT.Name = "grbCCT_TT";
-            grbCCT_TT.Size = new Size(628, 511);
+            grbCCT_TT.Size = new Size(628, 527);
             grbCCT_TT.TabIndex = 1;
             grbCCT_TT.TabStop = false;
             grbCCT_TT.Text = "Thông tin";
             // 
             // btnCTT_Sua
             // 
-            btnCTT_Sua.Location = new Point(444, 432);
+            btnCTT_Sua.BackColor = SystemColors.Highlight;
+            btnCTT_Sua.Font = new Font("Segoe UI", 10.125F, FontStyle.Bold, GraphicsUnit.Point);
+            btnCTT_Sua.ForeColor = SystemColors.ButtonHighlight;
+            btnCTT_Sua.Location = new Point(459, 430);
             btnCTT_Sua.Name = "btnCTT_Sua";
-            btnCTT_Sua.Size = new Size(150, 46);
+            btnCTT_Sua.Size = new Size(135, 57);
             btnCTT_Sua.TabIndex = 8;
             btnCTT_Sua.Text = "Sửa";
-            btnCTT_Sua.UseVisualStyleBackColor = true;
+            btnCTT_Sua.UseVisualStyleBackColor = false;
             // 
             // numCTT_SoLuong
             // 
             numCTT_SoLuong.Location = new Point(216, 239);
             numCTT_SoLuong.Name = "numCTT_SoLuong";
-            numCTT_SoLuong.Size = new Size(167, 39);
+            numCTT_SoLuong.Size = new Size(167, 43);
             numCTT_SoLuong.TabIndex = 7;
             // 
             // txtCTT_GhiChu
             // 
-            txtCTT_GhiChu.Location = new Point(216, 310);
+            txtCTT_GhiChu.Location = new Point(216, 318);
             txtCTT_GhiChu.Multiline = true;
             txtCTT_GhiChu.Name = "txtCTT_GhiChu";
             txtCTT_GhiChu.Size = new Size(378, 76);
@@ -127,64 +133,64 @@
             // 
             // txtCTT_MaThuoc
             // 
-            txtCTT_MaThuoc.Location = new Point(216, 165);
+            txtCTT_MaThuoc.Location = new Point(216, 157);
             txtCTT_MaThuoc.Name = "txtCTT_MaThuoc";
-            txtCTT_MaThuoc.Size = new Size(378, 39);
+            txtCTT_MaThuoc.Size = new Size(378, 43);
             txtCTT_MaThuoc.TabIndex = 5;
             // 
             // txtCTT_MaLo
             // 
-            txtCTT_MaLo.Location = new Point(216, 88);
+            txtCTT_MaLo.Location = new Point(216, 72);
             txtCTT_MaLo.Name = "txtCTT_MaLo";
-            txtCTT_MaLo.Size = new Size(378, 39);
+            txtCTT_MaLo.Size = new Size(378, 43);
             txtCTT_MaLo.TabIndex = 4;
             // 
-            // label5
+            // lbCTT_GhiChu
             // 
-            label5.AutoSize = true;
-            label5.Location = new Point(27, 326);
-            label5.Name = "label5";
-            label5.Size = new Size(96, 32);
-            label5.TabIndex = 3;
-            label5.Text = "Ghi chú";
+            lbCTT_GhiChu.AutoSize = true;
+            lbCTT_GhiChu.Location = new Point(30, 334);
+            lbCTT_GhiChu.Name = "lbCTT_GhiChu";
+            lbCTT_GhiChu.Size = new Size(107, 37);
+            lbCTT_GhiChu.TabIndex = 3;
+            lbCTT_GhiChu.Text = "Ghi chú";
             // 
-            // label4
+            // lbCTT_MaThuoc
             // 
-            label4.AutoSize = true;
-            label4.Location = new Point(27, 168);
-            label4.Name = "label4";
-            label4.Size = new Size(116, 32);
-            label4.TabIndex = 2;
-            label4.Text = "Mã thuốc";
+            lbCTT_MaThuoc.AutoSize = true;
+            lbCTT_MaThuoc.Location = new Point(30, 160);
+            lbCTT_MaThuoc.Name = "lbCTT_MaThuoc";
+            lbCTT_MaThuoc.Size = new Size(129, 37);
+            lbCTT_MaThuoc.TabIndex = 2;
+            lbCTT_MaThuoc.Text = "Mã thuốc";
             // 
-            // label3
+            // lbCTT_SoLuong
             // 
-            label3.AutoSize = true;
-            label3.Location = new Point(27, 246);
-            label3.Name = "label3";
-            label3.Size = new Size(110, 32);
-            label3.TabIndex = 1;
-            label3.Text = "Số lượng";
+            lbCTT_SoLuong.AutoSize = true;
+            lbCTT_SoLuong.Location = new Point(30, 246);
+            lbCTT_SoLuong.Name = "lbCTT_SoLuong";
+            lbCTT_SoLuong.Size = new Size(124, 37);
+            lbCTT_SoLuong.TabIndex = 1;
+            lbCTT_SoLuong.Text = "Số lượng";
             // 
-            // label2
+            // lbCTT_MaLo
             // 
-            label2.AutoSize = true;
-            label2.Location = new Point(21, 87);
-            label2.Name = "label2";
-            label2.Size = new Size(75, 32);
-            label2.TabIndex = 0;
-            label2.Text = "Mã lô";
+            lbCTT_MaLo.AutoSize = true;
+            lbCTT_MaLo.Location = new Point(30, 71);
+            lbCTT_MaLo.Name = "lbCTT_MaLo";
+            lbCTT_MaLo.Size = new Size(85, 37);
+            lbCTT_MaLo.TabIndex = 0;
+            lbCTT_MaLo.Text = "Mã lô";
             // 
             // UC_CTThuoc
             // 
             AutoScaleDimensions = new SizeF(13F, 32F);
             AutoScaleMode = AutoScaleMode.Font;
-            Controls.Add(tableLayoutPanel1);
+            Controls.Add(tlpCTT);
             Name = "UC_CTThuoc";
-            Size = new Size(634, 646);
-            tableLayoutPanel1.ResumeLayout(false);
-            panel1.ResumeLayout(false);
-            panel1.PerformLayout();
+            Size = new Size(634, 641);
+            tlpCTT.ResumeLayout(false);
+            pnCTT.ResumeLayout(false);
+            pnCTT.PerformLayout();
             grbCCT_TT.ResumeLayout(false);
             grbCCT_TT.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)numCTT_SoLuong).EndInit();
@@ -193,18 +199,18 @@
 
         #endregion
 
-        private TableLayoutPanel tableLayoutPanel1;
-        private Panel panel1;
-        private Label label1;
+        private TableLayoutPanel tlpCTT;
+        private Panel pnCTT;
+        private Label lbCTT;
         private GroupBox grbCCT_TT;
         private Button btnCTT_Sua;
         private NumericUpDown numCTT_SoLuong;
         private TextBox txtCTT_GhiChu;
         private TextBox txtCTT_MaThuoc;
         private TextBox txtCTT_MaLo;
-        private Label label5;
-        private Label label4;
-        private Label label3;
-        private Label label2;
+        private Label lbCTT_GhiChu;
+        private Label lbCTT_MaThuoc;
+        private Label lbCTT_SoLuong;
+        private Label lbCTT_MaLo;
     }
 }

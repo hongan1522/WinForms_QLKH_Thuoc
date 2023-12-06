@@ -32,8 +32,8 @@
             tlpFrmMain = new TableLayoutPanel();
             pnlSideBar = new Panel();
             pnlSubMenuDsnv = new Panel();
-            button1 = new Button();
-            btnDsnv = new Button();
+            btnUser = new Button();
+            btnQLNV = new Button();
             panel12 = new Panel();
             btnLogout = new Button();
             pnlQuanLyNhanVien = new Panel();
@@ -41,17 +41,17 @@
             btnQLNS = new Button();
             pnlSubMenuQLTK = new Panel();
             pnlSubMenuDssp = new Panel();
-            btnDsnt = new Button();
-            btnDst = new Button();
+            btnQLNT = new Button();
+            btnQLT = new Button();
             pnlDssp = new Panel();
             pbArrowQLSP = new PictureBox();
             btnQuanLySanPham = new Button();
             pnlSubMenuKho = new Panel();
             btnQLDX = new Button();
             btnQLDN = new Button();
-            btnDsl = new Button();
-            btnDsk = new Button();
-            btnDscn = new Button();
+            btnQLLo = new Button();
+            btnQLK = new Button();
+            btnQLCN = new Button();
             pnlDsKho = new Panel();
             pbArrowQLK = new PictureBox();
             btnQuanLyKho = new Button();
@@ -123,8 +123,8 @@
             // 
             pnlSubMenuDsnv.AutoScroll = true;
             pnlSubMenuDsnv.AutoSize = true;
-            pnlSubMenuDsnv.Controls.Add(button1);
-            pnlSubMenuDsnv.Controls.Add(btnDsnv);
+            pnlSubMenuDsnv.Controls.Add(btnUser);
+            pnlSubMenuDsnv.Controls.Add(btnQLNV);
             pnlSubMenuDsnv.Controls.Add(panel12);
             pnlSubMenuDsnv.Dock = DockStyle.Top;
             pnlSubMenuDsnv.Location = new Point(0, 798);
@@ -133,41 +133,41 @@
             pnlSubMenuDsnv.Size = new Size(459, 199);
             pnlSubMenuDsnv.TabIndex = 17;
             // 
-            // button1
+            // btnUser
             // 
-            button1.BackColor = Color.Gray;
-            button1.Dock = DockStyle.Top;
-            button1.FlatAppearance.BorderSize = 0;
-            button1.FlatStyle = FlatStyle.Flat;
-            button1.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
-            button1.ForeColor = Color.White;
-            button1.Location = new Point(0, 58);
-            button1.Margin = new Padding(4);
-            button1.Name = "button1";
-            button1.Padding = new Padding(88, 0, 0, 0);
-            button1.Size = new Size(459, 64);
-            button1.TabIndex = 1;
-            button1.Text = "Danh sách tài khoản";
-            button1.TextAlign = ContentAlignment.MiddleLeft;
-            button1.UseVisualStyleBackColor = false;
+            btnUser.BackColor = Color.Gray;
+            btnUser.Dock = DockStyle.Top;
+            btnUser.FlatAppearance.BorderSize = 0;
+            btnUser.FlatStyle = FlatStyle.Flat;
+            btnUser.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
+            btnUser.ForeColor = Color.White;
+            btnUser.Location = new Point(0, 58);
+            btnUser.Margin = new Padding(4);
+            btnUser.Name = "btnUser";
+            btnUser.Padding = new Padding(88, 0, 0, 0);
+            btnUser.Size = new Size(459, 64);
+            btnUser.TabIndex = 1;
+            btnUser.Text = "Danh sách tài khoản";
+            btnUser.TextAlign = ContentAlignment.MiddleLeft;
+            btnUser.UseVisualStyleBackColor = false;
             // 
-            // btnDsnv
+            // btnQLNV
             // 
-            btnDsnv.BackColor = Color.Gray;
-            btnDsnv.Dock = DockStyle.Top;
-            btnDsnv.FlatAppearance.BorderSize = 0;
-            btnDsnv.FlatStyle = FlatStyle.Flat;
-            btnDsnv.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
-            btnDsnv.ForeColor = Color.White;
-            btnDsnv.Location = new Point(0, 0);
-            btnDsnv.Margin = new Padding(4);
-            btnDsnv.Name = "btnDsnv";
-            btnDsnv.Padding = new Padding(88, 0, 0, 0);
-            btnDsnv.Size = new Size(459, 58);
-            btnDsnv.TabIndex = 0;
-            btnDsnv.Text = "Danh sách nhân viên";
-            btnDsnv.TextAlign = ContentAlignment.MiddleLeft;
-            btnDsnv.UseVisualStyleBackColor = false;
+            btnQLNV.BackColor = Color.Gray;
+            btnQLNV.Dock = DockStyle.Top;
+            btnQLNV.FlatAppearance.BorderSize = 0;
+            btnQLNV.FlatStyle = FlatStyle.Flat;
+            btnQLNV.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
+            btnQLNV.ForeColor = Color.White;
+            btnQLNV.Location = new Point(0, 0);
+            btnQLNV.Margin = new Padding(4);
+            btnQLNV.Name = "btnQLNV";
+            btnQLNV.Padding = new Padding(88, 0, 0, 0);
+            btnQLNV.Size = new Size(459, 58);
+            btnQLNV.TabIndex = 0;
+            btnQLNV.Text = "Danh sách nhân viên";
+            btnQLNV.TextAlign = ContentAlignment.MiddleLeft;
+            btnQLNV.UseVisualStyleBackColor = false;
             // 
             // panel12
             // 
@@ -256,8 +256,8 @@
             // 
             pnlSubMenuDssp.AutoScroll = true;
             pnlSubMenuDssp.AutoSize = true;
-            pnlSubMenuDssp.Controls.Add(btnDsnt);
-            pnlSubMenuDssp.Controls.Add(btnDst);
+            pnlSubMenuDssp.Controls.Add(btnQLNT);
+            pnlSubMenuDssp.Controls.Add(btnQLT);
             pnlSubMenuDssp.Dock = DockStyle.Top;
             pnlSubMenuDssp.Location = new Point(0, 605);
             pnlSubMenuDssp.Margin = new Padding(4);
@@ -265,41 +265,41 @@
             pnlSubMenuDssp.Size = new Size(459, 116);
             pnlSubMenuDssp.TabIndex = 12;
             // 
-            // btnDsnt
+            // btnQLNT
             // 
-            btnDsnt.BackColor = Color.Gray;
-            btnDsnt.Dock = DockStyle.Top;
-            btnDsnt.FlatAppearance.BorderSize = 0;
-            btnDsnt.FlatStyle = FlatStyle.Flat;
-            btnDsnt.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
-            btnDsnt.ForeColor = Color.White;
-            btnDsnt.Location = new Point(0, 58);
-            btnDsnt.Margin = new Padding(4);
-            btnDsnt.Name = "btnDsnt";
-            btnDsnt.Padding = new Padding(88, 0, 0, 0);
-            btnDsnt.Size = new Size(459, 58);
-            btnDsnt.TabIndex = 1;
-            btnDsnt.Text = "Danh sách nhóm thuốc";
-            btnDsnt.TextAlign = ContentAlignment.MiddleLeft;
-            btnDsnt.UseVisualStyleBackColor = false;
+            btnQLNT.BackColor = Color.Gray;
+            btnQLNT.Dock = DockStyle.Top;
+            btnQLNT.FlatAppearance.BorderSize = 0;
+            btnQLNT.FlatStyle = FlatStyle.Flat;
+            btnQLNT.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
+            btnQLNT.ForeColor = Color.White;
+            btnQLNT.Location = new Point(0, 58);
+            btnQLNT.Margin = new Padding(4);
+            btnQLNT.Name = "btnQLNT";
+            btnQLNT.Padding = new Padding(88, 0, 0, 0);
+            btnQLNT.Size = new Size(459, 58);
+            btnQLNT.TabIndex = 1;
+            btnQLNT.Text = "Danh sách nhóm thuốc";
+            btnQLNT.TextAlign = ContentAlignment.MiddleLeft;
+            btnQLNT.UseVisualStyleBackColor = false;
             // 
-            // btnDst
+            // btnQLT
             // 
-            btnDst.BackColor = Color.Gray;
-            btnDst.Dock = DockStyle.Top;
-            btnDst.FlatAppearance.BorderSize = 0;
-            btnDst.FlatStyle = FlatStyle.Flat;
-            btnDst.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
-            btnDst.ForeColor = Color.White;
-            btnDst.Location = new Point(0, 0);
-            btnDst.Margin = new Padding(4);
-            btnDst.Name = "btnDst";
-            btnDst.Padding = new Padding(88, 0, 0, 0);
-            btnDst.Size = new Size(459, 58);
-            btnDst.TabIndex = 0;
-            btnDst.Text = "Danh sách thuốc";
-            btnDst.TextAlign = ContentAlignment.MiddleLeft;
-            btnDst.UseVisualStyleBackColor = false;
+            btnQLT.BackColor = Color.Gray;
+            btnQLT.Dock = DockStyle.Top;
+            btnQLT.FlatAppearance.BorderSize = 0;
+            btnQLT.FlatStyle = FlatStyle.Flat;
+            btnQLT.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
+            btnQLT.ForeColor = Color.White;
+            btnQLT.Location = new Point(0, 0);
+            btnQLT.Margin = new Padding(4);
+            btnQLT.Name = "btnQLT";
+            btnQLT.Padding = new Padding(88, 0, 0, 0);
+            btnQLT.Size = new Size(459, 58);
+            btnQLT.TabIndex = 0;
+            btnQLT.Text = "Danh sách thuốc";
+            btnQLT.TextAlign = ContentAlignment.MiddleLeft;
+            btnQLT.UseVisualStyleBackColor = false;
             // 
             // pnlDssp
             // 
@@ -350,9 +350,9 @@
             pnlSubMenuKho.AutoSize = true;
             pnlSubMenuKho.Controls.Add(btnQLDX);
             pnlSubMenuKho.Controls.Add(btnQLDN);
-            pnlSubMenuKho.Controls.Add(btnDsl);
-            pnlSubMenuKho.Controls.Add(btnDsk);
-            pnlSubMenuKho.Controls.Add(btnDscn);
+            pnlSubMenuKho.Controls.Add(btnQLLo);
+            pnlSubMenuKho.Controls.Add(btnQLK);
+            pnlSubMenuKho.Controls.Add(btnQLCN);
             pnlSubMenuKho.Dock = DockStyle.Top;
             pnlSubMenuKho.Location = new Point(0, 238);
             pnlSubMenuKho.Margin = new Padding(4);
@@ -398,62 +398,62 @@
             btnQLDN.TextAlign = ContentAlignment.MiddleLeft;
             btnQLDN.UseVisualStyleBackColor = false;
             // 
-            // btnDsl
+            // btnQLLo
             // 
-            btnDsl.BackColor = Color.Gray;
-            btnDsl.Dock = DockStyle.Top;
-            btnDsl.FlatAppearance.BorderSize = 0;
-            btnDsl.FlatStyle = FlatStyle.Flat;
-            btnDsl.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
-            btnDsl.ForeColor = Color.White;
-            btnDsl.ImageAlign = ContentAlignment.MiddleLeft;
-            btnDsl.Location = new Point(0, 116);
-            btnDsl.Margin = new Padding(4);
-            btnDsl.Name = "btnDsl";
-            btnDsl.Padding = new Padding(88, 0, 0, 0);
-            btnDsl.Size = new Size(459, 58);
-            btnDsl.TabIndex = 4;
-            btnDsl.Text = "Danh sách lô";
-            btnDsl.TextAlign = ContentAlignment.MiddleLeft;
-            btnDsl.UseVisualStyleBackColor = false;
+            btnQLLo.BackColor = Color.Gray;
+            btnQLLo.Dock = DockStyle.Top;
+            btnQLLo.FlatAppearance.BorderSize = 0;
+            btnQLLo.FlatStyle = FlatStyle.Flat;
+            btnQLLo.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
+            btnQLLo.ForeColor = Color.White;
+            btnQLLo.ImageAlign = ContentAlignment.MiddleLeft;
+            btnQLLo.Location = new Point(0, 116);
+            btnQLLo.Margin = new Padding(4);
+            btnQLLo.Name = "btnQLLo";
+            btnQLLo.Padding = new Padding(88, 0, 0, 0);
+            btnQLLo.Size = new Size(459, 58);
+            btnQLLo.TabIndex = 4;
+            btnQLLo.Text = "Danh sách lô";
+            btnQLLo.TextAlign = ContentAlignment.MiddleLeft;
+            btnQLLo.UseVisualStyleBackColor = false;
             // 
-            // btnDsk
+            // btnQLK
             // 
-            btnDsk.BackColor = Color.Gray;
-            btnDsk.Dock = DockStyle.Top;
-            btnDsk.FlatAppearance.BorderSize = 0;
-            btnDsk.FlatStyle = FlatStyle.Flat;
-            btnDsk.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
-            btnDsk.ForeColor = Color.White;
-            btnDsk.ImageAlign = ContentAlignment.MiddleLeft;
-            btnDsk.Location = new Point(0, 58);
-            btnDsk.Margin = new Padding(4);
-            btnDsk.Name = "btnDsk";
-            btnDsk.Padding = new Padding(88, 0, 0, 0);
-            btnDsk.Size = new Size(459, 58);
-            btnDsk.TabIndex = 0;
-            btnDsk.Text = "Danh sách kho";
-            btnDsk.TextAlign = ContentAlignment.MiddleLeft;
-            btnDsk.UseVisualStyleBackColor = false;
+            btnQLK.BackColor = Color.Gray;
+            btnQLK.Dock = DockStyle.Top;
+            btnQLK.FlatAppearance.BorderSize = 0;
+            btnQLK.FlatStyle = FlatStyle.Flat;
+            btnQLK.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
+            btnQLK.ForeColor = Color.White;
+            btnQLK.ImageAlign = ContentAlignment.MiddleLeft;
+            btnQLK.Location = new Point(0, 58);
+            btnQLK.Margin = new Padding(4);
+            btnQLK.Name = "btnQLK";
+            btnQLK.Padding = new Padding(88, 0, 0, 0);
+            btnQLK.Size = new Size(459, 58);
+            btnQLK.TabIndex = 0;
+            btnQLK.Text = "Danh sách kho";
+            btnQLK.TextAlign = ContentAlignment.MiddleLeft;
+            btnQLK.UseVisualStyleBackColor = false;
             // 
-            // btnDscn
+            // btnQLCN
             // 
-            btnDscn.BackColor = Color.Gray;
-            btnDscn.Dock = DockStyle.Top;
-            btnDscn.FlatAppearance.BorderSize = 0;
-            btnDscn.FlatStyle = FlatStyle.Flat;
-            btnDscn.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
-            btnDscn.ForeColor = Color.White;
-            btnDscn.ImageAlign = ContentAlignment.MiddleLeft;
-            btnDscn.Location = new Point(0, 0);
-            btnDscn.Margin = new Padding(4);
-            btnDscn.Name = "btnDscn";
-            btnDscn.Padding = new Padding(88, 0, 0, 0);
-            btnDscn.Size = new Size(459, 58);
-            btnDscn.TabIndex = 2;
-            btnDscn.Text = "Danh sách chi nhánh";
-            btnDscn.TextAlign = ContentAlignment.MiddleLeft;
-            btnDscn.UseVisualStyleBackColor = false;
+            btnQLCN.BackColor = Color.Gray;
+            btnQLCN.Dock = DockStyle.Top;
+            btnQLCN.FlatAppearance.BorderSize = 0;
+            btnQLCN.FlatStyle = FlatStyle.Flat;
+            btnQLCN.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
+            btnQLCN.ForeColor = Color.White;
+            btnQLCN.ImageAlign = ContentAlignment.MiddleLeft;
+            btnQLCN.Location = new Point(0, 0);
+            btnQLCN.Margin = new Padding(4);
+            btnQLCN.Name = "btnQLCN";
+            btnQLCN.Padding = new Padding(88, 0, 0, 0);
+            btnQLCN.Size = new Size(459, 58);
+            btnQLCN.TabIndex = 2;
+            btnQLCN.Text = "Danh sách chi nhánh";
+            btnQLCN.TextAlign = ContentAlignment.MiddleLeft;
+            btnQLCN.UseVisualStyleBackColor = false;
             // 
             // pnlDsKho
             // 
@@ -507,7 +507,7 @@
             pbLogo.Margin = new Padding(0);
             pbLogo.Name = "pbLogo";
             pbLogo.Size = new Size(459, 88);
-            pbLogo.SizeMode = PictureBoxSizeMode.Zoom;
+            pbLogo.SizeMode = PictureBoxSizeMode.CenterImage;
             pbLogo.TabIndex = 0;
             pbLogo.TabStop = false;
             // 
@@ -649,8 +649,8 @@
         private TableLayoutPanel tlpFrmMain;
         private Panel pnlSideBar;
         private Panel pnlSubMenuDsnv;
-        private Button button1;
-        private Button btnDsnv;
+        private Button btnUser;
+        private Button btnQLNV;
         private Panel pnlQuanLyNhanVien;
         private PictureBox pbArrowQLNV;
         private Button btnQLNS;
@@ -658,17 +658,17 @@
         private Button btnLogout;
         private Panel pnlSubMenuQLTK;
         private Panel pnlSubMenuDssp;
-        private Button btnDsnt;
-        private Button btnDst;
+        private Button btnQLNT;
+        private Button btnQLT;
         private Panel pnlDssp;
         private PictureBox pbArrowQLSP;
         private Button btnQuanLySanPham;
         private Panel pnlSubMenuKho;
         private Button btnQLDX;
         private Button btnQLDN;
-        private Button btnDsl;
-        private Button btnDsk;
-        private Button btnDscn;
+        private Button btnQLLo;
+        private Button btnQLK;
+        private Button btnQLCN;
         private Panel pnlDsKho;
         private PictureBox pbArrowQLK;
         private Button btnQuanLyKho;

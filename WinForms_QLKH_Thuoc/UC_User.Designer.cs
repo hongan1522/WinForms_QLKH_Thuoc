@@ -28,147 +28,409 @@
         /// </summary>
         private void InitializeComponent()
         {
-            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
-            tableLayoutPanel1 = new TableLayoutPanel();
-            groupBox1 = new GroupBox();
-            dataGridView1 = new DataGridView();
-            panel2 = new Panel();
-            btnUser_Back = new Button();
-            label5 = new Label();
+            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
+            tlpUser = new TableLayoutPanel();
+            splUser_TTTK_CN = new SplitContainer();
+            splUser_TT_TK = new SplitContainer();
+            grbUser_TT = new GroupBox();
+            txtUser_GhiChu = new TextBox();
+            txtUser_Password = new TextBox();
+            txtUser_UserName = new TextBox();
+            txtUser_RoleID = new TextBox();
+            txtUser_MaNV = new TextBox();
+            txtUser_UserID = new TextBox();
+            lbUser_Password = new Label();
+            lbUser_GhiChu = new Label();
+            lbUser_UserName = new Label();
+            lbUser_RoleID = new Label();
+            lbUser_MaNV = new Label();
+            lbUser_UserID = new Label();
+            grbUser_TK = new GroupBox();
+            btnUser_Tim = new Button();
+            txtUser_TK_MaNV = new TextBox();
+            txtUser_TK_UserName = new TextBox();
+            rdbUser_MaNV = new RadioButton();
+            rdbUser_UserName = new RadioButton();
+            grbUser_CN = new GroupBox();
+            btnUser_Export = new Button();
+            btnUser_Import = new Button();
+            btnUser_Xoa = new Button();
+            btnUser_Sua = new Button();
+            btnUser_Them = new Button();
+            grbUser_HT = new GroupBox();
+            dgvUser = new DataGridView();
             Column1 = new DataGridViewTextBoxColumn();
             Column2 = new DataGridViewTextBoxColumn();
             Column3 = new DataGridViewTextBoxColumn();
             Column4 = new DataGridViewTextBoxColumn();
             Column5 = new DataGridViewTextBoxColumn();
             Column6 = new DataGridViewTextBoxColumn();
-            splitContainer1 = new SplitContainer();
-            splitContainer2 = new SplitContainer();
-            groupBox2 = new GroupBox();
-            textBox4 = new TextBox();
-            tbUser_Password = new TextBox();
-            tbUser_UserName = new TextBox();
-            tbUser_RoleID = new TextBox();
-            tbUser_MaNV = new TextBox();
-            tbUser_UserID = new TextBox();
-            label6 = new Label();
-            tbUser_GhiChu = new Label();
-            label4 = new Label();
-            label3 = new Label();
-            label2 = new Label();
-            label1 = new Label();
-            groupBox4 = new GroupBox();
-            btnUser_Search = new Button();
-            tbUser_Search_MaNV = new TextBox();
-            tbUser_Search_UserName = new TextBox();
-            rdbUser_MaNV = new RadioButton();
-            rdbUser_UserName = new RadioButton();
-            groupBox3 = new GroupBox();
-            btnUser_Export = new Button();
-            btnUser_Import = new Button();
-            btnUser_Delete = new Button();
-            btnUser_Update = new Button();
-            btnUser_Add = new Button();
-            tableLayoutPanel1.SuspendLayout();
-            groupBox1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
-            panel2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)splitContainer1).BeginInit();
-            splitContainer1.Panel1.SuspendLayout();
-            splitContainer1.Panel2.SuspendLayout();
-            splitContainer1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)splitContainer2).BeginInit();
-            splitContainer2.Panel1.SuspendLayout();
-            splitContainer2.Panel2.SuspendLayout();
-            splitContainer2.SuspendLayout();
-            groupBox2.SuspendLayout();
-            groupBox4.SuspendLayout();
-            groupBox3.SuspendLayout();
+            pnUser = new Panel();
+            btnUser_Thoat = new Button();
+            lbUser = new Label();
+            tlpUser.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)splUser_TTTK_CN).BeginInit();
+            splUser_TTTK_CN.Panel1.SuspendLayout();
+            splUser_TTTK_CN.Panel2.SuspendLayout();
+            splUser_TTTK_CN.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)splUser_TT_TK).BeginInit();
+            splUser_TT_TK.Panel1.SuspendLayout();
+            splUser_TT_TK.Panel2.SuspendLayout();
+            splUser_TT_TK.SuspendLayout();
+            grbUser_TT.SuspendLayout();
+            grbUser_TK.SuspendLayout();
+            grbUser_CN.SuspendLayout();
+            grbUser_HT.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)dgvUser).BeginInit();
+            pnUser.SuspendLayout();
             SuspendLayout();
             // 
-            // tableLayoutPanel1
+            // tlpUser
             // 
-            tableLayoutPanel1.ColumnCount = 1;
-            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
-            tableLayoutPanel1.Controls.Add(splitContainer1, 0, 2);
-            tableLayoutPanel1.Controls.Add(groupBox1, 0, 1);
-            tableLayoutPanel1.Controls.Add(panel2, 0, 0);
-            tableLayoutPanel1.Dock = DockStyle.Fill;
-            tableLayoutPanel1.Location = new Point(0, 0);
-            tableLayoutPanel1.Name = "tableLayoutPanel1";
-            tableLayoutPanel1.RowCount = 3;
-            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 93F));
-            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
-            tableLayoutPanel1.RowStyles.Add(new RowStyle());
-            tableLayoutPanel1.Size = new Size(1420, 1000);
-            tableLayoutPanel1.TabIndex = 1;
+            tlpUser.ColumnCount = 1;
+            tlpUser.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
+            tlpUser.Controls.Add(splUser_TTTK_CN, 0, 2);
+            tlpUser.Controls.Add(grbUser_HT, 0, 1);
+            tlpUser.Controls.Add(pnUser, 0, 0);
+            tlpUser.Dock = DockStyle.Fill;
+            tlpUser.Font = new Font("Segoe UI", 10.125F, FontStyle.Regular, GraphicsUnit.Point);
+            tlpUser.Location = new Point(0, 0);
+            tlpUser.Name = "tlpUser";
+            tlpUser.RowCount = 3;
+            tlpUser.RowStyles.Add(new RowStyle(SizeType.Absolute, 93F));
+            tlpUser.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
+            tlpUser.RowStyles.Add(new RowStyle());
+            tlpUser.Size = new Size(1420, 1000);
+            tlpUser.TabIndex = 1;
             // 
-            // groupBox1
+            // splUser_TTTK_CN
             // 
-            groupBox1.Controls.Add(dataGridView1);
-            groupBox1.Dock = DockStyle.Fill;
-            groupBox1.Location = new Point(3, 96);
-            groupBox1.Name = "groupBox1";
-            groupBox1.Size = new Size(1414, 360);
-            groupBox1.TabIndex = 0;
-            groupBox1.TabStop = false;
-            groupBox1.Text = "Hiển thị";
+            splUser_TTTK_CN.Dock = DockStyle.Fill;
+            splUser_TTTK_CN.Location = new Point(3, 462);
+            splUser_TTTK_CN.Name = "splUser_TTTK_CN";
             // 
-            // dataGridView1
+            // splUser_TTTK_CN.Panel1
             // 
-            dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-            dataGridView1.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.DisplayedCellsExceptHeaders;
-            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle1.BackColor = SystemColors.Control;
-            dataGridViewCellStyle1.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
-            dataGridViewCellStyle1.ForeColor = SystemColors.WindowText;
-            dataGridViewCellStyle1.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
-            dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
-            dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Columns.AddRange(new DataGridViewColumn[] { Column1, Column2, Column3, Column4, Column5, Column6 });
-            dataGridView1.Dock = DockStyle.Fill;
-            dataGridView1.Location = new Point(3, 35);
-            dataGridView1.Name = "dataGridView1";
-            dataGridView1.RowHeadersWidth = 82;
-            dataGridView1.RowTemplate.Height = 41;
-            dataGridView1.Size = new Size(1408, 322);
-            dataGridView1.TabIndex = 0;
+            splUser_TTTK_CN.Panel1.Controls.Add(splUser_TT_TK);
             // 
-            // panel2
+            // splUser_TTTK_CN.Panel2
             // 
-            panel2.Controls.Add(btnUser_Back);
-            panel2.Controls.Add(label5);
-            panel2.Dock = DockStyle.Fill;
-            panel2.Location = new Point(3, 3);
-            panel2.Name = "panel2";
-            panel2.Size = new Size(1414, 87);
-            panel2.TabIndex = 3;
+            splUser_TTTK_CN.Panel2.Controls.Add(grbUser_CN);
+            splUser_TTTK_CN.Size = new Size(1414, 535);
+            splUser_TTTK_CN.SplitterDistance = 1168;
+            splUser_TTTK_CN.TabIndex = 4;
             // 
-            // btnUser_Back
+            // splUser_TT_TK
             // 
-            btnUser_Back.BackColor = Color.Red;
-            btnUser_Back.FlatStyle = FlatStyle.Popup;
-            btnUser_Back.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
-            btnUser_Back.ForeColor = Color.White;
-            btnUser_Back.Image = Properties.Resources.Logout;
-            btnUser_Back.ImageAlign = ContentAlignment.MiddleLeft;
-            btnUser_Back.Location = new Point(1144, 19);
-            btnUser_Back.Name = "btnUser_Back";
-            btnUser_Back.Size = new Size(199, 46);
-            btnUser_Back.TabIndex = 14;
-            btnUser_Back.Text = "Thoát";
-            btnUser_Back.UseVisualStyleBackColor = false;
+            splUser_TT_TK.Dock = DockStyle.Fill;
+            splUser_TT_TK.Location = new Point(0, 0);
+            splUser_TT_TK.Name = "splUser_TT_TK";
+            splUser_TT_TK.Orientation = Orientation.Horizontal;
             // 
-            // label5
+            // splUser_TT_TK.Panel1
             // 
-            label5.AutoSize = true;
-            label5.Font = new Font("Segoe UI", 13.875F, FontStyle.Bold, GraphicsUnit.Point);
-            label5.Location = new Point(510, 15);
-            label5.Name = "label5";
-            label5.Size = new Size(394, 50);
-            label5.TabIndex = 0;
-            label5.Text = "QUẢN LÝ TÀI KHOẢN";
+            splUser_TT_TK.Panel1.Controls.Add(grbUser_TT);
+            // 
+            // splUser_TT_TK.Panel2
+            // 
+            splUser_TT_TK.Panel2.Controls.Add(grbUser_TK);
+            splUser_TT_TK.Size = new Size(1168, 535);
+            splUser_TT_TK.SplitterDistance = 322;
+            splUser_TT_TK.TabIndex = 0;
+            // 
+            // grbUser_TT
+            // 
+            grbUser_TT.Controls.Add(txtUser_GhiChu);
+            grbUser_TT.Controls.Add(txtUser_Password);
+            grbUser_TT.Controls.Add(txtUser_UserName);
+            grbUser_TT.Controls.Add(txtUser_RoleID);
+            grbUser_TT.Controls.Add(txtUser_MaNV);
+            grbUser_TT.Controls.Add(txtUser_UserID);
+            grbUser_TT.Controls.Add(lbUser_Password);
+            grbUser_TT.Controls.Add(lbUser_GhiChu);
+            grbUser_TT.Controls.Add(lbUser_UserName);
+            grbUser_TT.Controls.Add(lbUser_RoleID);
+            grbUser_TT.Controls.Add(lbUser_MaNV);
+            grbUser_TT.Controls.Add(lbUser_UserID);
+            grbUser_TT.Dock = DockStyle.Fill;
+            grbUser_TT.Location = new Point(0, 0);
+            grbUser_TT.Name = "grbUser_TT";
+            grbUser_TT.Size = new Size(1168, 322);
+            grbUser_TT.TabIndex = 2;
+            grbUser_TT.TabStop = false;
+            grbUser_TT.Text = "Thông tin";
+            // 
+            // txtUser_GhiChu
+            // 
+            txtUser_GhiChu.Location = new Point(710, 207);
+            txtUser_GhiChu.Multiline = true;
+            txtUser_GhiChu.Name = "txtUser_GhiChu";
+            txtUser_GhiChu.Size = new Size(388, 100);
+            txtUser_GhiChu.TabIndex = 11;
+            // 
+            // txtUser_Password
+            // 
+            txtUser_Password.Location = new Point(710, 129);
+            txtUser_Password.Name = "txtUser_Password";
+            txtUser_Password.PasswordChar = '*';
+            txtUser_Password.Size = new Size(388, 43);
+            txtUser_Password.TabIndex = 10;
+            // 
+            // txtUser_UserName
+            // 
+            txtUser_UserName.Location = new Point(710, 53);
+            txtUser_UserName.Name = "txtUser_UserName";
+            txtUser_UserName.Size = new Size(388, 43);
+            txtUser_UserName.TabIndex = 9;
+            // 
+            // txtUser_RoleID
+            // 
+            txtUser_RoleID.Location = new Point(185, 223);
+            txtUser_RoleID.Name = "txtUser_RoleID";
+            txtUser_RoleID.Size = new Size(297, 43);
+            txtUser_RoleID.TabIndex = 8;
+            // 
+            // txtUser_MaNV
+            // 
+            txtUser_MaNV.Location = new Point(185, 138);
+            txtUser_MaNV.Name = "txtUser_MaNV";
+            txtUser_MaNV.Size = new Size(297, 43);
+            txtUser_MaNV.TabIndex = 7;
+            // 
+            // txtUser_UserID
+            // 
+            txtUser_UserID.Location = new Point(185, 50);
+            txtUser_UserID.Name = "txtUser_UserID";
+            txtUser_UserID.Size = new Size(297, 43);
+            txtUser_UserID.TabIndex = 6;
+            // 
+            // lbUser_Password
+            // 
+            lbUser_Password.AutoSize = true;
+            lbUser_Password.Location = new Point(538, 133);
+            lbUser_Password.Name = "lbUser_Password";
+            lbUser_Password.Size = new Size(128, 37);
+            lbUser_Password.TabIndex = 5;
+            lbUser_Password.Text = "Password";
+            // 
+            // lbUser_GhiChu
+            // 
+            lbUser_GhiChu.AutoSize = true;
+            lbUser_GhiChu.Location = new Point(538, 207);
+            lbUser_GhiChu.Name = "lbUser_GhiChu";
+            lbUser_GhiChu.Size = new Size(107, 37);
+            lbUser_GhiChu.TabIndex = 4;
+            lbUser_GhiChu.Text = "Ghi chú";
+            // 
+            // lbUser_UserName
+            // 
+            lbUser_UserName.AutoSize = true;
+            lbUser_UserName.Location = new Point(538, 50);
+            lbUser_UserName.Name = "lbUser_UserName";
+            lbUser_UserName.Size = new Size(141, 37);
+            lbUser_UserName.TabIndex = 3;
+            lbUser_UserName.Text = "UserName";
+            // 
+            // lbUser_RoleID
+            // 
+            lbUser_RoleID.AutoSize = true;
+            lbUser_RoleID.Location = new Point(49, 223);
+            lbUser_RoleID.Name = "lbUser_RoleID";
+            lbUser_RoleID.Size = new Size(95, 37);
+            lbUser_RoleID.TabIndex = 2;
+            lbUser_RoleID.Text = "RoleID";
+            // 
+            // lbUser_MaNV
+            // 
+            lbUser_MaNV.AutoSize = true;
+            lbUser_MaNV.Location = new Point(49, 130);
+            lbUser_MaNV.Name = "lbUser_MaNV";
+            lbUser_MaNV.Size = new Size(99, 37);
+            lbUser_MaNV.TabIndex = 1;
+            lbUser_MaNV.Text = "Mã NV";
+            // 
+            // lbUser_UserID
+            // 
+            lbUser_UserID.AutoSize = true;
+            lbUser_UserID.Location = new Point(49, 50);
+            lbUser_UserID.Name = "lbUser_UserID";
+            lbUser_UserID.Size = new Size(96, 37);
+            lbUser_UserID.TabIndex = 0;
+            lbUser_UserID.Text = "UserID";
+            // 
+            // grbUser_TK
+            // 
+            grbUser_TK.Controls.Add(btnUser_Tim);
+            grbUser_TK.Controls.Add(txtUser_TK_MaNV);
+            grbUser_TK.Controls.Add(txtUser_TK_UserName);
+            grbUser_TK.Controls.Add(rdbUser_MaNV);
+            grbUser_TK.Controls.Add(rdbUser_UserName);
+            grbUser_TK.Location = new Point(0, 6);
+            grbUser_TK.Name = "grbUser_TK";
+            grbUser_TK.Size = new Size(1168, 197);
+            grbUser_TK.TabIndex = 2;
+            grbUser_TK.TabStop = false;
+            grbUser_TK.Text = "Tìm kiếm";
+            // 
+            // btnUser_Tim
+            // 
+            btnUser_Tim.BackColor = SystemColors.ButtonHighlight;
+            btnUser_Tim.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
+            btnUser_Tim.Location = new Point(1002, 67);
+            btnUser_Tim.Name = "btnUser_Tim";
+            btnUser_Tim.Size = new Size(123, 73);
+            btnUser_Tim.TabIndex = 9;
+            btnUser_Tim.Text = "Tìm";
+            btnUser_Tim.UseVisualStyleBackColor = false;
+            // 
+            // txtUser_TK_MaNV
+            // 
+            txtUser_TK_MaNV.Location = new Point(338, 131);
+            txtUser_TK_MaNV.Name = "txtUser_TK_MaNV";
+            txtUser_TK_MaNV.Size = new Size(533, 43);
+            txtUser_TK_MaNV.TabIndex = 8;
+            // 
+            // txtUser_TK_UserName
+            // 
+            txtUser_TK_UserName.Location = new Point(338, 56);
+            txtUser_TK_UserName.Name = "txtUser_TK_UserName";
+            txtUser_TK_UserName.Size = new Size(533, 43);
+            txtUser_TK_UserName.TabIndex = 7;
+            // 
+            // rdbUser_MaNV
+            // 
+            rdbUser_MaNV.AutoSize = true;
+            rdbUser_MaNV.Location = new Point(67, 131);
+            rdbUser_MaNV.Name = "rdbUser_MaNV";
+            rdbUser_MaNV.Size = new Size(130, 41);
+            rdbUser_MaNV.TabIndex = 1;
+            rdbUser_MaNV.TabStop = true;
+            rdbUser_MaNV.Text = "Mã NV";
+            rdbUser_MaNV.UseVisualStyleBackColor = true;
+            // 
+            // rdbUser_UserName
+            // 
+            rdbUser_UserName.AutoSize = true;
+            rdbUser_UserName.Location = new Point(67, 57);
+            rdbUser_UserName.Name = "rdbUser_UserName";
+            rdbUser_UserName.Size = new Size(172, 41);
+            rdbUser_UserName.TabIndex = 0;
+            rdbUser_UserName.TabStop = true;
+            rdbUser_UserName.Text = "UserName";
+            rdbUser_UserName.UseVisualStyleBackColor = true;
+            // 
+            // grbUser_CN
+            // 
+            grbUser_CN.Controls.Add(btnUser_Export);
+            grbUser_CN.Controls.Add(btnUser_Import);
+            grbUser_CN.Controls.Add(btnUser_Xoa);
+            grbUser_CN.Controls.Add(btnUser_Sua);
+            grbUser_CN.Controls.Add(btnUser_Them);
+            grbUser_CN.Location = new Point(0, 0);
+            grbUser_CN.Name = "grbUser_CN";
+            grbUser_CN.Size = new Size(242, 535);
+            grbUser_CN.TabIndex = 0;
+            grbUser_CN.TabStop = false;
+            grbUser_CN.Text = "Chức năng";
+            // 
+            // btnUser_Export
+            // 
+            btnUser_Export.BackColor = SystemColors.ButtonHighlight;
+            btnUser_Export.FlatStyle = FlatStyle.Popup;
+            btnUser_Export.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
+            btnUser_Export.Location = new Point(62, 429);
+            btnUser_Export.Name = "btnUser_Export";
+            btnUser_Export.Size = new Size(123, 77);
+            btnUser_Export.TabIndex = 14;
+            btnUser_Export.Text = "Export";
+            btnUser_Export.UseVisualStyleBackColor = false;
+            // 
+            // btnUser_Import
+            // 
+            btnUser_Import.BackColor = SystemColors.ButtonHighlight;
+            btnUser_Import.FlatStyle = FlatStyle.Popup;
+            btnUser_Import.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
+            btnUser_Import.Location = new Point(62, 334);
+            btnUser_Import.Name = "btnUser_Import";
+            btnUser_Import.Size = new Size(123, 77);
+            btnUser_Import.TabIndex = 13;
+            btnUser_Import.Text = "Import";
+            btnUser_Import.UseVisualStyleBackColor = false;
+            // 
+            // btnUser_Xoa
+            // 
+            btnUser_Xoa.BackColor = SystemColors.ButtonHighlight;
+            btnUser_Xoa.FlatStyle = FlatStyle.Popup;
+            btnUser_Xoa.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
+            btnUser_Xoa.Image = Properties.Resources.Delete;
+            btnUser_Xoa.ImageAlign = ContentAlignment.MiddleLeft;
+            btnUser_Xoa.Location = new Point(62, 239);
+            btnUser_Xoa.Name = "btnUser_Xoa";
+            btnUser_Xoa.Size = new Size(123, 77);
+            btnUser_Xoa.TabIndex = 12;
+            btnUser_Xoa.Text = "Xóa";
+            btnUser_Xoa.UseVisualStyleBackColor = false;
+            // 
+            // btnUser_Sua
+            // 
+            btnUser_Sua.BackColor = SystemColors.ButtonHighlight;
+            btnUser_Sua.FlatStyle = FlatStyle.Popup;
+            btnUser_Sua.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
+            btnUser_Sua.Image = Properties.Resources.Edit;
+            btnUser_Sua.ImageAlign = ContentAlignment.MiddleLeft;
+            btnUser_Sua.Location = new Point(62, 144);
+            btnUser_Sua.Name = "btnUser_Sua";
+            btnUser_Sua.Size = new Size(123, 77);
+            btnUser_Sua.TabIndex = 11;
+            btnUser_Sua.Text = "Sửa";
+            btnUser_Sua.UseVisualStyleBackColor = false;
+            // 
+            // btnUser_Them
+            // 
+            btnUser_Them.BackColor = SystemColors.ButtonHighlight;
+            btnUser_Them.FlatStyle = FlatStyle.Popup;
+            btnUser_Them.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
+            btnUser_Them.Image = Properties.Resources.New;
+            btnUser_Them.ImageAlign = ContentAlignment.MiddleLeft;
+            btnUser_Them.Location = new Point(62, 49);
+            btnUser_Them.Name = "btnUser_Them";
+            btnUser_Them.Size = new Size(123, 77);
+            btnUser_Them.TabIndex = 10;
+            btnUser_Them.Text = "Thêm";
+            btnUser_Them.UseVisualStyleBackColor = false;
+            // 
+            // grbUser_HT
+            // 
+            grbUser_HT.Controls.Add(dgvUser);
+            grbUser_HT.Dock = DockStyle.Fill;
+            grbUser_HT.Location = new Point(3, 96);
+            grbUser_HT.Name = "grbUser_HT";
+            grbUser_HT.Size = new Size(1414, 360);
+            grbUser_HT.TabIndex = 0;
+            grbUser_HT.TabStop = false;
+            grbUser_HT.Text = "Hiển thị";
+            // 
+            // dgvUser
+            // 
+            dgvUser.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dgvUser.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.DisplayedCellsExceptHeaders;
+            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle2.BackColor = SystemColors.Control;
+            dataGridViewCellStyle2.Font = new Font("Segoe UI", 10.125F, FontStyle.Regular, GraphicsUnit.Point);
+            dataGridViewCellStyle2.ForeColor = SystemColors.WindowText;
+            dataGridViewCellStyle2.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = DataGridViewTriState.True;
+            dgvUser.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            dgvUser.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dgvUser.Columns.AddRange(new DataGridViewColumn[] { Column1, Column2, Column3, Column4, Column5, Column6 });
+            dgvUser.Dock = DockStyle.Fill;
+            dgvUser.Location = new Point(3, 39);
+            dgvUser.Name = "dgvUser";
+            dgvUser.RowHeadersWidth = 82;
+            dgvUser.RowTemplate.Height = 41;
+            dgvUser.Size = new Size(1408, 318);
+            dgvUser.TabIndex = 0;
             // 
             // Column1
             // 
@@ -207,364 +469,111 @@
             Column6.MinimumWidth = 10;
             Column6.Name = "Column6";
             // 
-            // splitContainer1
+            // pnUser
             // 
-            splitContainer1.Dock = DockStyle.Fill;
-            splitContainer1.Location = new Point(3, 462);
-            splitContainer1.Name = "splitContainer1";
+            pnUser.BackColor = Color.FromArgb(63, 139, 208);
+            pnUser.Controls.Add(lbUser);
+            pnUser.Controls.Add(btnUser_Thoat);
+            pnUser.Dock = DockStyle.Fill;
+            pnUser.Location = new Point(3, 3);
+            pnUser.Name = "pnUser";
+            pnUser.Size = new Size(1414, 87);
+            pnUser.TabIndex = 3;
             // 
-            // splitContainer1.Panel1
+            // btnUser_Thoat
             // 
-            splitContainer1.Panel1.Controls.Add(splitContainer2);
+            btnUser_Thoat.BackColor = Color.Red;
+            btnUser_Thoat.FlatStyle = FlatStyle.Popup;
+            btnUser_Thoat.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
+            btnUser_Thoat.ForeColor = Color.White;
+            btnUser_Thoat.Image = Properties.Resources.Logout;
+            btnUser_Thoat.ImageAlign = ContentAlignment.MiddleLeft;
+            btnUser_Thoat.Location = new Point(1215, 18);
+            btnUser_Thoat.Name = "btnUser_Thoat";
+            btnUser_Thoat.Size = new Size(173, 54);
+            btnUser_Thoat.TabIndex = 14;
+            btnUser_Thoat.Text = "Thoát";
+            btnUser_Thoat.UseVisualStyleBackColor = false;
             // 
-            // splitContainer1.Panel2
+            // lbUser
             // 
-            splitContainer1.Panel2.Controls.Add(groupBox3);
-            splitContainer1.Size = new Size(1414, 535);
-            splitContainer1.SplitterDistance = 1168;
-            splitContainer1.TabIndex = 4;
-            // 
-            // splitContainer2
-            // 
-            splitContainer2.Dock = DockStyle.Fill;
-            splitContainer2.Location = new Point(0, 0);
-            splitContainer2.Name = "splitContainer2";
-            splitContainer2.Orientation = Orientation.Horizontal;
-            // 
-            // splitContainer2.Panel1
-            // 
-            splitContainer2.Panel1.Controls.Add(groupBox2);
-            // 
-            // splitContainer2.Panel2
-            // 
-            splitContainer2.Panel2.Controls.Add(groupBox4);
-            splitContainer2.Size = new Size(1168, 535);
-            splitContainer2.SplitterDistance = 322;
-            splitContainer2.TabIndex = 0;
-            // 
-            // groupBox2
-            // 
-            groupBox2.Controls.Add(textBox4);
-            groupBox2.Controls.Add(tbUser_Password);
-            groupBox2.Controls.Add(tbUser_UserName);
-            groupBox2.Controls.Add(tbUser_RoleID);
-            groupBox2.Controls.Add(tbUser_MaNV);
-            groupBox2.Controls.Add(tbUser_UserID);
-            groupBox2.Controls.Add(label6);
-            groupBox2.Controls.Add(tbUser_GhiChu);
-            groupBox2.Controls.Add(label4);
-            groupBox2.Controls.Add(label3);
-            groupBox2.Controls.Add(label2);
-            groupBox2.Controls.Add(label1);
-            groupBox2.Dock = DockStyle.Fill;
-            groupBox2.Location = new Point(0, 0);
-            groupBox2.Name = "groupBox2";
-            groupBox2.Size = new Size(1168, 322);
-            groupBox2.TabIndex = 2;
-            groupBox2.TabStop = false;
-            groupBox2.Text = "Thông tin";
-            // 
-            // textBox4
-            // 
-            textBox4.Location = new Point(710, 207);
-            textBox4.Multiline = true;
-            textBox4.Name = "textBox4";
-            textBox4.Size = new Size(388, 100);
-            textBox4.TabIndex = 11;
-            // 
-            // tbUser_Password
-            // 
-            tbUser_Password.Location = new Point(710, 125);
-            tbUser_Password.Name = "tbUser_Password";
-            tbUser_Password.PasswordChar = '*';
-            tbUser_Password.Size = new Size(388, 39);
-            tbUser_Password.TabIndex = 10;
-            // 
-            // tbUser_UserName
-            // 
-            tbUser_UserName.Location = new Point(710, 49);
-            tbUser_UserName.Name = "tbUser_UserName";
-            tbUser_UserName.Size = new Size(388, 39);
-            tbUser_UserName.TabIndex = 9;
-            // 
-            // tbUser_RoleID
-            // 
-            tbUser_RoleID.Location = new Point(170, 219);
-            tbUser_RoleID.Name = "tbUser_RoleID";
-            tbUser_RoleID.Size = new Size(297, 39);
-            tbUser_RoleID.TabIndex = 8;
-            // 
-            // tbUser_MaNV
-            // 
-            tbUser_MaNV.Location = new Point(170, 134);
-            tbUser_MaNV.Name = "tbUser_MaNV";
-            tbUser_MaNV.Size = new Size(297, 39);
-            tbUser_MaNV.TabIndex = 7;
-            // 
-            // tbUser_UserID
-            // 
-            tbUser_UserID.Location = new Point(170, 46);
-            tbUser_UserID.Name = "tbUser_UserID";
-            tbUser_UserID.Size = new Size(297, 39);
-            tbUser_UserID.TabIndex = 6;
-            // 
-            // label6
-            // 
-            label6.AutoSize = true;
-            label6.Location = new Point(538, 129);
-            label6.Name = "label6";
-            label6.Size = new Size(111, 32);
-            label6.TabIndex = 5;
-            label6.Text = "Password";
-            // 
-            // tbUser_GhiChu
-            // 
-            tbUser_GhiChu.AutoSize = true;
-            tbUser_GhiChu.Location = new Point(538, 207);
-            tbUser_GhiChu.Name = "tbUser_GhiChu";
-            tbUser_GhiChu.Size = new Size(96, 32);
-            tbUser_GhiChu.TabIndex = 4;
-            tbUser_GhiChu.Text = "Ghi chú";
-            // 
-            // label4
-            // 
-            label4.AutoSize = true;
-            label4.Location = new Point(538, 46);
-            label4.Name = "label4";
-            label4.Size = new Size(125, 32);
-            label4.TabIndex = 3;
-            label4.Text = "UserName";
-            // 
-            // label3
-            // 
-            label3.AutoSize = true;
-            label3.Location = new Point(34, 219);
-            label3.Name = "label3";
-            label3.Size = new Size(83, 32);
-            label3.TabIndex = 2;
-            label3.Text = "RoleID";
-            // 
-            // label2
-            // 
-            label2.AutoSize = true;
-            label2.Location = new Point(34, 126);
-            label2.Name = "label2";
-            label2.Size = new Size(88, 32);
-            label2.TabIndex = 1;
-            label2.Text = "Mã NV";
-            // 
-            // label1
-            // 
-            label1.AutoSize = true;
-            label1.Location = new Point(34, 46);
-            label1.Name = "label1";
-            label1.Size = new Size(84, 32);
-            label1.TabIndex = 0;
-            label1.Text = "UserID";
-            // 
-            // groupBox4
-            // 
-            groupBox4.Controls.Add(btnUser_Search);
-            groupBox4.Controls.Add(tbUser_Search_MaNV);
-            groupBox4.Controls.Add(tbUser_Search_UserName);
-            groupBox4.Controls.Add(rdbUser_MaNV);
-            groupBox4.Controls.Add(rdbUser_UserName);
-            groupBox4.Location = new Point(0, 6);
-            groupBox4.Name = "groupBox4";
-            groupBox4.Size = new Size(1168, 197);
-            groupBox4.TabIndex = 2;
-            groupBox4.TabStop = false;
-            groupBox4.Text = "Tìm kiếm";
-            // 
-            // btnUser_Search
-            // 
-            btnUser_Search.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
-            btnUser_Search.Location = new Point(938, 87);
-            btnUser_Search.Name = "btnUser_Search";
-            btnUser_Search.Size = new Size(150, 46);
-            btnUser_Search.TabIndex = 9;
-            btnUser_Search.Text = "Tìm kiếm";
-            btnUser_Search.UseVisualStyleBackColor = true;
-            // 
-            // tbUser_Search_MaNV
-            // 
-            tbUser_Search_MaNV.Location = new Point(338, 131);
-            tbUser_Search_MaNV.Name = "tbUser_Search_MaNV";
-            tbUser_Search_MaNV.Size = new Size(533, 39);
-            tbUser_Search_MaNV.TabIndex = 8;
-            // 
-            // tbUser_Search_UserName
-            // 
-            tbUser_Search_UserName.Location = new Point(338, 56);
-            tbUser_Search_UserName.Name = "tbUser_Search_UserName";
-            tbUser_Search_UserName.Size = new Size(533, 39);
-            tbUser_Search_UserName.TabIndex = 7;
-            // 
-            // rdbUser_MaNV
-            // 
-            rdbUser_MaNV.AutoSize = true;
-            rdbUser_MaNV.Location = new Point(67, 131);
-            rdbUser_MaNV.Name = "rdbUser_MaNV";
-            rdbUser_MaNV.Size = new Size(119, 36);
-            rdbUser_MaNV.TabIndex = 1;
-            rdbUser_MaNV.TabStop = true;
-            rdbUser_MaNV.Text = "Mã NV";
-            rdbUser_MaNV.UseVisualStyleBackColor = true;
-            // 
-            // rdbUser_UserName
-            // 
-            rdbUser_UserName.AutoSize = true;
-            rdbUser_UserName.Location = new Point(67, 57);
-            rdbUser_UserName.Name = "rdbUser_UserName";
-            rdbUser_UserName.Size = new Size(156, 36);
-            rdbUser_UserName.TabIndex = 0;
-            rdbUser_UserName.TabStop = true;
-            rdbUser_UserName.Text = "UserName";
-            rdbUser_UserName.UseVisualStyleBackColor = true;
-            // 
-            // groupBox3
-            // 
-            groupBox3.Controls.Add(btnUser_Export);
-            groupBox3.Controls.Add(btnUser_Import);
-            groupBox3.Controls.Add(btnUser_Delete);
-            groupBox3.Controls.Add(btnUser_Update);
-            groupBox3.Controls.Add(btnUser_Add);
-            groupBox3.Location = new Point(0, 0);
-            groupBox3.Name = "groupBox3";
-            groupBox3.Size = new Size(242, 535);
-            groupBox3.TabIndex = 0;
-            groupBox3.TabStop = false;
-            groupBox3.Text = "Chức năng";
-            // 
-            // btnUser_Export
-            // 
-            btnUser_Export.FlatStyle = FlatStyle.Popup;
-            btnUser_Export.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
-            btnUser_Export.Location = new Point(48, 419);
-            btnUser_Export.Name = "btnUser_Export";
-            btnUser_Export.Size = new Size(150, 50);
-            btnUser_Export.TabIndex = 14;
-            btnUser_Export.Text = "Export";
-            btnUser_Export.UseVisualStyleBackColor = true;
-            // 
-            // btnUser_Import
-            // 
-            btnUser_Import.FlatStyle = FlatStyle.Popup;
-            btnUser_Import.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
-            btnUser_Import.Location = new Point(48, 332);
-            btnUser_Import.Name = "btnUser_Import";
-            btnUser_Import.Size = new Size(150, 50);
-            btnUser_Import.TabIndex = 13;
-            btnUser_Import.Text = "Import";
-            btnUser_Import.UseVisualStyleBackColor = true;
-            // 
-            // btnUser_Delete
-            // 
-            btnUser_Delete.FlatStyle = FlatStyle.Popup;
-            btnUser_Delete.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
-            btnUser_Delete.Image = Properties.Resources.Delete;
-            btnUser_Delete.ImageAlign = ContentAlignment.MiddleLeft;
-            btnUser_Delete.Location = new Point(48, 245);
-            btnUser_Delete.Name = "btnUser_Delete";
-            btnUser_Delete.Size = new Size(150, 50);
-            btnUser_Delete.TabIndex = 12;
-            btnUser_Delete.Text = "Xóa";
-            btnUser_Delete.UseVisualStyleBackColor = true;
-            // 
-            // btnUser_Update
-            // 
-            btnUser_Update.FlatStyle = FlatStyle.Popup;
-            btnUser_Update.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
-            btnUser_Update.Image = Properties.Resources.Edit;
-            btnUser_Update.ImageAlign = ContentAlignment.MiddleLeft;
-            btnUser_Update.Location = new Point(48, 158);
-            btnUser_Update.Name = "btnUser_Update";
-            btnUser_Update.Size = new Size(150, 50);
-            btnUser_Update.TabIndex = 11;
-            btnUser_Update.Text = "Sửa";
-            btnUser_Update.UseVisualStyleBackColor = true;
-            // 
-            // btnUser_Add
-            // 
-            btnUser_Add.FlatStyle = FlatStyle.Popup;
-            btnUser_Add.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
-            btnUser_Add.Image = Properties.Resources.New;
-            btnUser_Add.ImageAlign = ContentAlignment.MiddleLeft;
-            btnUser_Add.Location = new Point(48, 71);
-            btnUser_Add.Name = "btnUser_Add";
-            btnUser_Add.Size = new Size(150, 50);
-            btnUser_Add.TabIndex = 10;
-            btnUser_Add.Text = "Thêm";
-            btnUser_Add.UseVisualStyleBackColor = true;
+            lbUser.AutoSize = true;
+            lbUser.Font = new Font("Segoe UI", 13.875F, FontStyle.Bold, GraphicsUnit.Point);
+            lbUser.ForeColor = SystemColors.ButtonHighlight;
+            lbUser.Location = new Point(510, 15);
+            lbUser.Name = "lbUser";
+            lbUser.Size = new Size(394, 50);
+            lbUser.TabIndex = 0;
+            lbUser.Text = "QUẢN LÝ TÀI KHOẢN";
             // 
             // UC_User
             // 
             AutoScaleDimensions = new SizeF(13F, 32F);
             AutoScaleMode = AutoScaleMode.Font;
-            Controls.Add(tableLayoutPanel1);
+            Controls.Add(tlpUser);
             Name = "UC_User";
             Size = new Size(1420, 1000);
-            tableLayoutPanel1.ResumeLayout(false);
-            groupBox1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
-            panel2.ResumeLayout(false);
-            panel2.PerformLayout();
-            splitContainer1.Panel1.ResumeLayout(false);
-            splitContainer1.Panel2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)splitContainer1).EndInit();
-            splitContainer1.ResumeLayout(false);
-            splitContainer2.Panel1.ResumeLayout(false);
-            splitContainer2.Panel2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)splitContainer2).EndInit();
-            splitContainer2.ResumeLayout(false);
-            groupBox2.ResumeLayout(false);
-            groupBox2.PerformLayout();
-            groupBox4.ResumeLayout(false);
-            groupBox4.PerformLayout();
-            groupBox3.ResumeLayout(false);
+            tlpUser.ResumeLayout(false);
+            splUser_TTTK_CN.Panel1.ResumeLayout(false);
+            splUser_TTTK_CN.Panel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)splUser_TTTK_CN).EndInit();
+            splUser_TTTK_CN.ResumeLayout(false);
+            splUser_TT_TK.Panel1.ResumeLayout(false);
+            splUser_TT_TK.Panel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)splUser_TT_TK).EndInit();
+            splUser_TT_TK.ResumeLayout(false);
+            grbUser_TT.ResumeLayout(false);
+            grbUser_TT.PerformLayout();
+            grbUser_TK.ResumeLayout(false);
+            grbUser_TK.PerformLayout();
+            grbUser_CN.ResumeLayout(false);
+            grbUser_HT.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)dgvUser).EndInit();
+            pnUser.ResumeLayout(false);
+            pnUser.PerformLayout();
             ResumeLayout(false);
         }
 
         #endregion
 
-        private TableLayoutPanel tableLayoutPanel1;
-        private GroupBox groupBox1;
-        private DataGridView dataGridView1;
-        private Panel panel2;
-        private Button btnUser_Back;
-        private Label label5;
+        private TableLayoutPanel tlpUser;
+        private GroupBox grbUser_HT;
+        private DataGridView dgvUser;
+        private Panel pnUser;
+        private Button btnUser_Thoat;
+        private Label lbUser;
         private DataGridViewTextBoxColumn Column1;
         private DataGridViewTextBoxColumn Column2;
         private DataGridViewTextBoxColumn Column3;
         private DataGridViewTextBoxColumn Column4;
         private DataGridViewTextBoxColumn Column5;
         private DataGridViewTextBoxColumn Column6;
-        private SplitContainer splitContainer1;
-        private SplitContainer splitContainer2;
-        private GroupBox groupBox2;
-        private TextBox textBox4;
-        private TextBox tbUser_Password;
-        private TextBox tbUser_UserName;
-        private TextBox tbUser_RoleID;
-        private TextBox tbUser_MaNV;
-        private TextBox tbUser_UserID;
-        private Label label6;
-        private Label tbUser_GhiChu;
-        private Label label4;
-        private Label label3;
-        private Label label2;
-        private Label label1;
-        private GroupBox groupBox4;
-        private Button btnUser_Search;
-        private TextBox tbUser_Search_MaNV;
-        private TextBox tbUser_Search_UserName;
+        private SplitContainer splUser_TTTK_CN;
+        private SplitContainer splUser_TT_TK;
+        private GroupBox grbUser_TT;
+        private TextBox txtUser_GhiChu;
+        private TextBox txtUser_Password;
+        private TextBox txtUser_UserName;
+        private TextBox txtUser_RoleID;
+        private TextBox txtUser_MaNV;
+        private TextBox txtUser_UserID;
+        private Label lbUser_Password;
+        private Label lbUser_GhiChu;
+        private Label lbUser_UserName;
+        private Label lbUser_RoleID;
+        private Label lbUser_MaNV;
+        private Label lbUser_UserID;
+        private GroupBox grbUser_TK;
+        private Button btnUser_Tim;
+        private TextBox txtUser_TK_MaNV;
+        private TextBox txtUser_TK_UserName;
         private RadioButton rdbUser_MaNV;
         private RadioButton rdbUser_UserName;
-        private GroupBox groupBox3;
+        private GroupBox grbUser_CN;
         private Button btnUser_Export;
         private Button btnUser_Import;
-        private Button btnUser_Delete;
-        private Button btnUser_Update;
-        private Button btnUser_Add;
+        private Button btnUser_Xoa;
+        private Button btnUser_Sua;
+        private Button btnUser_Them;
     }
 }
