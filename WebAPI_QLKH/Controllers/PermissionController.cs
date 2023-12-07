@@ -11,55 +11,55 @@ namespace WebAPI_QLKH.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class Role_Controller : ControllerBase
+    public class PermissionController : ControllerBase
     {
         private readonly QLKH_ThuocContext _context;
 
-        public Role_Controller(QLKH_ThuocContext context)
+        public PermissionController(QLKH_ThuocContext context)
         {
             _context = context;
         }
 
-        // GET: api/Role_
+        // GET: api/Permission_
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<Role>>> GetRole()
+        public async Task<ActionResult<IEnumerable<Permission>>> GetPermission()
         {
-          if (_context.Role == null)
+          if (_context.Permission == null)
           {
               return NotFound();
           }
-            return await _context.Role.ToListAsync();
+            return await _context.Permission.ToListAsync();
         }
 
-        // GET: api/Role_/5
+        // GET: api/Permission_/5
         [HttpGet("{id}")]
-        public async Task<ActionResult<Role>> GetRole(string id)
+        public async Task<ActionResult<Permission>> GetPermission(string id)
         {
-          if (_context.Role == null)
+          if (_context.Permission == null)
           {
               return NotFound();
           }
-            var role = await _context.Role.FindAsync(id);
+            var permission = await _context.Permission.FindAsync(id);
 
-            if (role == null)
+            if (permission == null)
             {
                 return NotFound();
             }
 
-            return role;
+            return permission;
         }
 
-        // PUT: api/Role_/5
+        // PUT: api/Permission_/5
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPut("{id}")]
-        public async Task<IActionResult> PutRole(string id, Role role)
+        public async Task<IActionResult> PutPermission(string id, Permission permission)
         {
-            if (id != role.RoleID)
+            if (id != permission.PermissionID)
             {
                 return BadRequest();
             }
 
-            _context.Entry(role).State = EntityState.Modified;
+            _context.Entry(permission).State = EntityState.Modified;
 
             try
             {
@@ -67,7 +67,7 @@ namespace WebAPI_QLKH.Controllers
             }
             catch (DbUpdateConcurrencyException)
             {
-                if (!RoleExists(id))
+                if (!PermissionExists(id))
                 {
                     return NotFound();
                 }
@@ -80,23 +80,23 @@ namespace WebAPI_QLKH.Controllers
             return NoContent();
         }
 
-        // POST: api/Role_
+        // POST: api/Permission_
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPost]
-        public async Task<ActionResult<Role>> PostRole(Role role)
+        public async Task<ActionResult<Permission>> PostPermission(Permission permission)
         {
-          if (_context.Role == null)
+          if (_context.Permission == null)
           {
-              return Problem("Entity set 'QLKH_ThuocContext.Role'  is null.");
+              return Problem("Entity set 'QLKH_ThuocContext.Permission'  is null.");
           }
-            _context.Role.Add(role);
+            _context.Permission.Add(permission);
             try
             {
                 await _context.SaveChangesAsync();
             }
             catch (DbUpdateException)
             {
-                if (RoleExists(role.RoleID))
+                if (PermissionExists(permission.PermissionID))
                 {
                     return Conflict();
                 }
@@ -106,32 +106,32 @@ namespace WebAPI_QLKH.Controllers
                 }
             }
 
-            return CreatedAtAction("GetRole", new { id = role.RoleID }, role);
+            return CreatedAtAction("GetPermission", new { id = permission.PermissionID }, permission);
         }
 
-        // DELETE: api/Role_/5
+        // DELETE: api/Permission_/5
         [HttpDelete("{id}")]
-        public async Task<IActionResult> DeleteRole(string id)
+        public async Task<IActionResult> DeletePermission(string id)
         {
-            if (_context.Role == null)
+            if (_context.Permission == null)
             {
                 return NotFound();
             }
-            var role = await _context.Role.FindAsync(id);
-            if (role == null)
+            var permission = await _context.Permission.FindAsync(id);
+            if (permission == null)
             {
                 return NotFound();
             }
 
-            _context.Role.Remove(role);
+            _context.Permission.Remove(permission);
             await _context.SaveChangesAsync();
 
             return NoContent();
         }
 
-        private bool RoleExists(string id)
+        private bool PermissionExists(string id)
         {
-            return (_context.Role?.Any(e => e.RoleID == id)).GetValueOrDefault();
+            return (_context.Permission?.Any(e => e.PermissionID == id)).GetValueOrDefault();
         }
     }
 }

@@ -5,9 +5,9 @@ using System.Collections.Generic;
 
 namespace WebAPI_QLKH.Models
 {
-    public partial class User
+    public partial class TaiKhoan
     {
-        public User()
+        public TaiKhoan()
         {
             NhanVien = new HashSet<NhanVien>();
         }

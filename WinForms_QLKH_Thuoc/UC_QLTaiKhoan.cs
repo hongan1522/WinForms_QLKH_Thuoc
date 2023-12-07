@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace FormQLKH
 {
-    public partial class UC_User : UserControl
+    public partial class UC_QLTaiKhoan : UserControl
     {
-        public UC_User()
+        public UC_QLTaiKhoan()
         {
             InitializeComponent();
         }

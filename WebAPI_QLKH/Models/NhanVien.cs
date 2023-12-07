@@ -12,7 +12,7 @@ namespace WebAPI_QLKH.Models
             ChiNhanh = new HashSet<ChiNhanh>();
             DonNhap = new HashSet<DonNhap>();
             DonXuat = new HashSet<DonXuat>();
-            UserNavigation = new HashSet<User>();
+            TaiKhoan = new HashSet<TaiKhoan>();
         }
 
         public string NV_ID { get; set; }
@@ -26,10 +26,10 @@ namespace WebAPI_QLKH.Models
         public string UserID { get; set; }
 
         public virtual ChiNhanh CN { get; set; }
-        public virtual User User { get; set; }
+        public virtual TaiKhoan User { get; set; }
         public virtual ICollection<ChiNhanh> ChiNhanh { get; set; }
         public virtual ICollection<DonNhap> DonNhap { get; set; }
         public virtual ICollection<DonXuat> DonXuat { get; set; }
-        public virtual ICollection<User> UserNavigation { get; set; }
+        public virtual ICollection<TaiKhoan> TaiKhoan { get; set; }
     }
 }

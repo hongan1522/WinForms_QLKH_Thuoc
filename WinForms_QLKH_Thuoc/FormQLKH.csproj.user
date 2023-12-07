@@ -52,7 +52,7 @@
     <Compile Update="UC_QLThuoc.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Update="UC_User.cs">
+    <Compile Update="UC_QLTaiKhoan.cs">
       <SubType>UserControl</SubType>
     </Compile>
   </ItemGroup>

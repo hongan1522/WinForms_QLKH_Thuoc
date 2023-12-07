@@ -31,8 +31,8 @@ namespace WebAPI_QLKH.Models
         public virtual DbSet<NhomThuoc> NhomThuoc { get; set; }
         public virtual DbSet<Permission> Permission { get; set; }
         public virtual DbSet<Role> Role { get; set; }
+        public virtual DbSet<TaiKhoan> TaiKhoan { get; set; }
         public virtual DbSet<Thuoc> Thuoc { get; set; }
-        public virtual DbSet<User> User { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -356,6 +356,40 @@ namespace WebAPI_QLKH.Models
                         });
             });
 
+            modelBuilder.Entity<TaiKhoan>(entity =>
+            {
+                entity.HasKey(e => e.UserID)
+                    .HasName("PK_User");
+
+                entity.Property(e => e.UserID)
+                    .HasMaxLength(10)
+                    .IsFixedLength();
+
+                entity.Property(e => e.NV_ID)
+                    .IsRequired()
+                    .HasMaxLength(10)
+                    .IsFixedLength();
+
+                entity.Property(e => e.Password).HasMaxLength(10);
+
+                entity.Property(e => e.RoleID)
+                    .HasMaxLength(10)
+                    .IsFixedLength();
+
+                entity.Property(e => e.UserName).HasMaxLength(50);
+
+                entity.HasOne(d => d.NV)
+                    .WithMany(p => p.TaiKhoan)
+                    .HasForeignKey(d => d.NV_ID)
+                    .OnDelete(DeleteBehavior.ClientSetNull)
+                    .HasConstraintName("FK_User_NhanVien");
+
+                entity.HasOne(d => d.Role)
+                    .WithMany(p => p.TaiKhoan)
+                    .HasForeignKey(d => d.RoleID)
+                    .HasConstraintName("FK_User_Role");
+            });
+
             modelBuilder.Entity<Thuoc>(entity =>
             {
                 entity.HasKey(e => e.Thuoc_ID);
@@ -387,37 +421,6 @@ namespace WebAPI_QLKH.Models
                     .HasForeignKey(d => d.Nhom_ID)
                     .OnDelete(DeleteBehavior.ClientSetNull)
                     .HasConstraintName("FK_Thuoc_NhomThuoc");
-            });
-
-            modelBuilder.Entity<User>(entity =>
-            {
-                entity.Property(e => e.UserID)
-                    .HasMaxLength(10)
-                    .IsFixedLength();
-
-                entity.Property(e => e.NV_ID)
-                    .IsRequired()
-                    .HasMaxLength(10)
-                    .IsFixedLength();
-
-                entity.Property(e => e.Password).HasMaxLength(10);
-
-                entity.Property(e => e.RoleID)
-                    .HasMaxLength(10)
-                    .IsFixedLength();
-
-                entity.Property(e => e.UserName).HasMaxLength(50);
-
-                entity.HasOne(d => d.NV)
-                    .WithMany(p => p.UserNavigation)
-                    .HasForeignKey(d => d.NV_ID)
-                    .OnDelete(DeleteBehavior.ClientSetNull)
-                    .HasConstraintName("FK_User_NhanVien");
-
-                entity.HasOne(d => d.Role)
-                    .WithMany(p => p.User)
-                    .HasForeignKey(d => d.RoleID)
-                    .HasConstraintName("FK_User_Role");
             });
 
             OnModelCreatingPartial(modelBuilder);
