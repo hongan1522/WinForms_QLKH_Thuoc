@@ -10,7 +10,6 @@ namespace WebAPI_QLKH.Models
         public DonNhap()
         {
             ChiTietDonNhap = new HashSet<ChiTietDonNhap>();
-            ThuocNavigation = new HashSet<Thuoc>();
         }
 
         public string DNhap_ID { get; set; }
@@ -24,6 +23,5 @@ namespace WebAPI_QLKH.Models
         public virtual NhanVien NV { get; set; }
         public virtual Thuoc Thuoc { get; set; }
         public virtual ICollection<ChiTietDonNhap> ChiTietDonNhap { get; set; }
-        public virtual ICollection<Thuoc> ThuocNavigation { get; set; }
     }
 }

@@ -16,10 +16,8 @@ namespace WebAPI_QLKH.Models
 
         public string Thuoc_ID { get; set; }
         public string Thuoc_Name { get; set; }
-        public string DNhap_ID { get; set; }
         public string Nhom_ID { get; set; }
 
-        public virtual DonNhap DNhap { get; set; }
         public virtual NhomThuoc Nhom { get; set; }
         public virtual ICollection<ChiTietDonXuat> ChiTietDonXuat { get; set; }
         public virtual ICollection<ChiTietThuoc> ChiTietThuoc { get; set; }

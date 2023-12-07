@@ -16,9 +16,7 @@ namespace WebAPI_QLKH.Models
         public string CN_ID { get; set; }
         public string CN_Name { get; set; }
         public string CN_Address { get; set; }
-        public string NV_ID { get; set; }
 
-        public virtual NhanVien NV { get; set; }
         public virtual ICollection<Kho> Kho { get; set; }
         public virtual ICollection<NhanVien> NhanVien { get; set; }
     }

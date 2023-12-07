@@ -16,10 +16,8 @@ namespace WebAPI_QLKH.Models
         public string UserName { get; set; }
         public string Password { get; set; }
         public string Description { get; set; }
-        public string NV_ID { get; set; }
         public string RoleID { get; set; }
 
-        public virtual NhanVien NV { get; set; }
         public virtual Role Role { get; set; }
         public virtual ICollection<NhanVien> NhanVien { get; set; }
     }

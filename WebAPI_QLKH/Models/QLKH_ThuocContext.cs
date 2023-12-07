@@ -47,17 +47,6 @@ namespace WebAPI_QLKH.Models
                 entity.Property(e => e.CN_Address).HasMaxLength(50);
 
                 entity.Property(e => e.CN_Name).HasMaxLength(50);
-
-                entity.Property(e => e.NV_ID)
-                    .IsRequired()
-                    .HasMaxLength(10)
-                    .IsFixedLength();
-
-                entity.HasOne(d => d.NV)
-                    .WithMany(p => p.ChiNhanh)
-                    .HasForeignKey(d => d.NV_ID)
-                    .OnDelete(DeleteBehavior.ClientSetNull)
-                    .HasConstraintName("FK_ChiNhanh_NhanVien");
             });
 
             modelBuilder.Entity<ChiTietDonNhap>(entity =>
@@ -176,7 +165,7 @@ namespace WebAPI_QLKH.Models
                     .WithMany(p => p.DonNhap)
                     .HasForeignKey(d => d.Thuoc_ID)
                     .OnDelete(DeleteBehavior.ClientSetNull)
-                    .HasConstraintName("FK_DonNhap_Thuoc");
+                    .HasConstraintName("FK_DonNhap_Thuoc1");
             });
 
             modelBuilder.Entity<DonXuat>(entity =>
@@ -301,13 +290,13 @@ namespace WebAPI_QLKH.Models
                     .WithMany(p => p.NhanVien)
                     .HasForeignKey(d => d.CN_ID)
                     .OnDelete(DeleteBehavior.ClientSetNull)
-                    .HasConstraintName("FK_NhanVien_ChiNhanh");
+                    .HasConstraintName("FK_NhanVien_ChiNhanh1");
 
                 entity.HasOne(d => d.User)
                     .WithMany(p => p.NhanVien)
                     .HasForeignKey(d => d.UserID)
                     .OnDelete(DeleteBehavior.ClientSetNull)
-                    .HasConstraintName("FK_NhanVien_User");
+                    .HasConstraintName("FK_NhanVien_TaiKhoan");
             });
 
             modelBuilder.Entity<NhomThuoc>(entity =>
@@ -365,11 +354,6 @@ namespace WebAPI_QLKH.Models
                     .HasMaxLength(10)
                     .IsFixedLength();
 
-                entity.Property(e => e.NV_ID)
-                    .IsRequired()
-                    .HasMaxLength(10)
-                    .IsFixedLength();
-
                 entity.Property(e => e.Password).HasMaxLength(10);
 
                 entity.Property(e => e.RoleID)
@@ -377,12 +361,6 @@ namespace WebAPI_QLKH.Models
                     .IsFixedLength();
 
                 entity.Property(e => e.UserName).HasMaxLength(50);
-
-                entity.HasOne(d => d.NV)
-                    .WithMany(p => p.TaiKhoan)
-                    .HasForeignKey(d => d.NV_ID)
-                    .OnDelete(DeleteBehavior.ClientSetNull)
-                    .HasConstraintName("FK_User_NhanVien");
 
                 entity.HasOne(d => d.Role)
                     .WithMany(p => p.TaiKhoan)
@@ -398,23 +376,12 @@ namespace WebAPI_QLKH.Models
                     .HasMaxLength(10)
                     .IsFixedLength();
 
-                entity.Property(e => e.DNhap_ID)
-                    .IsRequired()
-                    .HasMaxLength(10)
-                    .IsFixedLength();
-
                 entity.Property(e => e.Nhom_ID)
                     .IsRequired()
                     .HasMaxLength(10)
                     .IsFixedLength();
 
                 entity.Property(e => e.Thuoc_Name).HasMaxLength(50);
-
-                entity.HasOne(d => d.DNhap)
-                    .WithMany(p => p.ThuocNavigation)
-                    .HasForeignKey(d => d.DNhap_ID)
-                    .OnDelete(DeleteBehavior.ClientSetNull)
-                    .HasConstraintName("FK_Thuoc_DonNhap");
 
                 entity.HasOne(d => d.Nhom)
                     .WithMany(p => p.Thuoc)

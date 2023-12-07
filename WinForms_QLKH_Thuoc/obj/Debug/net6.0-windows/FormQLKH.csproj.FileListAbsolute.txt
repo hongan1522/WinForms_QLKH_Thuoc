@@ -31,4 +31,4 @@ C:\Users\MyPC\Desktop\WinForms_QLKH_Thuoc\WinForms_QLKH_Thuoc\obj\Debug\net6.0-w
 C:\Users\MyPC\Desktop\WinForms_QLKH_Thuoc\WinForms_QLKH_Thuoc\obj\Debug\net6.0-windows\FormQLKH.UC_QLNhomThuoc.resources
 C:\Users\MyPC\Desktop\WinForms_QLKH_Thuoc\WinForms_QLKH_Thuoc\obj\Debug\net6.0-windows\FormQLKH.UC_QLNV.resources
 C:\Users\MyPC\Desktop\WinForms_QLKH_Thuoc\WinForms_QLKH_Thuoc\obj\Debug\net6.0-windows\FormQLKH.UC_QLThuoc.resources
-C:\Users\MyPC\Desktop\WinForms_QLKH_Thuoc\WinForms_QLKH_Thuoc\obj\Debug\net6.0-windows\FormQLKH.UC_User.resources
+C:\Users\MyPC\Desktop\WinForms_QLKH_Thuoc\WinForms_QLKH_Thuoc\obj\Debug\net6.0-windows\FormQLKH.UC_QLTaiKhoan.resources

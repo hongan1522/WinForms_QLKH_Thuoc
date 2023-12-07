@@ -72,11 +72,11 @@
          "ObjectType": 0
       },
       {
-         "Name": "[dbo].[Thuoc]",
+         "Name": "[dbo].[TaiKhoan]",
          "ObjectType": 0
       },
       {
-         "Name": "[dbo].[User]",
+         "Name": "[dbo].[Thuoc]",
          "ObjectType": 0
       }
    ],
