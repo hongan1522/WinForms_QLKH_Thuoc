@@ -9,8 +9,8 @@ namespace WebAPI_QLKH.Models
     {
         public Lo()
         {
-            ChiTietDonNhaps = new HashSet<ChiTietDonNhap>();
-            ChiTietThuocs = new HashSet<ChiTietThuoc>();
+            ChiTietDonNhap = new HashSet<ChiTietDonNhap>();
+            ChiTietThuoc = new HashSet<ChiTietThuoc>();
         }
 
         public string Lo_ID { get; set; }
@@ -19,7 +19,7 @@ namespace WebAPI_QLKH.Models
         public string Kho_ID { get; set; }
 
         public virtual Kho Kho { get; set; }
-        public virtual ICollection<ChiTietDonNhap> ChiTietDonNhaps { get; set; }
-        public virtual ICollection<ChiTietThuoc> ChiTietThuocs { get; set; }
+        public virtual ICollection<ChiTietDonNhap> ChiTietDonNhap { get; set; }
+        public virtual ICollection<ChiTietThuoc> ChiTietThuoc { get; set; }
     }
 }

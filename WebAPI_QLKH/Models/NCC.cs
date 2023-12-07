@@ -9,7 +9,7 @@ namespace WebAPI_QLKH.Models
     {
         public NCC()
         {
-            DonNhaps = new HashSet<DonNhap>();
+            DonNhap = new HashSet<DonNhap>();
         }
 
         public string NCC_ID { get; set; }
@@ -18,6 +18,6 @@ namespace WebAPI_QLKH.Models
         public int? NCC_Phone { get; set; }
         public string Quantity { get; set; }
 
-        public virtual ICollection<DonNhap> DonNhaps { get; set; }
+        public virtual ICollection<DonNhap> DonNhap { get; set; }
     }
 }

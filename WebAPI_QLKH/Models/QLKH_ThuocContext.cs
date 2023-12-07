@@ -18,38 +18,27 @@ namespace WebAPI_QLKH.Models
         {
         }
 
-        public virtual DbSet<ChiNhanh> ChiNhanhs { get; set; }
-        public virtual DbSet<ChiTietDonNhap> ChiTietDonNhaps { get; set; }
-        public virtual DbSet<ChiTietDonXuat> ChiTietDonXuats { get; set; }
-        public virtual DbSet<ChiTietThuoc> ChiTietThuocs { get; set; }
-        public virtual DbSet<DonNhap> DonNhaps { get; set; }
-        public virtual DbSet<DonXuat> DonXuats { get; set; }
-        public virtual DbSet<Kho> Khos { get; set; }
-        public virtual DbSet<Lo> Los { get; set; }
-        public virtual DbSet<NCC> NCCs { get; set; }
-        public virtual DbSet<NhanVien> NhanViens { get; set; }
-        public virtual DbSet<NhomThuoc> NhomThuocs { get; set; }
-        public virtual DbSet<Permission> Permissions { get; set; }
-        public virtual DbSet<Role> Roles { get; set; }
-        public virtual DbSet<Thuoc> Thuocs { get; set; }
-        public virtual DbSet<User> Users { get; set; }
-
-        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-        {
-            if (!optionsBuilder.IsConfigured)
-            {
-#warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see http://go.microsoft.com/fwlink/?LinkId=723263.
-                optionsBuilder.UseSqlServer("Data Source=DESKTOP-CMSGFMS\\HONGAN;Initial Catalog=QLKH_Thuoc;Integrated Security=True");
-            }
-        }
+        public virtual DbSet<ChiNhanh> ChiNhanh { get; set; }
+        public virtual DbSet<ChiTietDonNhap> ChiTietDonNhap { get; set; }
+        public virtual DbSet<ChiTietDonXuat> ChiTietDonXuat { get; set; }
+        public virtual DbSet<ChiTietThuoc> ChiTietThuoc { get; set; }
+        public virtual DbSet<DonNhap> DonNhap { get; set; }
+        public virtual DbSet<DonXuat> DonXuat { get; set; }
+        public virtual DbSet<Kho> Kho { get; set; }
+        public virtual DbSet<Lo> Lo { get; set; }
+        public virtual DbSet<NCC> NCC { get; set; }
+        public virtual DbSet<NhanVien> NhanVien { get; set; }
+        public virtual DbSet<NhomThuoc> NhomThuoc { get; set; }
+        public virtual DbSet<Permission> Permission { get; set; }
+        public virtual DbSet<Role> Role { get; set; }
+        public virtual DbSet<Thuoc> Thuoc { get; set; }
+        public virtual DbSet<User> User { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<ChiNhanh>(entity =>
             {
                 entity.HasKey(e => e.CN_ID);
-
-                entity.ToTable("ChiNhanh");
 
                 entity.Property(e => e.CN_ID)
                     .HasMaxLength(10)
@@ -65,7 +54,7 @@ namespace WebAPI_QLKH.Models
                     .IsFixedLength();
 
                 entity.HasOne(d => d.NV)
-                    .WithMany(p => p.ChiNhanhs)
+                    .WithMany(p => p.ChiNhanh)
                     .HasForeignKey(d => d.NV_ID)
                     .OnDelete(DeleteBehavior.ClientSetNull)
                     .HasConstraintName("FK_ChiNhanh_NhanVien");
@@ -74,8 +63,6 @@ namespace WebAPI_QLKH.Models
             modelBuilder.Entity<ChiTietDonNhap>(entity =>
             {
                 entity.HasKey(e => new { e.Lo_ID, e.DNhap_ID });
-
-                entity.ToTable("ChiTietDonNhap");
 
                 entity.Property(e => e.Lo_ID)
                     .HasMaxLength(10)
@@ -86,13 +73,13 @@ namespace WebAPI_QLKH.Models
                     .IsFixedLength();
 
                 entity.HasOne(d => d.DNhap)
-                    .WithMany(p => p.ChiTietDonNhaps)
+                    .WithMany(p => p.ChiTietDonNhap)
                     .HasForeignKey(d => d.DNhap_ID)
                     .OnDelete(DeleteBehavior.ClientSetNull)
                     .HasConstraintName("FK_ChiTietDonNhap_DonNhap");
 
                 entity.HasOne(d => d.Lo)
-                    .WithMany(p => p.ChiTietDonNhaps)
+                    .WithMany(p => p.ChiTietDonNhap)
                     .HasForeignKey(d => d.Lo_ID)
                     .OnDelete(DeleteBehavior.ClientSetNull)
                     .HasConstraintName("FK_ChiTietDonNhap_Lo");
@@ -101,8 +88,6 @@ namespace WebAPI_QLKH.Models
             modelBuilder.Entity<ChiTietDonXuat>(entity =>
             {
                 entity.HasKey(e => new { e.Thuoc_ID, e.DXuat_ID });
-
-                entity.ToTable("ChiTietDonXuat");
 
                 entity.Property(e => e.Thuoc_ID)
                     .HasMaxLength(10)
@@ -113,13 +98,13 @@ namespace WebAPI_QLKH.Models
                     .IsFixedLength();
 
                 entity.HasOne(d => d.DXuat)
-                    .WithMany(p => p.ChiTietDonXuats)
+                    .WithMany(p => p.ChiTietDonXuat)
                     .HasForeignKey(d => d.DXuat_ID)
                     .OnDelete(DeleteBehavior.ClientSetNull)
                     .HasConstraintName("FK_ChiTietDonXuat_DonXuat");
 
                 entity.HasOne(d => d.Thuoc)
-                    .WithMany(p => p.ChiTietDonXuats)
+                    .WithMany(p => p.ChiTietDonXuat)
                     .HasForeignKey(d => d.Thuoc_ID)
                     .OnDelete(DeleteBehavior.ClientSetNull)
                     .HasConstraintName("FK_ChiTietDonXuat_Thuoc");
@@ -128,8 +113,6 @@ namespace WebAPI_QLKH.Models
             modelBuilder.Entity<ChiTietThuoc>(entity =>
             {
                 entity.HasKey(e => new { e.Thuoc_ID, e.Lo_ID });
-
-                entity.ToTable("ChiTietThuoc");
 
                 entity.Property(e => e.Thuoc_ID)
                     .HasMaxLength(10)
@@ -140,13 +123,13 @@ namespace WebAPI_QLKH.Models
                     .IsFixedLength();
 
                 entity.HasOne(d => d.Lo)
-                    .WithMany(p => p.ChiTietThuocs)
+                    .WithMany(p => p.ChiTietThuoc)
                     .HasForeignKey(d => d.Lo_ID)
                     .OnDelete(DeleteBehavior.ClientSetNull)
                     .HasConstraintName("FK_ChiTietThuoc_Lo");
 
                 entity.HasOne(d => d.Thuoc)
-                    .WithMany(p => p.ChiTietThuocs)
+                    .WithMany(p => p.ChiTietThuoc)
                     .HasForeignKey(d => d.Thuoc_ID)
                     .OnDelete(DeleteBehavior.ClientSetNull)
                     .HasConstraintName("FK_ChiTietThuoc_Thuoc");
@@ -155,8 +138,6 @@ namespace WebAPI_QLKH.Models
             modelBuilder.Entity<DonNhap>(entity =>
             {
                 entity.HasKey(e => e.DNhap_ID);
-
-                entity.ToTable("DonNhap");
 
                 entity.Property(e => e.DNhap_ID)
                     .HasMaxLength(10)
@@ -181,18 +162,18 @@ namespace WebAPI_QLKH.Models
                     .IsFixedLength();
 
                 entity.HasOne(d => d.NCC)
-                    .WithMany(p => p.DonNhaps)
+                    .WithMany(p => p.DonNhap)
                     .HasForeignKey(d => d.NCC_ID)
                     .OnDelete(DeleteBehavior.ClientSetNull)
                     .HasConstraintName("FK_DonNhap_NCC");
 
                 entity.HasOne(d => d.NV)
-                    .WithMany(p => p.DonNhaps)
+                    .WithMany(p => p.DonNhap)
                     .HasForeignKey(d => d.NV_ID)
                     .HasConstraintName("FK_DonNhap_NhanVien");
 
                 entity.HasOne(d => d.Thuoc)
-                    .WithMany(p => p.DonNhaps)
+                    .WithMany(p => p.DonNhap)
                     .HasForeignKey(d => d.Thuoc_ID)
                     .OnDelete(DeleteBehavior.ClientSetNull)
                     .HasConstraintName("FK_DonNhap_Thuoc");
@@ -201,8 +182,6 @@ namespace WebAPI_QLKH.Models
             modelBuilder.Entity<DonXuat>(entity =>
             {
                 entity.HasKey(e => e.DXuat_ID);
-
-                entity.ToTable("DonXuat");
 
                 entity.Property(e => e.DXuat_ID)
                     .HasMaxLength(10)
@@ -217,7 +196,7 @@ namespace WebAPI_QLKH.Models
                     .IsFixedLength();
 
                 entity.HasOne(d => d.NV)
-                    .WithMany(p => p.DonXuats)
+                    .WithMany(p => p.DonXuat)
                     .HasForeignKey(d => d.NV_ID)
                     .HasConstraintName("FK_DonXuat_NhanVien");
             });
@@ -225,8 +204,6 @@ namespace WebAPI_QLKH.Models
             modelBuilder.Entity<Kho>(entity =>
             {
                 entity.HasKey(e => e.Kho_ID);
-
-                entity.ToTable("Kho");
 
                 entity.Property(e => e.Kho_ID)
                     .HasMaxLength(10)
@@ -242,7 +219,7 @@ namespace WebAPI_QLKH.Models
                 entity.Property(e => e.Kho_Name).HasMaxLength(50);
 
                 entity.HasOne(d => d.CN)
-                    .WithMany(p => p.Khos)
+                    .WithMany(p => p.Kho)
                     .HasForeignKey(d => d.CN_ID)
                     .OnDelete(DeleteBehavior.ClientSetNull)
                     .HasConstraintName("FK_Kho_ChiNhanh");
@@ -251,8 +228,6 @@ namespace WebAPI_QLKH.Models
             modelBuilder.Entity<Lo>(entity =>
             {
                 entity.HasKey(e => e.Lo_ID);
-
-                entity.ToTable("Lo");
 
                 entity.Property(e => e.Lo_ID)
                     .HasMaxLength(10)
@@ -268,7 +243,7 @@ namespace WebAPI_QLKH.Models
                 entity.Property(e => e.Lo_Position).HasMaxLength(50);
 
                 entity.HasOne(d => d.Kho)
-                    .WithMany(p => p.Los)
+                    .WithMany(p => p.Lo)
                     .HasForeignKey(d => d.Kho_ID)
                     .OnDelete(DeleteBehavior.ClientSetNull)
                     .HasConstraintName("FK_Lo_Kho");
@@ -277,8 +252,6 @@ namespace WebAPI_QLKH.Models
             modelBuilder.Entity<NCC>(entity =>
             {
                 entity.HasKey(e => e.NCC_ID);
-
-                entity.ToTable("NCC");
 
                 entity.Property(e => e.NCC_ID)
                     .HasMaxLength(10)
@@ -297,8 +270,6 @@ namespace WebAPI_QLKH.Models
             modelBuilder.Entity<NhanVien>(entity =>
             {
                 entity.HasKey(e => e.NV_ID);
-
-                entity.ToTable("NhanVien");
 
                 entity.Property(e => e.NV_ID)
                     .HasMaxLength(10)
@@ -327,13 +298,13 @@ namespace WebAPI_QLKH.Models
                     .IsFixedLength();
 
                 entity.HasOne(d => d.CN)
-                    .WithMany(p => p.NhanViens)
+                    .WithMany(p => p.NhanVien)
                     .HasForeignKey(d => d.CN_ID)
                     .OnDelete(DeleteBehavior.ClientSetNull)
                     .HasConstraintName("FK_NhanVien_ChiNhanh");
 
                 entity.HasOne(d => d.User)
-                    .WithMany(p => p.NhanViens)
+                    .WithMany(p => p.NhanVien)
                     .HasForeignKey(d => d.UserID)
                     .OnDelete(DeleteBehavior.ClientSetNull)
                     .HasConstraintName("FK_NhanVien_User");
@@ -342,8 +313,6 @@ namespace WebAPI_QLKH.Models
             modelBuilder.Entity<NhomThuoc>(entity =>
             {
                 entity.HasKey(e => e.Nhom_ID);
-
-                entity.ToTable("NhomThuoc");
 
                 entity.Property(e => e.Nhom_ID)
                     .HasMaxLength(10)
@@ -354,8 +323,6 @@ namespace WebAPI_QLKH.Models
 
             modelBuilder.Entity<Permission>(entity =>
             {
-                entity.ToTable("Permission");
-
                 entity.Property(e => e.PermissionID)
                     .HasMaxLength(10)
                     .IsFixedLength();
@@ -365,16 +332,14 @@ namespace WebAPI_QLKH.Models
 
             modelBuilder.Entity<Role>(entity =>
             {
-                entity.ToTable("Role");
-
                 entity.Property(e => e.RoleID)
                     .HasMaxLength(10)
                     .IsFixedLength();
 
                 entity.Property(e => e.RoleName).HasMaxLength(50);
 
-                entity.HasMany(d => d.Permissions)
-                    .WithMany(p => p.Roles)
+                entity.HasMany(d => d.Permission)
+                    .WithMany(p => p.Role)
                     .UsingEntity<Dictionary<string, object>>(
                         "Role_Permission",
                         l => l.HasOne<Permission>().WithMany().HasForeignKey("PermissionID").OnDelete(DeleteBehavior.ClientSetNull).HasConstraintName("FK_Role_Permission_Permission"),
@@ -395,8 +360,6 @@ namespace WebAPI_QLKH.Models
             {
                 entity.HasKey(e => e.Thuoc_ID);
 
-                entity.ToTable("Thuoc");
-
                 entity.Property(e => e.Thuoc_ID)
                     .HasMaxLength(10)
                     .IsFixedLength();
@@ -414,13 +377,13 @@ namespace WebAPI_QLKH.Models
                 entity.Property(e => e.Thuoc_Name).HasMaxLength(50);
 
                 entity.HasOne(d => d.DNhap)
-                    .WithMany(p => p.Thuocs)
+                    .WithMany(p => p.ThuocNavigation)
                     .HasForeignKey(d => d.DNhap_ID)
                     .OnDelete(DeleteBehavior.ClientSetNull)
                     .HasConstraintName("FK_Thuoc_DonNhap");
 
                 entity.HasOne(d => d.Nhom)
-                    .WithMany(p => p.Thuocs)
+                    .WithMany(p => p.Thuoc)
                     .HasForeignKey(d => d.Nhom_ID)
                     .OnDelete(DeleteBehavior.ClientSetNull)
                     .HasConstraintName("FK_Thuoc_NhomThuoc");
@@ -428,8 +391,6 @@ namespace WebAPI_QLKH.Models
 
             modelBuilder.Entity<User>(entity =>
             {
-                entity.ToTable("User");
-
                 entity.Property(e => e.UserID)
                     .HasMaxLength(10)
                     .IsFixedLength();
@@ -448,13 +409,13 @@ namespace WebAPI_QLKH.Models
                 entity.Property(e => e.UserName).HasMaxLength(50);
 
                 entity.HasOne(d => d.NV)
-                    .WithMany(p => p.Users)
+                    .WithMany(p => p.UserNavigation)
                     .HasForeignKey(d => d.NV_ID)
                     .OnDelete(DeleteBehavior.ClientSetNull)
                     .HasConstraintName("FK_User_NhanVien");
 
                 entity.HasOne(d => d.Role)
-                    .WithMany(p => p.Users)
+                    .WithMany(p => p.User)
                     .HasForeignKey(d => d.RoleID)
                     .HasConstraintName("FK_User_Role");
             });

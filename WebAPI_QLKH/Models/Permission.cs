@@ -9,12 +9,12 @@ namespace WebAPI_QLKH.Models
     {
         public Permission()
         {
-            Roles = new HashSet<Role>();
+            Role = new HashSet<Role>();
         }
 
         public string PermissionID { get; set; }
         public string PermissionName { get; set; }
 
-        public virtual ICollection<Role> Roles { get; set; }
+        public virtual ICollection<Role> Role { get; set; }
     }
 }

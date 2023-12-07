@@ -9,15 +9,15 @@ namespace WebAPI_QLKH.Models
     {
         public Role()
         {
-            Users = new HashSet<User>();
-            Permissions = new HashSet<Permission>();
+            User = new HashSet<User>();
+            Permission = new HashSet<Permission>();
         }
 
         public string RoleID { get; set; }
         public string RoleName { get; set; }
 
-        public virtual ICollection<User> Users { get; set; }
+        public virtual ICollection<User> User { get; set; }
 
-        public virtual ICollection<Permission> Permissions { get; set; }
+        public virtual ICollection<Permission> Permission { get; set; }
     }
 }

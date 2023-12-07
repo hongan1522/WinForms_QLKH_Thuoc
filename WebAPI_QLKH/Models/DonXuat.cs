@@ -9,7 +9,7 @@ namespace WebAPI_QLKH.Models
     {
         public DonXuat()
         {
-            ChiTietDonXuats = new HashSet<ChiTietDonXuat>();
+            ChiTietDonXuat = new HashSet<ChiTietDonXuat>();
         }
 
         public string DXuat_ID { get; set; }
@@ -18,6 +18,6 @@ namespace WebAPI_QLKH.Models
         public string NV_ID { get; set; }
 
         public virtual NhanVien NV { get; set; }
-        public virtual ICollection<ChiTietDonXuat> ChiTietDonXuats { get; set; }
+        public virtual ICollection<ChiTietDonXuat> ChiTietDonXuat { get; set; }
     }
 }

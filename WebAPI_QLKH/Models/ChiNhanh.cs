@@ -9,8 +9,8 @@ namespace WebAPI_QLKH.Models
     {
         public ChiNhanh()
         {
-            Khos = new HashSet<Kho>();
-            NhanViens = new HashSet<NhanVien>();
+            Kho = new HashSet<Kho>();
+            NhanVien = new HashSet<NhanVien>();
         }
 
         public string CN_ID { get; set; }
@@ -19,7 +19,7 @@ namespace WebAPI_QLKH.Models
         public string NV_ID { get; set; }
 
         public virtual NhanVien NV { get; set; }
-        public virtual ICollection<Kho> Khos { get; set; }
-        public virtual ICollection<NhanVien> NhanViens { get; set; }
+        public virtual ICollection<Kho> Kho { get; set; }
+        public virtual ICollection<NhanVien> NhanVien { get; set; }
     }
 }

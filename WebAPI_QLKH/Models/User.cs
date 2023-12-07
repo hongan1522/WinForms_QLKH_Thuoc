@@ -9,7 +9,7 @@ namespace WebAPI_QLKH.Models
     {
         public User()
         {
-            NhanViens = new HashSet<NhanVien>();
+            NhanVien = new HashSet<NhanVien>();
         }
 
         public string UserID { get; set; }
@@ -21,6 +21,6 @@ namespace WebAPI_QLKH.Models
 
         public virtual NhanVien NV { get; set; }
         public virtual Role Role { get; set; }
-        public virtual ICollection<NhanVien> NhanViens { get; set; }
+        public virtual ICollection<NhanVien> NhanVien { get; set; }
     }
 }

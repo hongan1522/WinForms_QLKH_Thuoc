@@ -9,7 +9,7 @@ namespace WebAPI_QLKH.Models
     {
         public Kho()
         {
-            Los = new HashSet<Lo>();
+            Lo = new HashSet<Lo>();
         }
 
         public string Kho_ID { get; set; }
@@ -18,6 +18,6 @@ namespace WebAPI_QLKH.Models
         public string CN_ID { get; set; }
 
         public virtual ChiNhanh CN { get; set; }
-        public virtual ICollection<Lo> Los { get; set; }
+        public virtual ICollection<Lo> Lo { get; set; }
     }
 }

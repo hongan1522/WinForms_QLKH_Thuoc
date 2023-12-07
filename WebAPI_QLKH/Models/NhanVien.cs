@@ -9,10 +9,10 @@ namespace WebAPI_QLKH.Models
     {
         public NhanVien()
         {
-            ChiNhanhs = new HashSet<ChiNhanh>();
-            DonNhaps = new HashSet<DonNhap>();
-            DonXuats = new HashSet<DonXuat>();
-            Users = new HashSet<User>();
+            ChiNhanh = new HashSet<ChiNhanh>();
+            DonNhap = new HashSet<DonNhap>();
+            DonXuat = new HashSet<DonXuat>();
+            UserNavigation = new HashSet<User>();
         }
 
         public string NV_ID { get; set; }
@@ -27,9 +27,9 @@ namespace WebAPI_QLKH.Models
 
         public virtual ChiNhanh CN { get; set; }
         public virtual User User { get; set; }
-        public virtual ICollection<ChiNhanh> ChiNhanhs { get; set; }
-        public virtual ICollection<DonNhap> DonNhaps { get; set; }
-        public virtual ICollection<DonXuat> DonXuats { get; set; }
-        public virtual ICollection<User> Users { get; set; }
+        public virtual ICollection<ChiNhanh> ChiNhanh { get; set; }
+        public virtual ICollection<DonNhap> DonNhap { get; set; }
+        public virtual ICollection<DonXuat> DonXuat { get; set; }
+        public virtual ICollection<User> UserNavigation { get; set; }
     }
 }

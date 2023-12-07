@@ -9,9 +9,9 @@ namespace WebAPI_QLKH.Models
     {
         public Thuoc()
         {
-            ChiTietDonXuats = new HashSet<ChiTietDonXuat>();
-            ChiTietThuocs = new HashSet<ChiTietThuoc>();
-            DonNhaps = new HashSet<DonNhap>();
+            ChiTietDonXuat = new HashSet<ChiTietDonXuat>();
+            ChiTietThuoc = new HashSet<ChiTietThuoc>();
+            DonNhap = new HashSet<DonNhap>();
         }
 
         public string Thuoc_ID { get; set; }
@@ -21,8 +21,8 @@ namespace WebAPI_QLKH.Models
 
         public virtual DonNhap DNhap { get; set; }
         public virtual NhomThuoc Nhom { get; set; }
-        public virtual ICollection<ChiTietDonXuat> ChiTietDonXuats { get; set; }
-        public virtual ICollection<ChiTietThuoc> ChiTietThuocs { get; set; }
-        public virtual ICollection<DonNhap> DonNhaps { get; set; }
+        public virtual ICollection<ChiTietDonXuat> ChiTietDonXuat { get; set; }
+        public virtual ICollection<ChiTietThuoc> ChiTietThuoc { get; set; }
+        public virtual ICollection<DonNhap> DonNhap { get; set; }
     }
 }
