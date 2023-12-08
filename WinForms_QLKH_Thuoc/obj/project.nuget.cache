@@ -1,13 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "MjGT2ThTMh7O2I7lQh+gYJmFNG9QzRKfdjSFPqtFo1bRwWfBhQLvIba0DA9RC/VKkabZVi3XRvL1EiyxPhGydg==",
+  "dgSpecHash": "YQo+6u3VPmI3CgAi3ydrCCiwMd1JTc5R1R3ZqIJAQY58BDT6h+or/yxjK7UuxJp92yu5F+j/yCu9kplBFnNCxg==",
   "success": true,
-  "projectFilePath": "D:\\Freelancer\\WinForms_QLKH_Thuoc-main\\WinForms_QLKH_Thuoc\\FormQLKH.csproj",
-  "expectedPackageFiles": [
-    "C:\\Users\\nguye\\.nuget\\packages\\microsoft.windowsdesktop.app.ref\\6.0.25\\microsoft.windowsdesktop.app.ref.6.0.25.nupkg.sha512",
-    "C:\\Users\\nguye\\.nuget\\packages\\microsoft.netcore.app.ref\\6.0.25\\microsoft.netcore.app.ref.6.0.25.nupkg.sha512",
-    "C:\\Users\\nguye\\.nuget\\packages\\microsoft.aspnetcore.app.ref\\6.0.25\\microsoft.aspnetcore.app.ref.6.0.25.nupkg.sha512",
-    "C:\\Users\\nguye\\.nuget\\packages\\microsoft.netcore.app.host.win-x64\\6.0.25\\microsoft.netcore.app.host.win-x64.6.0.25.nupkg.sha512"
-  ],
+  "projectFilePath": "C:\\Users\\MyPC\\Desktop\\WinForms_QLKH_Thuoc\\WinForms_QLKH_Thuoc\\FormQLKH.csproj",
+  "expectedPackageFiles": [],
   "logs": []
 }

@@ -28,10 +28,28 @@
         /// </summary>
         private void InitializeComponent()
         {
-            
+            uC_qlChiNhanh1 = new FormQLKH.UC_QLChiNhanh();
+            SuspendLayout();
+            // 
+            // uC_qlChiNhanh1
+            // 
+            uC_qlChiNhanh1.Dock = DockStyle.Fill;
+            uC_qlChiNhanh1.Location = new Point(0, 0);
+            uC_qlChiNhanh1.Name = "uC_qlChiNhanh1";
+            uC_qlChiNhanh1.Size = new Size(1406, 992);
+            uC_qlChiNhanh1.TabIndex = 0;
+            // 
+            // Frm_QuanLyKho
+            // 
+            ClientSize = new Size(1406, 992);
+            Controls.Add(uC_qlChiNhanh1);
+            FormBorderStyle = FormBorderStyle.FixedSingle;
+            Name = "Frm_QuanLyKho";
+            ResumeLayout(false);
         }
 
         #endregion
 
+        private FormQLKH.UC_QLChiNhanh uC_qlChiNhanh1;
     }
 }
