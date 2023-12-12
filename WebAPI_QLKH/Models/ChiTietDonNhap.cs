@@ -3,15 +3,17 @@
 using System;
 using System.Collections.Generic;
 
-namespace WebAPI_QLKH.Models
-{
-    public partial class ChiTietDonNhap
-    {
-        public string Lo_ID { get; set; }
-        public string DNhap_ID { get; set; }
-        public string Description { get; set; }
+namespace WebAPI_QLKH.Models;
 
-        public virtual DonNhap DNhap { get; set; }
-        public virtual Lo Lo { get; set; }
-    }
+public partial class ChiTietDonNhap
+{
+    public string Lo_ID { get; set; }
+
+    public string DNhap_ID { get; set; }
+
+    public string Description { get; set; }
+
+    public virtual DonNhap DNhap { get; set; }
+
+    public virtual Lo Lo { get; set; }
 }

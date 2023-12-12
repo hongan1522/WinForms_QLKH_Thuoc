@@ -29,7 +29,6 @@
         private void InitializeComponent()
         {
             DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(UC_QLDonXuat));
             tlpQLDX = new TableLayoutPanel();
             pnQLDX = new Panel();
             lbQLDX = new Label();
@@ -45,24 +44,23 @@
             lbQLDX_MaDX = new Label();
             grbQLDX_TK = new GroupBox();
             txtQLDX_TK_MaNV = new TextBox();
-            rdbQLDX_MaNV = new RadioButton();
             txtQLDX_TK_MaDX = new TextBox();
-            btnQLDX_Tim = new Button();
-            rdbQLDX_MaDX = new RadioButton();
             splQLDX_CN_HT = new SplitContainer();
             grbQLDX_CN = new GroupBox();
+            btnQLDX_Them = new Button();
+            btnQLDX_Xoa = new Button();
+            btnQLDX_Export = new Button();
+            btnQLDX_Import = new Button();
+            btnQLDX_Sua = new Button();
             grbQLDX_HT = new GroupBox();
             dgvQLDX = new DataGridView();
+            btnQLDX_Reload = new Button();
+            label1 = new Label();
+            label2 = new Label();
             Column1 = new DataGridViewTextBoxColumn();
             Column2 = new DataGridViewTextBoxColumn();
             Column3 = new DataGridViewTextBoxColumn();
             Column4 = new DataGridViewTextBoxColumn();
-            btnQLDX_Thoat = new Button();
-            btnQLDX_Them = new Button();
-            btnQLDX_Export = new Button();
-            btnQLDX_Sua = new Button();
-            btnQLDX_Import = new Button();
-            btnQLDX_Xoa = new Button();
             tlpQLDX.SuspendLayout();
             pnQLDX.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)splQLDX_TT_TK).BeginInit();
@@ -90,13 +88,12 @@
             tlpQLDX.Dock = DockStyle.Fill;
             tlpQLDX.Font = new Font("Segoe UI", 10.125F, FontStyle.Regular, GraphicsUnit.Point);
             tlpQLDX.Location = new Point(0, 0);
-            tlpQLDX.Margin = new Padding(2, 2, 2, 2);
             tlpQLDX.Name = "tlpQLDX";
             tlpQLDX.RowCount = 3;
-            tlpQLDX.RowStyles.Add(new RowStyle(SizeType.Absolute, 59F));
-            tlpQLDX.RowStyles.Add(new RowStyle(SizeType.Absolute, 471F));
-            tlpQLDX.RowStyles.Add(new RowStyle(SizeType.Absolute, 6F));
-            tlpQLDX.Size = new Size(1092, 781);
+            tlpQLDX.RowStyles.Add(new RowStyle(SizeType.Absolute, 76F));
+            tlpQLDX.RowStyles.Add(new RowStyle(SizeType.Absolute, 603F));
+            tlpQLDX.RowStyles.Add(new RowStyle(SizeType.Absolute, 8F));
+            tlpQLDX.Size = new Size(1420, 1000);
             tlpQLDX.TabIndex = 1;
             // 
             // pnQLDX
@@ -104,10 +101,9 @@
             pnQLDX.BackColor = Color.FromArgb(63, 139, 208);
             pnQLDX.Controls.Add(lbQLDX);
             pnQLDX.Dock = DockStyle.Fill;
-            pnQLDX.Location = new Point(2, 2);
-            pnQLDX.Margin = new Padding(2, 2, 2, 2);
+            pnQLDX.Location = new Point(3, 3);
             pnQLDX.Name = "pnQLDX";
-            pnQLDX.Size = new Size(1088, 55);
+            pnQLDX.Size = new Size(1414, 70);
             pnQLDX.TabIndex = 0;
             // 
             // lbQLDX
@@ -115,29 +111,29 @@
             lbQLDX.AutoSize = true;
             lbQLDX.Font = new Font("Segoe UI", 13.875F, FontStyle.Bold, GraphicsUnit.Point);
             lbQLDX.ForeColor = SystemColors.ButtonHighlight;
-            lbQLDX.Location = new Point(438, 9);
-            lbQLDX.Margin = new Padding(2, 0, 2, 0);
+            lbQLDX.Location = new Point(569, 12);
             lbQLDX.Name = "lbQLDX";
-            lbQLDX.Size = new Size(293, 38);
+            lbQLDX.Size = new Size(385, 50);
             lbQLDX.TabIndex = 0;
             lbQLDX.Text = "QUẢN LÝ ĐƠN XUẤT";
             // 
             // splQLDX_TT_TK
             // 
-            splQLDX_TT_TK.Location = new Point(2, 532);
-            splQLDX_TT_TK.Margin = new Padding(2, 2, 2, 2);
+            splQLDX_TT_TK.BackgroundImage = Properties.Resources.bg2;
+            splQLDX_TT_TK.Location = new Point(3, 682);
             splQLDX_TT_TK.Name = "splQLDX_TT_TK";
             // 
             // splQLDX_TT_TK.Panel1
             // 
+            splQLDX_TT_TK.Panel1.BackColor = Color.Transparent;
             splQLDX_TT_TK.Panel1.Controls.Add(grbQLDX_TT);
             // 
             // splQLDX_TT_TK.Panel2
             // 
+            splQLDX_TT_TK.Panel2.BackColor = Color.Transparent;
             splQLDX_TT_TK.Panel2.Controls.Add(grbQLDX_TK);
-            splQLDX_TT_TK.Size = new Size(1088, 247);
-            splQLDX_TT_TK.SplitterDistance = 719;
-            splQLDX_TT_TK.SplitterWidth = 3;
+            splQLDX_TT_TK.Size = new Size(1414, 315);
+            splQLDX_TT_TK.SplitterDistance = 970;
             splQLDX_TT_TK.TabIndex = 2;
             // 
             // grbQLDX_TT
@@ -152,10 +148,8 @@
             grbQLDX_TT.Controls.Add(lbQLDX_MaDX);
             grbQLDX_TT.Dock = DockStyle.Fill;
             grbQLDX_TT.Location = new Point(0, 0);
-            grbQLDX_TT.Margin = new Padding(2, 2, 2, 2);
             grbQLDX_TT.Name = "grbQLDX_TT";
-            grbQLDX_TT.Padding = new Padding(2, 2, 2, 2);
-            grbQLDX_TT.Size = new Size(719, 247);
+            grbQLDX_TT.Size = new Size(970, 315);
             grbQLDX_TT.TabIndex = 0;
             grbQLDX_TT.TabStop = false;
             grbQLDX_TT.Text = "Thông tin";
@@ -164,156 +158,114 @@
             // 
             dtpQLDX_NgayXuat.CustomFormat = "dd/MM/yyyy";
             dtpQLDX_NgayXuat.Format = DateTimePickerFormat.Custom;
-            dtpQLDX_NgayXuat.Location = new Point(485, 55);
-            dtpQLDX_NgayXuat.Margin = new Padding(2, 2, 2, 2);
+            dtpQLDX_NgayXuat.Location = new Point(654, 69);
             dtpQLDX_NgayXuat.Name = "dtpQLDX_NgayXuat";
-            dtpQLDX_NgayXuat.Size = new Size(225, 34);
+            dtpQLDX_NgayXuat.Size = new Size(291, 43);
             dtpQLDX_NgayXuat.TabIndex = 7;
             dtpQLDX_NgayXuat.Value = new DateTime(2023, 11, 27, 12, 53, 49, 0);
             // 
             // txtQLDX_TenDX
             // 
-            txtQLDX_TenDX.Location = new Point(485, 131);
-            txtQLDX_TenDX.Margin = new Padding(2, 2, 2, 2);
+            txtQLDX_TenDX.Location = new Point(654, 165);
             txtQLDX_TenDX.Multiline = true;
             txtQLDX_TenDX.Name = "txtQLDX_TenDX";
-            txtQLDX_TenDX.Size = new Size(225, 86);
+            txtQLDX_TenDX.Size = new Size(291, 109);
             txtQLDX_TenDX.TabIndex = 6;
             // 
             // txtQLDX_MaNV
             // 
-            txtQLDX_MaNV.Location = new Point(143, 131);
-            txtQLDX_MaNV.Margin = new Padding(2, 2, 2, 2);
+            txtQLDX_MaNV.Location = new Point(204, 165);
             txtQLDX_MaNV.Name = "txtQLDX_MaNV";
-            txtQLDX_MaNV.Size = new Size(177, 34);
+            txtQLDX_MaNV.Size = new Size(229, 43);
             txtQLDX_MaNV.TabIndex = 5;
             // 
             // txtQLDX_MaDX
             // 
-            txtQLDX_MaDX.Location = new Point(143, 54);
-            txtQLDX_MaDX.Margin = new Padding(2, 2, 2, 2);
+            txtQLDX_MaDX.Location = new Point(204, 66);
             txtQLDX_MaDX.Name = "txtQLDX_MaDX";
-            txtQLDX_MaDX.Size = new Size(177, 34);
+            txtQLDX_MaDX.Size = new Size(229, 43);
             txtQLDX_MaDX.TabIndex = 4;
             // 
             // lbQLDX_NgayXuat
             // 
             lbQLDX_NgayXuat.AutoSize = true;
-            lbQLDX_NgayXuat.Location = new Point(352, 54);
-            lbQLDX_NgayXuat.Margin = new Padding(2, 0, 2, 0);
+            lbQLDX_NgayXuat.BackColor = SystemColors.Control;
+            lbQLDX_NgayXuat.BorderStyle = BorderStyle.Fixed3D;
+            lbQLDX_NgayXuat.Font = new Font("Segoe UI Semibold", 10.125F, FontStyle.Bold, GraphicsUnit.Point);
+            lbQLDX_NgayXuat.Location = new Point(458, 69);
             lbQLDX_NgayXuat.Name = "lbQLDX_NgayXuat";
-            lbQLDX_NgayXuat.Size = new Size(108, 30);
+            lbQLDX_NgayXuat.Size = new Size(145, 39);
             lbQLDX_NgayXuat.TabIndex = 3;
             lbQLDX_NgayXuat.Text = "Ngày xuất";
             // 
             // lbQLDX_TenDX
             // 
             lbQLDX_TenDX.AutoSize = true;
-            lbQLDX_TenDX.Location = new Point(352, 131);
-            lbQLDX_TenDX.Margin = new Padding(2, 0, 2, 0);
+            lbQLDX_TenDX.BackColor = SystemColors.Control;
+            lbQLDX_TenDX.BorderStyle = BorderStyle.Fixed3D;
+            lbQLDX_TenDX.Font = new Font("Segoe UI Semibold", 10.125F, FontStyle.Bold, GraphicsUnit.Point);
+            lbQLDX_TenDX.Location = new Point(458, 168);
             lbQLDX_TenDX.Name = "lbQLDX_TenDX";
-            lbQLDX_TenDX.Size = new Size(134, 30);
+            lbQLDX_TenDX.Size = new Size(178, 39);
             lbQLDX_TenDX.TabIndex = 2;
             lbQLDX_TenDX.Text = "Tên đơn xuất";
             // 
             // lbQLDX_MaNV
             // 
             lbQLDX_MaNV.AutoSize = true;
-            lbQLDX_MaNV.Location = new Point(14, 131);
-            lbQLDX_MaNV.Margin = new Padding(2, 0, 2, 0);
+            lbQLDX_MaNV.BackColor = SystemColors.Control;
+            lbQLDX_MaNV.BorderStyle = BorderStyle.Fixed3D;
+            lbQLDX_MaNV.Font = new Font("Segoe UI Semibold", 10.125F, FontStyle.Bold, GraphicsUnit.Point);
+            lbQLDX_MaNV.Location = new Point(18, 168);
             lbQLDX_MaNV.Name = "lbQLDX_MaNV";
-            lbQLDX_MaNV.Size = new Size(78, 30);
+            lbQLDX_MaNV.Size = new Size(103, 39);
             lbQLDX_MaNV.TabIndex = 1;
             lbQLDX_MaNV.Text = "Mã NV";
             // 
             // lbQLDX_MaDX
             // 
             lbQLDX_MaDX.AutoSize = true;
-            lbQLDX_MaDX.Location = new Point(14, 54);
-            lbQLDX_MaDX.Margin = new Padding(2, 0, 2, 0);
+            lbQLDX_MaDX.BackColor = SystemColors.Control;
+            lbQLDX_MaDX.BorderStyle = BorderStyle.Fixed3D;
+            lbQLDX_MaDX.Font = new Font("Segoe UI Semibold", 10.125F, FontStyle.Bold, GraphicsUnit.Point);
+            lbQLDX_MaDX.Location = new Point(18, 69);
             lbQLDX_MaDX.Name = "lbQLDX_MaDX";
-            lbQLDX_MaDX.Size = new Size(132, 30);
+            lbQLDX_MaDX.Size = new Size(175, 39);
             lbQLDX_MaDX.TabIndex = 0;
             lbQLDX_MaDX.Text = "Mã đơn xuất";
             // 
             // grbQLDX_TK
             // 
+            grbQLDX_TK.Controls.Add(label2);
+            grbQLDX_TK.Controls.Add(label1);
             grbQLDX_TK.Controls.Add(txtQLDX_TK_MaNV);
-            grbQLDX_TK.Controls.Add(rdbQLDX_MaNV);
             grbQLDX_TK.Controls.Add(txtQLDX_TK_MaDX);
-            grbQLDX_TK.Controls.Add(btnQLDX_Tim);
-            grbQLDX_TK.Controls.Add(rdbQLDX_MaDX);
             grbQLDX_TK.Dock = DockStyle.Fill;
             grbQLDX_TK.Location = new Point(0, 0);
-            grbQLDX_TK.Margin = new Padding(2, 2, 2, 2);
             grbQLDX_TK.Name = "grbQLDX_TK";
-            grbQLDX_TK.Padding = new Padding(2, 2, 2, 2);
-            grbQLDX_TK.Size = new Size(366, 247);
+            grbQLDX_TK.Size = new Size(440, 315);
             grbQLDX_TK.TabIndex = 1;
             grbQLDX_TK.TabStop = false;
             grbQLDX_TK.Text = "Tìm kiếm";
             // 
             // txtQLDX_TK_MaNV
             // 
-            txtQLDX_TK_MaNV.Location = new Point(185, 127);
-            txtQLDX_TK_MaNV.Margin = new Padding(2, 2, 2, 2);
+            txtQLDX_TK_MaNV.Location = new Point(213, 168);
             txtQLDX_TK_MaNV.Name = "txtQLDX_TK_MaNV";
-            txtQLDX_TK_MaNV.Size = new Size(163, 34);
+            txtQLDX_TK_MaNV.Size = new Size(211, 43);
             txtQLDX_TK_MaNV.TabIndex = 3;
-            // 
-            // rdbQLDX_MaNV
-            // 
-            rdbQLDX_MaNV.AutoSize = true;
-            rdbQLDX_MaNV.Location = new Point(20, 128);
-            rdbQLDX_MaNV.Margin = new Padding(2, 2, 2, 2);
-            rdbQLDX_MaNV.Name = "rdbQLDX_MaNV";
-            rdbQLDX_MaNV.Size = new Size(165, 34);
-            rdbQLDX_MaNV.TabIndex = 2;
-            rdbQLDX_MaNV.TabStop = true;
-            rdbQLDX_MaNV.Text = "Mã nhân viên";
-            rdbQLDX_MaNV.UseVisualStyleBackColor = true;
             // 
             // txtQLDX_TK_MaDX
             // 
-            txtQLDX_TK_MaDX.Location = new Point(185, 55);
-            txtQLDX_TK_MaDX.Margin = new Padding(2, 2, 2, 2);
+            txtQLDX_TK_MaDX.Location = new Point(213, 67);
             txtQLDX_TK_MaDX.Name = "txtQLDX_TK_MaDX";
-            txtQLDX_TK_MaDX.Size = new Size(163, 34);
+            txtQLDX_TK_MaDX.Size = new Size(211, 43);
             txtQLDX_TK_MaDX.TabIndex = 1;
-            // 
-            // btnQLDX_Tim
-            // 
-            btnQLDX_Tim.BackColor = SystemColors.ButtonHighlight;
-            btnQLDX_Tim.FlatAppearance.BorderSize = 0;
-            btnQLDX_Tim.FlatStyle = FlatStyle.Flat;
-            btnQLDX_Tim.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
-            btnQLDX_Tim.Image = Properties.Resources.glass;
-            btnQLDX_Tim.ImageAlign = ContentAlignment.MiddleLeft;
-            btnQLDX_Tim.Location = new Point(223, 180);
-            btnQLDX_Tim.Margin = new Padding(2, 2, 2, 2);
-            btnQLDX_Tim.Name = "btnQLDX_Tim";
-            btnQLDX_Tim.Size = new Size(125, 50);
-            btnQLDX_Tim.TabIndex = 3;
-            btnQLDX_Tim.Text = "Tìm";
-            btnQLDX_Tim.UseVisualStyleBackColor = false;
-            // 
-            // rdbQLDX_MaDX
-            // 
-            rdbQLDX_MaDX.AutoSize = true;
-            rdbQLDX_MaDX.Location = new Point(20, 54);
-            rdbQLDX_MaDX.Margin = new Padding(2, 2, 2, 2);
-            rdbQLDX_MaDX.Name = "rdbQLDX_MaDX";
-            rdbQLDX_MaDX.Size = new Size(157, 34);
-            rdbQLDX_MaDX.TabIndex = 0;
-            rdbQLDX_MaDX.TabStop = true;
-            rdbQLDX_MaDX.Text = "Mã đơn xuất";
-            rdbQLDX_MaDX.UseVisualStyleBackColor = true;
             // 
             // splQLDX_CN_HT
             // 
             splQLDX_CN_HT.Dock = DockStyle.Fill;
-            splQLDX_CN_HT.Location = new Point(2, 61);
-            splQLDX_CN_HT.Margin = new Padding(2, 2, 2, 2);
+            splQLDX_CN_HT.Location = new Point(3, 79);
             splQLDX_CN_HT.Name = "splQLDX_CN_HT";
             // 
             // splQLDX_CN_HT.Panel1
@@ -323,14 +275,13 @@
             // splQLDX_CN_HT.Panel2
             // 
             splQLDX_CN_HT.Panel2.Controls.Add(grbQLDX_HT);
-            splQLDX_CN_HT.Size = new Size(1088, 467);
-            splQLDX_CN_HT.SplitterDistance = 189;
-            splQLDX_CN_HT.SplitterWidth = 3;
+            splQLDX_CN_HT.Size = new Size(1414, 597);
+            splQLDX_CN_HT.SplitterDistance = 245;
             splQLDX_CN_HT.TabIndex = 3;
             // 
             // grbQLDX_CN
             // 
-            grbQLDX_CN.Controls.Add(btnQLDX_Thoat);
+            grbQLDX_CN.Controls.Add(btnQLDX_Reload);
             grbQLDX_CN.Controls.Add(btnQLDX_Them);
             grbQLDX_CN.Controls.Add(btnQLDX_Xoa);
             grbQLDX_CN.Controls.Add(btnQLDX_Export);
@@ -338,23 +289,94 @@
             grbQLDX_CN.Controls.Add(btnQLDX_Sua);
             grbQLDX_CN.Dock = DockStyle.Fill;
             grbQLDX_CN.Location = new Point(0, 0);
-            grbQLDX_CN.Margin = new Padding(2, 2, 2, 2);
             grbQLDX_CN.Name = "grbQLDX_CN";
-            grbQLDX_CN.Padding = new Padding(2, 2, 2, 2);
-            grbQLDX_CN.Size = new Size(189, 467);
+            grbQLDX_CN.Size = new Size(245, 597);
             grbQLDX_CN.TabIndex = 0;
             grbQLDX_CN.TabStop = false;
             grbQLDX_CN.Text = "Chức năng";
+            // 
+            // btnQLDX_Them
+            // 
+            btnQLDX_Them.BackColor = SystemColors.ButtonHighlight;
+            btnQLDX_Them.FlatAppearance.BorderSize = 0;
+            btnQLDX_Them.FlatStyle = FlatStyle.Flat;
+            btnQLDX_Them.Font = new Font("Segoe UI", 10.125F, FontStyle.Bold, GraphicsUnit.Point);
+            btnQLDX_Them.Image = Properties.Resources.New;
+            btnQLDX_Them.ImageAlign = ContentAlignment.MiddleLeft;
+            btnQLDX_Them.Location = new Point(31, 73);
+            btnQLDX_Them.Name = "btnQLDX_Them";
+            btnQLDX_Them.Size = new Size(182, 58);
+            btnQLDX_Them.TabIndex = 12;
+            btnQLDX_Them.Text = "Thêm";
+            btnQLDX_Them.UseVisualStyleBackColor = false;
+            // 
+            // btnQLDX_Xoa
+            // 
+            btnQLDX_Xoa.BackColor = SystemColors.ButtonHighlight;
+            btnQLDX_Xoa.FlatAppearance.BorderSize = 0;
+            btnQLDX_Xoa.FlatStyle = FlatStyle.Flat;
+            btnQLDX_Xoa.Font = new Font("Segoe UI", 10.125F, FontStyle.Bold, GraphicsUnit.Point);
+            btnQLDX_Xoa.Image = Properties.Resources.Delete;
+            btnQLDX_Xoa.ImageAlign = ContentAlignment.MiddleLeft;
+            btnQLDX_Xoa.Location = new Point(31, 247);
+            btnQLDX_Xoa.Name = "btnQLDX_Xoa";
+            btnQLDX_Xoa.Size = new Size(182, 58);
+            btnQLDX_Xoa.TabIndex = 14;
+            btnQLDX_Xoa.Text = "Xóa";
+            btnQLDX_Xoa.UseVisualStyleBackColor = false;
+            // 
+            // btnQLDX_Export
+            // 
+            btnQLDX_Export.BackColor = SystemColors.ButtonHighlight;
+            btnQLDX_Export.FlatAppearance.BorderSize = 0;
+            btnQLDX_Export.FlatStyle = FlatStyle.Flat;
+            btnQLDX_Export.Font = new Font("Segoe UI", 10.125F, FontStyle.Bold, GraphicsUnit.Point);
+            btnQLDX_Export.Image = Properties.Resources.export;
+            btnQLDX_Export.ImageAlign = ContentAlignment.MiddleLeft;
+            btnQLDX_Export.Location = new Point(31, 421);
+            btnQLDX_Export.Name = "btnQLDX_Export";
+            btnQLDX_Export.Size = new Size(182, 58);
+            btnQLDX_Export.TabIndex = 16;
+            btnQLDX_Export.Text = "Export";
+            btnQLDX_Export.UseVisualStyleBackColor = false;
+            // 
+            // btnQLDX_Import
+            // 
+            btnQLDX_Import.BackColor = SystemColors.ButtonHighlight;
+            btnQLDX_Import.FlatAppearance.BorderSize = 0;
+            btnQLDX_Import.FlatStyle = FlatStyle.Flat;
+            btnQLDX_Import.Font = new Font("Segoe UI", 10.125F, FontStyle.Bold, GraphicsUnit.Point);
+            btnQLDX_Import.Image = Properties.Resources.import;
+            btnQLDX_Import.ImageAlign = ContentAlignment.MiddleLeft;
+            btnQLDX_Import.Location = new Point(31, 334);
+            btnQLDX_Import.Name = "btnQLDX_Import";
+            btnQLDX_Import.Size = new Size(182, 58);
+            btnQLDX_Import.TabIndex = 15;
+            btnQLDX_Import.Text = "Import";
+            btnQLDX_Import.UseVisualStyleBackColor = false;
+            // 
+            // btnQLDX_Sua
+            // 
+            btnQLDX_Sua.BackColor = SystemColors.ButtonHighlight;
+            btnQLDX_Sua.FlatAppearance.BorderSize = 0;
+            btnQLDX_Sua.FlatStyle = FlatStyle.Flat;
+            btnQLDX_Sua.Font = new Font("Segoe UI", 10.125F, FontStyle.Bold, GraphicsUnit.Point);
+            btnQLDX_Sua.Image = Properties.Resources.Edit;
+            btnQLDX_Sua.ImageAlign = ContentAlignment.MiddleLeft;
+            btnQLDX_Sua.Location = new Point(31, 160);
+            btnQLDX_Sua.Name = "btnQLDX_Sua";
+            btnQLDX_Sua.Size = new Size(182, 58);
+            btnQLDX_Sua.TabIndex = 13;
+            btnQLDX_Sua.Text = "Sửa";
+            btnQLDX_Sua.UseVisualStyleBackColor = false;
             // 
             // grbQLDX_HT
             // 
             grbQLDX_HT.Controls.Add(dgvQLDX);
             grbQLDX_HT.Dock = DockStyle.Fill;
             grbQLDX_HT.Location = new Point(0, 0);
-            grbQLDX_HT.Margin = new Padding(2, 2, 2, 2);
             grbQLDX_HT.Name = "grbQLDX_HT";
-            grbQLDX_HT.Padding = new Padding(2, 2, 2, 2);
-            grbQLDX_HT.Size = new Size(896, 467);
+            grbQLDX_HT.Size = new Size(1165, 597);
             grbQLDX_HT.TabIndex = 4;
             grbQLDX_HT.TabStop = false;
             grbQLDX_HT.Text = "Hiển thị";
@@ -374,13 +396,53 @@
             dgvQLDX.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dgvQLDX.Columns.AddRange(new DataGridViewColumn[] { Column1, Column2, Column3, Column4 });
             dgvQLDX.Dock = DockStyle.Fill;
-            dgvQLDX.Location = new Point(2, 29);
-            dgvQLDX.Margin = new Padding(2, 2, 2, 2);
+            dgvQLDX.Location = new Point(3, 39);
             dgvQLDX.Name = "dgvQLDX";
             dgvQLDX.RowHeadersWidth = 82;
             dgvQLDX.RowTemplate.Height = 41;
-            dgvQLDX.Size = new Size(892, 436);
+            dgvQLDX.Size = new Size(1159, 555);
+            dgvQLDX.AutoGenerateColumns = false;
+            dgvQLDX.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dgvQLDX.TabIndex = 2;
+            // 
+            // btnQLDX_Reload
+            // 
+            btnQLDX_Reload.BackColor = SystemColors.ButtonHighlight;
+            btnQLDX_Reload.FlatAppearance.BorderSize = 0;
+            btnQLDX_Reload.FlatStyle = FlatStyle.Flat;
+            btnQLDX_Reload.Font = new Font("Segoe UI", 10.125F, FontStyle.Bold, GraphicsUnit.Point);
+            btnQLDX_Reload.Image = Properties.Resources.reload;
+            btnQLDX_Reload.ImageAlign = ContentAlignment.MiddleLeft;
+            btnQLDX_Reload.Location = new Point(31, 510);
+            btnQLDX_Reload.Name = "btnQLDX_Reload";
+            btnQLDX_Reload.Size = new Size(182, 58);
+            btnQLDX_Reload.TabIndex = 17;
+            btnQLDX_Reload.Text = "Reload";
+            btnQLDX_Reload.UseVisualStyleBackColor = false;
+            // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.BackColor = SystemColors.Control;
+            label1.BorderStyle = BorderStyle.Fixed3D;
+            label1.Font = new Font("Segoe UI Semibold", 10.125F, FontStyle.Bold, GraphicsUnit.Point);
+            label1.Location = new Point(21, 66);
+            label1.Name = "label1";
+            label1.Size = new Size(175, 39);
+            label1.TabIndex = 4;
+            label1.Text = "Mã đơn xuất";
+            // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.BackColor = SystemColors.Control;
+            label2.BorderStyle = BorderStyle.Fixed3D;
+            label2.Font = new Font("Segoe UI Semibold", 10.125F, FontStyle.Bold, GraphicsUnit.Point);
+            label2.Location = new Point(21, 171);
+            label2.Name = "label2";
+            label2.Size = new Size(103, 39);
+            label2.TabIndex = 5;
+            label2.Text = "Mã NV";
             // 
             // Column1
             // 
@@ -390,7 +452,7 @@
             // 
             // Column2
             // 
-            Column2.HeaderText = "Mã NV";
+            Column2.HeaderText = "Mã nhân viên";
             Column2.MinimumWidth = 10;
             Column2.Name = "Column2";
             // 
@@ -406,110 +468,13 @@
             Column4.MinimumWidth = 10;
             Column4.Name = "Column4";
             // 
-            // btnQLDX_Thoat
-            // 
-            btnQLDX_Thoat.BackColor = Color.Red;
-            btnQLDX_Thoat.FlatAppearance.BorderSize = 0;
-            btnQLDX_Thoat.FlatStyle = FlatStyle.Flat;
-            btnQLDX_Thoat.Font = new Font("Segoe UI", 10.125F, FontStyle.Bold, GraphicsUnit.Point);
-            btnQLDX_Thoat.Image = (Image)resources.GetObject("btnQLDX_Thoat.Image");
-            btnQLDX_Thoat.ImageAlign = ContentAlignment.MiddleLeft;
-            btnQLDX_Thoat.Location = new Point(24, 397);
-            btnQLDX_Thoat.Margin = new Padding(2);
-            btnQLDX_Thoat.Name = "btnQLDX_Thoat";
-            btnQLDX_Thoat.Size = new Size(140, 45);
-            btnQLDX_Thoat.TabIndex = 17;
-            btnQLDX_Thoat.Text = "Thoát";
-            btnQLDX_Thoat.UseVisualStyleBackColor = false;
-            // 
-            // btnQLDX_Them
-            // 
-            btnQLDX_Them.BackColor = SystemColors.ButtonHighlight;
-            btnQLDX_Them.FlatAppearance.BorderSize = 0;
-            btnQLDX_Them.FlatStyle = FlatStyle.Flat;
-            btnQLDX_Them.Font = new Font("Segoe UI", 10.125F, FontStyle.Bold, GraphicsUnit.Point);
-            btnQLDX_Them.Image = Properties.Resources.New;
-            btnQLDX_Them.ImageAlign = ContentAlignment.MiddleLeft;
-            btnQLDX_Them.Location = new Point(24, 57);
-            btnQLDX_Them.Margin = new Padding(2);
-            btnQLDX_Them.Name = "btnQLDX_Them";
-            btnQLDX_Them.Size = new Size(140, 45);
-            btnQLDX_Them.TabIndex = 12;
-            btnQLDX_Them.Text = "Thêm";
-            btnQLDX_Them.UseVisualStyleBackColor = false;
-            // 
-            // btnQLDX_Export
-            // 
-            btnQLDX_Export.BackColor = SystemColors.ButtonHighlight;
-            btnQLDX_Export.FlatAppearance.BorderSize = 0;
-            btnQLDX_Export.FlatStyle = FlatStyle.Flat;
-            btnQLDX_Export.Font = new Font("Segoe UI", 10.125F, FontStyle.Bold, GraphicsUnit.Point);
-            btnQLDX_Export.Image = Properties.Resources.export;
-            btnQLDX_Export.ImageAlign = ContentAlignment.MiddleLeft;
-            btnQLDX_Export.Location = new Point(24, 329);
-            btnQLDX_Export.Margin = new Padding(2);
-            btnQLDX_Export.Name = "btnQLDX_Export";
-            btnQLDX_Export.Size = new Size(140, 45);
-            btnQLDX_Export.TabIndex = 16;
-            btnQLDX_Export.Text = "Export";
-            btnQLDX_Export.UseVisualStyleBackColor = false;
-            // 
-            // btnQLDX_Sua
-            // 
-            btnQLDX_Sua.BackColor = SystemColors.ButtonHighlight;
-            btnQLDX_Sua.FlatAppearance.BorderSize = 0;
-            btnQLDX_Sua.FlatStyle = FlatStyle.Flat;
-            btnQLDX_Sua.Font = new Font("Segoe UI", 10.125F, FontStyle.Bold, GraphicsUnit.Point);
-            btnQLDX_Sua.Image = Properties.Resources.Edit;
-            btnQLDX_Sua.ImageAlign = ContentAlignment.MiddleLeft;
-            btnQLDX_Sua.Location = new Point(24, 125);
-            btnQLDX_Sua.Margin = new Padding(2);
-            btnQLDX_Sua.Name = "btnQLDX_Sua";
-            btnQLDX_Sua.Size = new Size(140, 45);
-            btnQLDX_Sua.TabIndex = 13;
-            btnQLDX_Sua.Text = "Sửa";
-            btnQLDX_Sua.UseVisualStyleBackColor = false;
-            // 
-            // btnQLDX_Import
-            // 
-            btnQLDX_Import.BackColor = SystemColors.ButtonHighlight;
-            btnQLDX_Import.FlatAppearance.BorderSize = 0;
-            btnQLDX_Import.FlatStyle = FlatStyle.Flat;
-            btnQLDX_Import.Font = new Font("Segoe UI", 10.125F, FontStyle.Bold, GraphicsUnit.Point);
-            btnQLDX_Import.Image = Properties.Resources.import;
-            btnQLDX_Import.ImageAlign = ContentAlignment.MiddleLeft;
-            btnQLDX_Import.Location = new Point(24, 261);
-            btnQLDX_Import.Margin = new Padding(2);
-            btnQLDX_Import.Name = "btnQLDX_Import";
-            btnQLDX_Import.Size = new Size(140, 45);
-            btnQLDX_Import.TabIndex = 15;
-            btnQLDX_Import.Text = "Import";
-            btnQLDX_Import.UseVisualStyleBackColor = false;
-            // 
-            // btnQLDX_Xoa
-            // 
-            btnQLDX_Xoa.BackColor = SystemColors.ButtonHighlight;
-            btnQLDX_Xoa.FlatAppearance.BorderSize = 0;
-            btnQLDX_Xoa.FlatStyle = FlatStyle.Flat;
-            btnQLDX_Xoa.Font = new Font("Segoe UI", 10.125F, FontStyle.Bold, GraphicsUnit.Point);
-            btnQLDX_Xoa.Image = Properties.Resources.Delete;
-            btnQLDX_Xoa.ImageAlign = ContentAlignment.MiddleLeft;
-            btnQLDX_Xoa.Location = new Point(24, 193);
-            btnQLDX_Xoa.Margin = new Padding(2);
-            btnQLDX_Xoa.Name = "btnQLDX_Xoa";
-            btnQLDX_Xoa.Size = new Size(140, 45);
-            btnQLDX_Xoa.TabIndex = 14;
-            btnQLDX_Xoa.Text = "Xóa";
-            btnQLDX_Xoa.UseVisualStyleBackColor = false;
-            // 
             // UC_QLDonXuat
             // 
-            AutoScaleDimensions = new SizeF(10F, 25F);
+            AutoScaleDimensions = new SizeF(13F, 32F);
             AutoScaleMode = AutoScaleMode.Font;
             Controls.Add(tlpQLDX);
-            Margin = new Padding(2, 2, 2, 2);
             Name = "UC_QLDonXuat";
-            Size = new Size(1092, 781);
+            Size = new Size(1420, 1000);
             tlpQLDX.ResumeLayout(false);
             pnQLDX.ResumeLayout(false);
             pnQLDX.PerformLayout();
@@ -548,23 +513,22 @@
         private Label lbQLDX_MaDX;
         private GroupBox grbQLDX_TK;
         private TextBox txtQLDX_TK_MaNV;
-        private RadioButton rdbQLDX_MaNV;
         private TextBox txtQLDX_TK_MaDX;
-        private Button btnQLDX_Tim;
-        private RadioButton rdbQLDX_MaDX;
         private SplitContainer splQLDX_CN_HT;
         private GroupBox grbQLDX_CN;
         private GroupBox grbQLDX_HT;
         private DataGridView dgvQLDX;
-        private DataGridViewTextBoxColumn Column1;
-        private DataGridViewTextBoxColumn Column2;
-        private DataGridViewTextBoxColumn Column3;
-        private DataGridViewTextBoxColumn Column4;
-        private Button btnQLDX_Thoat;
         private Button btnQLDX_Them;
         private Button btnQLDX_Xoa;
         private Button btnQLDX_Export;
         private Button btnQLDX_Import;
         private Button btnQLDX_Sua;
+        private Button btnQLDX_Reload;
+        private Label label2;
+        private Label label1;
+        private DataGridViewTextBoxColumn Column1;
+        private DataGridViewTextBoxColumn Column2;
+        private DataGridViewTextBoxColumn Column3;
+        private DataGridViewTextBoxColumn Column4;
     }
 }

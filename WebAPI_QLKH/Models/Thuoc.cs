@@ -3,24 +3,21 @@
 using System;
 using System.Collections.Generic;
 
-namespace WebAPI_QLKH.Models
+namespace WebAPI_QLKH.Models;
+
+public partial class Thuoc
 {
-    public partial class Thuoc
-    {
-        public Thuoc()
-        {
-            ChiTietDonXuat = new HashSet<ChiTietDonXuat>();
-            ChiTietThuoc = new HashSet<ChiTietThuoc>();
-            DonNhap = new HashSet<DonNhap>();
-        }
+    public string Thuoc_ID { get; set; }
 
-        public string Thuoc_ID { get; set; }
-        public string Thuoc_Name { get; set; }
-        public string Nhom_ID { get; set; }
+    public string Thuoc_Name { get; set; }
 
-        public virtual NhomThuoc Nhom { get; set; }
-        public virtual ICollection<ChiTietDonXuat> ChiTietDonXuat { get; set; }
-        public virtual ICollection<ChiTietThuoc> ChiTietThuoc { get; set; }
-        public virtual ICollection<DonNhap> DonNhap { get; set; }
-    }
+    public string Nhom_ID { get; set; }
+
+    public virtual ICollection<ChiTietDonXuat> ChiTietDonXuat { get; set; } = new List<ChiTietDonXuat>();
+
+    public virtual ICollection<ChiTietThuoc> ChiTietThuoc { get; set; } = new List<ChiTietThuoc>();
+
+    public virtual ICollection<DonNhap> DonNhap { get; set; } = new List<DonNhap>();
+
+    public virtual NhomThuoc Nhom { get; set; }
 }

@@ -29,18 +29,18 @@
         private void InitializeComponent()
         {
             DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(UC_QLChiNhanh));
+            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
             tlpQLCN = new TableLayoutPanel();
             pnQLCN = new Panel();
             lbQLCN = new Label();
             splQLCN_HT_CN = new SplitContainer();
             grbQLCN_HT = new GroupBox();
             dgvQLCN = new DataGridView();
-            Column1 = new DataGridViewTextBoxColumn();
-            Column3 = new DataGridViewTextBoxColumn();
-            Column4 = new DataGridViewTextBoxColumn();
+            MaCN = new DataGridViewTextBoxColumn();
+            TenCN = new DataGridViewTextBoxColumn();
+            DiaChi = new DataGridViewTextBoxColumn();
             grbQLCN_CN = new GroupBox();
-            btnQLCN_Thoat = new Button();
+            btnQLCN_Reload = new Button();
             btnQLCN_Them = new Button();
             btnQLCN_Export = new Button();
             btnQLCN_Sua = new Button();
@@ -48,9 +48,8 @@
             btnQLCN_Xoa = new Button();
             splQLCN_TK_TT = new SplitContainer();
             grbQLCN_TK = new GroupBox();
-            btnQLCN_Tim = new Button();
+            lbQLCN_TK_MaCN = new Label();
             txtQLCN_TK_MaCN = new TextBox();
-            rdbQLCN_MaCN = new RadioButton();
             grbQLCN_TT = new GroupBox();
             txtQLCN_TenCN = new TextBox();
             txtQLCN_DiaChi = new TextBox();
@@ -147,45 +146,59 @@
             // 
             dgvQLCN.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dgvQLCN.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
-            dgvQLCN.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgvQLCN.Columns.AddRange(new DataGridViewColumn[] { Column1, Column3, Column4 });
             dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle1.BackColor = SystemColors.Window;
+            dataGridViewCellStyle1.BackColor = SystemColors.Control;
             dataGridViewCellStyle1.Font = new Font("Segoe UI", 10.125F, FontStyle.Regular, GraphicsUnit.Point);
-            dataGridViewCellStyle1.ForeColor = SystemColors.ControlText;
+            dataGridViewCellStyle1.ForeColor = SystemColors.WindowText;
             dataGridViewCellStyle1.SelectionBackColor = SystemColors.Highlight;
             dataGridViewCellStyle1.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = DataGridViewTriState.False;
-            dgvQLCN.DefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
+            dgvQLCN.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dgvQLCN.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dgvQLCN.Columns.AddRange(new DataGridViewColumn[] { MaCN, TenCN, DiaChi });
+            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle2.BackColor = SystemColors.Window;
+            dataGridViewCellStyle2.Font = new Font("Segoe UI", 10.125F, FontStyle.Regular, GraphicsUnit.Point);
+            dataGridViewCellStyle2.ForeColor = SystemColors.ControlText;
+            dataGridViewCellStyle2.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = DataGridViewTriState.False;
+            dgvQLCN.DefaultCellStyle = dataGridViewCellStyle2;
             dgvQLCN.Dock = DockStyle.Fill;
             dgvQLCN.Location = new Point(3, 39);
             dgvQLCN.Name = "dgvQLCN";
             dgvQLCN.RowHeadersWidth = 82;
             dgvQLCN.RowTemplate.Height = 41;
+            dgvQLCN.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dgvQLCN.Size = new Size(1155, 636);
             dgvQLCN.TabIndex = 0;
+            dgvQLCN.RowPostPaint += dgvQLCN_RowPostPaint;
+            dgvQLCN.SelectionChanged += dgvQLCN_SelectionChanged;
             // 
-            // Column1
+            // MaCN
             // 
-            Column1.HeaderText = "Mã CN";
-            Column1.MinimumWidth = 10;
-            Column1.Name = "Column1";
+            MaCN.DataPropertyName = "CN_ID";
+            MaCN.HeaderText = "Mã CN";
+            MaCN.MinimumWidth = 10;
+            MaCN.Name = "MaCN";
             // 
-            // Column3
+            // TenCN
             // 
-            Column3.HeaderText = "Tên CN";
-            Column3.MinimumWidth = 10;
-            Column3.Name = "Column3";
+            TenCN.DataPropertyName = "CN_Name";
+            TenCN.HeaderText = "Tên CN";
+            TenCN.MinimumWidth = 10;
+            TenCN.Name = "TenCN";
             // 
-            // Column4
+            // DiaChi
             // 
-            Column4.HeaderText = "Địa chỉ";
-            Column4.MinimumWidth = 10;
-            Column4.Name = "Column4";
+            DiaChi.DataPropertyName = "CN_Address";
+            DiaChi.HeaderText = "Địa chỉ";
+            DiaChi.MinimumWidth = 10;
+            DiaChi.Name = "DiaChi";
             // 
             // grbQLCN_CN
             // 
-            grbQLCN_CN.Controls.Add(btnQLCN_Thoat);
+            grbQLCN_CN.Controls.Add(btnQLCN_Reload);
             grbQLCN_CN.Controls.Add(btnQLCN_Them);
             grbQLCN_CN.Controls.Add(btnQLCN_Export);
             grbQLCN_CN.Controls.Add(btnQLCN_Sua);
@@ -199,20 +212,21 @@
             grbQLCN_CN.TabStop = false;
             grbQLCN_CN.Text = "Chức năng";
             // 
-            // btnQLCN_Thoat
+            // btnQLCN_Reload
             // 
-            btnQLCN_Thoat.BackColor = Color.Red;
-            btnQLCN_Thoat.FlatAppearance.BorderSize = 0;
-            btnQLCN_Thoat.FlatStyle = FlatStyle.Flat;
-            btnQLCN_Thoat.Font = new Font("Segoe UI", 10.125F, FontStyle.Bold, GraphicsUnit.Point);
-            btnQLCN_Thoat.Image = (Image)resources.GetObject("btnQLCN_Thoat.Image");
-            btnQLCN_Thoat.ImageAlign = ContentAlignment.MiddleLeft;
-            btnQLCN_Thoat.Location = new Point(32, 529);
-            btnQLCN_Thoat.Name = "btnQLCN_Thoat";
-            btnQLCN_Thoat.Size = new Size(182, 58);
-            btnQLCN_Thoat.TabIndex = 11;
-            btnQLCN_Thoat.Text = "Thoát";
-            btnQLCN_Thoat.UseVisualStyleBackColor = false;
+            btnQLCN_Reload.BackColor = SystemColors.ButtonHighlight;
+            btnQLCN_Reload.FlatAppearance.BorderSize = 0;
+            btnQLCN_Reload.FlatStyle = FlatStyle.Flat;
+            btnQLCN_Reload.Font = new Font("Segoe UI", 10.125F, FontStyle.Bold, GraphicsUnit.Point);
+            btnQLCN_Reload.Image = Properties.Resources.reload;
+            btnQLCN_Reload.ImageAlign = ContentAlignment.MiddleLeft;
+            btnQLCN_Reload.Location = new Point(32, 582);
+            btnQLCN_Reload.Name = "btnQLCN_Reload";
+            btnQLCN_Reload.Size = new Size(182, 58);
+            btnQLCN_Reload.TabIndex = 11;
+            btnQLCN_Reload.Text = "Reload";
+            btnQLCN_Reload.UseVisualStyleBackColor = false;
+            btnQLCN_Reload.Click += btnQLCN_Reload_Click;
             // 
             // btnQLCN_Them
             // 
@@ -222,12 +236,13 @@
             btnQLCN_Them.Font = new Font("Segoe UI", 10.125F, FontStyle.Bold, GraphicsUnit.Point);
             btnQLCN_Them.Image = Properties.Resources.New;
             btnQLCN_Them.ImageAlign = ContentAlignment.MiddleLeft;
-            btnQLCN_Them.Location = new Point(32, 93);
+            btnQLCN_Them.Location = new Point(32, 66);
             btnQLCN_Them.Name = "btnQLCN_Them";
             btnQLCN_Them.Size = new Size(182, 58);
             btnQLCN_Them.TabIndex = 6;
             btnQLCN_Them.Text = "Thêm";
             btnQLCN_Them.UseVisualStyleBackColor = false;
+            btnQLCN_Them.Click += btnQLCN_Them_Click;
             // 
             // btnQLCN_Export
             // 
@@ -237,12 +252,13 @@
             btnQLCN_Export.Font = new Font("Segoe UI", 10.125F, FontStyle.Bold, GraphicsUnit.Point);
             btnQLCN_Export.Image = Properties.Resources.export;
             btnQLCN_Export.ImageAlign = ContentAlignment.MiddleLeft;
-            btnQLCN_Export.Location = new Point(32, 442);
+            btnQLCN_Export.Location = new Point(32, 479);
             btnQLCN_Export.Name = "btnQLCN_Export";
             btnQLCN_Export.Size = new Size(182, 58);
             btnQLCN_Export.TabIndex = 10;
             btnQLCN_Export.Text = "Export";
             btnQLCN_Export.UseVisualStyleBackColor = false;
+            btnQLCN_Export.Click += btnQLCN_Export_Click;
             // 
             // btnQLCN_Sua
             // 
@@ -252,12 +268,13 @@
             btnQLCN_Sua.Font = new Font("Segoe UI", 10.125F, FontStyle.Bold, GraphicsUnit.Point);
             btnQLCN_Sua.Image = Properties.Resources.Edit;
             btnQLCN_Sua.ImageAlign = ContentAlignment.MiddleLeft;
-            btnQLCN_Sua.Location = new Point(32, 180);
+            btnQLCN_Sua.Location = new Point(32, 169);
             btnQLCN_Sua.Name = "btnQLCN_Sua";
             btnQLCN_Sua.Size = new Size(182, 58);
             btnQLCN_Sua.TabIndex = 7;
             btnQLCN_Sua.Text = "Sửa";
             btnQLCN_Sua.UseVisualStyleBackColor = false;
+            btnQLCN_Sua.Click += btnQLCN_Sua_Click;
             // 
             // btnQLCN_Import
             // 
@@ -267,7 +284,7 @@
             btnQLCN_Import.Font = new Font("Segoe UI", 10.125F, FontStyle.Bold, GraphicsUnit.Point);
             btnQLCN_Import.Image = Properties.Resources.import;
             btnQLCN_Import.ImageAlign = ContentAlignment.MiddleLeft;
-            btnQLCN_Import.Location = new Point(32, 355);
+            btnQLCN_Import.Location = new Point(32, 376);
             btnQLCN_Import.Name = "btnQLCN_Import";
             btnQLCN_Import.Size = new Size(182, 58);
             btnQLCN_Import.TabIndex = 9;
@@ -282,78 +299,71 @@
             btnQLCN_Xoa.Font = new Font("Segoe UI", 10.125F, FontStyle.Bold, GraphicsUnit.Point);
             btnQLCN_Xoa.Image = Properties.Resources.Delete;
             btnQLCN_Xoa.ImageAlign = ContentAlignment.MiddleLeft;
-            btnQLCN_Xoa.Location = new Point(32, 268);
+            btnQLCN_Xoa.Location = new Point(32, 273);
             btnQLCN_Xoa.Name = "btnQLCN_Xoa";
             btnQLCN_Xoa.Size = new Size(182, 58);
             btnQLCN_Xoa.TabIndex = 8;
             btnQLCN_Xoa.Text = "Xóa";
             btnQLCN_Xoa.UseVisualStyleBackColor = false;
+            btnQLCN_Xoa.Click += btnQLCN_Xoa_Click;
             // 
             // splQLCN_TK_TT
             // 
+            splQLCN_TK_TT.BackgroundImage = Properties.Resources.bg1;
             splQLCN_TK_TT.Dock = DockStyle.Fill;
             splQLCN_TK_TT.Location = new Point(3, 771);
             splQLCN_TK_TT.Name = "splQLCN_TK_TT";
             // 
             // splQLCN_TK_TT.Panel1
             // 
+            splQLCN_TK_TT.Panel1.BackColor = Color.Transparent;
+            splQLCN_TK_TT.Panel1.BackgroundImageLayout = ImageLayout.Stretch;
             splQLCN_TK_TT.Panel1.Controls.Add(grbQLCN_TK);
             // 
             // splQLCN_TK_TT.Panel2
             // 
+            splQLCN_TK_TT.Panel2.BackColor = Color.Transparent;
             splQLCN_TK_TT.Panel2.Controls.Add(grbQLCN_TT);
             splQLCN_TK_TT.Size = new Size(1414, 226);
-            splQLCN_TK_TT.SplitterDistance = 558;
+            splQLCN_TK_TT.SplitterDistance = 432;
             splQLCN_TK_TT.TabIndex = 2;
             // 
             // grbQLCN_TK
             // 
-            grbQLCN_TK.Controls.Add(btnQLCN_Tim);
+            grbQLCN_TK.BackColor = Color.Transparent;
+            grbQLCN_TK.Controls.Add(lbQLCN_TK_MaCN);
             grbQLCN_TK.Controls.Add(txtQLCN_TK_MaCN);
-            grbQLCN_TK.Controls.Add(rdbQLCN_MaCN);
             grbQLCN_TK.Dock = DockStyle.Fill;
             grbQLCN_TK.Location = new Point(0, 0);
             grbQLCN_TK.Name = "grbQLCN_TK";
-            grbQLCN_TK.Size = new Size(558, 226);
+            grbQLCN_TK.Size = new Size(432, 226);
             grbQLCN_TK.TabIndex = 0;
             grbQLCN_TK.TabStop = false;
             grbQLCN_TK.Text = "Tìm kiếm";
             // 
-            // btnQLCN_Tim
+            // lbQLCN_TK_MaCN
             // 
-            btnQLCN_Tim.BackColor = SystemColors.ButtonHighlight;
-            btnQLCN_Tim.FlatAppearance.BorderSize = 0;
-            btnQLCN_Tim.FlatStyle = FlatStyle.Flat;
-            btnQLCN_Tim.Image = Properties.Resources.glass;
-            btnQLCN_Tim.ImageAlign = ContentAlignment.MiddleLeft;
-            btnQLCN_Tim.Location = new Point(406, 145);
-            btnQLCN_Tim.Name = "btnQLCN_Tim";
-            btnQLCN_Tim.Size = new Size(117, 51);
-            btnQLCN_Tim.TabIndex = 4;
-            btnQLCN_Tim.Text = "Tìm";
-            btnQLCN_Tim.TextAlign = ContentAlignment.MiddleRight;
-            btnQLCN_Tim.UseVisualStyleBackColor = false;
+            lbQLCN_TK_MaCN.AutoSize = true;
+            lbQLCN_TK_MaCN.BackColor = SystemColors.Control;
+            lbQLCN_TK_MaCN.BorderStyle = BorderStyle.Fixed3D;
+            lbQLCN_TK_MaCN.Font = new Font("Segoe UI Semibold", 10.125F, FontStyle.Bold, GraphicsUnit.Point);
+            lbQLCN_TK_MaCN.Location = new Point(60, 61);
+            lbQLCN_TK_MaCN.Name = "lbQLCN_TK_MaCN";
+            lbQLCN_TK_MaCN.Size = new Size(103, 39);
+            lbQLCN_TK_MaCN.TabIndex = 3;
+            lbQLCN_TK_MaCN.Text = "Mã CN";
             // 
             // txtQLCN_TK_MaCN
             // 
-            txtQLCN_TK_MaCN.Location = new Point(191, 68);
+            txtQLCN_TK_MaCN.Location = new Point(60, 124);
+            txtQLCN_TK_MaCN.Multiline = true;
             txtQLCN_TK_MaCN.Name = "txtQLCN_TK_MaCN";
-            txtQLCN_TK_MaCN.Size = new Size(332, 43);
+            txtQLCN_TK_MaCN.Size = new Size(264, 51);
             txtQLCN_TK_MaCN.TabIndex = 2;
-            // 
-            // rdbQLCN_MaCN
-            // 
-            rdbQLCN_MaCN.AutoSize = true;
-            rdbQLCN_MaCN.Location = new Point(47, 68);
-            rdbQLCN_MaCN.Name = "rdbQLCN_MaCN";
-            rdbQLCN_MaCN.Size = new Size(130, 41);
-            rdbQLCN_MaCN.TabIndex = 0;
-            rdbQLCN_MaCN.TabStop = true;
-            rdbQLCN_MaCN.Text = "Mã CN";
-            rdbQLCN_MaCN.UseVisualStyleBackColor = true;
             // 
             // grbQLCN_TT
             // 
+            grbQLCN_TT.BackColor = Color.Transparent;
             grbQLCN_TT.Controls.Add(txtQLCN_TenCN);
             grbQLCN_TT.Controls.Add(txtQLCN_DiaChi);
             grbQLCN_TT.Controls.Add(txtQLCN_MaCN);
@@ -363,7 +373,7 @@
             grbQLCN_TT.Dock = DockStyle.Fill;
             grbQLCN_TT.Location = new Point(0, 0);
             grbQLCN_TT.Name = "grbQLCN_TT";
-            grbQLCN_TT.Size = new Size(852, 226);
+            grbQLCN_TT.Size = new Size(978, 226);
             grbQLCN_TT.TabIndex = 0;
             grbQLCN_TT.TabStop = false;
             grbQLCN_TT.Text = "Thông tin";
@@ -378,43 +388,53 @@
             // 
             // txtQLCN_DiaChi
             // 
-            txtQLCN_DiaChi.Location = new Point(554, 50);
+            txtQLCN_DiaChi.Location = new Point(612, 50);
             txtQLCN_DiaChi.Multiline = true;
             txtQLCN_DiaChi.Name = "txtQLCN_DiaChi";
-            txtQLCN_DiaChi.Size = new Size(251, 146);
+            txtQLCN_DiaChi.Size = new Size(331, 146);
             txtQLCN_DiaChi.TabIndex = 5;
             // 
             // txtQLCN_MaCN
             // 
             txtQLCN_MaCN.Location = new Point(149, 55);
             txtQLCN_MaCN.Name = "txtQLCN_MaCN";
-            txtQLCN_MaCN.Size = new Size(245, 43);
+            txtQLCN_MaCN.Size = new Size(251, 43);
+            txtQLCN_MaCN.ReadOnly = true;
             txtQLCN_MaCN.TabIndex = 4;
             // 
             // lbQLCN_DiaChi
             // 
             lbQLCN_DiaChi.AutoSize = true;
-            lbQLCN_DiaChi.Location = new Point(430, 58);
+            lbQLCN_DiaChi.BackColor = SystemColors.Control;
+            lbQLCN_DiaChi.BorderStyle = BorderStyle.Fixed3D;
+            lbQLCN_DiaChi.Font = new Font("Segoe UI Semibold", 10.125F, FontStyle.Bold, GraphicsUnit.Point);
+            lbQLCN_DiaChi.Location = new Point(480, 61);
             lbQLCN_DiaChi.Name = "lbQLCN_DiaChi";
-            lbQLCN_DiaChi.Size = new Size(98, 37);
+            lbQLCN_DiaChi.Size = new Size(102, 39);
             lbQLCN_DiaChi.TabIndex = 3;
             lbQLCN_DiaChi.Text = "Địa chỉ";
             // 
             // lbQLCN_TenCN
             // 
             lbQLCN_TenCN.AutoSize = true;
+            lbQLCN_TenCN.BackColor = SystemColors.Control;
+            lbQLCN_TenCN.BorderStyle = BorderStyle.Fixed3D;
+            lbQLCN_TenCN.Font = new Font("Segoe UI Semibold", 10.125F, FontStyle.Bold, GraphicsUnit.Point);
             lbQLCN_TenCN.Location = new Point(24, 140);
             lbQLCN_TenCN.Name = "lbQLCN_TenCN";
-            lbQLCN_TenCN.Size = new Size(101, 37);
+            lbQLCN_TenCN.Size = new Size(106, 39);
             lbQLCN_TenCN.TabIndex = 2;
             lbQLCN_TenCN.Text = "Tên CN";
             // 
             // lbQLCN_MaCN
             // 
             lbQLCN_MaCN.AutoSize = true;
+            lbQLCN_MaCN.BackColor = SystemColors.Control;
+            lbQLCN_MaCN.BorderStyle = BorderStyle.Fixed3D;
+            lbQLCN_MaCN.Font = new Font("Segoe UI Semibold", 10.125F, FontStyle.Bold, GraphicsUnit.Point);
             lbQLCN_MaCN.Location = new Point(26, 55);
             lbQLCN_MaCN.Name = "lbQLCN_MaCN";
-            lbQLCN_MaCN.Size = new Size(99, 37);
+            lbQLCN_MaCN.Size = new Size(103, 39);
             lbQLCN_MaCN.TabIndex = 0;
             lbQLCN_MaCN.Text = "Mã CN";
             // 
@@ -425,6 +445,7 @@
             Controls.Add(tlpQLCN);
             Name = "UC_QLChiNhanh";
             Size = new Size(1420, 1000);
+            Load += UC_QLChiNhanh_Load;
             tlpQLCN.ResumeLayout(false);
             pnQLCN.ResumeLayout(false);
             pnQLCN.PerformLayout();
@@ -457,9 +478,7 @@
         private GroupBox grbQLCN_CN;
         private SplitContainer splQLCN_TK_TT;
         private GroupBox grbQLCN_TK;
-        private Button btnQLCN_Tim;
         private TextBox txtQLCN_TK_MaCN;
-        private RadioButton rdbQLCN_MaCN;
         private GroupBox grbQLCN_TT;
         private TextBox txtQLCN_TenCN;
         private TextBox txtQLCN_DiaChi;
@@ -467,14 +486,15 @@
         private Label lbQLCN_DiaChi;
         private Label lbQLCN_TenCN;
         private Label lbQLCN_MaCN;
-        private Button btnQLCN_Thoat;
+        private Button btnQLCN_Reload;
         private Button btnQLCN_Them;
         private Button btnQLCN_Export;
         private Button btnQLCN_Sua;
         private Button btnQLCN_Import;
         private Button btnQLCN_Xoa;
-        private DataGridViewTextBoxColumn Column1;
-        private DataGridViewTextBoxColumn Column3;
-        private DataGridViewTextBoxColumn Column4;
+        private Label lbQLCN_TK_MaCN;
+        private DataGridViewTextBoxColumn MaCN;
+        private DataGridViewTextBoxColumn TenCN;
+        private DataGridViewTextBoxColumn DiaChi;
     }
 }

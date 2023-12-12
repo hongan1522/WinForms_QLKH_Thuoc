@@ -3,21 +3,19 @@
 using System;
 using System.Collections.Generic;
 
-namespace WebAPI_QLKH.Models
+namespace WebAPI_QLKH.Models;
+
+public partial class DonXuat
 {
-    public partial class DonXuat
-    {
-        public DonXuat()
-        {
-            ChiTietDonXuat = new HashSet<ChiTietDonXuat>();
-        }
+    public string DXuat_ID { get; set; }
 
-        public string DXuat_ID { get; set; }
-        public string DX_Name { get; set; }
-        public DateTime DX_Datetime { get; set; }
-        public string NV_ID { get; set; }
+    public string DX_Name { get; set; }
 
-        public virtual NhanVien NV { get; set; }
-        public virtual ICollection<ChiTietDonXuat> ChiTietDonXuat { get; set; }
-    }
+    public DateTime DX_Datetime { get; set; }
+
+    public string NV_ID { get; set; }
+
+    public virtual ICollection<ChiTietDonXuat> ChiTietDonXuat { get; set; } = new List<ChiTietDonXuat>();
+
+    public virtual NhanVien NV { get; set; }
 }

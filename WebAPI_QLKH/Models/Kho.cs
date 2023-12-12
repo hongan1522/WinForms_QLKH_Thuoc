@@ -3,21 +3,19 @@
 using System;
 using System.Collections.Generic;
 
-namespace WebAPI_QLKH.Models
+namespace WebAPI_QLKH.Models;
+
+public partial class Kho
 {
-    public partial class Kho
-    {
-        public Kho()
-        {
-            Lo = new HashSet<Lo>();
-        }
+    public string Kho_ID { get; set; }
 
-        public string Kho_ID { get; set; }
-        public string Kho_Name { get; set; }
-        public string Kho_Address { get; set; }
-        public string CN_ID { get; set; }
+    public string Kho_Name { get; set; }
 
-        public virtual ChiNhanh CN { get; set; }
-        public virtual ICollection<Lo> Lo { get; set; }
-    }
+    public string Kho_Address { get; set; }
+
+    public string CN_ID { get; set; }
+
+    public virtual ChiNhanh CN { get; set; }
+
+    public virtual ICollection<Lo> Lo { get; set; } = new List<Lo>();
 }

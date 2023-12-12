@@ -578,3 +578,7 @@ D:\Freelancer\WinForms_QLKH_Thuoc-main\WebAPI_QLKH\obj\Debug\net6.0\refint\WebAP
 D:\Freelancer\WinForms_QLKH_Thuoc-main\WebAPI_QLKH\obj\Debug\net6.0\WebAPI_QLKH.pdb
 D:\Freelancer\WinForms_QLKH_Thuoc-main\WebAPI_QLKH\obj\Debug\net6.0\WebAPI_QLKH.genruntimeconfig.cache
 D:\Freelancer\WinForms_QLKH_Thuoc-main\WebAPI_QLKH\obj\Debug\net6.0\ref\WebAPI_QLKH.dll
+C:\Users\MyPC\Desktop\WinForms_QLKH_Thuoc\WebAPI_QLKH\bin\Debug\net6.0\RestSharp.dll
+C:\Users\MyPC\Desktop\WinForms_QLKH_Thuoc\WebAPI_QLKH\bin\Debug\net6.0\System.Text.Encodings.Web.dll
+C:\Users\MyPC\Desktop\WinForms_QLKH_Thuoc\WebAPI_QLKH\bin\Debug\net6.0\System.Text.Json.dll
+C:\Users\MyPC\Desktop\WinForms_QLKH_Thuoc\WebAPI_QLKH\bin\Debug\net6.0\runtimes\browser\lib\net6.0\System.Text.Encodings.Web.dll

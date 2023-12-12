@@ -3,29 +3,33 @@
 using System;
 using System.Collections.Generic;
 
-namespace WebAPI_QLKH.Models
+namespace WebAPI_QLKH.Models;
+
+public partial class NhanVien
 {
-    public partial class NhanVien
-    {
-        public NhanVien()
-        {
-            DonNhap = new HashSet<DonNhap>();
-            DonXuat = new HashSet<DonXuat>();
-        }
+    public string NV_ID { get; set; }
 
-        public string NV_ID { get; set; }
-        public string NV_Name { get; set; }
-        public DateTime? BirthDay { get; set; }
-        public string Sex { get; set; }
-        public int? Phone { get; set; }
-        public string Address { get; set; }
-        public string Email { get; set; }
-        public string CN_ID { get; set; }
-        public string UserID { get; set; }
+    public string NV_Name { get; set; }
 
-        public virtual ChiNhanh CN { get; set; }
-        public virtual TaiKhoan User { get; set; }
-        public virtual ICollection<DonNhap> DonNhap { get; set; }
-        public virtual ICollection<DonXuat> DonXuat { get; set; }
-    }
+    public DateTime? BirthDay { get; set; }
+
+    public string Sex { get; set; }
+
+    public int? Phone { get; set; }
+
+    public string Address { get; set; }
+
+    public string Email { get; set; }
+
+    public string CN_ID { get; set; }
+
+    public string UserID { get; set; }
+
+    public virtual ChiNhanh CN { get; set; }
+
+    public virtual ICollection<DonNhap> DonNhap { get; set; } = new List<DonNhap>();
+
+    public virtual ICollection<DonXuat> DonXuat { get; set; } = new List<DonXuat>();
+
+    public virtual TaiKhoan User { get; set; }
 }

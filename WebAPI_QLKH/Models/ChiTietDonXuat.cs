@@ -3,16 +3,19 @@
 using System;
 using System.Collections.Generic;
 
-namespace WebAPI_QLKH.Models
-{
-    public partial class ChiTietDonXuat
-    {
-        public string Thuoc_ID { get; set; }
-        public string DXuat_ID { get; set; }
-        public string Description { get; set; }
-        public int? Quantity { get; set; }
+namespace WebAPI_QLKH.Models;
 
-        public virtual DonXuat DXuat { get; set; }
-        public virtual Thuoc Thuoc { get; set; }
-    }
+public partial class ChiTietDonXuat
+{
+    public string Thuoc_ID { get; set; }
+
+    public string DXuat_ID { get; set; }
+
+    public string Description { get; set; }
+
+    public int? Quantity { get; set; }
+
+    public virtual DonXuat DXuat { get; set; }
+
+    public virtual Thuoc Thuoc { get; set; }
 }

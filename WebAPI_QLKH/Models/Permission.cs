@@ -3,18 +3,13 @@
 using System;
 using System.Collections.Generic;
 
-namespace WebAPI_QLKH.Models
+namespace WebAPI_QLKH.Models;
+
+public partial class Permission
 {
-    public partial class Permission
-    {
-        public Permission()
-        {
-            Role = new HashSet<Role>();
-        }
+    public string PermissionID { get; set; }
 
-        public string PermissionID { get; set; }
-        public string PermissionName { get; set; }
+    public string PermissionName { get; set; }
 
-        public virtual ICollection<Role> Role { get; set; }
-    }
+    public virtual ICollection<Role_Permission> Role_Permission { get; set; } = new List<Role_Permission>();
 }

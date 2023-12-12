@@ -3,19 +3,15 @@
 using System;
 using System.Collections.Generic;
 
-namespace WebAPI_QLKH.Models
+namespace WebAPI_QLKH.Models;
+
+public partial class NhomThuoc
 {
-    public partial class NhomThuoc
-    {
-        public NhomThuoc()
-        {
-            Thuoc = new HashSet<Thuoc>();
-        }
+    public string Nhom_ID { get; set; }
 
-        public string Nhom_ID { get; set; }
-        public string Nhom_Name { get; set; }
-        public string Description { get; set; }
+    public string Nhom_Name { get; set; }
 
-        public virtual ICollection<Thuoc> Thuoc { get; set; }
-    }
+    public string Description { get; set; }
+
+    public virtual ICollection<Thuoc> Thuoc { get; set; } = new List<Thuoc>();
 }
