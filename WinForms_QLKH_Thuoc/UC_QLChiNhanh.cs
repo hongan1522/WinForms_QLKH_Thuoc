@@ -19,12 +19,11 @@ namespace FormQLKH
             InitializeComponent();
 
             chiNhanhService = new ChiNhanhService("https://localhost:7195");
-            txtQLCN_MaCN.ReadOnly = true;
-            LoadDataGridView();
         }
         private void UC_QLChiNhanh_Load(object sender, EventArgs e)
         {
             txtQLCN_TK_MaCN.KeyPress += new KeyPressEventHandler(txtQLCN_TK_MaCN_KeyPress);
+            LoadDataGridView();
         }
         private void LoadDataGridView()
         {
