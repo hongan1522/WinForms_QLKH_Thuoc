@@ -12,4 +12,6 @@ public partial class Role
     public string RoleName { get; set; }
 
     public virtual ICollection<TaiKhoan> TaiKhoan { get; set; } = new List<TaiKhoan>();
+
+    public virtual ICollection<Permission> Permission { get; set; } = new List<Permission>();
 }

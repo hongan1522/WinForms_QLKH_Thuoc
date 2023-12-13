@@ -39,8 +39,6 @@ public partial class QLKH_ThuocContext : DbContext
 
     public virtual DbSet<Role> Role { get; set; }
 
-    public virtual DbSet<Role_Permission> Role_Permission { get; set; }
-
     public virtual DbSet<TaiKhoan> TaiKhoan { get; set; }
 
     public virtual DbSet<Thuoc> Thuoc { get; set; }
@@ -291,23 +289,28 @@ public partial class QLKH_ThuocContext : DbContext
                 .HasMaxLength(10)
                 .IsFixedLength();
             entity.Property(e => e.RoleName).HasMaxLength(50);
-        });
 
-        modelBuilder.Entity<Role_Permission>(entity =>
-        {
-            entity.HasKey(e => new { e.RoleID, e.PermissionID });
-
-            entity.Property(e => e.RoleID)
-                .HasMaxLength(10)
-                .IsFixedLength();
-            entity.Property(e => e.PermissionID)
-                .HasMaxLength(10)
-                .IsFixedLength();
-
-            entity.HasOne(d => d.Permission).WithMany(p => p.Role_Permission)
-                .HasForeignKey(d => d.PermissionID)
-                .OnDelete(DeleteBehavior.Cascade)
-                .HasConstraintName("FK_Role_Permission_Permission");
+            entity.HasMany(d => d.Permission).WithMany(p => p.Role)
+                .UsingEntity<Dictionary<string, object>>(
+                    "Role_Permission",
+                    r => r.HasOne<Permission>().WithMany()
+                        .HasForeignKey("PermissionID")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .HasConstraintName("FK_Role_Permission_Permission"),
+                    l => l.HasOne<Role>().WithMany()
+                        .HasForeignKey("RoleID")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .HasConstraintName("FK_Role_Permission_Role"),
+                    j =>
+                    {
+                        j.HasKey("RoleID", "PermissionID");
+                        j.IndexerProperty<string>("RoleID")
+                            .HasMaxLength(10)
+                            .IsFixedLength();
+                        j.IndexerProperty<string>("PermissionID")
+                            .HasMaxLength(10)
+                            .IsFixedLength();
+                    });
         });
 
         modelBuilder.Entity<TaiKhoan>(entity =>

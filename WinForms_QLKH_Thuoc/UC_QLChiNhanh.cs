@@ -19,6 +19,7 @@ namespace FormQLKH
             InitializeComponent();
 
             chiNhanhService = new ChiNhanhService("https://localhost:7195");
+            txtQLCN_MaCN.ReadOnly = true;
             LoadDataGridView();
         }
         private void UC_QLChiNhanh_Load(object sender, EventArgs e)
@@ -265,12 +266,12 @@ namespace FormQLKH
         }
         private void btnQLCN_Reload_Click(object sender, EventArgs e)
         {
+            LoadDataGridView();
+
             txtQLCN_MaCN.ReadOnly = false;
             txtQLCN_TenCN.Clear();
             txtQLCN_DiaChi.Clear();
             txtQLCN_TK_MaCN.Clear();
-
-            LoadDataGridView();
         }
     }
 }
