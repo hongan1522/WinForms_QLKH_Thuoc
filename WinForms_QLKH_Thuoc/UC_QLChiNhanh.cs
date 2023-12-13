@@ -158,28 +158,6 @@ namespace FormQLKH
                 }
             }
         }
-        //private void txtQLCN_TK_MaCN_TextChanged(object sender, EventArgs e)
-        //{
-        //    string maCN = txtQLCN_TK_MaCN.Text.Trim();
-
-        //    if (string.IsNullOrEmpty(maCN))
-        //    {
-        //        LoadDataGridView();
-        //        return;
-        //    }
-
-        //    var chiNhanh = chiNhanhService.TimKiemTheoID(maCN);
-
-        //    if (chiNhanh != null)
-        //    {
-        //        dgvQLCN.DataSource = new List<ChiNhanh> { chiNhanh };
-        //    }
-        //    else
-        //    {
-        //        MessageBox.Show($"Không tìm thấy chi nhánh {maCN}.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-        //        LoadDataGridView();
-        //    }
-        //}
         private void txtQLCN_TK_MaCN_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (e.KeyChar == (char)Keys.Enter)
@@ -187,13 +165,13 @@ namespace FormQLKH
                 TimTheoID();
             }
         }
-
         private void TimTheoID()
         {
             string maCN = txtQLCN_TK_MaCN.Text.Trim();
 
             if (string.IsNullOrEmpty(maCN))
             {
+
                 LoadDataGridView();
                 return;
             }
@@ -202,6 +180,7 @@ namespace FormQLKH
 
             if (chiNhanh != null)
             {
+                txtQLCN_TK_MaCN.Text = chiNhanh.CN_ID;
                 dgvQLCN.DataSource = new List<ChiNhanh> { chiNhanh };
             }
             else
@@ -210,8 +189,6 @@ namespace FormQLKH
                 LoadDataGridView();
             }
         }
-
-
         private void btnQLCN_Export_Click(object sender, EventArgs e)
         {
             using (SaveFileDialog saveFileDialog = new SaveFileDialog())
@@ -291,6 +268,9 @@ namespace FormQLKH
             txtQLCN_MaCN.ReadOnly = false;
             txtQLCN_TenCN.Clear();
             txtQLCN_DiaChi.Clear();
+            txtQLCN_TK_MaCN.Clear();
+
+            LoadDataGridView();
         }
     }
 }

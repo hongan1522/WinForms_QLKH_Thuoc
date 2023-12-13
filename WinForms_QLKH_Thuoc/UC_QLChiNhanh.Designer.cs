@@ -398,8 +398,8 @@
             // 
             txtQLCN_MaCN.Location = new Point(149, 55);
             txtQLCN_MaCN.Name = "txtQLCN_MaCN";
-            txtQLCN_MaCN.Size = new Size(251, 43);
             txtQLCN_MaCN.ReadOnly = true;
+            txtQLCN_MaCN.Size = new Size(251, 43);
             txtQLCN_MaCN.TabIndex = 4;
             // 
             // lbQLCN_DiaChi
