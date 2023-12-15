@@ -55,8 +55,8 @@ namespace WebAPI_QLKH.Controllers
         }
 
         // POST: api/ChiNhanh
-        [HttpPost("ThemChiNhanh")]
-        public async Task<ActionResult<IEnumerable<ChiNhanh>>> ThemChiNhanh([FromBody] List<ChiNhanhPayload> payloads)
+        [HttpPost]
+        public async Task<ActionResult<IEnumerable<ChiNhanh>>> PostChiNhanh([FromBody] List<ChiNhanhPayload> payloads)
         {
             if (payloads == null || !payloads.Any())
             {
@@ -66,8 +66,8 @@ namespace WebAPI_QLKH.Controllers
             var chiNhanhList = payloads.Select(payload => new ChiNhanh
             {
                 CN_ID = payload.CN_ID.Trim(),
-                CN_Name = payload.CN_Name,
-                CN_Address = payload.CN_Address
+                CN_Name = payload.CN_Name.Trim(),
+                CN_Address = payload.CN_Address.Trim()
             }).ToList();
 
             _context.ChiNhanh.AddRange(chiNhanhList);
@@ -134,7 +134,7 @@ namespace WebAPI_QLKH.Controllers
 
                     //Xóa NV_ID bảng DonXuat
                     await _context.Database.ExecuteSqlRawAsync($"DELETE FROM DonXuat WHERE NV_ID IN (SELECT NV_ID FROM NhanVien WHERE CN_ID = '{id}')");
-                    
+
                     //Xóa Lo_ID bảng ChiTietThuoc
                     await _context.Database.ExecuteSqlRawAsync($"DELETE FROM ChiTietThuoc WHERE Lo_ID IN (SELECT Lo_ID FROM Lo WHERE Kho_ID IN (SELECT Kho_ID FROM Kho WHERE CN_ID = '{id}'))");
 

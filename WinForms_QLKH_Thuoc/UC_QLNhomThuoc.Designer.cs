@@ -35,8 +35,12 @@
             splQLNT = new SplitContainer();
             splQLNT_TT_HT = new SplitContainer();
             grbQLNT_TK = new GroupBox();
-            txtQLNT_TK_TenNhom = new TextBox();
-            txtQLNT_TK_MaNhom = new TextBox();
+            txtQLNT_GhiChu = new TextBox();
+            lbQLNT_MaNhom = new Label();
+            txtQLNT_MaNhom = new TextBox();
+            txtQLNT_TenNhom = new TextBox();
+            lbQLNT_GhiChu = new Label();
+            lbQLNT_TenNhom = new Label();
             grbQLNT_HT = new GroupBox();
             dgvQLNT = new DataGridView();
             Column1 = new DataGridViewTextBoxColumn();
@@ -44,21 +48,16 @@
             Column3 = new DataGridViewTextBoxColumn();
             splQLNT_TK_CN = new SplitContainer();
             grbQLNT_TT = new GroupBox();
+            lbQLNT_TK_TenNhom = new Label();
+            txtQLNT_TK_TenNhom = new TextBox();
+            lbQLNT_TK_MaNhom = new Label();
+            txtQLNT_TK_MaNhom = new TextBox();
             grbQLNT_CN = new GroupBox();
             btnQLNT_Sua = new Button();
             btnQLNT_Import = new Button();
             btnQLNT_Export = new Button();
             btnQLNT_Xoa = new Button();
             btnQLNT_Them = new Button();
-            btnQLNT_Reload = new Button();
-            lbQLNT_TK_TenNhom = new Label();
-            lbQLNT_TK_MaNhom = new Label();
-            txtQLNT_GhiChu = new TextBox();
-            txtQLNT_TenNhom = new TextBox();
-            txtQLNT_MaNhom = new TextBox();
-            lbQLNT_GhiChu = new Label();
-            lbQLNT_TenNhom = new Label();
-            lbQLNT_MaNhom = new Label();
             tlpQLNT.SuspendLayout();
             pnQLNT.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)splQLNT).BeginInit();
@@ -171,20 +170,64 @@
             grbQLNT_TK.TabStop = false;
             grbQLNT_TK.Text = "Thông tin";
             // 
-            // txtQLNT_TK_TenNhom
+            // txtQLNT_GhiChu
             // 
-            txtQLNT_TK_TenNhom.Location = new Point(189, 193);
-            txtQLNT_TK_TenNhom.Multiline = true;
-            txtQLNT_TK_TenNhom.Name = "txtQLNT_TK_TenNhom";
-            txtQLNT_TK_TenNhom.Size = new Size(233, 89);
-            txtQLNT_TK_TenNhom.TabIndex = 3;
+            txtQLNT_GhiChu.Location = new Point(637, 54);
+            txtQLNT_GhiChu.Multiline = true;
+            txtQLNT_GhiChu.Name = "txtQLNT_GhiChu";
+            txtQLNT_GhiChu.Size = new Size(284, 123);
+            txtQLNT_GhiChu.TabIndex = 11;
             // 
-            // txtQLNT_TK_MaNhom
+            // lbQLNT_MaNhom
             // 
-            txtQLNT_TK_MaNhom.Location = new Point(189, 60);
-            txtQLNT_TK_MaNhom.Name = "txtQLNT_TK_MaNhom";
-            txtQLNT_TK_MaNhom.Size = new Size(233, 43);
-            txtQLNT_TK_MaNhom.TabIndex = 2;
+            lbQLNT_MaNhom.AutoSize = true;
+            lbQLNT_MaNhom.BackColor = SystemColors.Control;
+            lbQLNT_MaNhom.BorderStyle = BorderStyle.Fixed3D;
+            lbQLNT_MaNhom.Font = new Font("Segoe UI Semibold", 10.125F, FontStyle.Bold, GraphicsUnit.Point);
+            lbQLNT_MaNhom.Location = new Point(20, 54);
+            lbQLNT_MaNhom.Name = "lbQLNT_MaNhom";
+            lbQLNT_MaNhom.Size = new Size(137, 39);
+            lbQLNT_MaNhom.TabIndex = 6;
+            lbQLNT_MaNhom.Text = "Mã nhóm";
+            // 
+            // txtQLNT_MaNhom
+            // 
+            txtQLNT_MaNhom.Location = new Point(179, 54);
+            txtQLNT_MaNhom.Name = "txtQLNT_MaNhom";
+            txtQLNT_MaNhom.Size = new Size(263, 43);
+            txtQLNT_MaNhom.TabIndex = 9;
+            // 
+            // txtQLNT_TenNhom
+            // 
+            txtQLNT_TenNhom.Location = new Point(179, 121);
+            txtQLNT_TenNhom.Multiline = true;
+            txtQLNT_TenNhom.Name = "txtQLNT_TenNhom";
+            txtQLNT_TenNhom.Size = new Size(263, 56);
+            txtQLNT_TenNhom.TabIndex = 10;
+            // 
+            // lbQLNT_GhiChu
+            // 
+            lbQLNT_GhiChu.AutoSize = true;
+            lbQLNT_GhiChu.BackColor = SystemColors.Control;
+            lbQLNT_GhiChu.BorderStyle = BorderStyle.Fixed3D;
+            lbQLNT_GhiChu.Font = new Font("Segoe UI Semibold", 10.125F, FontStyle.Bold, GraphicsUnit.Point);
+            lbQLNT_GhiChu.Location = new Point(502, 54);
+            lbQLNT_GhiChu.Name = "lbQLNT_GhiChu";
+            lbQLNT_GhiChu.Size = new Size(113, 39);
+            lbQLNT_GhiChu.TabIndex = 8;
+            lbQLNT_GhiChu.Text = "Ghi chú";
+            // 
+            // lbQLNT_TenNhom
+            // 
+            lbQLNT_TenNhom.AutoSize = true;
+            lbQLNT_TenNhom.BackColor = SystemColors.Control;
+            lbQLNT_TenNhom.BorderStyle = BorderStyle.Fixed3D;
+            lbQLNT_TenNhom.Font = new Font("Segoe UI Semibold", 10.125F, FontStyle.Bold, GraphicsUnit.Point);
+            lbQLNT_TenNhom.Location = new Point(18, 124);
+            lbQLNT_TenNhom.Name = "lbQLNT_TenNhom";
+            lbQLNT_TenNhom.Size = new Size(140, 39);
+            lbQLNT_TenNhom.TabIndex = 7;
+            lbQLNT_TenNhom.Text = "Tên nhóm";
             // 
             // grbQLNT_HT
             // 
@@ -216,9 +259,8 @@
             dgvQLNT.Name = "dgvQLNT";
             dgvQLNT.RowHeadersWidth = 82;
             dgvQLNT.RowTemplate.Height = 41;
-            dgvQLNT.Size = new Size(944, 653);
-            dgvQLNT.AutoGenerateColumns = false;
             dgvQLNT.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            dgvQLNT.Size = new Size(944, 653);
             dgvQLNT.TabIndex = 0;
             // 
             // Column1
@@ -273,9 +315,47 @@
             grbQLNT_TT.TabStop = false;
             grbQLNT_TT.Text = "Tìm kiếm";
             // 
+            // lbQLNT_TK_TenNhom
+            // 
+            lbQLNT_TK_TenNhom.AutoSize = true;
+            lbQLNT_TK_TenNhom.BackColor = SystemColors.Control;
+            lbQLNT_TK_TenNhom.BorderStyle = BorderStyle.Fixed3D;
+            lbQLNT_TK_TenNhom.Font = new Font("Segoe UI Semibold", 10.125F, FontStyle.Bold, GraphicsUnit.Point);
+            lbQLNT_TK_TenNhom.Location = new Point(24, 193);
+            lbQLNT_TK_TenNhom.Name = "lbQLNT_TK_TenNhom";
+            lbQLNT_TK_TenNhom.Size = new Size(140, 39);
+            lbQLNT_TK_TenNhom.TabIndex = 5;
+            lbQLNT_TK_TenNhom.Text = "Tên nhóm";
+            // 
+            // txtQLNT_TK_TenNhom
+            // 
+            txtQLNT_TK_TenNhom.Location = new Point(189, 193);
+            txtQLNT_TK_TenNhom.Multiline = true;
+            txtQLNT_TK_TenNhom.Name = "txtQLNT_TK_TenNhom";
+            txtQLNT_TK_TenNhom.Size = new Size(233, 89);
+            txtQLNT_TK_TenNhom.TabIndex = 3;
+            // 
+            // lbQLNT_TK_MaNhom
+            // 
+            lbQLNT_TK_MaNhom.AutoSize = true;
+            lbQLNT_TK_MaNhom.BackColor = SystemColors.Control;
+            lbQLNT_TK_MaNhom.BorderStyle = BorderStyle.Fixed3D;
+            lbQLNT_TK_MaNhom.Font = new Font("Segoe UI Semibold", 10.125F, FontStyle.Bold, GraphicsUnit.Point);
+            lbQLNT_TK_MaNhom.Location = new Point(24, 60);
+            lbQLNT_TK_MaNhom.Name = "lbQLNT_TK_MaNhom";
+            lbQLNT_TK_MaNhom.Size = new Size(137, 39);
+            lbQLNT_TK_MaNhom.TabIndex = 4;
+            lbQLNT_TK_MaNhom.Text = "Mã nhóm";
+            // 
+            // txtQLNT_TK_MaNhom
+            // 
+            txtQLNT_TK_MaNhom.Location = new Point(189, 60);
+            txtQLNT_TK_MaNhom.Name = "txtQLNT_TK_MaNhom";
+            txtQLNT_TK_MaNhom.Size = new Size(233, 43);
+            txtQLNT_TK_MaNhom.TabIndex = 2;
+            // 
             // grbQLNT_CN
             // 
-            grbQLNT_CN.Controls.Add(btnQLNT_Reload);
             grbQLNT_CN.Controls.Add(btnQLNT_Sua);
             grbQLNT_CN.Controls.Add(btnQLNT_Import);
             grbQLNT_CN.Controls.Add(btnQLNT_Export);
@@ -314,7 +394,7 @@
             btnQLNT_Import.ForeColor = SystemColors.ControlText;
             btnQLNT_Import.Image = Properties.Resources.import;
             btnQLNT_Import.ImageAlign = ContentAlignment.MiddleLeft;
-            btnQLNT_Import.Location = new Point(272, 260);
+            btnQLNT_Import.Location = new Point(270, 366);
             btnQLNT_Import.Name = "btnQLNT_Import";
             btnQLNT_Import.Size = new Size(169, 64);
             btnQLNT_Import.TabIndex = 4;
@@ -330,7 +410,7 @@
             btnQLNT_Export.ForeColor = SystemColors.ControlText;
             btnQLNT_Export.Image = Properties.Resources.export;
             btnQLNT_Export.ImageAlign = ContentAlignment.MiddleLeft;
-            btnQLNT_Export.Location = new Point(272, 71);
+            btnQLNT_Export.Location = new Point(270, 177);
             btnQLNT_Export.Name = "btnQLNT_Export";
             btnQLNT_Export.Size = new Size(169, 64);
             btnQLNT_Export.TabIndex = 3;
@@ -368,104 +448,6 @@
             btnQLNT_Them.TabIndex = 0;
             btnQLNT_Them.Text = "Thêm";
             btnQLNT_Them.UseVisualStyleBackColor = false;
-            // 
-            // btnQLNT_Reload
-            // 
-            btnQLNT_Reload.BackColor = SystemColors.ButtonHighlight;
-            btnQLNT_Reload.FlatAppearance.BorderSize = 0;
-            btnQLNT_Reload.FlatStyle = FlatStyle.Flat;
-            btnQLNT_Reload.Font = new Font("Segoe UI", 10.125F, FontStyle.Bold, GraphicsUnit.Point);
-            btnQLNT_Reload.Image = Properties.Resources.reload;
-            btnQLNT_Reload.ImageAlign = ContentAlignment.MiddleLeft;
-            btnQLNT_Reload.Location = new Point(272, 448);
-            btnQLNT_Reload.Name = "btnQLNT_Reload";
-            btnQLNT_Reload.Size = new Size(169, 64);
-            btnQLNT_Reload.TabIndex = 30;
-            btnQLNT_Reload.Text = "Reload";
-            btnQLNT_Reload.UseVisualStyleBackColor = false;
-            // 
-            // lbQLNT_TK_TenNhom
-            // 
-            lbQLNT_TK_TenNhom.AutoSize = true;
-            lbQLNT_TK_TenNhom.BackColor = SystemColors.Control;
-            lbQLNT_TK_TenNhom.BorderStyle = BorderStyle.Fixed3D;
-            lbQLNT_TK_TenNhom.Font = new Font("Segoe UI Semibold", 10.125F, FontStyle.Bold, GraphicsUnit.Point);
-            lbQLNT_TK_TenNhom.Location = new Point(24, 193);
-            lbQLNT_TK_TenNhom.Name = "lbQLNT_TK_TenNhom";
-            lbQLNT_TK_TenNhom.Size = new Size(140, 39);
-            lbQLNT_TK_TenNhom.TabIndex = 5;
-            lbQLNT_TK_TenNhom.Text = "Tên nhóm";
-            // 
-            // lbQLNT_TK_MaNhom
-            // 
-            lbQLNT_TK_MaNhom.AutoSize = true;
-            lbQLNT_TK_MaNhom.BackColor = SystemColors.Control;
-            lbQLNT_TK_MaNhom.BorderStyle = BorderStyle.Fixed3D;
-            lbQLNT_TK_MaNhom.Font = new Font("Segoe UI Semibold", 10.125F, FontStyle.Bold, GraphicsUnit.Point);
-            lbQLNT_TK_MaNhom.Location = new Point(24, 60);
-            lbQLNT_TK_MaNhom.Name = "lbQLNT_TK_MaNhom";
-            lbQLNT_TK_MaNhom.Size = new Size(137, 39);
-            lbQLNT_TK_MaNhom.TabIndex = 4;
-            lbQLNT_TK_MaNhom.Text = "Mã nhóm";
-            // 
-            // txtQLNT_GhiChu
-            // 
-            txtQLNT_GhiChu.Location = new Point(637, 54);
-            txtQLNT_GhiChu.Multiline = true;
-            txtQLNT_GhiChu.Name = "txtQLNT_GhiChu";
-            txtQLNT_GhiChu.Size = new Size(284, 123);
-            txtQLNT_GhiChu.TabIndex = 11;
-            // 
-            // txtQLNT_TenNhom
-            // 
-            txtQLNT_TenNhom.Location = new Point(179, 121);
-            txtQLNT_TenNhom.Multiline = true;
-            txtQLNT_TenNhom.Name = "txtQLNT_TenNhom";
-            txtQLNT_TenNhom.Size = new Size(263, 56);
-            txtQLNT_TenNhom.TabIndex = 10;
-            // 
-            // txtQLNT_MaNhom
-            // 
-            txtQLNT_MaNhom.Location = new Point(179, 54);
-            txtQLNT_MaNhom.Name = "txtQLNT_MaNhom";
-            txtQLNT_MaNhom.Size = new Size(263, 43);
-            txtQLNT_MaNhom.TabIndex = 9;
-            // 
-            // lbQLNT_GhiChu
-            // 
-            lbQLNT_GhiChu.AutoSize = true;
-            lbQLNT_GhiChu.BackColor = SystemColors.Control;
-            lbQLNT_GhiChu.BorderStyle = BorderStyle.Fixed3D;
-            lbQLNT_GhiChu.Font = new Font("Segoe UI Semibold", 10.125F, FontStyle.Bold, GraphicsUnit.Point);
-            lbQLNT_GhiChu.Location = new Point(502, 54);
-            lbQLNT_GhiChu.Name = "lbQLNT_GhiChu";
-            lbQLNT_GhiChu.Size = new Size(113, 39);
-            lbQLNT_GhiChu.TabIndex = 8;
-            lbQLNT_GhiChu.Text = "Ghi chú";
-            // 
-            // lbQLNT_TenNhom
-            // 
-            lbQLNT_TenNhom.AutoSize = true;
-            lbQLNT_TenNhom.BackColor = SystemColors.Control;
-            lbQLNT_TenNhom.BorderStyle = BorderStyle.Fixed3D;
-            lbQLNT_TenNhom.Font = new Font("Segoe UI Semibold", 10.125F, FontStyle.Bold, GraphicsUnit.Point);
-            lbQLNT_TenNhom.Location = new Point(18, 124);
-            lbQLNT_TenNhom.Name = "lbQLNT_TenNhom";
-            lbQLNT_TenNhom.Size = new Size(140, 39);
-            lbQLNT_TenNhom.TabIndex = 7;
-            lbQLNT_TenNhom.Text = "Tên nhóm";
-            // 
-            // lbQLNT_MaNhom
-            // 
-            lbQLNT_MaNhom.AutoSize = true;
-            lbQLNT_MaNhom.BackColor = SystemColors.Control;
-            lbQLNT_MaNhom.BorderStyle = BorderStyle.Fixed3D;
-            lbQLNT_MaNhom.Font = new Font("Segoe UI Semibold", 10.125F, FontStyle.Bold, GraphicsUnit.Point);
-            lbQLNT_MaNhom.Location = new Point(20, 54);
-            lbQLNT_MaNhom.Name = "lbQLNT_MaNhom";
-            lbQLNT_MaNhom.Size = new Size(137, 39);
-            lbQLNT_MaNhom.TabIndex = 6;
-            lbQLNT_MaNhom.Text = "Mã nhóm";
             // 
             // UC_QLNhomThuoc
             // 
@@ -524,7 +506,6 @@
         private Button btnQLNT_Them;
         private Label lbQLNT_TK_TenNhom;
         private Label lbQLNT_TK_MaNhom;
-        private Button btnQLNT_Reload;
         private TextBox txtQLNT_GhiChu;
         private Label lbQLNT_MaNhom;
         private TextBox txtQLNT_MaNhom;

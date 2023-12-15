@@ -69,12 +69,12 @@ public partial class QLKH_ThuocContext : DbContext
 
             entity.HasOne(d => d.DNhap).WithMany(p => p.ChiTietDonNhap)
                 .HasForeignKey(d => d.DNhap_ID)
-                .OnDelete(DeleteBehavior.Cascade)
+                .OnDelete(DeleteBehavior.ClientSetNull)
                 .HasConstraintName("FK_ChiTietDonNhap_DonNhap");
 
             entity.HasOne(d => d.Lo).WithMany(p => p.ChiTietDonNhap)
                 .HasForeignKey(d => d.Lo_ID)
-                .OnDelete(DeleteBehavior.Cascade)
+                .OnDelete(DeleteBehavior.ClientSetNull)
                 .HasConstraintName("FK_ChiTietDonNhap_Lo");
         });
 
@@ -91,12 +91,12 @@ public partial class QLKH_ThuocContext : DbContext
 
             entity.HasOne(d => d.DXuat).WithMany(p => p.ChiTietDonXuat)
                 .HasForeignKey(d => d.DXuat_ID)
-                .OnDelete(DeleteBehavior.Cascade)
+                .OnDelete(DeleteBehavior.ClientSetNull)
                 .HasConstraintName("FK_ChiTietDonXuat_DonXuat");
 
             entity.HasOne(d => d.Thuoc).WithMany(p => p.ChiTietDonXuat)
                 .HasForeignKey(d => d.Thuoc_ID)
-                .OnDelete(DeleteBehavior.Cascade)
+                .OnDelete(DeleteBehavior.ClientSetNull)
                 .HasConstraintName("FK_ChiTietDonXuat_Thuoc");
         });
 
@@ -113,12 +113,12 @@ public partial class QLKH_ThuocContext : DbContext
 
             entity.HasOne(d => d.Lo).WithMany(p => p.ChiTietThuoc)
                 .HasForeignKey(d => d.Lo_ID)
-                .OnDelete(DeleteBehavior.Cascade)
+                .OnDelete(DeleteBehavior.ClientSetNull)
                 .HasConstraintName("FK_ChiTietThuoc_Lo");
 
             entity.HasOne(d => d.Thuoc).WithMany(p => p.ChiTietThuoc)
                 .HasForeignKey(d => d.Thuoc_ID)
-                .OnDelete(DeleteBehavior.Cascade)
+                .OnDelete(DeleteBehavior.ClientSetNull)
                 .HasConstraintName("FK_ChiTietThuoc_Thuoc");
         });
 
@@ -145,7 +145,7 @@ public partial class QLKH_ThuocContext : DbContext
 
             entity.HasOne(d => d.NCC).WithMany(p => p.DonNhap)
                 .HasForeignKey(d => d.NCC_ID)
-                .OnDelete(DeleteBehavior.Cascade)
+                .OnDelete(DeleteBehavior.ClientSetNull)
                 .HasConstraintName("FK_DonNhap_NCC");
 
             entity.HasOne(d => d.NV).WithMany(p => p.DonNhap)
@@ -154,7 +154,7 @@ public partial class QLKH_ThuocContext : DbContext
 
             entity.HasOne(d => d.Thuoc).WithMany(p => p.DonNhap)
                 .HasForeignKey(d => d.Thuoc_ID)
-                .OnDelete(DeleteBehavior.Cascade)
+                .OnDelete(DeleteBehavior.ClientSetNull)
                 .HasConstraintName("FK_DonNhap_Thuoc1");
         });
 
@@ -192,7 +192,7 @@ public partial class QLKH_ThuocContext : DbContext
 
             entity.HasOne(d => d.CN).WithMany(p => p.Kho)
                 .HasForeignKey(d => d.CN_ID)
-                .OnDelete(DeleteBehavior.Cascade)
+                .OnDelete(DeleteBehavior.ClientSetNull)
                 .HasConstraintName("FK_Kho_ChiNhanh");
         });
 
@@ -212,7 +212,7 @@ public partial class QLKH_ThuocContext : DbContext
 
             entity.HasOne(d => d.Kho).WithMany(p => p.Lo)
                 .HasForeignKey(d => d.Kho_ID)
-                .OnDelete(DeleteBehavior.Cascade)
+                .OnDelete(DeleteBehavior.ClientSetNull)
                 .HasConstraintName("FK_Lo_Kho");
         });
 
@@ -256,12 +256,12 @@ public partial class QLKH_ThuocContext : DbContext
 
             entity.HasOne(d => d.CN).WithMany(p => p.NhanVien)
                 .HasForeignKey(d => d.CN_ID)
-                .OnDelete(DeleteBehavior.Cascade)
+                .OnDelete(DeleteBehavior.ClientSetNull)
                 .HasConstraintName("FK_NhanVien_ChiNhanh1");
 
             entity.HasOne(d => d.User).WithMany(p => p.NhanVien)
                 .HasForeignKey(d => d.UserID)
-                .OnDelete(DeleteBehavior.Cascade)
+                .OnDelete(DeleteBehavior.ClientSetNull)
                 .HasConstraintName("FK_NhanVien_TaiKhoan");
         });
 
@@ -295,11 +295,11 @@ public partial class QLKH_ThuocContext : DbContext
                     "Role_Permission",
                     r => r.HasOne<Permission>().WithMany()
                         .HasForeignKey("PermissionID")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.ClientSetNull)
                         .HasConstraintName("FK_Role_Permission_Permission"),
                     l => l.HasOne<Role>().WithMany()
                         .HasForeignKey("RoleID")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.ClientSetNull)
                         .HasConstraintName("FK_Role_Permission_Role"),
                     j =>
                     {
@@ -320,7 +320,6 @@ public partial class QLKH_ThuocContext : DbContext
             entity.Property(e => e.UserID)
                 .HasMaxLength(10)
                 .IsFixedLength();
-            entity.Property(e => e.Password).HasMaxLength(10);
             entity.Property(e => e.RoleID)
                 .HasMaxLength(10)
                 .IsFixedLength();
@@ -346,7 +345,7 @@ public partial class QLKH_ThuocContext : DbContext
 
             entity.HasOne(d => d.Nhom).WithMany(p => p.Thuoc)
                 .HasForeignKey(d => d.Nhom_ID)
-                .OnDelete(DeleteBehavior.Cascade)
+                .OnDelete(DeleteBehavior.ClientSetNull)
                 .HasConstraintName("FK_Thuoc_NhomThuoc");
         });
 

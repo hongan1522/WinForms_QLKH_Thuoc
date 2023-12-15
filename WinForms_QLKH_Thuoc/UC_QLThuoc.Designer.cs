@@ -28,12 +28,17 @@
         /// </summary>
         private void InitializeComponent()
         {
-            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
             tlpQLT = new TableLayoutPanel();
             pnQLT = new Panel();
             lbQLT = new Label();
             splQLT_CN_HT = new SplitContainer();
             grbQLT_TK = new GroupBox();
+            btnQLT_Them = new Button();
+            btnQLT_Export = new Button();
+            btnQLT_Sua = new Button();
+            btnQLT_Import = new Button();
+            btnQLT_Xoa = new Button();
             grbQLT_HT = new GroupBox();
             dgvQLT = new DataGridView();
             Column1 = new DataGridViewTextBoxColumn();
@@ -42,8 +47,6 @@
             pnQLT_TT_CN = new Panel();
             splQLT_TT_TK = new SplitContainer();
             grbQLT_TT = new GroupBox();
-            txtQLT_TK_TenThuoc = new TextBox();
-            txtQLT_TK_MaThuoc = new TextBox();
             txtQLT_TenThuoc = new TextBox();
             txtQLT_MaNhom = new TextBox();
             txtQLT_MaThuoc = new TextBox();
@@ -51,14 +54,10 @@
             lbQLT_TenThuoc = new Label();
             lbQLT_MaThuoc = new Label();
             grbQLT_CN = new GroupBox();
-            btnQLT_Reload = new Button();
-            btnQLT_Sua = new Button();
-            btnQLT_Export = new Button();
-            btnQLT_Them = new Button();
-            btnQLT_Import = new Button();
-            btnQLT_Xoa = new Button();
             lbQLT_TK_TenThuoc = new Label();
             lbQLT_TK_MaThuoc = new Label();
+            txtQLT_TK_TenThuoc = new TextBox();
+            txtQLT_TK_MaThuoc = new TextBox();
             tlpQLT.SuspendLayout();
             pnQLT.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)splQLT_CN_HT).BeginInit();
@@ -138,7 +137,6 @@
             // 
             // grbQLT_TK
             // 
-            grbQLT_TK.Controls.Add(btnQLT_Reload);
             grbQLT_TK.Controls.Add(btnQLT_Them);
             grbQLT_TK.Controls.Add(btnQLT_Export);
             grbQLT_TK.Controls.Add(btnQLT_Sua);
@@ -151,6 +149,86 @@
             grbQLT_TK.TabIndex = 0;
             grbQLT_TK.TabStop = false;
             grbQLT_TK.Text = "Chức năng";
+            // 
+            // btnQLT_Them
+            // 
+            btnQLT_Them.BackColor = SystemColors.ButtonHighlight;
+            btnQLT_Them.FlatAppearance.BorderSize = 0;
+            btnQLT_Them.FlatStyle = FlatStyle.Flat;
+            btnQLT_Them.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
+            btnQLT_Them.ForeColor = SystemColors.ControlText;
+            btnQLT_Them.Image = Properties.Resources.New;
+            btnQLT_Them.ImageAlign = ContentAlignment.MiddleLeft;
+            btnQLT_Them.Location = new Point(32, 42);
+            btnQLT_Them.Name = "btnQLT_Them";
+            btnQLT_Them.Size = new Size(169, 64);
+            btnQLT_Them.TabIndex = 6;
+            btnQLT_Them.Text = "Thêm";
+            btnQLT_Them.UseVisualStyleBackColor = false;
+            // 
+            // btnQLT_Export
+            // 
+            btnQLT_Export.BackColor = SystemColors.ButtonHighlight;
+            btnQLT_Export.FlatAppearance.BorderSize = 0;
+            btnQLT_Export.FlatStyle = FlatStyle.Flat;
+            btnQLT_Export.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
+            btnQLT_Export.ForeColor = SystemColors.ControlText;
+            btnQLT_Export.Image = Properties.Resources.export;
+            btnQLT_Export.ImageAlign = ContentAlignment.MiddleLeft;
+            btnQLT_Export.Location = new Point(1192, 42);
+            btnQLT_Export.Name = "btnQLT_Export";
+            btnQLT_Export.Size = new Size(169, 64);
+            btnQLT_Export.TabIndex = 9;
+            btnQLT_Export.Text = "Export";
+            btnQLT_Export.UseVisualStyleBackColor = false;
+            // 
+            // btnQLT_Sua
+            // 
+            btnQLT_Sua.BackColor = SystemColors.ButtonHighlight;
+            btnQLT_Sua.FlatAppearance.BorderSize = 0;
+            btnQLT_Sua.FlatStyle = FlatStyle.Flat;
+            btnQLT_Sua.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
+            btnQLT_Sua.ForeColor = SystemColors.ControlText;
+            btnQLT_Sua.Image = Properties.Resources.Edit;
+            btnQLT_Sua.ImageAlign = ContentAlignment.MiddleLeft;
+            btnQLT_Sua.Location = new Point(322, 42);
+            btnQLT_Sua.Name = "btnQLT_Sua";
+            btnQLT_Sua.Size = new Size(169, 64);
+            btnQLT_Sua.TabIndex = 11;
+            btnQLT_Sua.Text = "Sửa";
+            btnQLT_Sua.UseVisualStyleBackColor = false;
+            // 
+            // btnQLT_Import
+            // 
+            btnQLT_Import.BackColor = SystemColors.ButtonHighlight;
+            btnQLT_Import.FlatAppearance.BorderSize = 0;
+            btnQLT_Import.FlatStyle = FlatStyle.Flat;
+            btnQLT_Import.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
+            btnQLT_Import.ForeColor = SystemColors.ControlText;
+            btnQLT_Import.Image = Properties.Resources.import;
+            btnQLT_Import.ImageAlign = ContentAlignment.MiddleLeft;
+            btnQLT_Import.Location = new Point(902, 42);
+            btnQLT_Import.Name = "btnQLT_Import";
+            btnQLT_Import.Size = new Size(169, 64);
+            btnQLT_Import.TabIndex = 10;
+            btnQLT_Import.Text = "Import";
+            btnQLT_Import.UseVisualStyleBackColor = false;
+            // 
+            // btnQLT_Xoa
+            // 
+            btnQLT_Xoa.BackColor = SystemColors.ButtonHighlight;
+            btnQLT_Xoa.FlatAppearance.BorderSize = 0;
+            btnQLT_Xoa.FlatStyle = FlatStyle.Flat;
+            btnQLT_Xoa.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
+            btnQLT_Xoa.ForeColor = SystemColors.ControlText;
+            btnQLT_Xoa.Image = Properties.Resources.Delete;
+            btnQLT_Xoa.ImageAlign = ContentAlignment.MiddleLeft;
+            btnQLT_Xoa.Location = new Point(612, 42);
+            btnQLT_Xoa.Name = "btnQLT_Xoa";
+            btnQLT_Xoa.Size = new Size(169, 64);
+            btnQLT_Xoa.TabIndex = 7;
+            btnQLT_Xoa.Text = "Xóa";
+            btnQLT_Xoa.UseVisualStyleBackColor = false;
             // 
             // grbQLT_HT
             // 
@@ -167,14 +245,14 @@
             // 
             dgvQLT.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dgvQLT.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
-            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle2.BackColor = SystemColors.Control;
-            dataGridViewCellStyle2.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
-            dataGridViewCellStyle2.ForeColor = SystemColors.WindowText;
-            dataGridViewCellStyle2.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = DataGridViewTriState.True;
-            dgvQLT.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.BackColor = SystemColors.Control;
+            dataGridViewCellStyle1.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
+            dataGridViewCellStyle1.ForeColor = SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
+            dgvQLT.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             dgvQLT.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dgvQLT.Columns.AddRange(new DataGridViewColumn[] { Column1, Column4, Column2 });
             dgvQLT.Dock = DockStyle.Fill;
@@ -182,9 +260,8 @@
             dgvQLT.Name = "dgvQLT";
             dgvQLT.RowHeadersWidth = 82;
             dgvQLT.RowTemplate.Height = 41;
-            dgvQLT.Size = new Size(1408, 418);
-            dgvQLT.AutoGenerateColumns = false;
             dgvQLT.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            dgvQLT.Size = new Size(1408, 418);
             dgvQLT.TabIndex = 0;
             // 
             // Column1
@@ -247,21 +324,6 @@
             grbQLT_TT.TabIndex = 0;
             grbQLT_TT.TabStop = false;
             grbQLT_TT.Text = "Thông tin";
-            // 
-            // txtQLT_TK_TenThuoc
-            // 
-            txtQLT_TK_TenThuoc.Location = new Point(240, 184);
-            txtQLT_TK_TenThuoc.Multiline = true;
-            txtQLT_TK_TenThuoc.Name = "txtQLT_TK_TenThuoc";
-            txtQLT_TK_TenThuoc.Size = new Size(324, 93);
-            txtQLT_TK_TenThuoc.TabIndex = 3;
-            // 
-            // txtQLT_TK_MaThuoc
-            // 
-            txtQLT_TK_MaThuoc.Location = new Point(240, 69);
-            txtQLT_TK_MaThuoc.Name = "txtQLT_TK_MaThuoc";
-            txtQLT_TK_MaThuoc.Size = new Size(324, 43);
-            txtQLT_TK_MaThuoc.TabIndex = 2;
             // 
             // txtQLT_TenThuoc
             // 
@@ -334,101 +396,6 @@
             grbQLT_CN.TabStop = false;
             grbQLT_CN.Text = "Tìm kiếm";
             // 
-            // btnQLT_Reload
-            // 
-            btnQLT_Reload.BackColor = SystemColors.ButtonHighlight;
-            btnQLT_Reload.FlatAppearance.BorderSize = 0;
-            btnQLT_Reload.FlatStyle = FlatStyle.Flat;
-            btnQLT_Reload.Font = new Font("Segoe UI", 10.125F, FontStyle.Bold, GraphicsUnit.Point);
-            btnQLT_Reload.Image = Properties.Resources.reload;
-            btnQLT_Reload.ImageAlign = ContentAlignment.MiddleLeft;
-            btnQLT_Reload.Location = new Point(1202, 42);
-            btnQLT_Reload.Name = "btnQLT_Reload";
-            btnQLT_Reload.Size = new Size(169, 64);
-            btnQLT_Reload.TabIndex = 33;
-            btnQLT_Reload.Text = "Reload";
-            btnQLT_Reload.UseVisualStyleBackColor = false;
-            // 
-            // btnQLT_Sua
-            // 
-            btnQLT_Sua.BackColor = SystemColors.ButtonHighlight;
-            btnQLT_Sua.FlatAppearance.BorderSize = 0;
-            btnQLT_Sua.FlatStyle = FlatStyle.Flat;
-            btnQLT_Sua.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
-            btnQLT_Sua.ForeColor = SystemColors.ControlText;
-            btnQLT_Sua.Image = Properties.Resources.Edit;
-            btnQLT_Sua.ImageAlign = ContentAlignment.MiddleLeft;
-            btnQLT_Sua.Location = new Point(266, 42);
-            btnQLT_Sua.Name = "btnQLT_Sua";
-            btnQLT_Sua.Size = new Size(169, 64);
-            btnQLT_Sua.TabIndex = 11;
-            btnQLT_Sua.Text = "Sửa";
-            btnQLT_Sua.UseVisualStyleBackColor = false;
-            // 
-            // btnQLT_Export
-            // 
-            btnQLT_Export.BackColor = SystemColors.ButtonHighlight;
-            btnQLT_Export.FlatAppearance.BorderSize = 0;
-            btnQLT_Export.FlatStyle = FlatStyle.Flat;
-            btnQLT_Export.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
-            btnQLT_Export.ForeColor = SystemColors.ControlText;
-            btnQLT_Export.Image = Properties.Resources.export;
-            btnQLT_Export.ImageAlign = ContentAlignment.MiddleLeft;
-            btnQLT_Export.Location = new Point(968, 42);
-            btnQLT_Export.Name = "btnQLT_Export";
-            btnQLT_Export.Size = new Size(169, 64);
-            btnQLT_Export.TabIndex = 9;
-            btnQLT_Export.Text = "Export";
-            btnQLT_Export.UseVisualStyleBackColor = false;
-            // 
-            // btnQLT_Them
-            // 
-            btnQLT_Them.BackColor = SystemColors.ButtonHighlight;
-            btnQLT_Them.FlatAppearance.BorderSize = 0;
-            btnQLT_Them.FlatStyle = FlatStyle.Flat;
-            btnQLT_Them.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
-            btnQLT_Them.ForeColor = SystemColors.ControlText;
-            btnQLT_Them.Image = Properties.Resources.New;
-            btnQLT_Them.ImageAlign = ContentAlignment.MiddleLeft;
-            btnQLT_Them.Location = new Point(32, 42);
-            btnQLT_Them.Name = "btnQLT_Them";
-            btnQLT_Them.Size = new Size(169, 64);
-            btnQLT_Them.TabIndex = 6;
-            btnQLT_Them.Text = "Thêm";
-            btnQLT_Them.UseVisualStyleBackColor = false;
-            // 
-            // btnQLT_Import
-            // 
-            btnQLT_Import.BackColor = SystemColors.ButtonHighlight;
-            btnQLT_Import.FlatAppearance.BorderSize = 0;
-            btnQLT_Import.FlatStyle = FlatStyle.Flat;
-            btnQLT_Import.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
-            btnQLT_Import.ForeColor = SystemColors.ControlText;
-            btnQLT_Import.Image = Properties.Resources.import;
-            btnQLT_Import.ImageAlign = ContentAlignment.MiddleLeft;
-            btnQLT_Import.Location = new Point(734, 42);
-            btnQLT_Import.Name = "btnQLT_Import";
-            btnQLT_Import.Size = new Size(169, 64);
-            btnQLT_Import.TabIndex = 10;
-            btnQLT_Import.Text = "Import";
-            btnQLT_Import.UseVisualStyleBackColor = false;
-            // 
-            // btnQLT_Xoa
-            // 
-            btnQLT_Xoa.BackColor = SystemColors.ButtonHighlight;
-            btnQLT_Xoa.FlatAppearance.BorderSize = 0;
-            btnQLT_Xoa.FlatStyle = FlatStyle.Flat;
-            btnQLT_Xoa.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
-            btnQLT_Xoa.ForeColor = SystemColors.ControlText;
-            btnQLT_Xoa.Image = Properties.Resources.Delete;
-            btnQLT_Xoa.ImageAlign = ContentAlignment.MiddleLeft;
-            btnQLT_Xoa.Location = new Point(500, 42);
-            btnQLT_Xoa.Name = "btnQLT_Xoa";
-            btnQLT_Xoa.Size = new Size(169, 64);
-            btnQLT_Xoa.TabIndex = 7;
-            btnQLT_Xoa.Text = "Xóa";
-            btnQLT_Xoa.UseVisualStyleBackColor = false;
-            // 
             // lbQLT_TK_TenThuoc
             // 
             lbQLT_TK_TenThuoc.AutoSize = true;
@@ -452,6 +419,21 @@
             lbQLT_TK_MaThuoc.Size = new Size(136, 39);
             lbQLT_TK_MaThuoc.TabIndex = 4;
             lbQLT_TK_MaThuoc.Text = "Mã thuốc";
+            // 
+            // txtQLT_TK_TenThuoc
+            // 
+            txtQLT_TK_TenThuoc.Location = new Point(240, 184);
+            txtQLT_TK_TenThuoc.Multiline = true;
+            txtQLT_TK_TenThuoc.Name = "txtQLT_TK_TenThuoc";
+            txtQLT_TK_TenThuoc.Size = new Size(324, 93);
+            txtQLT_TK_TenThuoc.TabIndex = 3;
+            // 
+            // txtQLT_TK_MaThuoc
+            // 
+            txtQLT_TK_MaThuoc.Location = new Point(240, 69);
+            txtQLT_TK_MaThuoc.Name = "txtQLT_TK_MaThuoc";
+            txtQLT_TK_MaThuoc.Size = new Size(324, 43);
+            txtQLT_TK_MaThuoc.TabIndex = 2;
             // 
             // UC_QLThuoc
             // 
@@ -508,7 +490,6 @@
         private Button btnQLT_Them;
         private Button btnQLT_Import;
         private Button btnQLT_Xoa;
-        private Button btnQLT_Reload;
         private DataGridViewTextBoxColumn Column1;
         private DataGridViewTextBoxColumn Column4;
         private DataGridViewTextBoxColumn Column2;

@@ -34,10 +34,10 @@
             splQLK_HT_CN = new SplitContainer();
             grbQLK_HT = new GroupBox();
             dgvQLK = new DataGridView();
-            Column1 = new DataGridViewTextBoxColumn();
-            Column3 = new DataGridViewTextBoxColumn();
-            Column2 = new DataGridViewTextBoxColumn();
-            Column4 = new DataGridViewTextBoxColumn();
+            MaKho = new DataGridViewTextBoxColumn();
+            MaCN = new DataGridViewTextBoxColumn();
+            TenKho = new DataGridViewTextBoxColumn();
+            DiaChi = new DataGridViewTextBoxColumn();
             grbQLK_CN = new GroupBox();
             btnQLK_Them = new Button();
             btnQLK_Sua = new Button();
@@ -46,10 +46,12 @@
             btnQLK_Export = new Button();
             splQLK_TK_TT = new SplitContainer();
             grbQLK_TK = new GroupBox();
+            label2 = new Label();
+            label1 = new Label();
             txtQLK_TK_TenKho = new TextBox();
             txtQLK_TK_MaKho = new TextBox();
             grbQLK_TT = new GroupBox();
-            txtQLK_MaCN = new TextBox();
+            cbQLK_MaCN = new ComboBox();
             lbQLK_MaCN = new Label();
             txtQLK_DiaChi = new TextBox();
             lbQLK_DiaChi = new Label();
@@ -57,9 +59,6 @@
             lbQLK_TenKho = new Label();
             txtQLK_MaKho = new TextBox();
             lbQLK_MaKho = new Label();
-            btnQLK_Reload = new Button();
-            label1 = new Label();
-            label2 = new Label();
             tlpQLK.SuspendLayout();
             pnQLK.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)splQLK_HT_CN).BeginInit();
@@ -150,44 +149,48 @@
             dgvQLK.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dgvQLK.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
             dgvQLK.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgvQLK.Columns.AddRange(new DataGridViewColumn[] { Column1, Column3, Column2, Column4 });
+            dgvQLK.Columns.AddRange(new DataGridViewColumn[] { MaKho, MaCN, TenKho, DiaChi });
             dgvQLK.Dock = DockStyle.Fill;
             dgvQLK.Location = new Point(3, 39);
             dgvQLK.Name = "dgvQLK";
             dgvQLK.RowHeadersWidth = 82;
             dgvQLK.RowTemplate.Height = 41;
-            dgvQLK.Size = new Size(1168, 574);
-            dgvQLK.AutoGenerateColumns = false;
             dgvQLK.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            dgvQLK.Size = new Size(1168, 574);
             dgvQLK.TabIndex = 0;
+            dgvQLK.RowPostPaint += dgvQLK_RowPostPaint;
+            dgvQLK.SelectionChanged += dgvQLK_SelectionChanged;
             // 
-            // Column1
+            // MaKho
             // 
-            Column1.HeaderText = "Mã kho";
-            Column1.MinimumWidth = 10;
-            Column1.Name = "Column1";
+            MaKho.DataPropertyName = "Kho_ID";
+            MaKho.HeaderText = "Mã kho";
+            MaKho.MinimumWidth = 10;
+            MaKho.Name = "MaKho";
             // 
-            // Column3
+            // MaCN
             // 
-            Column3.HeaderText = "Mã chi nhánh";
-            Column3.MinimumWidth = 10;
-            Column3.Name = "Column3";
+            MaCN.DataPropertyName = "CN_ID";
+            MaCN.HeaderText = "Mã chi nhánh";
+            MaCN.MinimumWidth = 10;
+            MaCN.Name = "MaCN";
             // 
-            // Column2
+            // TenKho
             // 
-            Column2.HeaderText = "Tên kho";
-            Column2.MinimumWidth = 10;
-            Column2.Name = "Column2";
+            TenKho.DataPropertyName = "Kho_Name";
+            TenKho.HeaderText = "Tên kho";
+            TenKho.MinimumWidth = 10;
+            TenKho.Name = "TenKho";
             // 
-            // Column4
+            // DiaChi
             // 
-            Column4.HeaderText = "Địa chỉ";
-            Column4.MinimumWidth = 10;
-            Column4.Name = "Column4";
+            DiaChi.DataPropertyName = "Kho_Address";
+            DiaChi.HeaderText = "Địa chỉ";
+            DiaChi.MinimumWidth = 10;
+            DiaChi.Name = "DiaChi";
             // 
             // grbQLK_CN
             // 
-            grbQLK_CN.Controls.Add(btnQLK_Reload);
             grbQLK_CN.Controls.Add(btnQLK_Them);
             grbQLK_CN.Controls.Add(btnQLK_Sua);
             grbQLK_CN.Controls.Add(btnQLK_Xoa);
@@ -205,7 +208,7 @@
             // 
             btnQLK_Them.BackColor = SystemColors.ButtonHighlight;
             btnQLK_Them.FlatAppearance.BorderSize = 0;
-            btnQLK_Them.FlatStyle = FlatStyle.Flat;
+            btnQLK_Them.FlatStyle = FlatStyle.Popup;
             btnQLK_Them.Font = new Font("Segoe UI", 10.125F, FontStyle.Bold, GraphicsUnit.Point);
             btnQLK_Them.Image = Properties.Resources.New;
             btnQLK_Them.ImageAlign = ContentAlignment.MiddleLeft;
@@ -215,46 +218,49 @@
             btnQLK_Them.TabIndex = 18;
             btnQLK_Them.Text = "Thêm";
             btnQLK_Them.UseVisualStyleBackColor = false;
+            btnQLK_Them.Click += btnQLK_Them_Click;
             // 
             // btnQLK_Sua
             // 
             btnQLK_Sua.BackColor = SystemColors.ButtonHighlight;
             btnQLK_Sua.FlatAppearance.BorderSize = 0;
-            btnQLK_Sua.FlatStyle = FlatStyle.Flat;
+            btnQLK_Sua.FlatStyle = FlatStyle.Popup;
             btnQLK_Sua.Font = new Font("Segoe UI", 10.125F, FontStyle.Bold, GraphicsUnit.Point);
             btnQLK_Sua.Image = Properties.Resources.Edit;
             btnQLK_Sua.ImageAlign = ContentAlignment.MiddleLeft;
-            btnQLK_Sua.Location = new Point(26, 149);
+            btnQLK_Sua.Location = new Point(26, 173);
             btnQLK_Sua.Name = "btnQLK_Sua";
             btnQLK_Sua.Size = new Size(182, 58);
             btnQLK_Sua.TabIndex = 19;
             btnQLK_Sua.Text = "Sửa";
             btnQLK_Sua.UseVisualStyleBackColor = false;
+            btnQLK_Sua.Click += btnQLK_Sua_Click;
             // 
             // btnQLK_Xoa
             // 
             btnQLK_Xoa.BackColor = SystemColors.ButtonHighlight;
             btnQLK_Xoa.FlatAppearance.BorderSize = 0;
-            btnQLK_Xoa.FlatStyle = FlatStyle.Flat;
+            btnQLK_Xoa.FlatStyle = FlatStyle.Popup;
             btnQLK_Xoa.Font = new Font("Segoe UI", 10.125F, FontStyle.Bold, GraphicsUnit.Point);
             btnQLK_Xoa.Image = Properties.Resources.Delete;
             btnQLK_Xoa.ImageAlign = ContentAlignment.MiddleLeft;
-            btnQLK_Xoa.Location = new Point(26, 246);
+            btnQLK_Xoa.Location = new Point(26, 294);
             btnQLK_Xoa.Name = "btnQLK_Xoa";
             btnQLK_Xoa.Size = new Size(182, 58);
             btnQLK_Xoa.TabIndex = 20;
             btnQLK_Xoa.Text = "Xóa";
             btnQLK_Xoa.UseVisualStyleBackColor = false;
+            btnQLK_Xoa.Click += btnQLK_Xoa_Click;
             // 
             // btnQLK_Import
             // 
             btnQLK_Import.BackColor = SystemColors.ButtonHighlight;
             btnQLK_Import.FlatAppearance.BorderSize = 0;
-            btnQLK_Import.FlatStyle = FlatStyle.Flat;
+            btnQLK_Import.FlatStyle = FlatStyle.Popup;
             btnQLK_Import.Font = new Font("Segoe UI", 10.125F, FontStyle.Bold, GraphicsUnit.Point);
             btnQLK_Import.Image = Properties.Resources.import;
             btnQLK_Import.ImageAlign = ContentAlignment.MiddleLeft;
-            btnQLK_Import.Location = new Point(26, 343);
+            btnQLK_Import.Location = new Point(26, 415);
             btnQLK_Import.Name = "btnQLK_Import";
             btnQLK_Import.Size = new Size(182, 58);
             btnQLK_Import.TabIndex = 21;
@@ -265,11 +271,11 @@
             // 
             btnQLK_Export.BackColor = SystemColors.ButtonHighlight;
             btnQLK_Export.FlatAppearance.BorderSize = 0;
-            btnQLK_Export.FlatStyle = FlatStyle.Flat;
+            btnQLK_Export.FlatStyle = FlatStyle.Popup;
             btnQLK_Export.Font = new Font("Segoe UI", 10.125F, FontStyle.Bold, GraphicsUnit.Point);
             btnQLK_Export.Image = Properties.Resources.export;
             btnQLK_Export.ImageAlign = ContentAlignment.MiddleLeft;
-            btnQLK_Export.Location = new Point(26, 440);
+            btnQLK_Export.Location = new Point(26, 536);
             btnQLK_Export.Name = "btnQLK_Export";
             btnQLK_Export.Size = new Size(182, 58);
             btnQLK_Export.TabIndex = 22;
@@ -310,6 +316,30 @@
             grbQLK_TK.TabStop = false;
             grbQLK_TK.Text = "Tìm kiếm";
             // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.BackColor = SystemColors.Control;
+            label2.BorderStyle = BorderStyle.Fixed3D;
+            label2.Font = new Font("Segoe UI Semibold", 10.125F, FontStyle.Bold, GraphicsUnit.Point);
+            label2.Location = new Point(17, 186);
+            label2.Name = "label2";
+            label2.Size = new Size(186, 39);
+            label2.TabIndex = 9;
+            label2.Text = "Mã chi nhánh";
+            // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.BackColor = SystemColors.Control;
+            label1.BorderStyle = BorderStyle.Fixed3D;
+            label1.Font = new Font("Segoe UI Semibold", 10.125F, FontStyle.Bold, GraphicsUnit.Point);
+            label1.Location = new Point(17, 74);
+            label1.Name = "label1";
+            label1.Size = new Size(111, 39);
+            label1.TabIndex = 4;
+            label1.Text = "Mã kho";
+            // 
             // txtQLK_TK_TenKho
             // 
             txtQLK_TK_TenKho.Location = new Point(227, 180);
@@ -326,7 +356,7 @@
             // 
             // grbQLK_TT
             // 
-            grbQLK_TT.Controls.Add(txtQLK_MaCN);
+            grbQLK_TT.Controls.Add(cbQLK_MaCN);
             grbQLK_TT.Controls.Add(lbQLK_MaCN);
             grbQLK_TT.Controls.Add(txtQLK_DiaChi);
             grbQLK_TT.Controls.Add(lbQLK_DiaChi);
@@ -342,12 +372,13 @@
             grbQLK_TT.TabStop = false;
             grbQLK_TT.Text = "Thông tin";
             // 
-            // txtQLK_MaCN
+            // cbQLK_MaCN
             // 
-            txtQLK_MaCN.Location = new Point(217, 174);
-            txtQLK_MaCN.Name = "txtQLK_MaCN";
-            txtQLK_MaCN.Size = new Size(213, 43);
-            txtQLK_MaCN.TabIndex = 9;
+            cbQLK_MaCN.FormattingEnabled = true;
+            cbQLK_MaCN.Location = new Point(217, 177);
+            cbQLK_MaCN.Name = "cbQLK_MaCN";
+            cbQLK_MaCN.Size = new Size(213, 45);
+            cbQLK_MaCN.TabIndex = 10;
             // 
             // lbQLK_MaCN
             // 
@@ -420,45 +451,6 @@
             lbQLK_MaKho.TabIndex = 0;
             lbQLK_MaKho.Text = "Mã kho";
             // 
-            // btnQLK_Reload
-            // 
-            btnQLK_Reload.BackColor = SystemColors.ButtonHighlight;
-            btnQLK_Reload.FlatAppearance.BorderSize = 0;
-            btnQLK_Reload.FlatStyle = FlatStyle.Flat;
-            btnQLK_Reload.Font = new Font("Segoe UI", 10.125F, FontStyle.Bold, GraphicsUnit.Point);
-            btnQLK_Reload.Image = Properties.Resources.reload;
-            btnQLK_Reload.ImageAlign = ContentAlignment.MiddleLeft;
-            btnQLK_Reload.Location = new Point(26, 537);
-            btnQLK_Reload.Name = "btnQLK_Reload";
-            btnQLK_Reload.Size = new Size(182, 58);
-            btnQLK_Reload.TabIndex = 23;
-            btnQLK_Reload.Text = "Reload";
-            btnQLK_Reload.UseVisualStyleBackColor = false;
-            // 
-            // label1
-            // 
-            label1.AutoSize = true;
-            label1.BackColor = SystemColors.Control;
-            label1.BorderStyle = BorderStyle.Fixed3D;
-            label1.Font = new Font("Segoe UI Semibold", 10.125F, FontStyle.Bold, GraphicsUnit.Point);
-            label1.Location = new Point(17, 74);
-            label1.Name = "label1";
-            label1.Size = new Size(111, 39);
-            label1.TabIndex = 4;
-            label1.Text = "Mã kho";
-            // 
-            // label2
-            // 
-            label2.AutoSize = true;
-            label2.BackColor = SystemColors.Control;
-            label2.BorderStyle = BorderStyle.Fixed3D;
-            label2.Font = new Font("Segoe UI Semibold", 10.125F, FontStyle.Bold, GraphicsUnit.Point);
-            label2.Location = new Point(17, 186);
-            label2.Name = "label2";
-            label2.Size = new Size(186, 39);
-            label2.TabIndex = 9;
-            label2.Text = "Mã chi nhánh";
-            // 
             // UC_QLKho
             // 
             AutoScaleDimensions = new SizeF(13F, 32F);
@@ -496,16 +488,11 @@
         private GroupBox grbQLK_HT;
         private GroupBox grbQLK_CN;
         private DataGridView dgvQLK;
-        private DataGridViewTextBoxColumn Column1;
-        private DataGridViewTextBoxColumn Column3;
-        private DataGridViewTextBoxColumn Column2;
-        private DataGridViewTextBoxColumn Column4;
         private SplitContainer splQLK_TK_TT;
         private GroupBox grbQLK_TK;
         private GroupBox grbQLK_TT;
         private TextBox txtQLK_TK_TenKho;
         private TextBox txtQLK_TK_MaKho;
-        private TextBox txtQLK_MaCN;
         private Label lbQLK_MaCN;
         private TextBox txtQLK_DiaChi;
         private Label lbQLK_DiaChi;
@@ -518,8 +505,12 @@
         private Button btnQLK_Xoa;
         private Button btnQLK_Import;
         private Button btnQLK_Export;
-        private Button btnQLK_Reload;
         private Label label2;
         private Label label1;
+        private DataGridViewTextBoxColumn MaKho;
+        private DataGridViewTextBoxColumn MaCN;
+        private DataGridViewTextBoxColumn TenKho;
+        private DataGridViewTextBoxColumn DiaChi;
+        private ComboBox cbQLK_MaCN;
     }
 }

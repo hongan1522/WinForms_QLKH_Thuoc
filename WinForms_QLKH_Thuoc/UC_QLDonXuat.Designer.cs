@@ -43,6 +43,8 @@
             lbQLDX_MaNV = new Label();
             lbQLDX_MaDX = new Label();
             grbQLDX_TK = new GroupBox();
+            label2 = new Label();
+            label1 = new Label();
             txtQLDX_TK_MaNV = new TextBox();
             txtQLDX_TK_MaDX = new TextBox();
             splQLDX_CN_HT = new SplitContainer();
@@ -54,9 +56,6 @@
             btnQLDX_Sua = new Button();
             grbQLDX_HT = new GroupBox();
             dgvQLDX = new DataGridView();
-            btnQLDX_Reload = new Button();
-            label1 = new Label();
-            label2 = new Label();
             Column1 = new DataGridViewTextBoxColumn();
             Column2 = new DataGridViewTextBoxColumn();
             Column3 = new DataGridViewTextBoxColumn();
@@ -248,6 +247,30 @@
             grbQLDX_TK.TabStop = false;
             grbQLDX_TK.Text = "Tìm kiếm";
             // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.BackColor = SystemColors.Control;
+            label2.BorderStyle = BorderStyle.Fixed3D;
+            label2.Font = new Font("Segoe UI Semibold", 10.125F, FontStyle.Bold, GraphicsUnit.Point);
+            label2.Location = new Point(21, 171);
+            label2.Name = "label2";
+            label2.Size = new Size(103, 39);
+            label2.TabIndex = 5;
+            label2.Text = "Mã NV";
+            // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.BackColor = SystemColors.Control;
+            label1.BorderStyle = BorderStyle.Fixed3D;
+            label1.Font = new Font("Segoe UI Semibold", 10.125F, FontStyle.Bold, GraphicsUnit.Point);
+            label1.Location = new Point(21, 66);
+            label1.Name = "label1";
+            label1.Size = new Size(175, 39);
+            label1.TabIndex = 4;
+            label1.Text = "Mã đơn xuất";
+            // 
             // txtQLDX_TK_MaNV
             // 
             txtQLDX_TK_MaNV.Location = new Point(213, 168);
@@ -281,7 +304,6 @@
             // 
             // grbQLDX_CN
             // 
-            grbQLDX_CN.Controls.Add(btnQLDX_Reload);
             grbQLDX_CN.Controls.Add(btnQLDX_Them);
             grbQLDX_CN.Controls.Add(btnQLDX_Xoa);
             grbQLDX_CN.Controls.Add(btnQLDX_Export);
@@ -303,7 +325,7 @@
             btnQLDX_Them.Font = new Font("Segoe UI", 10.125F, FontStyle.Bold, GraphicsUnit.Point);
             btnQLDX_Them.Image = Properties.Resources.New;
             btnQLDX_Them.ImageAlign = ContentAlignment.MiddleLeft;
-            btnQLDX_Them.Location = new Point(31, 73);
+            btnQLDX_Them.Location = new Point(31, 66);
             btnQLDX_Them.Name = "btnQLDX_Them";
             btnQLDX_Them.Size = new Size(182, 58);
             btnQLDX_Them.TabIndex = 12;
@@ -318,7 +340,7 @@
             btnQLDX_Xoa.Font = new Font("Segoe UI", 10.125F, FontStyle.Bold, GraphicsUnit.Point);
             btnQLDX_Xoa.Image = Properties.Resources.Delete;
             btnQLDX_Xoa.ImageAlign = ContentAlignment.MiddleLeft;
-            btnQLDX_Xoa.Location = new Point(31, 247);
+            btnQLDX_Xoa.Location = new Point(31, 288);
             btnQLDX_Xoa.Name = "btnQLDX_Xoa";
             btnQLDX_Xoa.Size = new Size(182, 58);
             btnQLDX_Xoa.TabIndex = 14;
@@ -333,7 +355,7 @@
             btnQLDX_Export.Font = new Font("Segoe UI", 10.125F, FontStyle.Bold, GraphicsUnit.Point);
             btnQLDX_Export.Image = Properties.Resources.export;
             btnQLDX_Export.ImageAlign = ContentAlignment.MiddleLeft;
-            btnQLDX_Export.Location = new Point(31, 421);
+            btnQLDX_Export.Location = new Point(31, 510);
             btnQLDX_Export.Name = "btnQLDX_Export";
             btnQLDX_Export.Size = new Size(182, 58);
             btnQLDX_Export.TabIndex = 16;
@@ -348,7 +370,7 @@
             btnQLDX_Import.Font = new Font("Segoe UI", 10.125F, FontStyle.Bold, GraphicsUnit.Point);
             btnQLDX_Import.Image = Properties.Resources.import;
             btnQLDX_Import.ImageAlign = ContentAlignment.MiddleLeft;
-            btnQLDX_Import.Location = new Point(31, 334);
+            btnQLDX_Import.Location = new Point(31, 399);
             btnQLDX_Import.Name = "btnQLDX_Import";
             btnQLDX_Import.Size = new Size(182, 58);
             btnQLDX_Import.TabIndex = 15;
@@ -363,7 +385,7 @@
             btnQLDX_Sua.Font = new Font("Segoe UI", 10.125F, FontStyle.Bold, GraphicsUnit.Point);
             btnQLDX_Sua.Image = Properties.Resources.Edit;
             btnQLDX_Sua.ImageAlign = ContentAlignment.MiddleLeft;
-            btnQLDX_Sua.Location = new Point(31, 160);
+            btnQLDX_Sua.Location = new Point(31, 177);
             btnQLDX_Sua.Name = "btnQLDX_Sua";
             btnQLDX_Sua.Size = new Size(182, 58);
             btnQLDX_Sua.TabIndex = 13;
@@ -400,49 +422,9 @@
             dgvQLDX.Name = "dgvQLDX";
             dgvQLDX.RowHeadersWidth = 82;
             dgvQLDX.RowTemplate.Height = 41;
-            dgvQLDX.Size = new Size(1159, 555);
-            dgvQLDX.AutoGenerateColumns = false;
             dgvQLDX.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            dgvQLDX.Size = new Size(1159, 555);
             dgvQLDX.TabIndex = 2;
-            // 
-            // btnQLDX_Reload
-            // 
-            btnQLDX_Reload.BackColor = SystemColors.ButtonHighlight;
-            btnQLDX_Reload.FlatAppearance.BorderSize = 0;
-            btnQLDX_Reload.FlatStyle = FlatStyle.Flat;
-            btnQLDX_Reload.Font = new Font("Segoe UI", 10.125F, FontStyle.Bold, GraphicsUnit.Point);
-            btnQLDX_Reload.Image = Properties.Resources.reload;
-            btnQLDX_Reload.ImageAlign = ContentAlignment.MiddleLeft;
-            btnQLDX_Reload.Location = new Point(31, 510);
-            btnQLDX_Reload.Name = "btnQLDX_Reload";
-            btnQLDX_Reload.Size = new Size(182, 58);
-            btnQLDX_Reload.TabIndex = 17;
-            btnQLDX_Reload.Text = "Reload";
-            btnQLDX_Reload.UseVisualStyleBackColor = false;
-            // 
-            // label1
-            // 
-            label1.AutoSize = true;
-            label1.BackColor = SystemColors.Control;
-            label1.BorderStyle = BorderStyle.Fixed3D;
-            label1.Font = new Font("Segoe UI Semibold", 10.125F, FontStyle.Bold, GraphicsUnit.Point);
-            label1.Location = new Point(21, 66);
-            label1.Name = "label1";
-            label1.Size = new Size(175, 39);
-            label1.TabIndex = 4;
-            label1.Text = "Mã đơn xuất";
-            // 
-            // label2
-            // 
-            label2.AutoSize = true;
-            label2.BackColor = SystemColors.Control;
-            label2.BorderStyle = BorderStyle.Fixed3D;
-            label2.Font = new Font("Segoe UI Semibold", 10.125F, FontStyle.Bold, GraphicsUnit.Point);
-            label2.Location = new Point(21, 171);
-            label2.Name = "label2";
-            label2.Size = new Size(103, 39);
-            label2.TabIndex = 5;
-            label2.Text = "Mã NV";
             // 
             // Column1
             // 
@@ -523,7 +505,6 @@
         private Button btnQLDX_Export;
         private Button btnQLDX_Import;
         private Button btnQLDX_Sua;
-        private Button btnQLDX_Reload;
         private Label label2;
         private Label label1;
         private DataGridViewTextBoxColumn Column1;

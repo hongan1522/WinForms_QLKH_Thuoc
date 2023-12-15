@@ -1,3 +1,5 @@
+using FormQLKH;
+
 namespace WinFormsApp
 {
     internal static class Program
@@ -12,7 +14,8 @@ namespace WinFormsApp
             // see https://aka.ms/applicationconfiguration.
             ApplicationConfiguration.Initialize();
             //Application.Run(new FormMain());
-            Application.Run(new Frm_QuanLyKho());
+            //Application.Run(new Frm_QuanLy());
+            Application.Run(new FrmTest());
         }
     }
 }

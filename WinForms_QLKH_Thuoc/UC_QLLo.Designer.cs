@@ -28,17 +28,17 @@
         /// </summary>
         private void InitializeComponent()
         {
-            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
             tlpQLLo = new TableLayoutPanel();
             pnQLLo = new Panel();
             lbQLLo = new Label();
             splQLLo_HT_CN = new SplitContainer();
             gpbQLLo_HT = new GroupBox();
             dgvQLLo = new DataGridView();
-            Column1 = new DataGridViewTextBoxColumn();
-            Column2 = new DataGridViewTextBoxColumn();
-            Column3 = new DataGridViewTextBoxColumn();
-            Column4 = new DataGridViewTextBoxColumn();
+            MaLo = new DataGridViewTextBoxColumn();
+            MaKho = new DataGridViewTextBoxColumn();
+            TenLo = new DataGridViewTextBoxColumn();
+            ViTri = new DataGridViewTextBoxColumn();
             gpbQLLo_CN = new GroupBox();
             btnQLLo_Them = new Button();
             btnQLLo_Export = new Button();
@@ -47,20 +47,19 @@
             btnQLLo_Xoa = new Button();
             splQLLo_TT_TK = new SplitContainer();
             gpbQLLo_TT = new GroupBox();
+            cbQLLo_MaKho = new ComboBox();
             cbQLLo_ViTri = new ComboBox();
             lbQLLo_ViTri = new Label();
             txtQLLo_TenLo = new TextBox();
             lbQLLo_TenLo = new Label();
-            txtQLLo_MaKho = new TextBox();
             lbQLLo_MaKho = new Label();
             txtQLLo_MaLo = new TextBox();
             lbQLLo_MaLo = new Label();
             gpbQLLo_TK = new GroupBox();
-            txtQLLo_TK_MaKho = new TextBox();
-            txtQLLo_TK_MaLo = new TextBox();
-            btnQLLo_Reload = new Button();
+            cbQLLo_TK_MaKho = new ComboBox();
             lbQLLo_TK_MaKho = new Label();
             lbQLLo_TK_MaLo = new Label();
+            txtQLLo_TK_MaLo = new TextBox();
             tlpQLLo.SuspendLayout();
             pnQLLo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)splQLLo_HT_CN).BeginInit();
@@ -150,53 +149,57 @@
             // 
             dgvQLLo.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dgvQLLo.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
-            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle2.BackColor = SystemColors.Control;
-            dataGridViewCellStyle2.Font = new Font("Segoe UI", 10.125F, FontStyle.Regular, GraphicsUnit.Point);
-            dataGridViewCellStyle2.ForeColor = SystemColors.WindowText;
-            dataGridViewCellStyle2.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = DataGridViewTriState.True;
-            dgvQLLo.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.BackColor = SystemColors.Control;
+            dataGridViewCellStyle1.Font = new Font("Segoe UI", 10.125F, FontStyle.Regular, GraphicsUnit.Point);
+            dataGridViewCellStyle1.ForeColor = SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
+            dgvQLLo.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             dgvQLLo.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgvQLLo.Columns.AddRange(new DataGridViewColumn[] { Column1, Column2, Column3, Column4 });
+            dgvQLLo.Columns.AddRange(new DataGridViewColumn[] { MaLo, MaKho, TenLo, ViTri });
             dgvQLLo.Dock = DockStyle.Fill;
             dgvQLLo.Location = new Point(3, 39);
             dgvQLLo.Name = "dgvQLLo";
             dgvQLLo.RowHeadersWidth = 82;
             dgvQLLo.RowTemplate.Height = 41;
-            dgvQLLo.Size = new Size(1161, 604);
-            dgvQLLo.AutoGenerateColumns = false;
             dgvQLLo.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            dgvQLLo.Size = new Size(1161, 604);
             dgvQLLo.TabIndex = 0;
+            dgvQLLo.RowPostPaint += dgvQLLo_RowPostPaint;
+            dgvQLLo.SelectionChanged += dgvQLLo_SelectionChanged;
             // 
-            // Column1
+            // MaLo
             // 
-            Column1.HeaderText = "Mã lô";
-            Column1.MinimumWidth = 10;
-            Column1.Name = "Column1";
+            MaLo.DataPropertyName = "Lo_ID";
+            MaLo.HeaderText = "Mã lô";
+            MaLo.MinimumWidth = 10;
+            MaLo.Name = "MaLo";
             // 
-            // Column2
+            // MaKho
             // 
-            Column2.HeaderText = "Mã kho";
-            Column2.MinimumWidth = 10;
-            Column2.Name = "Column2";
+            MaKho.DataPropertyName = "Kho_ID";
+            MaKho.HeaderText = "Mã kho";
+            MaKho.MinimumWidth = 10;
+            MaKho.Name = "MaKho";
             // 
-            // Column3
+            // TenLo
             // 
-            Column3.HeaderText = "Tên lô";
-            Column3.MinimumWidth = 10;
-            Column3.Name = "Column3";
+            TenLo.DataPropertyName = "Lo_Name";
+            TenLo.HeaderText = "Tên lô";
+            TenLo.MinimumWidth = 10;
+            TenLo.Name = "TenLo";
             // 
-            // Column4
+            // ViTri
             // 
-            Column4.HeaderText = "Vị trí ";
-            Column4.MinimumWidth = 10;
-            Column4.Name = "Column4";
+            ViTri.DataPropertyName = "Lo_Position";
+            ViTri.HeaderText = "Vị trí ";
+            ViTri.MinimumWidth = 10;
+            ViTri.Name = "ViTri";
             // 
             // gpbQLLo_CN
             // 
-            gpbQLLo_CN.Controls.Add(btnQLLo_Reload);
             gpbQLLo_CN.Controls.Add(btnQLLo_Them);
             gpbQLLo_CN.Controls.Add(btnQLLo_Export);
             gpbQLLo_CN.Controls.Add(btnQLLo_Sua);
@@ -224,6 +227,7 @@
             btnQLLo_Them.TabIndex = 24;
             btnQLLo_Them.Text = "Thêm";
             btnQLLo_Them.UseVisualStyleBackColor = false;
+            btnQLLo_Them.Click += btnQLLo_Them_Click;
             // 
             // btnQLLo_Export
             // 
@@ -233,7 +237,7 @@
             btnQLLo_Export.Font = new Font("Segoe UI", 10.125F, FontStyle.Bold, GraphicsUnit.Point);
             btnQLLo_Export.Image = Properties.Resources.export;
             btnQLLo_Export.ImageAlign = ContentAlignment.MiddleLeft;
-            btnQLLo_Export.Location = new Point(34, 454);
+            btnQLLo_Export.Location = new Point(34, 550);
             btnQLLo_Export.Name = "btnQLLo_Export";
             btnQLLo_Export.Size = new Size(182, 58);
             btnQLLo_Export.TabIndex = 28;
@@ -248,12 +252,13 @@
             btnQLLo_Sua.Font = new Font("Segoe UI", 10.125F, FontStyle.Bold, GraphicsUnit.Point);
             btnQLLo_Sua.Image = Properties.Resources.Edit;
             btnQLLo_Sua.ImageAlign = ContentAlignment.MiddleLeft;
-            btnQLLo_Sua.Location = new Point(34, 160);
+            btnQLLo_Sua.Location = new Point(34, 184);
             btnQLLo_Sua.Name = "btnQLLo_Sua";
             btnQLLo_Sua.Size = new Size(182, 58);
             btnQLLo_Sua.TabIndex = 25;
             btnQLLo_Sua.Text = "Sửa";
             btnQLLo_Sua.UseVisualStyleBackColor = false;
+            btnQLLo_Sua.Click += btnQLLo_Sua_Click;
             // 
             // btnQLLo_Import
             // 
@@ -263,7 +268,7 @@
             btnQLLo_Import.Font = new Font("Segoe UI", 10.125F, FontStyle.Bold, GraphicsUnit.Point);
             btnQLLo_Import.Image = Properties.Resources.import;
             btnQLLo_Import.ImageAlign = ContentAlignment.MiddleLeft;
-            btnQLLo_Import.Location = new Point(34, 356);
+            btnQLLo_Import.Location = new Point(34, 428);
             btnQLLo_Import.Name = "btnQLLo_Import";
             btnQLLo_Import.Size = new Size(182, 58);
             btnQLLo_Import.TabIndex = 27;
@@ -278,12 +283,13 @@
             btnQLLo_Xoa.Font = new Font("Segoe UI", 10.125F, FontStyle.Bold, GraphicsUnit.Point);
             btnQLLo_Xoa.Image = Properties.Resources.Delete;
             btnQLLo_Xoa.ImageAlign = ContentAlignment.MiddleLeft;
-            btnQLLo_Xoa.Location = new Point(34, 258);
+            btnQLLo_Xoa.Location = new Point(34, 306);
             btnQLLo_Xoa.Name = "btnQLLo_Xoa";
             btnQLLo_Xoa.Size = new Size(182, 58);
             btnQLLo_Xoa.TabIndex = 26;
             btnQLLo_Xoa.Text = "Xóa";
             btnQLLo_Xoa.UseVisualStyleBackColor = false;
+            btnQLLo_Xoa.Click += btnQLLo_Xoa_Click;
             // 
             // splQLLo_TT_TK
             // 
@@ -307,11 +313,11 @@
             // 
             // gpbQLLo_TT
             // 
+            gpbQLLo_TT.Controls.Add(cbQLLo_MaKho);
             gpbQLLo_TT.Controls.Add(cbQLLo_ViTri);
             gpbQLLo_TT.Controls.Add(lbQLLo_ViTri);
             gpbQLLo_TT.Controls.Add(txtQLLo_TenLo);
             gpbQLLo_TT.Controls.Add(lbQLLo_TenLo);
-            gpbQLLo_TT.Controls.Add(txtQLLo_MaKho);
             gpbQLLo_TT.Controls.Add(lbQLLo_MaKho);
             gpbQLLo_TT.Controls.Add(txtQLLo_MaLo);
             gpbQLLo_TT.Controls.Add(lbQLLo_MaLo);
@@ -322,6 +328,14 @@
             gpbQLLo_TT.TabIndex = 0;
             gpbQLLo_TT.TabStop = false;
             gpbQLLo_TT.Text = "Thông tin";
+            // 
+            // cbQLLo_MaKho
+            // 
+            cbQLLo_MaKho.FormattingEnabled = true;
+            cbQLLo_MaKho.Location = new Point(147, 156);
+            cbQLLo_MaKho.Name = "cbQLLo_MaKho";
+            cbQLLo_MaKho.Size = new Size(200, 45);
+            cbQLLo_MaKho.TabIndex = 8;
             // 
             // cbQLLo_ViTri
             // 
@@ -363,13 +377,6 @@
             lbQLLo_TenLo.TabIndex = 4;
             lbQLLo_TenLo.Text = "Tên lô";
             // 
-            // txtQLLo_MaKho
-            // 
-            txtQLLo_MaKho.Location = new Point(147, 159);
-            txtQLLo_MaKho.Name = "txtQLLo_MaKho";
-            txtQLLo_MaKho.Size = new Size(200, 43);
-            txtQLLo_MaKho.TabIndex = 3;
-            // 
             // lbQLLo_MaKho
             // 
             lbQLLo_MaKho.AutoSize = true;
@@ -403,9 +410,9 @@
             // 
             // gpbQLLo_TK
             // 
+            gpbQLLo_TK.Controls.Add(cbQLLo_TK_MaKho);
             gpbQLLo_TK.Controls.Add(lbQLLo_TK_MaKho);
             gpbQLLo_TK.Controls.Add(lbQLLo_TK_MaLo);
-            gpbQLLo_TK.Controls.Add(txtQLLo_TK_MaKho);
             gpbQLLo_TK.Controls.Add(txtQLLo_TK_MaLo);
             gpbQLLo_TK.Dock = DockStyle.Fill;
             gpbQLLo_TK.Location = new Point(0, 0);
@@ -415,34 +422,14 @@
             gpbQLLo_TK.TabStop = false;
             gpbQLLo_TK.Text = "Tìm kiếm";
             // 
-            // txtQLLo_TK_MaKho
+            // cbQLLo_TK_MaKho
             // 
-            txtQLLo_TK_MaKho.Location = new Point(229, 153);
-            txtQLLo_TK_MaKho.Name = "txtQLLo_TK_MaKho";
-            txtQLLo_TK_MaKho.Size = new Size(284, 43);
-            txtQLLo_TK_MaKho.TabIndex = 5;
-            // 
-            // txtQLLo_TK_MaLo
-            // 
-            txtQLLo_TK_MaLo.Location = new Point(229, 62);
-            txtQLLo_TK_MaLo.Name = "txtQLLo_TK_MaLo";
-            txtQLLo_TK_MaLo.Size = new Size(284, 43);
-            txtQLLo_TK_MaLo.TabIndex = 4;
-            // 
-            // btnQLLo_Reload
-            // 
-            btnQLLo_Reload.BackColor = SystemColors.ButtonHighlight;
-            btnQLLo_Reload.FlatAppearance.BorderSize = 0;
-            btnQLLo_Reload.FlatStyle = FlatStyle.Flat;
-            btnQLLo_Reload.Font = new Font("Segoe UI", 10.125F, FontStyle.Bold, GraphicsUnit.Point);
-            btnQLLo_Reload.Image = Properties.Resources.reload;
-            btnQLLo_Reload.ImageAlign = ContentAlignment.MiddleLeft;
-            btnQLLo_Reload.Location = new Point(34, 552);
-            btnQLLo_Reload.Name = "btnQLLo_Reload";
-            btnQLLo_Reload.Size = new Size(182, 58);
-            btnQLLo_Reload.TabIndex = 29;
-            btnQLLo_Reload.Text = "Reload";
-            btnQLLo_Reload.UseVisualStyleBackColor = false;
+            cbQLLo_TK_MaKho.FormattingEnabled = true;
+            cbQLLo_TK_MaKho.Location = new Point(204, 153);
+            cbQLLo_TK_MaKho.Name = "cbQLLo_TK_MaKho";
+            cbQLLo_TK_MaKho.Size = new Size(284, 45);
+            cbQLLo_TK_MaKho.TabIndex = 9;
+            cbQLLo_TK_MaKho.SelectedIndexChanged += cbQLLo_TK_MaKho_SelectedIndexChanged;
             // 
             // lbQLLo_TK_MaKho
             // 
@@ -467,6 +454,14 @@
             lbQLLo_TK_MaLo.Size = new Size(88, 39);
             lbQLLo_TK_MaLo.TabIndex = 6;
             lbQLLo_TK_MaLo.Text = "Mã lô";
+            // 
+            // txtQLLo_TK_MaLo
+            // 
+            txtQLLo_TK_MaLo.Location = new Point(204, 63);
+            txtQLLo_TK_MaLo.Name = "txtQLLo_TK_MaLo";
+            txtQLLo_TK_MaLo.Size = new Size(284, 43);
+            txtQLLo_TK_MaLo.TabIndex = 4;
+            txtQLLo_TK_MaLo.TextChanged += txtQLLo_TK_MaLo_TextChanged;
             // 
             // UC_QLLo
             // 
@@ -504,10 +499,6 @@
         private SplitContainer splQLLo_HT_CN;
         private GroupBox gpbQLLo_HT;
         private DataGridView dgvQLLo;
-        private DataGridViewTextBoxColumn Column1;
-        private DataGridViewTextBoxColumn Column2;
-        private DataGridViewTextBoxColumn Column3;
-        private DataGridViewTextBoxColumn Column4;
         private GroupBox gpbQLLo_CN;
         private SplitContainer splQLLo_TT_TK;
         private GroupBox gpbQLLo_TT;
@@ -515,20 +506,23 @@
         private Label lbQLLo_ViTri;
         private TextBox txtQLLo_TenLo;
         private Label lbQLLo_TenLo;
-        private TextBox txtQLLo_MaKho;
         private Label lbQLLo_MaKho;
         private TextBox txtQLLo_MaLo;
         private Label lbQLLo_MaLo;
         private GroupBox gpbQLLo_TK;
-        private TextBox txtQLLo_TK_MaKho;
         private TextBox txtQLLo_TK_MaLo;
         private Button btnQLLo_Them;
         private Button btnQLLo_Export;
         private Button btnQLLo_Sua;
         private Button btnQLLo_Import;
         private Button btnQLLo_Xoa;
-        private Button btnQLLo_Reload;
         private Label lbQLLo_TK_MaKho;
         private Label lbQLLo_TK_MaLo;
+        private ComboBox cbQLLo_MaKho;
+        private DataGridViewTextBoxColumn MaLo;
+        private DataGridViewTextBoxColumn MaKho;
+        private DataGridViewTextBoxColumn TenLo;
+        private DataGridViewTextBoxColumn ViTri;
+        private ComboBox cbQLLo_TK_MaKho;
     }
 }

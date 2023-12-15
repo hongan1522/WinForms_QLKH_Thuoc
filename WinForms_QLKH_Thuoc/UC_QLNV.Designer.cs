@@ -67,6 +67,8 @@
             lbQLNV_MaNV = new Label();
             splQLNV_TK_CN = new SplitContainer();
             grbQLNV_TK = new GroupBox();
+            lbQLNV_TK_HoTen = new Label();
+            lbQLNV_TK_MaNV = new Label();
             txtQLNV_TK_TenNV = new TextBox();
             txtQLNV_TK_MaNV = new TextBox();
             grbQLNV_CN = new GroupBox();
@@ -75,9 +77,6 @@
             btnQLNV_Import = new Button();
             btnQLNV_Sua = new Button();
             btnQLNV_Xoa = new Button();
-            btnQLNV_Reload = new Button();
-            lbQLNV_TK_HoTen = new Label();
-            lbQLNV_TK_MaNV = new Label();
             tlpQLNV.SuspendLayout();
             pnQLNV.SuspendLayout();
             grbQLNV_HT.SuspendLayout();
@@ -166,9 +165,8 @@
             dgvNV.Name = "dgvNV";
             dgvNV.RowHeadersWidth = 82;
             dgvNV.RowTemplate.Height = 41;
-            dgvNV.Size = new Size(1408, 330);
-            dgvNV.AutoGenerateColumns = false;
             dgvNV.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            dgvNV.Size = new Size(1408, 330);
             dgvNV.TabIndex = 1;
             // 
             // dataGridViewTextBoxColumn1
@@ -281,9 +279,9 @@
             gboxGioiTinh.Controls.Add(rdbQLNV_Nam);
             gboxGioiTinh.Controls.Add(rdbQLNV_Nu);
             gboxGioiTinh.Location = new Point(678, 206);
-            gboxGioiTinh.Margin = new Padding(4, 4, 4, 4);
+            gboxGioiTinh.Margin = new Padding(4);
             gboxGioiTinh.Name = "gboxGioiTinh";
-            gboxGioiTinh.Padding = new Padding(4, 4, 4, 4);
+            gboxGioiTinh.Padding = new Padding(4);
             gboxGioiTinh.Size = new Size(242, 82);
             gboxGioiTinh.TabIndex = 19;
             gboxGioiTinh.TabStop = false;
@@ -500,6 +498,30 @@
             grbQLNV_TK.TabStop = false;
             grbQLNV_TK.Text = "Tìm kiếm";
             // 
+            // lbQLNV_TK_HoTen
+            // 
+            lbQLNV_TK_HoTen.AutoSize = true;
+            lbQLNV_TK_HoTen.BackColor = SystemColors.Control;
+            lbQLNV_TK_HoTen.BorderStyle = BorderStyle.Fixed3D;
+            lbQLNV_TK_HoTen.Font = new Font("Segoe UI Semibold", 10.125F, FontStyle.Bold, GraphicsUnit.Point);
+            lbQLNV_TK_HoTen.Location = new Point(32, 135);
+            lbQLNV_TK_HoTen.Name = "lbQLNV_TK_HoTen";
+            lbQLNV_TK_HoTen.Size = new Size(102, 39);
+            lbQLNV_TK_HoTen.TabIndex = 26;
+            lbQLNV_TK_HoTen.Text = "Họ tên";
+            // 
+            // lbQLNV_TK_MaNV
+            // 
+            lbQLNV_TK_MaNV.AutoSize = true;
+            lbQLNV_TK_MaNV.BackColor = SystemColors.Control;
+            lbQLNV_TK_MaNV.BorderStyle = BorderStyle.Fixed3D;
+            lbQLNV_TK_MaNV.Font = new Font("Segoe UI Semibold", 10.125F, FontStyle.Bold, GraphicsUnit.Point);
+            lbQLNV_TK_MaNV.Location = new Point(29, 61);
+            lbQLNV_TK_MaNV.Name = "lbQLNV_TK_MaNV";
+            lbQLNV_TK_MaNV.Size = new Size(103, 39);
+            lbQLNV_TK_MaNV.TabIndex = 25;
+            lbQLNV_TK_MaNV.Text = "Mã NV";
+            // 
             // txtQLNV_TK_TenNV
             // 
             txtQLNV_TK_TenNV.Location = new Point(182, 132);
@@ -517,7 +539,6 @@
             // 
             // grbQLNV_CN
             // 
-            grbQLNV_CN.Controls.Add(btnQLNV_Reload);
             grbQLNV_CN.Controls.Add(btnQLNV_Export);
             grbQLNV_CN.Controls.Add(btnQLNV_Them);
             grbQLNV_CN.Controls.Add(btnQLNV_Import);
@@ -540,7 +561,7 @@
             btnQLNV_Export.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
             btnQLNV_Export.Image = Properties.Resources.export;
             btnQLNV_Export.ImageAlign = ContentAlignment.MiddleLeft;
-            btnQLNV_Export.Location = new Point(611, 56);
+            btnQLNV_Export.Location = new Point(467, 145);
             btnQLNV_Export.Name = "btnQLNV_Export";
             btnQLNV_Export.Size = new Size(169, 58);
             btnQLNV_Export.TabIndex = 11;
@@ -572,7 +593,7 @@
             btnQLNV_Import.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
             btnQLNV_Import.Image = Properties.Resources.import;
             btnQLNV_Import.ImageAlign = ContentAlignment.MiddleLeft;
-            btnQLNV_Import.Location = new Point(328, 147);
+            btnQLNV_Import.Location = new Point(184, 145);
             btnQLNV_Import.Name = "btnQLNV_Import";
             btnQLNV_Import.Size = new Size(169, 58);
             btnQLNV_Import.TabIndex = 10;
@@ -588,7 +609,7 @@
             btnQLNV_Sua.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
             btnQLNV_Sua.Image = Properties.Resources.Edit;
             btnQLNV_Sua.ImageAlign = ContentAlignment.MiddleLeft;
-            btnQLNV_Sua.Location = new Point(45, 147);
+            btnQLNV_Sua.Location = new Point(322, 56);
             btnQLNV_Sua.Name = "btnQLNV_Sua";
             btnQLNV_Sua.Size = new Size(169, 58);
             btnQLNV_Sua.TabIndex = 8;
@@ -604,51 +625,12 @@
             btnQLNV_Xoa.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
             btnQLNV_Xoa.Image = Properties.Resources.Delete;
             btnQLNV_Xoa.ImageAlign = ContentAlignment.MiddleLeft;
-            btnQLNV_Xoa.Location = new Point(328, 56);
+            btnQLNV_Xoa.Location = new Point(599, 56);
             btnQLNV_Xoa.Name = "btnQLNV_Xoa";
             btnQLNV_Xoa.Size = new Size(169, 58);
             btnQLNV_Xoa.TabIndex = 9;
             btnQLNV_Xoa.Text = "Xóa";
             btnQLNV_Xoa.UseVisualStyleBackColor = false;
-            // 
-            // btnQLNV_Reload
-            // 
-            btnQLNV_Reload.BackColor = SystemColors.ButtonHighlight;
-            btnQLNV_Reload.FlatAppearance.BorderSize = 0;
-            btnQLNV_Reload.FlatStyle = FlatStyle.Flat;
-            btnQLNV_Reload.Font = new Font("Segoe UI", 10.125F, FontStyle.Bold, GraphicsUnit.Point);
-            btnQLNV_Reload.Image = Properties.Resources.reload;
-            btnQLNV_Reload.ImageAlign = ContentAlignment.MiddleLeft;
-            btnQLNV_Reload.Location = new Point(611, 145);
-            btnQLNV_Reload.Name = "btnQLNV_Reload";
-            btnQLNV_Reload.Size = new Size(169, 58);
-            btnQLNV_Reload.TabIndex = 31;
-            btnQLNV_Reload.Text = "Reload";
-            btnQLNV_Reload.UseVisualStyleBackColor = false;
-            // 
-            // lbQLNV_TK_HoTen
-            // 
-            lbQLNV_TK_HoTen.AutoSize = true;
-            lbQLNV_TK_HoTen.BackColor = SystemColors.Control;
-            lbQLNV_TK_HoTen.BorderStyle = BorderStyle.Fixed3D;
-            lbQLNV_TK_HoTen.Font = new Font("Segoe UI Semibold", 10.125F, FontStyle.Bold, GraphicsUnit.Point);
-            lbQLNV_TK_HoTen.Location = new Point(32, 135);
-            lbQLNV_TK_HoTen.Name = "lbQLNV_TK_HoTen";
-            lbQLNV_TK_HoTen.Size = new Size(102, 39);
-            lbQLNV_TK_HoTen.TabIndex = 26;
-            lbQLNV_TK_HoTen.Text = "Họ tên";
-            // 
-            // lbQLNV_TK_MaNV
-            // 
-            lbQLNV_TK_MaNV.AutoSize = true;
-            lbQLNV_TK_MaNV.BackColor = SystemColors.Control;
-            lbQLNV_TK_MaNV.BorderStyle = BorderStyle.Fixed3D;
-            lbQLNV_TK_MaNV.Font = new Font("Segoe UI Semibold", 10.125F, FontStyle.Bold, GraphicsUnit.Point);
-            lbQLNV_TK_MaNV.Location = new Point(29, 61);
-            lbQLNV_TK_MaNV.Name = "lbQLNV_TK_MaNV";
-            lbQLNV_TK_MaNV.Size = new Size(103, 39);
-            lbQLNV_TK_MaNV.TabIndex = 25;
-            lbQLNV_TK_MaNV.Text = "Mã NV";
             // 
             // UC_QLNV
             // 
@@ -725,7 +707,6 @@
         private Button btnQLNV_Import;
         private Button btnQLNV_Sua;
         private Button btnQLNV_Xoa;
-        private Button btnQLNV_Reload;
         private Label lbQLNV_TK_HoTen;
         private Label lbQLNV_TK_MaNV;
     }

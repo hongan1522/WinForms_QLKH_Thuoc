@@ -32,7 +32,7 @@ namespace FormQLKH.Services
         }
         public RestResponse ThemChiNhanh(List<ChiNhanhPayload> payloads)
         {
-            var request = new RestRequest("api/ChiNhanh/ThemChiNhanh", Method.Post);
+            var request = new RestRequest("api/ChiNhanh", Method.Post);
             request.AddJsonBody(payloads);
             return _client.Execute(request);
         }
@@ -59,21 +59,5 @@ namespace FormQLKH.Services
 
             return null; 
         }
-        //public RestResponse ThemDanhSachChiNhanh(List<ChiNhanhPayload> danhSachChiNhanh)
-        //{
-        //    try
-        //    {
-        //        var request = new RestRequest("api/ChiNhanh/ThemDanhSachChiNhanh", Method.Post);
-        //        string jsonContent = Newtonsoft.Json.JsonConvert.SerializeObject(danhSachChiNhanh);
-        //        request.AddParameter("application/json", jsonContent, ParameterType.RequestBody);
-        //        var response = _client.Execute(request);
-
-        //        return response;
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        throw new Exception($"Lỗi khi thêm danh sách chi nhánh: {ex.Message}");
-        //    }
-        //}
     }
 }

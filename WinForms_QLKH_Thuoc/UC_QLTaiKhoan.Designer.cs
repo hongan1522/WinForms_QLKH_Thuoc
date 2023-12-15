@@ -33,10 +33,10 @@
             splQLTK_TTTK_CN = new SplitContainer();
             splQLTK_TT_TK = new SplitContainer();
             grbQLTK_TT = new GroupBox();
+            cbQLTK_RoleID = new ComboBox();
             txtQLTK_GhiChu = new TextBox();
             txtQLTK_Password = new TextBox();
             txtQLTK_UserName = new TextBox();
-            txtQLTK_RoleID = new TextBox();
             txtQLTK_UserID = new TextBox();
             lbQLTK_Password = new Label();
             lbQLTK_GhiChu = new Label();
@@ -44,8 +44,10 @@
             lbQLTK_RoleID = new Label();
             lbQLTK_UserID = new Label();
             grbQLTK_TK = new GroupBox();
-            txtQLTK_TK_MaNV = new TextBox();
-            txtQLTK_TK_UserName = new TextBox();
+            cbQLTK_TK_RoleID = new ComboBox();
+            lbQLTK_TK_UserID = new Label();
+            lbQLTK_TK_RoleID = new Label();
+            txtQLTK_TK_UserID = new TextBox();
             grbQLTK_CN = new GroupBox();
             btnQLTK_Export = new Button();
             btnQLTK_Import = new Button();
@@ -54,16 +56,13 @@
             btnQLTK_Them = new Button();
             grbQLTK_HT = new GroupBox();
             dgvQLTK = new DataGridView();
+            UserID = new DataGridViewTextBoxColumn();
+            RoleID = new DataGridViewTextBoxColumn();
+            UserName = new DataGridViewTextBoxColumn();
+            Password = new DataGridViewTextBoxColumn();
+            GhiChu = new DataGridViewTextBoxColumn();
             pnQLTK = new Panel();
             lbQLTK = new Label();
-            btnQLTK_Reload = new Button();
-            Column1 = new DataGridViewTextBoxColumn();
-            Column3 = new DataGridViewTextBoxColumn();
-            Column4 = new DataGridViewTextBoxColumn();
-            Column5 = new DataGridViewTextBoxColumn();
-            Column6 = new DataGridViewTextBoxColumn();
-            lbQLTK_TK_UserName = new Label();
-            lbQLTK_TK_RoleID = new Label();
             tlpQLTK.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)splQLTK_TTTK_CN).BeginInit();
             splQLTK_TTTK_CN.Panel1.SuspendLayout();
@@ -84,7 +83,7 @@
             // tlpQLTK
             // 
             tlpQLTK.BackColor = Color.Transparent;
-            tlpQLTK.BackgroundImage = Properties.Resources.bg2;
+            tlpQLTK.BackgroundImage = Properties.Resources.bg3;
             tlpQLTK.ColumnCount = 1;
             tlpQLTK.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
             tlpQLTK.Controls.Add(splQLTK_TTTK_CN, 0, 2);
@@ -139,11 +138,10 @@
             // 
             // grbQLTK_TT
             // 
-            grbQLTK_TT.Controls.Add(btnQLTK_Reload);
+            grbQLTK_TT.Controls.Add(cbQLTK_RoleID);
             grbQLTK_TT.Controls.Add(txtQLTK_GhiChu);
             grbQLTK_TT.Controls.Add(txtQLTK_Password);
             grbQLTK_TT.Controls.Add(txtQLTK_UserName);
-            grbQLTK_TT.Controls.Add(txtQLTK_RoleID);
             grbQLTK_TT.Controls.Add(txtQLTK_UserID);
             grbQLTK_TT.Controls.Add(lbQLTK_Password);
             grbQLTK_TT.Controls.Add(lbQLTK_GhiChu);
@@ -158,22 +156,30 @@
             grbQLTK_TT.TabStop = false;
             grbQLTK_TT.Text = "Thông tin";
             // 
+            // cbQLTK_RoleID
+            // 
+            cbQLTK_RoleID.FormattingEnabled = true;
+            cbQLTK_RoleID.Location = new Point(209, 148);
+            cbQLTK_RoleID.Name = "cbQLTK_RoleID";
+            cbQLTK_RoleID.Size = new Size(329, 45);
+            cbQLTK_RoleID.TabIndex = 12;
+            // 
             // txtQLTK_GhiChu
             // 
-            txtQLTK_GhiChu.Location = new Point(737, 139);
+            txtQLTK_GhiChu.Location = new Point(737, 156);
             txtQLTK_GhiChu.Multiline = true;
             txtQLTK_GhiChu.Name = "txtQLTK_GhiChu";
-            txtQLTK_GhiChu.Size = new Size(388, 108);
+            txtQLTK_GhiChu.Size = new Size(388, 151);
             txtQLTK_GhiChu.TabIndex = 11;
             // 
             // txtQLTK_Password
             // 
-            txtQLTK_Password.Location = new Point(737, 61);
+            txtQLTK_Password.Location = new Point(737, 47);
             txtQLTK_Password.Multiline = true;
             txtQLTK_Password.Name = "txtQLTK_Password";
-            txtQLTK_Password.PasswordChar = '*';
             txtQLTK_Password.Size = new Size(388, 55);
             txtQLTK_Password.TabIndex = 10;
+            txtQLTK_Password.KeyPress += txtQLTK_Password_KeyPress;
             // 
             // txtQLTK_UserName
             // 
@@ -182,13 +188,6 @@
             txtQLTK_UserName.Name = "txtQLTK_UserName";
             txtQLTK_UserName.Size = new Size(332, 61);
             txtQLTK_UserName.TabIndex = 9;
-            // 
-            // txtQLTK_RoleID
-            // 
-            txtQLTK_RoleID.Location = new Point(206, 147);
-            txtQLTK_RoleID.Name = "txtQLTK_RoleID";
-            txtQLTK_RoleID.Size = new Size(332, 43);
-            txtQLTK_RoleID.TabIndex = 8;
             // 
             // txtQLTK_UserID
             // 
@@ -215,7 +214,7 @@
             lbQLTK_GhiChu.BackColor = SystemColors.Control;
             lbQLTK_GhiChu.BorderStyle = BorderStyle.Fixed3D;
             lbQLTK_GhiChu.Font = new Font("Segoe UI Semibold", 10.125F, FontStyle.Bold, GraphicsUnit.Point);
-            lbQLTK_GhiChu.Location = new Point(580, 139);
+            lbQLTK_GhiChu.Location = new Point(580, 156);
             lbQLTK_GhiChu.Name = "lbQLTK_GhiChu";
             lbQLTK_GhiChu.Size = new Size(113, 39);
             lbQLTK_GhiChu.TabIndex = 4;
@@ -259,30 +258,56 @@
             // 
             // grbQLTK_TK
             // 
-            grbQLTK_TK.Controls.Add(lbQLTK_TK_UserName);
+            grbQLTK_TK.Controls.Add(cbQLTK_TK_RoleID);
+            grbQLTK_TK.Controls.Add(lbQLTK_TK_UserID);
             grbQLTK_TK.Controls.Add(lbQLTK_TK_RoleID);
-            grbQLTK_TK.Controls.Add(txtQLTK_TK_MaNV);
-            grbQLTK_TK.Controls.Add(txtQLTK_TK_UserName);
-            grbQLTK_TK.Location = new Point(0, 6);
+            grbQLTK_TK.Controls.Add(txtQLTK_TK_UserID);
+            grbQLTK_TK.Dock = DockStyle.Fill;
+            grbQLTK_TK.Location = new Point(0, 0);
             grbQLTK_TK.Name = "grbQLTK_TK";
-            grbQLTK_TK.Size = new Size(1167, 197);
-            grbQLTK_TK.TabIndex = 2;
+            grbQLTK_TK.Size = new Size(1167, 190);
+            grbQLTK_TK.TabIndex = 5;
             grbQLTK_TK.TabStop = false;
             grbQLTK_TK.Text = "Tìm kiếm";
             // 
-            // txtQLTK_TK_MaNV
+            // cbQLTK_TK_RoleID
             // 
-            txtQLTK_TK_MaNV.Location = new Point(606, 119);
-            txtQLTK_TK_MaNV.Name = "txtQLTK_TK_MaNV";
-            txtQLTK_TK_MaNV.Size = new Size(533, 43);
-            txtQLTK_TK_MaNV.TabIndex = 8;
+            cbQLTK_TK_RoleID.FormattingEnabled = true;
+            cbQLTK_TK_RoleID.Location = new Point(580, 114);
+            cbQLTK_TK_RoleID.Name = "cbQLTK_TK_RoleID";
+            cbQLTK_TK_RoleID.Size = new Size(442, 45);
+            cbQLTK_TK_RoleID.TabIndex = 13;
             // 
-            // txtQLTK_TK_UserName
+            // lbQLTK_TK_UserID
             // 
-            txtQLTK_TK_UserName.Location = new Point(38, 119);
-            txtQLTK_TK_UserName.Name = "txtQLTK_TK_UserName";
-            txtQLTK_TK_UserName.Size = new Size(500, 43);
-            txtQLTK_TK_UserName.TabIndex = 7;
+            lbQLTK_TK_UserID.AutoSize = true;
+            lbQLTK_TK_UserID.BackColor = SystemColors.Control;
+            lbQLTK_TK_UserID.BorderStyle = BorderStyle.Fixed3D;
+            lbQLTK_TK_UserID.Font = new Font("Segoe UI Semibold", 10.125F, FontStyle.Bold, GraphicsUnit.Point);
+            lbQLTK_TK_UserID.Location = new Point(49, 62);
+            lbQLTK_TK_UserID.Name = "lbQLTK_TK_UserID";
+            lbQLTK_TK_UserID.Size = new Size(101, 39);
+            lbQLTK_TK_UserID.TabIndex = 10;
+            lbQLTK_TK_UserID.Text = "UserID";
+            // 
+            // lbQLTK_TK_RoleID
+            // 
+            lbQLTK_TK_RoleID.AutoSize = true;
+            lbQLTK_TK_RoleID.BackColor = SystemColors.Control;
+            lbQLTK_TK_RoleID.BorderStyle = BorderStyle.Fixed3D;
+            lbQLTK_TK_RoleID.Font = new Font("Segoe UI Semibold", 10.125F, FontStyle.Bold, GraphicsUnit.Point);
+            lbQLTK_TK_RoleID.Location = new Point(580, 56);
+            lbQLTK_TK_RoleID.Name = "lbQLTK_TK_RoleID";
+            lbQLTK_TK_RoleID.Size = new Size(99, 39);
+            lbQLTK_TK_RoleID.TabIndex = 9;
+            lbQLTK_TK_RoleID.Text = "RoleID";
+            // 
+            // txtQLTK_TK_UserID
+            // 
+            txtQLTK_TK_UserID.Location = new Point(49, 116);
+            txtQLTK_TK_UserID.Name = "txtQLTK_TK_UserID";
+            txtQLTK_TK_UserID.Size = new Size(439, 43);
+            txtQLTK_TK_UserID.TabIndex = 7;
             // 
             // grbQLTK_CN
             // 
@@ -339,6 +364,7 @@
             btnQLTK_Xoa.TabIndex = 12;
             btnQLTK_Xoa.Text = "Xóa";
             btnQLTK_Xoa.UseVisualStyleBackColor = false;
+            btnQLTK_Xoa.Click += btnQLTK_Xoa_Click;
             // 
             // btnQLTK_Sua
             // 
@@ -353,6 +379,7 @@
             btnQLTK_Sua.TabIndex = 11;
             btnQLTK_Sua.Text = "Sửa";
             btnQLTK_Sua.UseVisualStyleBackColor = false;
+            btnQLTK_Sua.Click += btnQLTK_Sua_Click;
             // 
             // btnQLTK_Them
             // 
@@ -367,6 +394,7 @@
             btnQLTK_Them.TabIndex = 10;
             btnQLTK_Them.Text = "Thêm";
             btnQLTK_Them.UseVisualStyleBackColor = false;
+            btnQLTK_Them.Click += btnQLTK_Them_Click;
             // 
             // grbQLTK_HT
             // 
@@ -392,16 +420,53 @@
             dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
             dgvQLTK.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             dgvQLTK.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgvQLTK.Columns.AddRange(new DataGridViewColumn[] { Column1, Column3, Column4, Column5, Column6 });
+            dgvQLTK.Columns.AddRange(new DataGridViewColumn[] { UserID, RoleID, UserName, Password, GhiChu });
             dgvQLTK.Dock = DockStyle.Fill;
             dgvQLTK.Location = new Point(3, 39);
             dgvQLTK.Name = "dgvQLTK";
             dgvQLTK.RowHeadersWidth = 82;
             dgvQLTK.RowTemplate.Height = 41;
-            dgvQLTK.Size = new Size(1408, 318);
-            dgvQLTK.AutoGenerateColumns = false;
             dgvQLTK.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            dgvQLTK.Size = new Size(1408, 318);
             dgvQLTK.TabIndex = 0;
+            dgvQLTK.RowPostPaint += dgvQLTK_RowPostPaint;
+            dgvQLTK.SelectionChanged += dgvQLTK_SelectionChanged;
+            // 
+            // UserID
+            // 
+            UserID.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            UserID.DataPropertyName = "UserID";
+            UserID.HeaderText = "UserID";
+            UserID.MinimumWidth = 10;
+            UserID.Name = "UserID";
+            // 
+            // RoleID
+            // 
+            RoleID.DataPropertyName = "RoleID";
+            RoleID.HeaderText = "RoleID";
+            RoleID.MinimumWidth = 10;
+            RoleID.Name = "RoleID";
+            // 
+            // UserName
+            // 
+            UserName.DataPropertyName = "UserName";
+            UserName.HeaderText = "UserName";
+            UserName.MinimumWidth = 10;
+            UserName.Name = "UserName";
+            // 
+            // Password
+            // 
+            Password.DataPropertyName = "Password";
+            Password.HeaderText = "Password";
+            Password.MinimumWidth = 10;
+            Password.Name = "Password";
+            // 
+            // GhiChu
+            // 
+            GhiChu.DataPropertyName = "Description";
+            GhiChu.HeaderText = "Ghi chú";
+            GhiChu.MinimumWidth = 10;
+            GhiChu.Name = "GhiChu";
             // 
             // pnQLTK
             // 
@@ -423,76 +488,6 @@
             lbQLTK.Size = new Size(394, 50);
             lbQLTK.TabIndex = 0;
             lbQLTK.Text = "QUẢN LÝ TÀI KHOẢN";
-            // 
-            // btnQLTK_Reload
-            // 
-            btnQLTK_Reload.BackColor = SystemColors.ButtonHighlight;
-            btnQLTK_Reload.FlatAppearance.BorderSize = 0;
-            btnQLTK_Reload.FlatStyle = FlatStyle.Flat;
-            btnQLTK_Reload.Font = new Font("Segoe UI", 10.125F, FontStyle.Bold, GraphicsUnit.Point);
-            btnQLTK_Reload.Image = Properties.Resources.reload;
-            btnQLTK_Reload.ImageAlign = ContentAlignment.MiddleLeft;
-            btnQLTK_Reload.Location = new Point(956, 277);
-            btnQLTK_Reload.Name = "btnQLTK_Reload";
-            btnQLTK_Reload.Size = new Size(169, 58);
-            btnQLTK_Reload.TabIndex = 32;
-            btnQLTK_Reload.Text = "Reload";
-            btnQLTK_Reload.UseVisualStyleBackColor = false;
-            // 
-            // Column1
-            // 
-            Column1.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-            Column1.HeaderText = "UserID";
-            Column1.MinimumWidth = 10;
-            Column1.Name = "Column1";
-            // 
-            // Column3
-            // 
-            Column3.HeaderText = "RoleID";
-            Column3.MinimumWidth = 10;
-            Column3.Name = "Column3";
-            // 
-            // Column4
-            // 
-            Column4.HeaderText = "UserName";
-            Column4.MinimumWidth = 10;
-            Column4.Name = "Column4";
-            // 
-            // Column5
-            // 
-            Column5.HeaderText = "Password";
-            Column5.MinimumWidth = 10;
-            Column5.Name = "Column5";
-            // 
-            // Column6
-            // 
-            Column6.HeaderText = "Ghi chú";
-            Column6.MinimumWidth = 10;
-            Column6.Name = "Column6";
-            // 
-            // lbQLTK_TK_UserName
-            // 
-            lbQLTK_TK_UserName.AutoSize = true;
-            lbQLTK_TK_UserName.BackColor = SystemColors.Control;
-            lbQLTK_TK_UserName.BorderStyle = BorderStyle.Fixed3D;
-            lbQLTK_TK_UserName.Font = new Font("Segoe UI Semibold", 10.125F, FontStyle.Bold, GraphicsUnit.Point);
-            lbQLTK_TK_UserName.Location = new Point(38, 62);
-            lbQLTK_TK_UserName.Name = "lbQLTK_TK_UserName";
-            lbQLTK_TK_UserName.Size = new Size(147, 39);
-            lbQLTK_TK_UserName.TabIndex = 10;
-            lbQLTK_TK_UserName.Text = "UserName";
-            // 
-            // lbQLTK_TK_RoleID
-            // 
-            lbQLTK_TK_RoleID.AutoSize = true;
-            lbQLTK_TK_RoleID.BackColor = SystemColors.Control;
-            lbQLTK_TK_RoleID.BorderStyle = BorderStyle.Fixed3D;
-            lbQLTK_TK_RoleID.Font = new Font("Segoe UI Semibold", 10.125F, FontStyle.Bold, GraphicsUnit.Point);
-            lbQLTK_TK_RoleID.Location = new Point(606, 62);
-            lbQLTK_TK_RoleID.Name = "lbQLTK_TK_RoleID";
-            lbQLTK_TK_RoleID.Size = new Size(99, 39);
-            lbQLTK_TK_RoleID.TabIndex = 9;
-            lbQLTK_TK_RoleID.Text = "RoleID";
             // 
             // UC_QLTaiKhoan
             // 
@@ -535,29 +530,29 @@
         private TextBox txtQLTK_GhiChu;
         private TextBox txtQLTK_Password;
         private TextBox txtQLTK_UserName;
-        private TextBox txtQLTK_RoleID;
         private TextBox txtQLTK_UserID;
         private Label lbQLTK_Password;
         private Label lbQLTK_GhiChu;
         private Label lbQLTK_UserName;
         private Label lbQLTK_RoleID;
         private Label lbQLTK_UserID;
-        private GroupBox grbQLTK_TK;
-        private TextBox txtQLTK_TK_MaNV;
-        private TextBox txtQLTK_TK_UserName;
         private GroupBox grbQLTK_CN;
         private Button btnQLTK_Export;
         private Button btnQLTK_Import;
         private Button btnQLTK_Xoa;
         private Button btnQLTK_Sua;
         private Button btnQLTK_Them;
-        private Button btnQLTK_Reload;
-        private DataGridViewTextBoxColumn Column1;
-        private DataGridViewTextBoxColumn Column3;
-        private DataGridViewTextBoxColumn Column4;
-        private DataGridViewTextBoxColumn Column5;
-        private DataGridViewTextBoxColumn Column6;
-        private Label lbQLTK_TK_UserName;
+        private ComboBox cbQLTK_RoleID;
+        private DataGridViewTextBoxColumn UserID;
+        private DataGridViewTextBoxColumn RoleID;
+        private DataGridViewTextBoxColumn UserName;
+        private DataGridViewTextBoxColumn Password;
+        private DataGridViewTextBoxColumn GhiChu;
+        private ComboBox comboBox2;
+        private GroupBox grbQLTK_TK;
+        private ComboBox cbQLTK_TK_RoleID;
+        private Label lbQLTK_TK_UserID;
         private Label lbQLTK_TK_RoleID;
+        private TextBox txtQLTK_TK_UserID;
     }
 }

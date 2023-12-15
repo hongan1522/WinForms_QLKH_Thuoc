@@ -9,6 +9,20 @@ using WebAPI_QLKH.Models;
 
 namespace WebAPI_QLKH.Controllers
 {
+    public class LoPost
+    {
+        public string Lo_ID { get; set; }
+        public string Lo_Name { get; set; }
+        public string Lo_Position { get; set; }
+        public string Kho_ID { get; set; }
+    }
+
+    public class LoPut
+    {
+        public string Lo_Name { get; set; }
+        public string Lo_Position { get; set; }
+    }
+
     [Route("api/[controller]")]
     [ApiController]
     public class LoController : ControllerBase
@@ -22,12 +36,8 @@ namespace WebAPI_QLKH.Controllers
 
         // GET: api/Lo
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<Lo>>> GetLo()
+        public async Task<ActionResult<IEnumerable<Lo>>> GetLos()
         {
-          if (_context.Lo == null)
-          {
-              return NotFound();
-          }
             return await _context.Lo.ToListAsync();
         }
 
@@ -35,10 +45,6 @@ namespace WebAPI_QLKH.Controllers
         [HttpGet("{id}")]
         public async Task<ActionResult<Lo>> GetLo(string id)
         {
-          if (_context.Lo == null)
-          {
-              return NotFound();
-          }
             var lo = await _context.Lo.FindAsync(id);
 
             if (lo == null)
@@ -49,15 +55,38 @@ namespace WebAPI_QLKH.Controllers
             return lo;
         }
 
-        // PUT: api/Lo/5
-        // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
-        [HttpPut("{id}")]
-        public async Task<IActionResult> PutLo(string id, Lo lo)
+        // POST: api/Lo
+        [HttpPost]
+        public async Task<ActionResult<Lo>> PostLo(LoPost loPost)
         {
-            if (id != lo.Lo_ID)
+            var lo = new Lo
             {
-                return BadRequest();
+                Lo_ID = loPost.Lo_ID,
+                Lo_Name = loPost.Lo_Name,
+                Lo_Position = loPost.Lo_Position,
+                Kho_ID = loPost.Kho_ID
+            };
+
+            _context.Lo.Add(lo);
+            await _context.SaveChangesAsync();
+
+            return CreatedAtAction("GetLo", new { id = lo.Lo_ID }, lo);
+        }
+
+        // PUT: api/Lo/5
+        [HttpPut("{id}")]
+        public async Task<IActionResult> PutLo(string id, LoPut loPut)
+        {
+            var lo = await _context.Lo.FindAsync(id);
+
+            if (lo == null)
+            {
+                return NotFound();
             }
+
+            // Update only the allowed fields
+            lo.Lo_Name = loPut.Lo_Name;
+            lo.Lo_Position = loPut.Lo_Position;
 
             _context.Entry(lo).State = EntityState.Modified;
 
@@ -80,58 +109,33 @@ namespace WebAPI_QLKH.Controllers
             return NoContent();
         }
 
-        // POST: api/Lo
-        // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
-        [HttpPost]
-        public async Task<ActionResult<Lo>> PostLo(Lo lo)
-        {
-          if (_context.Lo == null)
-          {
-              return Problem("Entity set 'QLKH_ThuocContext.Lo'  is null.");
-          }
-            _context.Lo.Add(lo);
-            try
-            {
-                await _context.SaveChangesAsync();
-            }
-            catch (DbUpdateException)
-            {
-                if (LoExists(lo.Lo_ID))
-                {
-                    return Conflict();
-                }
-                else
-                {
-                    throw;
-                }
-            }
-
-            return CreatedAtAction("GetLo", new { id = lo.Lo_ID }, lo);
-        }
-
-        // DELETE: api/Lo/5
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteLo(string id)
         {
-            if (_context.Lo == null)
-            {
-                return NotFound();
-            }
             var lo = await _context.Lo.FindAsync(id);
             if (lo == null)
             {
                 return NotFound();
             }
 
+            var relatedChiTietDonNhaps = await _context.ChiTietDonNhap.Where(ctdn => ctdn.Lo_ID == id).ToListAsync();
+            _context.ChiTietDonNhap.RemoveRange(relatedChiTietDonNhaps);
+
+
+            var relatedChiTietThuocs = await _context.ChiTietThuoc.Where(ctt => ctt.Lo_ID == id).ToListAsync();
+            _context.ChiTietThuoc.RemoveRange(relatedChiTietThuocs);
+
             _context.Lo.Remove(lo);
+
             await _context.SaveChangesAsync();
 
             return NoContent();
         }
 
+
         private bool LoExists(string id)
         {
-            return (_context.Lo?.Any(e => e.Lo_ID == id)).GetValueOrDefault();
+            return _context.Lo.Any(e => e.Lo_ID == id);
         }
     }
 }

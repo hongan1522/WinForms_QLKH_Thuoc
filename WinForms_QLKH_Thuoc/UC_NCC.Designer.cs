@@ -41,7 +41,6 @@
             dataGridViewTextBoxColumn4 = new DataGridViewTextBoxColumn();
             dataGridViewTextBoxColumn5 = new DataGridViewTextBoxColumn();
             grbNCC_CN = new GroupBox();
-            btnNCC_Reload = new Button();
             btnNCC_Export = new Button();
             btnNCC_Import = new Button();
             btnNCC_Xoa = new Button();
@@ -170,9 +169,8 @@
             dgvNCC.Name = "dgvNCC";
             dgvNCC.RowHeadersWidth = 82;
             dgvNCC.RowTemplate.Height = 41;
-            dgvNCC.Size = new Size(1149, 531);
-            dgvNCC.AutoGenerateColumns = false;
             dgvNCC.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            dgvNCC.Size = new Size(1149, 531);
             dgvNCC.TabIndex = 0;
             // 
             // dataGridViewTextBoxColumn1
@@ -207,7 +205,6 @@
             // 
             // grbNCC_CN
             // 
-            grbNCC_CN.Controls.Add(btnNCC_Reload);
             grbNCC_CN.Controls.Add(btnNCC_Export);
             grbNCC_CN.Controls.Add(btnNCC_Import);
             grbNCC_CN.Controls.Add(btnNCC_Xoa);
@@ -221,21 +218,6 @@
             grbNCC_CN.TabStop = false;
             grbNCC_CN.Text = "Chức năng";
             // 
-            // btnNCC_Reload
-            // 
-            btnNCC_Reload.BackColor = SystemColors.ButtonHighlight;
-            btnNCC_Reload.FlatAppearance.BorderSize = 0;
-            btnNCC_Reload.FlatStyle = FlatStyle.Flat;
-            btnNCC_Reload.Font = new Font("Segoe UI", 10.125F, FontStyle.Bold, GraphicsUnit.Point);
-            btnNCC_Reload.Image = Properties.Resources.reload;
-            btnNCC_Reload.ImageAlign = ContentAlignment.MiddleLeft;
-            btnNCC_Reload.Location = new Point(36, 496);
-            btnNCC_Reload.Name = "btnNCC_Reload";
-            btnNCC_Reload.Size = new Size(182, 58);
-            btnNCC_Reload.TabIndex = 12;
-            btnNCC_Reload.Text = "Reload";
-            btnNCC_Reload.UseVisualStyleBackColor = false;
-            // 
             // btnNCC_Export
             // 
             btnNCC_Export.BackColor = SystemColors.ButtonHighlight;
@@ -244,7 +226,7 @@
             btnNCC_Export.Font = new Font("Segoe UI", 10.125F, FontStyle.Bold, GraphicsUnit.Point);
             btnNCC_Export.Image = Properties.Resources.export;
             btnNCC_Export.ImageAlign = ContentAlignment.MiddleLeft;
-            btnNCC_Export.Location = new Point(36, 407);
+            btnNCC_Export.Location = new Point(34, 497);
             btnNCC_Export.Name = "btnNCC_Export";
             btnNCC_Export.Size = new Size(182, 58);
             btnNCC_Export.TabIndex = 4;
@@ -259,7 +241,7 @@
             btnNCC_Import.Font = new Font("Segoe UI", 10.125F, FontStyle.Bold, GraphicsUnit.Point);
             btnNCC_Import.Image = Properties.Resources.import;
             btnNCC_Import.ImageAlign = ContentAlignment.MiddleLeft;
-            btnNCC_Import.Location = new Point(36, 320);
+            btnNCC_Import.Location = new Point(34, 386);
             btnNCC_Import.Name = "btnNCC_Import";
             btnNCC_Import.Size = new Size(182, 58);
             btnNCC_Import.TabIndex = 3;
@@ -274,7 +256,7 @@
             btnNCC_Xoa.Font = new Font("Segoe UI", 10.125F, FontStyle.Bold, GraphicsUnit.Point);
             btnNCC_Xoa.Image = Properties.Resources.Delete;
             btnNCC_Xoa.ImageAlign = ContentAlignment.MiddleLeft;
-            btnNCC_Xoa.Location = new Point(36, 233);
+            btnNCC_Xoa.Location = new Point(34, 275);
             btnNCC_Xoa.Name = "btnNCC_Xoa";
             btnNCC_Xoa.Size = new Size(182, 58);
             btnNCC_Xoa.TabIndex = 2;
@@ -289,7 +271,7 @@
             btnNCC_Sua.Font = new Font("Segoe UI", 10.125F, FontStyle.Bold, GraphicsUnit.Point);
             btnNCC_Sua.Image = Properties.Resources.Edit;
             btnNCC_Sua.ImageAlign = ContentAlignment.MiddleLeft;
-            btnNCC_Sua.Location = new Point(36, 146);
+            btnNCC_Sua.Location = new Point(34, 164);
             btnNCC_Sua.Name = "btnNCC_Sua";
             btnNCC_Sua.Size = new Size(182, 58);
             btnNCC_Sua.TabIndex = 1;
@@ -304,7 +286,7 @@
             btnNCC_Them.Font = new Font("Segoe UI", 10.125F, FontStyle.Bold, GraphicsUnit.Point);
             btnNCC_Them.Image = Properties.Resources.New;
             btnNCC_Them.ImageAlign = ContentAlignment.MiddleLeft;
-            btnNCC_Them.Location = new Point(36, 59);
+            btnNCC_Them.Location = new Point(34, 53);
             btnNCC_Them.Name = "btnNCC_Them";
             btnNCC_Them.Size = new Size(182, 58);
             btnNCC_Them.TabIndex = 0;
@@ -564,7 +546,6 @@
         private Label lbNCC_SDT;
         private Label lbNCC_TenNCC;
         private Label lbNCC_MaNCC;
-        private Button btnNCC_Reload;
         private Label lbNCC_TK_TenNCC;
         private Label lbNCC_TK_MaNCC;
     }

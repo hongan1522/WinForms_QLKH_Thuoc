@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Windows.Forms;
 using FormQLKH.Services;
 using Microsoft.AspNetCore.Mvc;
@@ -13,29 +14,36 @@ namespace FormQLKH
     public partial class UC_QLChiNhanh : UserControl
     {
         private readonly ChiNhanhService chiNhanhService;
-
         public UC_QLChiNhanh()
         {
             InitializeComponent();
+            dgvQLCN.AutoGenerateColumns = false;
 
             chiNhanhService = new ChiNhanhService("https://localhost:7195");
+            LoadDataGridView();
         }
         private void UC_QLChiNhanh_Load(object sender, EventArgs e)
         {
             txtQLCN_TK_MaCN.KeyPress += new KeyPressEventHandler(txtQLCN_TK_MaCN_KeyPress);
-            LoadDataGridView();
         }
         private void LoadDataGridView()
         {
-            List<ChiNhanh> danhSachChiNhanh = chiNhanhService.LayDanhSachChiNhanh();
+            try
+            {
+                List<ChiNhanh> danhSachChiNhanh = chiNhanhService.LayDanhSachChiNhanh();
 
-            if (danhSachChiNhanh != null)
-            {
-                dgvQLCN.DataSource = danhSachChiNhanh;
+                if (danhSachChiNhanh != null)
+                {
+                    dgvQLCN.DataSource = danhSachChiNhanh;
+                }
+                else
+                {
+                    MessageBox.Show("Không thể lấy dữ liệu từ API.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
             }
-            else
+            catch (Exception ex)
             {
-                MessageBox.Show("Không thể lấy dữ liệu từ API.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show($"Lỗi: {ex.Message}", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
         private void dgvQLCN_SelectionChanged(object sender, EventArgs e)
@@ -43,16 +51,6 @@ namespace FormQLKH
             if (dgvQLCN.SelectedRows.Count > 0)
             {
                 DataGridViewRow selectedRow = dgvQLCN.SelectedRows[0];
-
-                //Xóa cột khóa ngoại
-                if (dgvQLCN.Columns.Contains("Kho"))
-                {
-                    dgvQLCN.Columns.Remove("Kho");
-                }
-                if (dgvQLCN.Columns.Contains("NhanVien"))
-                {
-                    dgvQLCN.Columns.Remove("NhanVien");
-                }
 
                 string maCN = Convert.ToString(selectedRow.Cells["MaCN"].Value);
                 string tenCN = Convert.ToString(selectedRow.Cells["TenCN"].Value);
@@ -101,9 +99,9 @@ namespace FormQLKH
         }
         private void btnQLCN_Sua_Click(object sender, EventArgs e)
         {
-            string maCN = txtQLCN_MaCN.Text;
-            string tenCN = txtQLCN_TenCN.Text;
-            string diaChi = txtQLCN_DiaChi.Text;
+            string maCN = txtQLCN_MaCN.Text.Trim();
+            string tenCN = txtQLCN_TenCN.Text.Trim();
+            string diaChi = txtQLCN_DiaChi.Text.Trim();
 
             if (string.IsNullOrEmpty(maCN) || string.IsNullOrEmpty(tenCN) || string.IsNullOrEmpty(diaChi))
             {
@@ -133,12 +131,6 @@ namespace FormQLKH
         private void btnQLCN_Xoa_Click(object sender, EventArgs e)
         {
             string maCN = txtQLCN_MaCN.Text.Trim();
-
-            if (string.IsNullOrEmpty(maCN))
-            {
-                MessageBox.Show("Vui lòng chọn chi nhánh để xóa.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
-            }
 
             var confirmResult = MessageBox.Show($"Bạn có chắc chắn muốn xóa chi nhánh {maCN}?", "Xác nhận xóa",
                                              MessageBoxButtons.YesNo, MessageBoxIcon.Question);
@@ -171,7 +163,6 @@ namespace FormQLKH
 
             if (string.IsNullOrEmpty(maCN))
             {
-
                 LoadDataGridView();
                 return;
             }
@@ -189,6 +180,19 @@ namespace FormQLKH
                 LoadDataGridView();
             }
         }
+        private void dgvQLCN_RowPostPaint(object sender, DataGridViewRowPostPaintEventArgs e)
+        {
+            var rowIndex = (e.RowIndex + 1).ToString();
+
+            var centerFormat = new StringFormat
+            {
+                Alignment = StringAlignment.Center,
+                LineAlignment = StringAlignment.Center
+            };
+            var headerBounds = new Rectangle(e.RowBounds.Left, e.RowBounds.Top, dgvQLCN.RowHeadersWidth, e.RowBounds.Height);
+            e.Graphics.DrawString(rowIndex, Font, SystemBrushes.ControlText, headerBounds, centerFormat);
+        }
+
         private void btnQLCN_Export_Click(object sender, EventArgs e)
         {
             using (SaveFileDialog saveFileDialog = new SaveFileDialog())
@@ -250,27 +254,6 @@ namespace FormQLKH
         {
             Random random = new Random();
             return random.Next(min, max);
-        }
-        private void dgvQLCN_RowPostPaint(object sender, DataGridViewRowPostPaintEventArgs e)
-        {
-            var rowIndex = (e.RowIndex + 1).ToString();
-
-            var centerFormat = new StringFormat
-            {
-                Alignment = StringAlignment.Center,
-                LineAlignment = StringAlignment.Center
-            };
-            var headerBounds = new Rectangle(e.RowBounds.Left, e.RowBounds.Top, dgvQLCN.RowHeadersWidth, e.RowBounds.Height);
-            e.Graphics.DrawString(rowIndex, Font, SystemBrushes.ControlText, headerBounds, centerFormat);
-        }
-        private void btnQLCN_Reload_Click(object sender, EventArgs e)
-        {
-            LoadDataGridView();
-
-            txtQLCN_MaCN.ReadOnly = false;
-            txtQLCN_TenCN.Clear();
-            txtQLCN_DiaChi.Clear();
-            txtQLCN_TK_MaCN.Clear();
         }
     }
 }

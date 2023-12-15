@@ -19,16 +19,25 @@ namespace WebAPI_QLKH.Controllers
         {
             _context = context;
         }
-
+        public class KhoPayload
+        {
+            public string Kho_ID { get; set; }
+            public string Kho_Name { get; set; }
+            public string Kho_Address { get; set; }
+            public string CN_ID { get; set; }
+        }
+        public class KhoPayloadPut
+        {
+            public string Kho_Name { get; set; }
+            public string Kho_Address { get; set; }
+            public string CN_ID { get; set; }
+        }
         // GET: api/Kho
         [HttpGet]
         public async Task<ActionResult<IEnumerable<Kho>>> GetKho()
         {
-          if (_context.Kho == null)
-          {
-              return NotFound();
-          }
-            return await _context.Kho.ToListAsync();
+            var kho = _context.Kho.ToList();
+            return Ok(kho);
         }
 
         // GET: api/Kho/5
@@ -50,16 +59,24 @@ namespace WebAPI_QLKH.Controllers
         }
 
         // PUT: api/Kho/5
-        // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPut("{id}")]
-        public async Task<IActionResult> PutKho(string id, Kho kho)
+        public async Task<IActionResult> PutKho(string id, [FromBody] KhoPayloadPut payload)
         {
-            if (id != kho.Kho_ID)
+            if (payload == null || string.IsNullOrEmpty(payload.Kho_Name) || string.IsNullOrEmpty(payload.Kho_Address))
             {
-                return BadRequest();
+                return BadRequest("Danh sách payload không hợp lệ");
             }
 
-            _context.Entry(kho).State = EntityState.Modified;
+            var Kho = await _context.Kho.FindAsync(id);
+
+            if (Kho == null)
+            {
+                return NotFound();
+            }
+
+            Kho.Kho_Name = payload.Kho_Name;
+            Kho.Kho_Address = payload.Kho_Address;
+            Kho.CN_ID = payload.CN_ID;
 
             try
             {
@@ -77,58 +94,72 @@ namespace WebAPI_QLKH.Controllers
                 }
             }
 
+            // Trả về kết quả thành công
             return NoContent();
         }
 
         // POST: api/Kho
-        // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPost]
-        public async Task<ActionResult<Kho>> PostKho(Kho kho)
+        public async Task<ActionResult<IEnumerable<Kho>>> PostKho([FromBody] List<KhoPayload> payloads)
         {
-          if (_context.Kho == null)
-          {
-              return Problem("Entity set 'QLKH_ThuocContext.Kho'  is null.");
-          }
-            _context.Kho.Add(kho);
-            try
+            if (payloads == null || !payloads.Any())
             {
-                await _context.SaveChangesAsync();
-            }
-            catch (DbUpdateException)
-            {
-                if (KhoExists(kho.Kho_ID))
-                {
-                    return Conflict();
-                }
-                else
-                {
-                    throw;
-                }
+                return BadRequest("Danh sách payload không hợp lệ");
             }
 
-            return CreatedAtAction("GetKho", new { id = kho.Kho_ID }, kho);
+            var KhoList = payloads.Select(payload => new Kho
+            {
+                CN_ID = payload.CN_ID.Trim(),
+                Kho_ID = payload.Kho_ID.Trim(),
+                Kho_Name = payload.Kho_Name.Trim(),
+                Kho_Address = payload.Kho_Address.Trim()
+            }).ToList();
+
+            _context.Kho.AddRange(KhoList);
+            await _context.SaveChangesAsync();
+
+            return KhoList;
         }
 
         // DELETE: api/Kho/5
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteKho(string id)
         {
-            if (_context.Kho == null)
+            using (var transaction = _context.Database.BeginTransaction())
             {
-                return NotFound();
-            }
-            var kho = await _context.Kho.FindAsync(id);
-            if (kho == null)
-            {
-                return NotFound();
-            }
+                try
+                {
+                    //Xóa Lo_ID bảng ChiTietThuoc
+                    await _context.Database.ExecuteSqlRawAsync($"DELETE FROM ChiTietThuoc WHERE Lo_ID IN (SELECT Lo_ID FROM Lo WHERE Kho_ID = '{id}')");
 
-            _context.Kho.Remove(kho);
-            await _context.SaveChangesAsync();
+                    //Xóa Lo_ID bảng ChiTietDonNhap
+                    await _context.Database.ExecuteSqlRawAsync($"DELETE FROM ChiTietDonNhap WHERE Lo_ID IN (SELECT Lo_ID FROM Lo WHERE Kho_ID = '{id}')");
 
-            return NoContent();
+                    //Xóa Kho_ID bảng Lo
+                    await _context.Database.ExecuteSqlRawAsync($"DELETE FROM Lo WHERE Kho_ID = '{id}'");
+
+                    //Xóa dữ liệu bảng Kho
+                    var kho = await _context.Kho.FindAsync(id);
+                    if (kho == null)
+                    {
+                        return NotFound();
+                    }
+
+                    _context.Kho.Remove(kho);
+
+                    await _context.SaveChangesAsync();
+
+                    transaction.Commit();
+
+                    return NoContent();
+                }
+                catch (Exception)
+                {
+                    transaction.Rollback();
+                    throw;
+                }
+            }
         }
-
         private bool KhoExists(string id)
         {
             return (_context.Kho?.Any(e => e.Kho_ID == id)).GetValueOrDefault();
