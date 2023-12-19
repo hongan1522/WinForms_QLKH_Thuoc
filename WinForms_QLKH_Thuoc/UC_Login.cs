@@ -23,7 +23,7 @@ namespace FormQLKH
     public partial class UC_Login : UserControl
     {
         private readonly TaiKhoanService tKService;
-        public event EventHandler SuccessEvent;
+        private event EventHandler SuccessEvent;
         public UC_Login()
         {
             InitializeComponent();
@@ -35,7 +35,7 @@ namespace FormQLKH
         {
             SuccessEvent?.Invoke(this, EventArgs.Empty);
         }
-        private void UC_Login_Load(object sender, EventArgs e)
+            private void UC_Login_Load(object sender, EventArgs e)
         {
             MakeRoundedButton(btnLogin, 20);
         }
@@ -136,20 +136,17 @@ namespace FormQLKH
                             MessageBox.Show("Đăng nhập thành công!");
                             OnSuccessEvent();
 
-                            //Frm_QuanLy quanLyForm = new Frm_QuanLy();
+                            Frm_QuanLy quanLyForm = new Frm_QuanLy();
 
-                            //quanLyForm.FormClosed += (s, args) =>
-                            //{
-                            //    Form parentForm = this.FindForm();
-                            //    if (parentForm is FrmLogin frmLogin)
-                            //    {
-                            //        frmLogin.Close();
-                            //    }
-                            //};
+                            Form parentForm = this.FindForm();
+                            if (parentForm is FrmLogin frmLogin)
+                            {
+                                frmLogin.Hide();
+                            }
 
-                            //Console.WriteLine("Before Show");
-                            //quanLyForm.Show();
-                            //Console.WriteLine("After Show");
+                            quanLyForm.Show();
+
+
                         }
                         else
                         {

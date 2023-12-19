@@ -11837,11 +11837,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\MyPC\\Desktop\\WinForms_QLKH_Thuoc\\WebAPI_QLKH\\WebAPI_QLKH.csproj",
+      "projectUniqueName": "C:\\Users\\MyPC\\Desktop\\WinForms_QLKH_Thuoc1\\WebAPI_QLKH\\WebAPI_QLKH.csproj",
       "projectName": "WebAPI_QLKH",
-      "projectPath": "C:\\Users\\MyPC\\Desktop\\WinForms_QLKH_Thuoc\\WebAPI_QLKH\\WebAPI_QLKH.csproj",
+      "projectPath": "C:\\Users\\MyPC\\Desktop\\WinForms_QLKH_Thuoc1\\WebAPI_QLKH\\WebAPI_QLKH.csproj",
       "packagesPath": "C:\\Users\\MyPC\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\MyPC\\Desktop\\WinForms_QLKH_Thuoc\\WebAPI_QLKH\\obj\\",
+      "outputPath": "C:\\Users\\MyPC\\Desktop\\WinForms_QLKH_Thuoc1\\WebAPI_QLKH\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\MyPC\\AppData\\Roaming\\NuGet\\NuGet.Config",

@@ -47,6 +47,7 @@
             Controls.Add(uC_qlKho1);
             Name = "Frm_QuanLy";
             Text = "Frm_QuanLy";
+            FormClosing += FrmQuanLy_FormClosing;
             ResumeLayout(false);
         }
 

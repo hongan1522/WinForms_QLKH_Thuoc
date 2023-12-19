@@ -12294,11 +12294,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\MyPC\\Desktop\\WinForms_QLKH_Thuoc\\WinForms_QLKH_Thuoc\\FormQLKH.csproj",
+      "projectUniqueName": "C:\\Users\\MyPC\\Desktop\\WinForms_QLKH_Thuoc1\\WinForms_QLKH_Thuoc\\FormQLKH.csproj",
       "projectName": "FormQLKH",
-      "projectPath": "C:\\Users\\MyPC\\Desktop\\WinForms_QLKH_Thuoc\\WinForms_QLKH_Thuoc\\FormQLKH.csproj",
+      "projectPath": "C:\\Users\\MyPC\\Desktop\\WinForms_QLKH_Thuoc1\\WinForms_QLKH_Thuoc\\FormQLKH.csproj",
       "packagesPath": "C:\\Users\\MyPC\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\MyPC\\Desktop\\WinForms_QLKH_Thuoc\\WinForms_QLKH_Thuoc\\obj\\",
+      "outputPath": "C:\\Users\\MyPC\\Desktop\\WinForms_QLKH_Thuoc1\\WinForms_QLKH_Thuoc\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\MyPC\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -12315,8 +12315,8 @@
         "net6.0-windows7.0": {
           "targetAlias": "net6.0-windows",
           "projectReferences": {
-            "C:\\Users\\MyPC\\Desktop\\WinForms_QLKH_Thuoc\\WebAPI_QLKH\\WebAPI_QLKH.csproj": {
-              "projectPath": "C:\\Users\\MyPC\\Desktop\\WinForms_QLKH_Thuoc\\WebAPI_QLKH\\WebAPI_QLKH.csproj"
+            "C:\\Users\\MyPC\\Desktop\\WinForms_QLKH_Thuoc1\\WebAPI_QLKH\\WebAPI_QLKH.csproj": {
+              "projectPath": "C:\\Users\\MyPC\\Desktop\\WinForms_QLKH_Thuoc1\\WebAPI_QLKH\\WebAPI_QLKH.csproj"
             }
           }
         }

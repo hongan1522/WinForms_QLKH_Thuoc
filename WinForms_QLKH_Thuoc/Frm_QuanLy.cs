@@ -16,5 +16,9 @@ namespace FormQLKH
         {
             InitializeComponent();
         }
+        private void FrmQuanLy_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            Application.Exit();
+        }
     }
 }
