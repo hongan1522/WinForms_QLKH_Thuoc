@@ -30,13 +30,13 @@ namespace FormQLKH.Services
                 return null;
             }
         }
-        public RestResponse ThemChiNhanh(List<ChiNhanhPayload> payloads)
+        public RestResponse ThemChiNhanh(List<ChiNhanhPost> payloads)
         {
             var request = new RestRequest("api/ChiNhanh", Method.Post);
             request.AddJsonBody(payloads);
             return _client.Execute(request);
         }
-        public RestResponse CapNhatChiNhanh(string id, ChiNhanhPayload payload)
+        public RestResponse CapNhatChiNhanh(string id, ChiNhanhPost payload)
         {
             var request = new RestRequest($"api/ChiNhanh/{id}", Method.Put);
             request.AddJsonBody(payload);

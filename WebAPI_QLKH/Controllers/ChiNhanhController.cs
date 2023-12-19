@@ -16,7 +16,7 @@ namespace WebAPI_QLKH.Controllers
         {
             _context = context;
         }
-        public class ChiNhanhPayload
+        public class ChiNhanhPost
         {
             public string CN_ID { get; set; }
             public string CN_Name { get; set; }
@@ -56,7 +56,7 @@ namespace WebAPI_QLKH.Controllers
 
         // POST: api/ChiNhanh
         [HttpPost]
-        public async Task<ActionResult<IEnumerable<ChiNhanh>>> PostChiNhanh([FromBody] List<ChiNhanhPayload> payloads)
+        public async Task<ActionResult<IEnumerable<ChiNhanh>>> PostChiNhanh([FromBody] List<ChiNhanhPost> payloads)
         {
             if (payloads == null || !payloads.Any())
             {
@@ -117,37 +117,62 @@ namespace WebAPI_QLKH.Controllers
 
         // DELETE: api/ChiNhanh/5
         [HttpDelete("{id}")]
+        
         public async Task<IActionResult> DeleteChiNhanh(string id)
         {
             using (var transaction = _context.Database.BeginTransaction())
             {
                 try
                 {
-                    //Xóa DNhap_ID bảng ChiTietDonNhap
-                    await _context.Database.ExecuteSqlRawAsync($"DELETE FROM ChiTietDonNhap WHERE DNhap_ID IN (SELECT DNhap_ID FROM DonNhap WHERE NV_ID IN (SELECT NV_ID FROM NhanVien WHERE CN_ID = '{id}'))");
+                    // Xóa dữ liệu liên quan trong ChiTietDonNhap
+                    var relatedChiTietDonNhaps = await _context.ChiTietDonNhap
+                        .Where(ctdn => ctdn.DNhap.NV_ID == id)
+                        .ToListAsync();
+                    _context.ChiTietDonNhap.RemoveRange(relatedChiTietDonNhaps);
 
-                    //Xóa NV_ID bảng DonNhap
-                    await _context.Database.ExecuteSqlRawAsync($"DELETE FROM DonNhap WHERE NV_ID IN (SELECT NV_ID FROM NhanVien WHERE CN_ID = '{id}')");
+                    // Xóa dữ liệu liên quan trong DonNhap
+                    var relatedDonNhaps = await _context.DonNhap
+                        .Where(dn => dn.NV_ID == id)
+                        .ToListAsync();
+                    _context.DonNhap.RemoveRange(relatedDonNhaps);
 
-                    //Xóa DXuat_ID bảng ChiTietDonXuat
-                    await _context.Database.ExecuteSqlRawAsync($"DELETE FROM ChiTietDonXuat WHERE DXuat_ID IN (SELECT DXuat_ID FROM DonXuat WHERE NV_ID IN (SELECT NV_ID FROM NhanVien WHERE CN_ID = '{id}'))");
+                    // Xóa dữ liệu liên quan trong ChiTietDonXuat
+                    var relatedChiTietDonXuats = await _context.ChiTietDonXuat
+                        .Where(ctdx => ctdx.DXuat.NV_ID == id)
+                        .ToListAsync();
+                    _context.ChiTietDonXuat.RemoveRange(relatedChiTietDonXuats);
 
-                    //Xóa NV_ID bảng DonXuat
-                    await _context.Database.ExecuteSqlRawAsync($"DELETE FROM DonXuat WHERE NV_ID IN (SELECT NV_ID FROM NhanVien WHERE CN_ID = '{id}')");
+                    // Xóa dữ liệu liên quan trong DonXuat
+                    var relatedDonXuats = await _context.DonXuat
+                        .Where(dx => dx.NV_ID == id)
+                        .ToListAsync();
+                    _context.DonXuat.RemoveRange(relatedDonXuats);
 
-                    //Xóa Lo_ID bảng ChiTietThuoc
-                    await _context.Database.ExecuteSqlRawAsync($"DELETE FROM ChiTietThuoc WHERE Lo_ID IN (SELECT Lo_ID FROM Lo WHERE Kho_ID IN (SELECT Kho_ID FROM Kho WHERE CN_ID = '{id}'))");
+                    // Xóa dữ liệu liên quan trong ChiTietThuoc
+                    var relatedChiTietThuocs = await _context.ChiTietThuoc
+                        .Where(ctt => ctt.Lo.Kho.CN_ID == id)
+                        .ToListAsync();
+                    _context.ChiTietThuoc.RemoveRange(relatedChiTietThuocs);
 
-                    //Xóa Kho_ID bảng Lo
-                    await _context.Database.ExecuteSqlRawAsync($"DELETE FROM Lo WHERE Kho_ID IN (SELECT Kho_ID FROM Kho WHERE CN_ID = '{id}')");
+                    // Xóa dữ liệu liên quan trong Lo
+                    var relatedLos = await _context.Lo
+                        .Where(lo => lo.Kho.CN_ID == id)
+                        .ToListAsync();
+                    _context.Lo.RemoveRange(relatedLos);
 
-                    //Xóa CN_ID bảng Kho
-                    await _context.Database.ExecuteSqlRawAsync($"DELETE FROM Kho WHERE CN_ID = '{id}'");
+                    // Xóa dữ liệu liên quan trong Kho
+                    var relatedKhos = await _context.Kho
+                        .Where(kho => kho.CN_ID == id)
+                        .ToListAsync();
+                    _context.Kho.RemoveRange(relatedKhos);
 
-                    //Xóa CN_ID bảng NhanVien
-                    await _context.Database.ExecuteSqlRawAsync($"DELETE FROM NhanVien WHERE CN_ID = '{id}'");
+                    // Xóa dữ liệu liên quan trong NhanVien
+                    var relatedNhanViens = await _context.NhanVien
+                        .Where(nv => nv.CN_ID == id)
+                        .ToListAsync();
+                    _context.NhanVien.RemoveRange(relatedNhanViens);
 
-                    //Xóa dữ liệu bảng ChiNhanh
+                    // Xóa dữ liệu trong ChiNhanh
                     var chiNhanh = await _context.ChiNhanh.FindAsync(id);
                     if (chiNhanh == null)
                     {
@@ -169,5 +194,6 @@ namespace WebAPI_QLKH.Controllers
                 }
             }
         }
+
     }
 }

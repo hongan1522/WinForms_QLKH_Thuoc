@@ -32,15 +32,17 @@
             pnLogin = new Panel();
             lbLogin = new Label();
             pnLoginText = new Panel();
+            pcbEye = new PictureBox();
             btnLogin = new Button();
-            picLogin = new PictureBox();
             txtLogin_Password = new TextBox();
             lbLogin_Password = new Label();
             txtLogin_UserName = new TextBox();
             lbLogin_UserName = new Label();
+            picLogin = new PictureBox();
             tlpLogin.SuspendLayout();
             pnLogin.SuspendLayout();
             pnLoginText.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pcbEye).BeginInit();
             ((System.ComponentModel.ISupportInitialize)picLogin).BeginInit();
             SuspendLayout();
             // 
@@ -82,50 +84,60 @@
             // 
             // pnLoginText
             // 
-            pnLoginText.BackColor = SystemColors.Control;
+            pnLoginText.BackColor = SystemColors.ButtonHighlight;
+            pnLoginText.Controls.Add(pcbEye);
             pnLoginText.Controls.Add(btnLogin);
-            pnLoginText.Controls.Add(picLogin);
             pnLoginText.Controls.Add(txtLogin_Password);
             pnLoginText.Controls.Add(lbLogin_Password);
             pnLoginText.Controls.Add(txtLogin_UserName);
             pnLoginText.Controls.Add(lbLogin_UserName);
+            pnLoginText.Controls.Add(picLogin);
             pnLoginText.Dock = DockStyle.Fill;
             pnLoginText.Location = new Point(3, 229);
             pnLoginText.Name = "pnLoginText";
             pnLoginText.Size = new Size(858, 665);
             pnLoginText.TabIndex = 1;
             // 
+            // pcbEye
+            // 
+            pcbEye.Image = Properties.Resources.close;
+            pcbEye.Location = new Point(765, 171);
+            pcbEye.Name = "pcbEye";
+            pcbEye.Size = new Size(90, 54);
+            pcbEye.SizeMode = PictureBoxSizeMode.CenterImage;
+            pcbEye.TabIndex = 5;
+            pcbEye.TabStop = false;
+            pcbEye.Click += pcbEye_Click;
+            // 
             // btnLogin
             // 
-            btnLogin.BackColor = SystemColors.Highlight;
+            btnLogin.BackColor = Color.FromArgb(1, 147, 213);
+            btnLogin.FlatAppearance.BorderColor = SystemColors.Highlight;
+            btnLogin.FlatAppearance.BorderSize = 0;
+            btnLogin.FlatAppearance.MouseDownBackColor = SystemColors.Highlight;
+            btnLogin.FlatAppearance.MouseOverBackColor = Color.FromArgb(23, 150, 204);
+            btnLogin.FlatStyle = FlatStyle.Flat;
             btnLogin.Font = new Font("Segoe UI", 16.125F, FontStyle.Bold, GraphicsUnit.Point);
             btnLogin.ForeColor = SystemColors.ButtonHighlight;
-            btnLogin.Location = new Point(568, 425);
+            btnLogin.Location = new Point(613, 468);
             btnLogin.Name = "btnLogin";
             btnLogin.Size = new Size(206, 113);
-            btnLogin.TabIndex = 5;
+            btnLogin.TabIndex = 3;
             btnLogin.Text = "Login";
             btnLogin.UseVisualStyleBackColor = false;
-            // 
-            // picLogin
-            // 
-            picLogin.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
-            picLogin.Image = Properties.Resources.bgThuoc2;
-            picLogin.Location = new Point(-3, 282);
-            picLogin.Name = "picLogin";
-            picLogin.Size = new Size(646, 386);
-            picLogin.SizeMode = PictureBoxSizeMode.AutoSize;
-            picLogin.TabIndex = 4;
-            picLogin.TabStop = false;
+            btnLogin.Click += btnLogin_Click;
             // 
             // txtLogin_Password
             // 
+            txtLogin_Password.Font = new Font("Segoe UI", 10.125F, FontStyle.Regular, GraphicsUnit.Point);
             txtLogin_Password.Location = new Point(324, 171);
             txtLogin_Password.Multiline = true;
             txtLogin_Password.Name = "txtLogin_Password";
             txtLogin_Password.PasswordChar = '*';
+            txtLogin_Password.PlaceholderText = "Nhập Password...";
             txtLogin_Password.Size = new Size(423, 54);
-            txtLogin_Password.TabIndex = 3;
+            txtLogin_Password.TabIndex = 2;
+            txtLogin_Password.KeyPress += txtLogin_Password_KeyPress;
             // 
             // lbLogin_Password
             // 
@@ -139,11 +151,15 @@
             // 
             // txtLogin_UserName
             // 
+            txtLogin_UserName.Font = new Font("Segoe UI", 10.125F, FontStyle.Regular, GraphicsUnit.Point);
             txtLogin_UserName.Location = new Point(324, 63);
             txtLogin_UserName.Multiline = true;
             txtLogin_UserName.Name = "txtLogin_UserName";
+            txtLogin_UserName.PlaceholderText = "Nhập UserName...";
             txtLogin_UserName.Size = new Size(423, 54);
             txtLogin_UserName.TabIndex = 1;
+            txtLogin_UserName.TextChanged += txtLogin_UserName_TextChanged;
+            txtLogin_UserName.KeyPress += txtLogin_UserName_KeyPress;
             // 
             // lbLogin_UserName
             // 
@@ -155,6 +171,17 @@
             lbLogin_UserName.TabIndex = 0;
             lbLogin_UserName.Text = "UserName";
             // 
+            // picLogin
+            // 
+            picLogin.Anchor = AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            picLogin.Image = Properties.Resources.bgThuoc2;
+            picLogin.Location = new Point(3, 279);
+            picLogin.Name = "picLogin";
+            picLogin.Size = new Size(646, 386);
+            picLogin.SizeMode = PictureBoxSizeMode.AutoSize;
+            picLogin.TabIndex = 4;
+            picLogin.TabStop = false;
+            // 
             // UC_Login
             // 
             AutoScaleDimensions = new SizeF(13F, 32F);
@@ -162,11 +189,13 @@
             Controls.Add(tlpLogin);
             Name = "UC_Login";
             Size = new Size(864, 897);
+            Load += UC_Login_Load;
             tlpLogin.ResumeLayout(false);
             pnLogin.ResumeLayout(false);
             pnLogin.PerformLayout();
             pnLoginText.ResumeLayout(false);
             pnLoginText.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)pcbEye).EndInit();
             ((System.ComponentModel.ISupportInitialize)picLogin).EndInit();
             ResumeLayout(false);
         }
@@ -183,5 +212,6 @@
         private TextBox txtLogin_UserName;
         private Label lbLogin_UserName;
         private Button btnLogin;
+        private PictureBox pcbEye;
     }
 }

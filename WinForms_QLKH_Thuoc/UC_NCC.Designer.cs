@@ -222,7 +222,7 @@
             // 
             btnNCC_Export.BackColor = SystemColors.ButtonHighlight;
             btnNCC_Export.FlatAppearance.BorderSize = 0;
-            btnNCC_Export.FlatStyle = FlatStyle.Flat;
+            btnNCC_Export.FlatStyle = FlatStyle.Popup;
             btnNCC_Export.Font = new Font("Segoe UI", 10.125F, FontStyle.Bold, GraphicsUnit.Point);
             btnNCC_Export.Image = Properties.Resources.export;
             btnNCC_Export.ImageAlign = ContentAlignment.MiddleLeft;
@@ -237,7 +237,7 @@
             // 
             btnNCC_Import.BackColor = SystemColors.ButtonHighlight;
             btnNCC_Import.FlatAppearance.BorderSize = 0;
-            btnNCC_Import.FlatStyle = FlatStyle.Flat;
+            btnNCC_Import.FlatStyle = FlatStyle.Popup;
             btnNCC_Import.Font = new Font("Segoe UI", 10.125F, FontStyle.Bold, GraphicsUnit.Point);
             btnNCC_Import.Image = Properties.Resources.import;
             btnNCC_Import.ImageAlign = ContentAlignment.MiddleLeft;
@@ -252,9 +252,9 @@
             // 
             btnNCC_Xoa.BackColor = SystemColors.ButtonHighlight;
             btnNCC_Xoa.FlatAppearance.BorderSize = 0;
-            btnNCC_Xoa.FlatStyle = FlatStyle.Flat;
+            btnNCC_Xoa.FlatStyle = FlatStyle.Popup;
             btnNCC_Xoa.Font = new Font("Segoe UI", 10.125F, FontStyle.Bold, GraphicsUnit.Point);
-            btnNCC_Xoa.Image = Properties.Resources.Delete;
+            btnNCC_Xoa.Image = Properties.Resources.delete;
             btnNCC_Xoa.ImageAlign = ContentAlignment.MiddleLeft;
             btnNCC_Xoa.Location = new Point(34, 275);
             btnNCC_Xoa.Name = "btnNCC_Xoa";
@@ -267,9 +267,9 @@
             // 
             btnNCC_Sua.BackColor = SystemColors.ButtonHighlight;
             btnNCC_Sua.FlatAppearance.BorderSize = 0;
-            btnNCC_Sua.FlatStyle = FlatStyle.Flat;
+            btnNCC_Sua.FlatStyle = FlatStyle.Popup;
             btnNCC_Sua.Font = new Font("Segoe UI", 10.125F, FontStyle.Bold, GraphicsUnit.Point);
-            btnNCC_Sua.Image = Properties.Resources.Edit;
+            btnNCC_Sua.Image = Properties.Resources.update;
             btnNCC_Sua.ImageAlign = ContentAlignment.MiddleLeft;
             btnNCC_Sua.Location = new Point(34, 164);
             btnNCC_Sua.Name = "btnNCC_Sua";
@@ -282,9 +282,9 @@
             // 
             btnNCC_Them.BackColor = SystemColors.ButtonHighlight;
             btnNCC_Them.FlatAppearance.BorderSize = 0;
-            btnNCC_Them.FlatStyle = FlatStyle.Flat;
+            btnNCC_Them.FlatStyle = FlatStyle.Popup;
             btnNCC_Them.Font = new Font("Segoe UI", 10.125F, FontStyle.Bold, GraphicsUnit.Point);
-            btnNCC_Them.Image = Properties.Resources.New;
+            btnNCC_Them.Image = Properties.Resources.add;
             btnNCC_Them.ImageAlign = ContentAlignment.MiddleLeft;
             btnNCC_Them.Location = new Point(34, 53);
             btnNCC_Them.Name = "btnNCC_Them";

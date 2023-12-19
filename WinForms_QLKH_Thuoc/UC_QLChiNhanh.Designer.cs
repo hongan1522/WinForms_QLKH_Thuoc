@@ -218,7 +218,7 @@
             btnQLCN_Them.FlatAppearance.MouseOverBackColor = Color.White;
             btnQLCN_Them.FlatStyle = FlatStyle.Popup;
             btnQLCN_Them.Font = new Font("Segoe UI", 10.125F, FontStyle.Bold, GraphicsUnit.Point);
-            btnQLCN_Them.Image = Properties.Resources.New;
+            btnQLCN_Them.Image = Properties.Resources.add;
             btnQLCN_Them.ImageAlign = ContentAlignment.MiddleLeft;
             btnQLCN_Them.Location = new Point(32, 55);
             btnQLCN_Them.Name = "btnQLCN_Them";
@@ -242,7 +242,6 @@
             btnQLCN_Export.TabIndex = 10;
             btnQLCN_Export.Text = "Export";
             btnQLCN_Export.UseVisualStyleBackColor = false;
-            btnQLCN_Export.Click += btnQLCN_Export_Click;
             // 
             // btnQLCN_Sua
             // 
@@ -250,7 +249,7 @@
             btnQLCN_Sua.FlatAppearance.BorderSize = 0;
             btnQLCN_Sua.FlatStyle = FlatStyle.Popup;
             btnQLCN_Sua.Font = new Font("Segoe UI", 10.125F, FontStyle.Bold, GraphicsUnit.Point);
-            btnQLCN_Sua.Image = Properties.Resources.Edit;
+            btnQLCN_Sua.Image = Properties.Resources.update;
             btnQLCN_Sua.ImageAlign = ContentAlignment.MiddleLeft;
             btnQLCN_Sua.Location = new Point(32, 190);
             btnQLCN_Sua.Name = "btnQLCN_Sua";
@@ -281,7 +280,7 @@
             btnQLCN_Xoa.FlatAppearance.BorderSize = 0;
             btnQLCN_Xoa.FlatStyle = FlatStyle.Popup;
             btnQLCN_Xoa.Font = new Font("Segoe UI", 10.125F, FontStyle.Bold, GraphicsUnit.Point);
-            btnQLCN_Xoa.Image = Properties.Resources.Delete;
+            btnQLCN_Xoa.Image = Properties.Resources.delete;
             btnQLCN_Xoa.ImageAlign = ContentAlignment.MiddleLeft;
             btnQLCN_Xoa.Location = new Point(32, 326);
             btnQLCN_Xoa.Name = "btnQLCN_Xoa";
@@ -344,6 +343,7 @@
             txtQLCN_TK_MaCN.Name = "txtQLCN_TK_MaCN";
             txtQLCN_TK_MaCN.Size = new Size(264, 51);
             txtQLCN_TK_MaCN.TabIndex = 2;
+            txtQLCN_TK_MaCN.TextChanged += txtQLCN_TK_MaCN_TextChanged;
             // 
             // grbQLCN_TT
             // 

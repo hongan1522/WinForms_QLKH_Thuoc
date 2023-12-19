@@ -33,6 +33,7 @@
 
   <ItemGroup>
     <PackageReference Include="EPPlus" Version="7.0.3" />
+    <PackageReference Include="UnidecodeSharpFork" Version="1.0.0" />
   </ItemGroup>
 
 </Project>

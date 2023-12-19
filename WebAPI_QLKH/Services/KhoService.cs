@@ -30,13 +30,13 @@ namespace WebAPI_QLKH.Services
                 return null;
             }
         }
-        public RestResponse ThemKho(List<KhoPayload> payloads)
+        public RestResponse ThemKho(List<KhoPost> payloads)
         {
             var request = new RestRequest("api/Kho", Method.Post);
             request.AddJsonBody(payloads);
             return _client.Execute(request);
         }
-        public RestResponse CapNhatKho(string id, KhoPayload payload)
+        public RestResponse CapNhatKho(string id, KhoPost payload)
         {
             var request = new RestRequest($"api/Kho/{id}", Method.Put);
             request.AddJsonBody(payload);
@@ -46,18 +46,6 @@ namespace WebAPI_QLKH.Services
         {
             var request = new RestRequest($"api/Kho/{id}", Method.Delete);
             return _client.Execute(request);
-        }
-        public Kho TimKiemTheoID(string id)
-        {
-            var request = new RestRequest($"api/Kho/{id}", Method.Get);
-            var response = _client.Execute<Kho>(request);
-
-            if (response.IsSuccessful)
-            {
-                return response.Data;
-            }
-
-            return null;
         }
     }
 }

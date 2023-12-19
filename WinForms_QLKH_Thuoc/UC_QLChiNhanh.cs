@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
 using OfficeOpenXml;
 using WebAPI_QLKH.Models;
+using WebAPI_QLKH.Services;
 using static WebAPI_QLKH.Controllers.ChiNhanhController;
 
 namespace FormQLKH
@@ -35,6 +36,11 @@ namespace FormQLKH
                 if (danhSachChiNhanh != null)
                 {
                     dgvQLCN.DataSource = danhSachChiNhanh;
+
+                    foreach (DataGridViewColumn column in dgvQLCN.Columns)
+                    {
+                        column.ReadOnly = true;
+                    }
                 }
                 else
                 {
@@ -63,9 +69,36 @@ namespace FormQLKH
                 txtQLCN_MaCN.ReadOnly = true;
             }
         }
+        private string TaoMaCNTuDong()
+        {
+            List<string> danhSachMaCN = dgvQLCN.Rows
+                .Cast<DataGridViewRow>()
+                .Select(row => row.Cells["MaCN"].Value.ToString())
+                .ToList();
+
+            for (int i = 1; i <= danhSachMaCN.Count + 1; i++)
+            {
+                string maDinhDang = "CN" + i;
+                if (!danhSachMaCN.Any(ma => ma.Trim().Equals(maDinhDang, StringComparison.OrdinalIgnoreCase)))
+                {
+                    return maDinhDang;
+                }
+            }
+
+            if (danhSachMaCN.Count > 0)
+            {
+                string maLonNhat = danhSachMaCN.Max();
+                if (int.TryParse(maLonNhat.Substring(4), out int so))
+                {
+                    return "CN" + (so + 1).ToString();
+                }
+            }
+
+            return "CN1";
+        }
         private void btnQLCN_Them_Click(object sender, EventArgs e)
         {
-            string maCN = txtQLCN_MaCN.Text.Trim();
+            string maCN = TaoMaCNTuDong();
             string tenCN = txtQLCN_TenCN.Text.Trim();
             string diaChi = txtQLCN_DiaChi.Text.Trim();
 
@@ -75,9 +108,9 @@ namespace FormQLKH
                 return;
             }
 
-            var payloads = new List<ChiNhanhPayload>
+            var payloads = new List<ChiNhanhPost>
             {
-                new ChiNhanhPayload
+                new ChiNhanhPost
                 {
                     CN_ID = maCN,
                     CN_Name = tenCN,
@@ -109,7 +142,7 @@ namespace FormQLKH
                 return;
             }
 
-            var payload = new ChiNhanhPayload
+            var payload = new ChiNhanhPost
             {
                 CN_ID = maCN,
                 CN_Name = tenCN,
@@ -192,68 +225,44 @@ namespace FormQLKH
             var headerBounds = new Rectangle(e.RowBounds.Left, e.RowBounds.Top, dgvQLCN.RowHeadersWidth, e.RowBounds.Height);
             e.Graphics.DrawString(rowIndex, Font, SystemBrushes.ControlText, headerBounds, centerFormat);
         }
-
-        private void btnQLCN_Export_Click(object sender, EventArgs e)
-        {
-            using (SaveFileDialog saveFileDialog = new SaveFileDialog())
-            {
-                saveFileDialog.Filter = "Excel files (*.xlsx)|*.xlsx|All files (*.*)|*.*";
-                saveFileDialog.FilterIndex = 1;
-                saveFileDialog.RestoreDirectory = true;
-
-                string desktopPath = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
-                saveFileDialog.InitialDirectory = desktopPath;
-
-                string fileName = "ChiNhanh" + GenerateRandomNumber(1000, 9999);
-                saveFileDialog.FileName = fileName;
-
-                if (saveFileDialog.ShowDialog() == DialogResult.OK)
-                {
-                    ExportToExcel(saveFileDialog.FileName);
-                }
-            }
-        }
-        private void ExportToExcel(string filePath)
+        private async void TimKiemTheoMaCN(string maCN)
         {
             try
             {
-                List<ChiNhanh> chiNhanhList = (List<ChiNhanh>)dgvQLCN.DataSource;
+                List<ChiNhanh> danhSachCN = chiNhanhService.LayDanhSachChiNhanh();
 
-                if (chiNhanhList == null || chiNhanhList.Count == 0)
+                if (danhSachCN != null)
                 {
-                    MessageBox.Show("Không có dữ liệu để xuất Excel.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    return;
-                }
+                    var filteredCN = danhSachCN;
 
-                using (var package = new ExcelPackage())
+                        filteredCN = danhSachCN.Where(cn =>
+                            (string.IsNullOrEmpty(maCN) || cn.CN_ID.Contains(maCN))
+                        ).ToList();
+
+                    dgvQLCN.DataSource = filteredCN;
+                }
+                else
                 {
-                    var worksheet = package.Workbook.Worksheets.Add("ChiNhanhSheet");
-
-                    worksheet.Cells[1, 1].Value = "Mã chi nhánh";
-                    worksheet.Cells[1, 2].Value = "Tên chi nhánh";
-                    worksheet.Cells[1, 3].Value = "Địa chỉ chi nhánh";
-
-                    for (int i = 0; i < chiNhanhList.Count; i++)
-                    {
-                        worksheet.Cells[i + 2, 1].Value = chiNhanhList[i].CN_ID;
-                        worksheet.Cells[i + 2, 2].Value = chiNhanhList[i].CN_Name;
-                        worksheet.Cells[i + 2, 3].Value = chiNhanhList[i].CN_Address;
-                    }
-
-                    package.SaveAs(new FileInfo(filePath));
+                    MessageBox.Show("Không thể lấy dữ liệu từ API.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
-
-                MessageBox.Show($"Xuất Excel thành công. Đường dẫn: {filePath}", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"Lỗi khi xuất Excel: {ex.Message}", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show($"Lỗi: {ex.Message}", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
-        private int GenerateRandomNumber(int min, int max)
+        private void txtQLCN_TK_MaCN_TextChanged(object sender, EventArgs e)
         {
-            Random random = new Random();
-            return random.Next(min, max);
+            string maCN = txtQLCN_TK_MaCN.Text.Trim();
+
+            if (string.IsNullOrEmpty(maCN))
+            {
+                LoadDataGridView();
+            }
+            else
+            {
+                TimKiemTheoMaCN(maCN);
+            }
         }
     }
 }

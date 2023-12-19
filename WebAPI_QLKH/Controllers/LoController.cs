@@ -84,7 +84,6 @@ namespace WebAPI_QLKH.Controllers
                 return NotFound();
             }
 
-            // Update only the allowed fields
             lo.Lo_Name = loPut.Lo_Name;
             lo.Lo_Position = loPut.Lo_Position;
 

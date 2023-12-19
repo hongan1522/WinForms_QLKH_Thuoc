@@ -46,9 +46,9 @@
             btnQLK_Export = new Button();
             splQLK_TK_TT = new SplitContainer();
             grbQLK_TK = new GroupBox();
+            cbQLK_TK_MaCN = new ComboBox();
             label2 = new Label();
             label1 = new Label();
-            txtQLK_TK_TenKho = new TextBox();
             txtQLK_TK_MaKho = new TextBox();
             grbQLK_TT = new GroupBox();
             cbQLK_MaCN = new ComboBox();
@@ -210,7 +210,7 @@
             btnQLK_Them.FlatAppearance.BorderSize = 0;
             btnQLK_Them.FlatStyle = FlatStyle.Popup;
             btnQLK_Them.Font = new Font("Segoe UI", 10.125F, FontStyle.Bold, GraphicsUnit.Point);
-            btnQLK_Them.Image = Properties.Resources.New;
+            btnQLK_Them.Image = Properties.Resources.add;
             btnQLK_Them.ImageAlign = ContentAlignment.MiddleLeft;
             btnQLK_Them.Location = new Point(26, 52);
             btnQLK_Them.Name = "btnQLK_Them";
@@ -226,7 +226,7 @@
             btnQLK_Sua.FlatAppearance.BorderSize = 0;
             btnQLK_Sua.FlatStyle = FlatStyle.Popup;
             btnQLK_Sua.Font = new Font("Segoe UI", 10.125F, FontStyle.Bold, GraphicsUnit.Point);
-            btnQLK_Sua.Image = Properties.Resources.Edit;
+            btnQLK_Sua.Image = Properties.Resources.update;
             btnQLK_Sua.ImageAlign = ContentAlignment.MiddleLeft;
             btnQLK_Sua.Location = new Point(26, 173);
             btnQLK_Sua.Name = "btnQLK_Sua";
@@ -242,7 +242,7 @@
             btnQLK_Xoa.FlatAppearance.BorderSize = 0;
             btnQLK_Xoa.FlatStyle = FlatStyle.Popup;
             btnQLK_Xoa.Font = new Font("Segoe UI", 10.125F, FontStyle.Bold, GraphicsUnit.Point);
-            btnQLK_Xoa.Image = Properties.Resources.Delete;
+            btnQLK_Xoa.Image = Properties.Resources.delete;
             btnQLK_Xoa.ImageAlign = ContentAlignment.MiddleLeft;
             btnQLK_Xoa.Location = new Point(26, 294);
             btnQLK_Xoa.Name = "btnQLK_Xoa";
@@ -304,9 +304,9 @@
             // 
             // grbQLK_TK
             // 
+            grbQLK_TK.Controls.Add(cbQLK_TK_MaCN);
             grbQLK_TK.Controls.Add(label2);
             grbQLK_TK.Controls.Add(label1);
-            grbQLK_TK.Controls.Add(txtQLK_TK_TenKho);
             grbQLK_TK.Controls.Add(txtQLK_TK_MaKho);
             grbQLK_TK.Dock = DockStyle.Fill;
             grbQLK_TK.Location = new Point(0, 0);
@@ -315,6 +315,15 @@
             grbQLK_TK.TabIndex = 0;
             grbQLK_TK.TabStop = false;
             grbQLK_TK.Text = "Tìm kiếm";
+            // 
+            // cbQLK_TK_MaCN
+            // 
+            cbQLK_TK_MaCN.FormattingEnabled = true;
+            cbQLK_TK_MaCN.Location = new Point(227, 183);
+            cbQLK_TK_MaCN.Name = "cbQLK_TK_MaCN";
+            cbQLK_TK_MaCN.Size = new Size(265, 45);
+            cbQLK_TK_MaCN.TabIndex = 11;
+            cbQLK_TK_MaCN.SelectedIndexChanged += cbQLK_TK_MaCN_SelectedIndexChanged;
             // 
             // label2
             // 
@@ -340,19 +349,13 @@
             label1.TabIndex = 4;
             label1.Text = "Mã kho";
             // 
-            // txtQLK_TK_TenKho
-            // 
-            txtQLK_TK_TenKho.Location = new Point(227, 180);
-            txtQLK_TK_TenKho.Name = "txtQLK_TK_TenKho";
-            txtQLK_TK_TenKho.Size = new Size(265, 43);
-            txtQLK_TK_TenKho.TabIndex = 3;
-            // 
             // txtQLK_TK_MaKho
             // 
             txtQLK_TK_MaKho.Location = new Point(227, 76);
             txtQLK_TK_MaKho.Name = "txtQLK_TK_MaKho";
             txtQLK_TK_MaKho.Size = new Size(265, 43);
             txtQLK_TK_MaKho.TabIndex = 2;
+            txtQLK_TK_MaKho.TextChanged += txtQLK_TK_MaKho_TextChanged;
             // 
             // grbQLK_TT
             // 
@@ -491,7 +494,6 @@
         private SplitContainer splQLK_TK_TT;
         private GroupBox grbQLK_TK;
         private GroupBox grbQLK_TT;
-        private TextBox txtQLK_TK_TenKho;
         private TextBox txtQLK_TK_MaKho;
         private Label lbQLK_MaCN;
         private TextBox txtQLK_DiaChi;
@@ -512,5 +514,6 @@
         private DataGridViewTextBoxColumn TenKho;
         private DataGridViewTextBoxColumn DiaChi;
         private ComboBox cbQLK_MaCN;
+        private ComboBox cbQLK_TK_MaCN;
     }
 }

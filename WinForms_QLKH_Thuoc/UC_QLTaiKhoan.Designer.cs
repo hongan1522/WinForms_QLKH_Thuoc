@@ -56,13 +56,12 @@
             btnQLTK_Them = new Button();
             grbQLTK_HT = new GroupBox();
             dgvQLTK = new DataGridView();
+            pnQLTK = new Panel();
+            lbQLTK = new Label();
             UserID = new DataGridViewTextBoxColumn();
             RoleID = new DataGridViewTextBoxColumn();
             UserName = new DataGridViewTextBoxColumn();
-            Password = new DataGridViewTextBoxColumn();
             GhiChu = new DataGridViewTextBoxColumn();
-            pnQLTK = new Panel();
-            lbQLTK = new Label();
             tlpQLTK.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)splQLTK_TTTK_CN).BeginInit();
             splQLTK_TTTK_CN.Panel1.SuspendLayout();
@@ -277,6 +276,7 @@
             cbQLTK_TK_RoleID.Name = "cbQLTK_TK_RoleID";
             cbQLTK_TK_RoleID.Size = new Size(442, 45);
             cbQLTK_TK_RoleID.TabIndex = 13;
+            cbQLTK_TK_RoleID.SelectedIndexChanged += cbQLTK_TK_RoleID_SelectedIndexChanged;
             // 
             // lbQLTK_TK_UserID
             // 
@@ -308,6 +308,7 @@
             txtQLTK_TK_UserID.Name = "txtQLTK_TK_UserID";
             txtQLTK_TK_UserID.Size = new Size(439, 43);
             txtQLTK_TK_UserID.TabIndex = 7;
+            txtQLTK_TK_UserID.TextChanged += txtQLTK_TK_UserID_TextChanged;
             // 
             // grbQLTK_CN
             // 
@@ -356,7 +357,7 @@
             btnQLTK_Xoa.BackColor = SystemColors.ButtonHighlight;
             btnQLTK_Xoa.FlatStyle = FlatStyle.Popup;
             btnQLTK_Xoa.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
-            btnQLTK_Xoa.Image = Properties.Resources.Delete;
+            btnQLTK_Xoa.Image = Properties.Resources.delete;
             btnQLTK_Xoa.ImageAlign = ContentAlignment.MiddleLeft;
             btnQLTK_Xoa.Location = new Point(36, 243);
             btnQLTK_Xoa.Name = "btnQLTK_Xoa";
@@ -371,7 +372,7 @@
             btnQLTK_Sua.BackColor = SystemColors.ButtonHighlight;
             btnQLTK_Sua.FlatStyle = FlatStyle.Popup;
             btnQLTK_Sua.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
-            btnQLTK_Sua.Image = Properties.Resources.Edit;
+            btnQLTK_Sua.Image = Properties.Resources.update;
             btnQLTK_Sua.ImageAlign = ContentAlignment.MiddleLeft;
             btnQLTK_Sua.Location = new Point(36, 147);
             btnQLTK_Sua.Name = "btnQLTK_Sua";
@@ -386,7 +387,7 @@
             btnQLTK_Them.BackColor = SystemColors.ButtonHighlight;
             btnQLTK_Them.FlatStyle = FlatStyle.Popup;
             btnQLTK_Them.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
-            btnQLTK_Them.Image = Properties.Resources.New;
+            btnQLTK_Them.Image = Properties.Resources.add;
             btnQLTK_Them.ImageAlign = ContentAlignment.MiddleLeft;
             btnQLTK_Them.Location = new Point(36, 52);
             btnQLTK_Them.Name = "btnQLTK_Them";
@@ -420,7 +421,7 @@
             dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
             dgvQLTK.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             dgvQLTK.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgvQLTK.Columns.AddRange(new DataGridViewColumn[] { UserID, RoleID, UserName, Password, GhiChu });
+            dgvQLTK.Columns.AddRange(new DataGridViewColumn[] { UserID, RoleID, UserName, GhiChu });
             dgvQLTK.Dock = DockStyle.Fill;
             dgvQLTK.Location = new Point(3, 39);
             dgvQLTK.Name = "dgvQLTK";
@@ -431,6 +432,27 @@
             dgvQLTK.TabIndex = 0;
             dgvQLTK.RowPostPaint += dgvQLTK_RowPostPaint;
             dgvQLTK.SelectionChanged += dgvQLTK_SelectionChanged;
+            // 
+            // pnQLTK
+            // 
+            pnQLTK.BackColor = Color.FromArgb(63, 139, 208);
+            pnQLTK.Controls.Add(lbQLTK);
+            pnQLTK.Dock = DockStyle.Fill;
+            pnQLTK.Location = new Point(3, 3);
+            pnQLTK.Name = "pnQLTK";
+            pnQLTK.Size = new Size(1414, 87);
+            pnQLTK.TabIndex = 3;
+            // 
+            // lbQLTK
+            // 
+            lbQLTK.AutoSize = true;
+            lbQLTK.Font = new Font("Segoe UI", 13.875F, FontStyle.Bold, GraphicsUnit.Point);
+            lbQLTK.ForeColor = SystemColors.ButtonHighlight;
+            lbQLTK.Location = new Point(510, 15);
+            lbQLTK.Name = "lbQLTK";
+            lbQLTK.Size = new Size(394, 50);
+            lbQLTK.TabIndex = 0;
+            lbQLTK.Text = "QUẢN LÝ TÀI KHOẢN";
             // 
             // UserID
             // 
@@ -454,40 +476,12 @@
             UserName.MinimumWidth = 10;
             UserName.Name = "UserName";
             // 
-            // Password
-            // 
-            Password.DataPropertyName = "Password";
-            Password.HeaderText = "Password";
-            Password.MinimumWidth = 10;
-            Password.Name = "Password";
-            // 
             // GhiChu
             // 
             GhiChu.DataPropertyName = "Description";
             GhiChu.HeaderText = "Ghi chú";
             GhiChu.MinimumWidth = 10;
             GhiChu.Name = "GhiChu";
-            // 
-            // pnQLTK
-            // 
-            pnQLTK.BackColor = Color.FromArgb(63, 139, 208);
-            pnQLTK.Controls.Add(lbQLTK);
-            pnQLTK.Dock = DockStyle.Fill;
-            pnQLTK.Location = new Point(3, 3);
-            pnQLTK.Name = "pnQLTK";
-            pnQLTK.Size = new Size(1414, 87);
-            pnQLTK.TabIndex = 3;
-            // 
-            // lbQLTK
-            // 
-            lbQLTK.AutoSize = true;
-            lbQLTK.Font = new Font("Segoe UI", 13.875F, FontStyle.Bold, GraphicsUnit.Point);
-            lbQLTK.ForeColor = SystemColors.ButtonHighlight;
-            lbQLTK.Location = new Point(510, 15);
-            lbQLTK.Name = "lbQLTK";
-            lbQLTK.Size = new Size(394, 50);
-            lbQLTK.TabIndex = 0;
-            lbQLTK.Text = "QUẢN LÝ TÀI KHOẢN";
             // 
             // UC_QLTaiKhoan
             // 
@@ -543,16 +537,15 @@
         private Button btnQLTK_Sua;
         private Button btnQLTK_Them;
         private ComboBox cbQLTK_RoleID;
-        private DataGridViewTextBoxColumn UserID;
-        private DataGridViewTextBoxColumn RoleID;
-        private DataGridViewTextBoxColumn UserName;
-        private DataGridViewTextBoxColumn Password;
-        private DataGridViewTextBoxColumn GhiChu;
         private ComboBox comboBox2;
         private GroupBox grbQLTK_TK;
         private ComboBox cbQLTK_TK_RoleID;
         private Label lbQLTK_TK_UserID;
         private Label lbQLTK_TK_RoleID;
         private TextBox txtQLTK_TK_UserID;
+        private DataGridViewTextBoxColumn UserID;
+        private DataGridViewTextBoxColumn RoleID;
+        private DataGridViewTextBoxColumn UserName;
+        private DataGridViewTextBoxColumn GhiChu;
     }
 }

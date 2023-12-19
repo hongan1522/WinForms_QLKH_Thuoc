@@ -217,9 +217,9 @@
             // 
             btnQLLo_Them.BackColor = SystemColors.ButtonHighlight;
             btnQLLo_Them.FlatAppearance.BorderSize = 0;
-            btnQLLo_Them.FlatStyle = FlatStyle.Flat;
+            btnQLLo_Them.FlatStyle = FlatStyle.Popup;
             btnQLLo_Them.Font = new Font("Segoe UI", 10.125F, FontStyle.Bold, GraphicsUnit.Point);
-            btnQLLo_Them.Image = Properties.Resources.New;
+            btnQLLo_Them.Image = Properties.Resources.add;
             btnQLLo_Them.ImageAlign = ContentAlignment.MiddleLeft;
             btnQLLo_Them.Location = new Point(34, 62);
             btnQLLo_Them.Name = "btnQLLo_Them";
@@ -233,7 +233,7 @@
             // 
             btnQLLo_Export.BackColor = SystemColors.ButtonHighlight;
             btnQLLo_Export.FlatAppearance.BorderSize = 0;
-            btnQLLo_Export.FlatStyle = FlatStyle.Flat;
+            btnQLLo_Export.FlatStyle = FlatStyle.Popup;
             btnQLLo_Export.Font = new Font("Segoe UI", 10.125F, FontStyle.Bold, GraphicsUnit.Point);
             btnQLLo_Export.Image = Properties.Resources.export;
             btnQLLo_Export.ImageAlign = ContentAlignment.MiddleLeft;
@@ -248,9 +248,9 @@
             // 
             btnQLLo_Sua.BackColor = SystemColors.ButtonHighlight;
             btnQLLo_Sua.FlatAppearance.BorderSize = 0;
-            btnQLLo_Sua.FlatStyle = FlatStyle.Flat;
+            btnQLLo_Sua.FlatStyle = FlatStyle.Popup;
             btnQLLo_Sua.Font = new Font("Segoe UI", 10.125F, FontStyle.Bold, GraphicsUnit.Point);
-            btnQLLo_Sua.Image = Properties.Resources.Edit;
+            btnQLLo_Sua.Image = Properties.Resources.update;
             btnQLLo_Sua.ImageAlign = ContentAlignment.MiddleLeft;
             btnQLLo_Sua.Location = new Point(34, 184);
             btnQLLo_Sua.Name = "btnQLLo_Sua";
@@ -264,7 +264,7 @@
             // 
             btnQLLo_Import.BackColor = SystemColors.ButtonHighlight;
             btnQLLo_Import.FlatAppearance.BorderSize = 0;
-            btnQLLo_Import.FlatStyle = FlatStyle.Flat;
+            btnQLLo_Import.FlatStyle = FlatStyle.Popup;
             btnQLLo_Import.Font = new Font("Segoe UI", 10.125F, FontStyle.Bold, GraphicsUnit.Point);
             btnQLLo_Import.Image = Properties.Resources.import;
             btnQLLo_Import.ImageAlign = ContentAlignment.MiddleLeft;
@@ -279,9 +279,9 @@
             // 
             btnQLLo_Xoa.BackColor = SystemColors.ButtonHighlight;
             btnQLLo_Xoa.FlatAppearance.BorderSize = 0;
-            btnQLLo_Xoa.FlatStyle = FlatStyle.Flat;
+            btnQLLo_Xoa.FlatStyle = FlatStyle.Popup;
             btnQLLo_Xoa.Font = new Font("Segoe UI", 10.125F, FontStyle.Bold, GraphicsUnit.Point);
-            btnQLLo_Xoa.Image = Properties.Resources.Delete;
+            btnQLLo_Xoa.Image = Properties.Resources.delete;
             btnQLLo_Xoa.ImageAlign = ContentAlignment.MiddleLeft;
             btnQLLo_Xoa.Location = new Point(34, 306);
             btnQLLo_Xoa.Name = "btnQLLo_Xoa";

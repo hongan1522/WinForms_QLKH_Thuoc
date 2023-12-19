@@ -1,9 +1,6 @@
-﻿using System.Windows.Forms;
-using System;
-
-namespace WinFormsApp
+﻿namespace WinFormsApp
 {
-    partial class FormLogin
+    partial class FrmMain
     {
         /// <summary>
         ///  Required designer variable.
@@ -26,23 +23,21 @@ namespace WinFormsApp
         #region Windows Form Designer generated code
 
         /// <summary>
-        /// Required method for Designer support - do not modify
-        /// the contents of this method with the code editor.
+        ///  Required method for Designer support - do not modify
+        ///  the contents of this method with the code editor.
         /// </summary>
         private void InitializeComponent()
         {
             SuspendLayout();
             // 
-            // FormLogin
+            // FormMain
             // 
             AutoScaleDimensions = new SizeF(13F, 32F);
             AutoScaleMode = AutoScaleMode.Font;
-            BackColor = Color.White;
-            ClientSize = new Size(1317, 922);
-            Margin = new Padding(4, 4, 4, 4);
-            Name = "FormLogin";
-            StartPosition = FormStartPosition.CenterScreen;
-            Text = "Đăng nhập";
+            ClientSize = new Size(1810, 1368);
+            Margin = new Padding(4);
+            Name = "FormMain";
+            Text = "Form1";
             ResumeLayout(false);
         }
 

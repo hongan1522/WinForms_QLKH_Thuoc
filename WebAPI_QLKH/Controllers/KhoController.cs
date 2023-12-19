@@ -19,14 +19,14 @@ namespace WebAPI_QLKH.Controllers
         {
             _context = context;
         }
-        public class KhoPayload
+        public class KhoPost
         {
             public string Kho_ID { get; set; }
             public string Kho_Name { get; set; }
             public string Kho_Address { get; set; }
             public string CN_ID { get; set; }
         }
-        public class KhoPayloadPut
+        public class KhoPut
         {
             public string Kho_Name { get; set; }
             public string Kho_Address { get; set; }
@@ -60,7 +60,7 @@ namespace WebAPI_QLKH.Controllers
 
         // PUT: api/Kho/5
         [HttpPut("{id}")]
-        public async Task<IActionResult> PutKho(string id, [FromBody] KhoPayloadPut payload)
+        public async Task<IActionResult> PutKho(string id, [FromBody] KhoPut payload)
         {
             if (payload == null || string.IsNullOrEmpty(payload.Kho_Name) || string.IsNullOrEmpty(payload.Kho_Address))
             {
@@ -94,13 +94,12 @@ namespace WebAPI_QLKH.Controllers
                 }
             }
 
-            // Trả về kết quả thành công
             return NoContent();
         }
 
         // POST: api/Kho
         [HttpPost]
-        public async Task<ActionResult<IEnumerable<Kho>>> PostKho([FromBody] List<KhoPayload> payloads)
+        public async Task<ActionResult<IEnumerable<Kho>>> PostKho([FromBody] List<KhoPost> payloads)
         {
             if (payloads == null || !payloads.Any())
             {
@@ -125,40 +124,26 @@ namespace WebAPI_QLKH.Controllers
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteKho(string id)
         {
-            using (var transaction = _context.Database.BeginTransaction())
+            var kho = await _context.Kho.FindAsync(id);
+            if (kho == null)
             {
-                try
-                {
-                    //Xóa Lo_ID bảng ChiTietThuoc
-                    await _context.Database.ExecuteSqlRawAsync($"DELETE FROM ChiTietThuoc WHERE Lo_ID IN (SELECT Lo_ID FROM Lo WHERE Kho_ID = '{id}')");
-
-                    //Xóa Lo_ID bảng ChiTietDonNhap
-                    await _context.Database.ExecuteSqlRawAsync($"DELETE FROM ChiTietDonNhap WHERE Lo_ID IN (SELECT Lo_ID FROM Lo WHERE Kho_ID = '{id}')");
-
-                    //Xóa Kho_ID bảng Lo
-                    await _context.Database.ExecuteSqlRawAsync($"DELETE FROM Lo WHERE Kho_ID = '{id}'");
-
-                    //Xóa dữ liệu bảng Kho
-                    var kho = await _context.Kho.FindAsync(id);
-                    if (kho == null)
-                    {
-                        return NotFound();
-                    }
-
-                    _context.Kho.Remove(kho);
-
-                    await _context.SaveChangesAsync();
-
-                    transaction.Commit();
-
-                    return NoContent();
-                }
-                catch (Exception)
-                {
-                    transaction.Rollback();
-                    throw;
-                }
+                return NotFound();
             }
+
+            var chiTietDonNhap = await _context.ChiTietDonNhap.Where(ctdn => ctdn.Lo_ID == id).ToListAsync();
+            _context.ChiTietDonNhap.RemoveRange(chiTietDonNhap);
+
+            var chiTietThuoc = await _context.ChiTietThuoc.Where(ctt => ctt.Lo_ID == id).ToListAsync();
+            _context.ChiTietThuoc.RemoveRange(chiTietThuoc);
+
+            var los = await _context.Lo.Where(lo => lo.Kho_ID == id).ToListAsync();
+            _context.Lo.RemoveRange(los);
+
+            _context.Kho.Remove(kho);
+
+            await _context.SaveChangesAsync();
+
+            return NoContent();
         }
         private bool KhoExists(string id)
         {

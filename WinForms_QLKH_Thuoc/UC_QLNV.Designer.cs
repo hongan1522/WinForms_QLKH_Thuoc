@@ -557,7 +557,7 @@
             btnQLNV_Export.BackColor = SystemColors.ButtonHighlight;
             btnQLNV_Export.FlatAppearance.BorderColor = Color.Gainsboro;
             btnQLNV_Export.FlatAppearance.BorderSize = 0;
-            btnQLNV_Export.FlatStyle = FlatStyle.Flat;
+            btnQLNV_Export.FlatStyle = FlatStyle.Popup;
             btnQLNV_Export.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
             btnQLNV_Export.Image = Properties.Resources.export;
             btnQLNV_Export.ImageAlign = ContentAlignment.MiddleLeft;
@@ -573,9 +573,9 @@
             btnQLNV_Them.BackColor = SystemColors.ButtonHighlight;
             btnQLNV_Them.FlatAppearance.BorderColor = Color.Gainsboro;
             btnQLNV_Them.FlatAppearance.BorderSize = 0;
-            btnQLNV_Them.FlatStyle = FlatStyle.Flat;
+            btnQLNV_Them.FlatStyle = FlatStyle.Popup;
             btnQLNV_Them.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
-            btnQLNV_Them.Image = Properties.Resources.New;
+            btnQLNV_Them.Image = Properties.Resources.add;
             btnQLNV_Them.ImageAlign = ContentAlignment.MiddleLeft;
             btnQLNV_Them.Location = new Point(45, 56);
             btnQLNV_Them.Name = "btnQLNV_Them";
@@ -589,7 +589,7 @@
             btnQLNV_Import.BackColor = SystemColors.ButtonHighlight;
             btnQLNV_Import.FlatAppearance.BorderColor = Color.Gainsboro;
             btnQLNV_Import.FlatAppearance.BorderSize = 0;
-            btnQLNV_Import.FlatStyle = FlatStyle.Flat;
+            btnQLNV_Import.FlatStyle = FlatStyle.Popup;
             btnQLNV_Import.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
             btnQLNV_Import.Image = Properties.Resources.import;
             btnQLNV_Import.ImageAlign = ContentAlignment.MiddleLeft;
@@ -605,9 +605,9 @@
             btnQLNV_Sua.BackColor = SystemColors.ButtonHighlight;
             btnQLNV_Sua.FlatAppearance.BorderColor = Color.Gainsboro;
             btnQLNV_Sua.FlatAppearance.BorderSize = 0;
-            btnQLNV_Sua.FlatStyle = FlatStyle.Flat;
+            btnQLNV_Sua.FlatStyle = FlatStyle.Popup;
             btnQLNV_Sua.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
-            btnQLNV_Sua.Image = Properties.Resources.Edit;
+            btnQLNV_Sua.Image = Properties.Resources.update;
             btnQLNV_Sua.ImageAlign = ContentAlignment.MiddleLeft;
             btnQLNV_Sua.Location = new Point(322, 56);
             btnQLNV_Sua.Name = "btnQLNV_Sua";
@@ -621,9 +621,9 @@
             btnQLNV_Xoa.BackColor = SystemColors.ButtonHighlight;
             btnQLNV_Xoa.FlatAppearance.BorderColor = Color.Gainsboro;
             btnQLNV_Xoa.FlatAppearance.BorderSize = 0;
-            btnQLNV_Xoa.FlatStyle = FlatStyle.Flat;
+            btnQLNV_Xoa.FlatStyle = FlatStyle.Popup;
             btnQLNV_Xoa.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
-            btnQLNV_Xoa.Image = Properties.Resources.Delete;
+            btnQLNV_Xoa.Image = Properties.Resources.delete;
             btnQLNV_Xoa.ImageAlign = ContentAlignment.MiddleLeft;
             btnQLNV_Xoa.Location = new Point(599, 56);
             btnQLNV_Xoa.Name = "btnQLNV_Xoa";

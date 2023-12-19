@@ -23,6 +23,7 @@ namespace FormQLKH
         {
             InitializeComponent();
             dgvQLLo.AutoGenerateColumns = false;
+
             loService = new LoService("https://localhost:7195");
             khoService = new KhoService("https://localhost:7195");
 
@@ -39,6 +40,11 @@ namespace FormQLKH
                 if (danhSachLo != null)
                 {
                     dgvQLLo.DataSource = danhSachLo;
+
+                    foreach (DataGridViewColumn column in dgvQLLo.Columns)
+                    {
+                        column.ReadOnly = true;
+                    }
                 }
                 else
                 {
@@ -50,6 +56,7 @@ namespace FormQLKH
                 MessageBox.Show($"Lỗi: {ex.Message}", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
         private async void LoadComboBoxMaKho()
         {
             try
@@ -60,23 +67,62 @@ namespace FormQLKH
                 cbQLLo_MaKho.DataSource = danhSachMaKho;
                 cbQLLo_MaKho.DisplayMember = "Kho_ID";
                 cbQLLo_MaKho.ValueMember = "Kho_ID";
-                cbQLLo_MaKho.SelectedIndex = 0;
+                cbQLLo_MaKho.DropDownStyle = ComboBoxStyle.DropDownList;
+
+                if (danhSachMaKho.Count > 0)
+                {
+                    cbQLLo_MaKho.SelectedIndex = 0;
+                }
 
                 // Load cbQLLo_TK_MaKho
-                danhSachMaKho.Insert(0, new Kho { Kho_ID = "All" });
-                cbQLLo_TK_MaKho.DataSource = danhSachMaKho;
+                List<Kho> danhSachMaKho1 = new List<Kho>(danhSachMaKho);
+                danhSachMaKho1.Insert(0, new Kho { Kho_ID = "All" });
+
+                cbQLLo_TK_MaKho.DataSource = danhSachMaKho1;
                 cbQLLo_TK_MaKho.DisplayMember = "Kho_ID";
                 cbQLLo_TK_MaKho.ValueMember = "Kho_ID";
-                cbQLLo_TK_MaKho.SelectedIndex = 0;
+                cbQLLo_TK_MaKho.DropDownStyle = ComboBoxStyle.DropDownList;
+
+                if (danhSachMaKho1.Count > 0)
+                {
+                    cbQLLo_TK_MaKho.SelectedIndex = 0;
+                }
             }
             catch (Exception ex)
             {
                 MessageBox.Show($"Lỗi: {ex.Message}", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+        private string TaoMaLoTuDong()
+        {
+            List<string> danhSachMaLo = dgvQLLo.Rows
+                .Cast<DataGridViewRow>()
+                .Select(row => row.Cells["MaLo"].Value.ToString())
+                .ToList();
+
+            for (int i = 1; i <= danhSachMaLo.Count + 1; i++)
+            {
+                string maDinhDang = "Lo" + i;
+                if (!danhSachMaLo.Any(ma => ma.Trim().Equals(maDinhDang, StringComparison.OrdinalIgnoreCase)))
+                {
+                    return maDinhDang;
+                }
+            }
+
+            if (danhSachMaLo.Count > 0)
+            {
+                string maLonNhat = danhSachMaLo.Max();
+                if (int.TryParse(maLonNhat.Substring(4), out int so))
+                {
+                    return "Lo" + (so + 1).ToString();
+                }
+            }
+
+            return "Lo1";
+        }
         private async void btnQLLo_Them_Click(object sender, EventArgs e)
         {
-            string maLo = txtQLLo_MaLo.Text.Trim();
+            string maLo = TaoMaLoTuDong();
             string maKho = cbQLLo_MaKho.Text.Trim();
             string tenLo = txtQLLo_TenLo.Text.Trim();
             string viTri = cbQLLo_ViTri.Text.Trim();
@@ -159,16 +205,22 @@ namespace FormQLKH
         }
         private void dgvQLLo_RowPostPaint(object sender, DataGridViewRowPostPaintEventArgs e)
         {
-            using (SolidBrush b = new SolidBrush(dgvQLLo.RowHeadersDefaultCellStyle.ForeColor))
+            var rowIndex = (e.RowIndex + 1).ToString();
+
+            var centerFormat = new StringFormat
             {
-                e.Graphics.DrawString((e.RowIndex + 1).ToString(), e.InheritedRowStyle.Font, b, e.RowBounds.Location.X + 10, e.RowBounds.Location.Y + 4);
-            }
+                Alignment = StringAlignment.Center,
+                LineAlignment = StringAlignment.Center
+            };
+            var headerBounds = new Rectangle(e.RowBounds.Left, e.RowBounds.Top, dgvQLLo.RowHeadersWidth, e.RowBounds.Height);
+            e.Graphics.DrawString(rowIndex, Font, SystemBrushes.ControlText, headerBounds, centerFormat);
         }
         private void ViTriComboBox()
         {
             cbQLLo_ViTri.Items.AddRange(new object[] { "A", "B", "C", "D" });
 
             cbQLLo_ViTri.SelectedIndex = 0;
+            cbQLLo_ViTri.DropDownStyle = ComboBoxStyle.DropDownList;
         }
         private void dgvQLLo_SelectionChanged(object sender, EventArgs e)
         {
@@ -187,27 +239,6 @@ namespace FormQLKH
                 }
             }
         }
-        private void txtQLLo_TK_MaLo_TextChanged(object sender, EventArgs e)
-        {
-            TimKiemTheoMaKhoMaLo(cbQLLo_TK_MaKho.SelectedValue?.ToString(), txtQLLo_TK_MaLo.Text.Trim());
-        }
-        private void cbQLLo_TK_MaKho_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            if (cbQLLo_TK_MaKho.SelectedItem is Kho selectedKho)
-            {
-                string selectedValue = selectedKho.Kho_ID;
-                string maLo = txtQLLo_TK_MaLo.Text.Trim();
-
-                if (selectedValue.Equals("All"))
-                {
-                    LoadDataGridView();
-                }
-                else
-                {
-                    TimKiemTheoMaKhoMaLo(selectedValue, maLo);
-                }
-            }
-        }
         private async void TimKiemTheoMaKhoMaLo(string maKho, string maLo)
         {
             try
@@ -216,12 +247,23 @@ namespace FormQLKH
 
                 if (danhSachLo != null)
                 {
-                    var filteredLos = danhSachLo.Where(lo =>
-                        (string.IsNullOrEmpty(maKho) || lo.Kho_ID.Contains(maKho)) &&
-                        (string.IsNullOrEmpty(maLo) || lo.Lo_ID.Contains(maLo))
-                    ).ToList();
+                    var filteredKho = danhSachLo;
 
-                    dgvQLLo.DataSource = filteredLos;
+                    if (!string.IsNullOrEmpty(maKho) && !maKho.Equals("All"))
+                    {
+                        filteredKho = danhSachLo.Where(lo =>
+                            (string.IsNullOrEmpty(maKho) || lo.Kho_ID.Contains(maKho)) &&
+                            (string.IsNullOrEmpty(maLo) || lo.Lo_ID.Contains(maLo))
+                        ).ToList();
+                    }
+                    else
+                    {
+                        filteredKho = danhSachLo.Where(lo =>
+                            (string.IsNullOrEmpty(maLo) || lo.Lo_ID.Contains(maLo))
+                        ).ToList();
+                    }
+
+                    dgvQLLo.DataSource = filteredKho;
                 }
                 else
                 {
@@ -231,6 +273,30 @@ namespace FormQLKH
             catch (Exception ex)
             {
                 MessageBox.Show($"Lỗi: {ex.Message}", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+        private void txtQLLo_TK_MaLo_TextChanged(object sender, EventArgs e)
+        {
+            string selectedValue = cbQLLo_TK_MaKho.SelectedValue?.ToString();
+            string maLo = txtQLLo_TK_MaLo.Text.Trim();
+
+            if (string.IsNullOrEmpty(maLo))
+            {
+                LoadDataGridView();
+            }
+            else
+            {
+                TimKiemTheoMaKhoMaLo(selectedValue, maLo);
+            }
+        }
+        private void cbQLLo_TK_MaKho_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (cbQLLo_TK_MaKho.SelectedItem is Kho selectedKho)
+            {
+                string selectedValue = selectedKho.Kho_ID;
+                string maLo = txtQLLo_TK_MaLo.Text.Trim();
+
+                TimKiemTheoMaKhoMaLo(selectedValue, maLo);
             }
         }
     }

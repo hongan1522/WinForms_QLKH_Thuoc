@@ -124,32 +124,44 @@ namespace WebAPI_QLKH.Controllers
 
         // DELETE: api/TaiKhoan/5
         [HttpDelete("{id}")]
+        
         public async Task<IActionResult> DeleteTaiKhoan(string id)
         {
             using (var transaction = _context.Database.BeginTransaction())
             {
                 try
                 {
-                    //Xóa DXuat_ID bảng ChiTietDonXuat
-                    await _context.Database.ExecuteSqlRawAsync($"DELETE FROM ChiTietDonXuat WHERE DXuat_ID IN (SELECT DXuat_ID FROM DonXuat WHERE NV_ID IN (SELECT NV_ID FROM NhanVien WHERE UserID = '{id}'))");
-
-                    //Xóa NV_ID bảng DonXuat
-                    await _context.Database.ExecuteSqlRawAsync($"DELETE FROM DonXuat WHERE NV_ID IN (SELECT NV_ID FROM NhanVien WHERE UserID = '{id}')");
-
-                    //Xóa DNhap_ID bảng ChiTietDonNhap
-                    await _context.Database.ExecuteSqlRawAsync($"DELETE FROM ChiTietDonNhap WHERE DNhap_ID IN (SELECT DNhap_ID FROM DonNhap WHERE NV_ID IN (SELECT NV_ID FROM NhanVien WHERE UserID = '{id}'))");
-
-                    //Xóa NV_ID bảng DonNhap
-                    await _context.Database.ExecuteSqlRawAsync($"DELETE FROM DonNhap WHERE NV_ID IN (SELECT NV_ID FROM NhanVien WHERE UserID = '{id}')");
-
-                    //Xóa UserID bảng NhanVien
-                    await _context.Database.ExecuteSqlRawAsync($"DELETE FROM NhanVien WHERE UserID = '{id}'");
-
-                    //Xóa dữ liệu bảng TaiKhoan
                     var taiKhoan = await _context.TaiKhoan.FindAsync(id);
                     if (taiKhoan == null)
                     {
                         return NotFound();
+                    }
+
+                    var nhanVien = await _context.NhanVien.FirstOrDefaultAsync(nv => nv.UserID == id);
+
+                    if (nhanVien != null)
+                    {
+                        var chiTietDonXuat = await _context.ChiTietDonXuat
+                            .Where(ctdx => ctdx.DXuat_ID == nhanVien.NV_ID)
+                            .ToListAsync();
+                        _context.ChiTietDonXuat.RemoveRange(chiTietDonXuat);
+
+                        var donXuat = await _context.DonXuat
+                            .Where(dx => dx.NV_ID == nhanVien.NV_ID)
+                            .ToListAsync();
+                        _context.DonXuat.RemoveRange(donXuat);
+
+                        var chiTietDonNhap = await _context.ChiTietDonNhap
+                            .Where(ctdn => ctdn.DNhap_ID == nhanVien.NV_ID)
+                            .ToListAsync();
+                        _context.ChiTietDonNhap.RemoveRange(chiTietDonNhap);
+
+                        var donNhap = await _context.DonNhap
+                            .Where(dn => dn.NV_ID == nhanVien.NV_ID)
+                            .ToListAsync();
+                        _context.DonNhap.RemoveRange(donNhap);
+
+                        _context.NhanVien.Remove(nhanVien);
                     }
 
                     _context.TaiKhoan.Remove(taiKhoan);
@@ -167,6 +179,7 @@ namespace WebAPI_QLKH.Controllers
                 }
             }
         }
+
         private bool TaiKhoanExists(string id)
         {
             return (_context.TaiKhoan?.Any(e => e.UserID == id)).GetValueOrDefault();

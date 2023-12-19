@@ -1,6 +1,9 @@
-﻿namespace WinFormsApp
+﻿using System.Windows.Forms;
+using System;
+
+namespace WinFormsApp
 {
-    partial class FormMain
+    partial class FrmLogin
     {
         /// <summary>
         ///  Required designer variable.
@@ -23,24 +26,40 @@
         #region Windows Form Designer generated code
 
         /// <summary>
-        ///  Required method for Designer support - do not modify
-        ///  the contents of this method with the code editor.
+        /// Required method for Designer support - do not modify
+        /// the contents of this method with the code editor.
         /// </summary>
         private void InitializeComponent()
         {
+            uC_Login1 = new FormQLKH.UC_Login();
             SuspendLayout();
             // 
-            // FormMain
+            // uC_Login1
+            // 
+            uC_Login1.Dock = DockStyle.Fill;
+            uC_Login1.Location = new Point(0, 0);
+            uC_Login1.Name = "uC_Login1";
+            uC_Login1.Size = new Size(882, 990);
+            uC_Login1.TabIndex = 0;
+            // 
+            // FrmLogin
             // 
             AutoScaleDimensions = new SizeF(13F, 32F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1810, 1368);
+            BackColor = Color.White;
+            ClientSize = new Size(882, 990);
+            Controls.Add(uC_Login1);
             Margin = new Padding(4);
-            Name = "FormMain";
-            Text = "Form1";
+            MaximizeBox = false;
+            MinimizeBox = false;
+            Name = "FrmLogin";
+            StartPosition = FormStartPosition.CenterScreen;
+            Text = "Đăng nhập";
             ResumeLayout(false);
         }
 
         #endregion
+
+        private FormQLKH.UC_Login uC_Login1;
     }
 }
