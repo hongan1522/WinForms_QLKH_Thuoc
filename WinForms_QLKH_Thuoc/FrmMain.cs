@@ -6,5 +6,9 @@ namespace WinFormsApp
         {
             InitializeComponent();
         }
+        private void FrmMain_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            Application.Exit();
+        }
     }
 }

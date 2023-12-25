@@ -28,19 +28,37 @@
         /// </summary>
         private void InitializeComponent()
         {
+            uC_Main1 = new FormQLKH.UC_Main();
             SuspendLayout();
             // 
-            // FormMain
+            // uC_Main1
+            // 
+            uC_Main1.Dock = DockStyle.Fill;
+            uC_Main1.Location = new Point(0, 0);
+            uC_Main1.Name = "uC_Main1";
+            uC_Main1.Size = new Size(1914, 1159);
+            uC_Main1.TabIndex = 0;
+            // 
+            // FrmMain
             // 
             AutoScaleDimensions = new SizeF(13F, 32F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1810, 1368);
+            ClientSize = new Size(1914, 1159);
+            Controls.Add(uC_Main1);
+            FormBorderStyle = FormBorderStyle.Fixed3D;
             Margin = new Padding(4);
-            Name = "FormMain";
-            Text = "Form1";
+            MaximizeBox = false;
+            MinimizeBox = false;
+            Name = "FrmMain";
+            StartPosition = FormStartPosition.CenterScreen;
+            Text = "Quản Lý";
+            TopMost = true;
+            FormClosing += FrmMain_FormClosing;
             ResumeLayout(false);
         }
 
         #endregion
+
+        private FormQLKH.UC_Main uC_Main1;
     }
 }

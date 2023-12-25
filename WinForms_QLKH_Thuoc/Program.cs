@@ -15,8 +15,8 @@ namespace WinFormsApp
             ApplicationConfiguration.Initialize();
             //Application.Run(new FrmMain());
             //Application.Run(new Frm_QuanLy());
-            //Application.Run(new FrmTest());
-            Application.Run(new FrmLogin());
+            Application.Run(new FrmTest());
+            //Application.Run(new FrmLogin());
         }
     }
 }

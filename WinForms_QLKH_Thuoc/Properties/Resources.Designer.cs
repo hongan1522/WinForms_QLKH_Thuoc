@@ -83,29 +83,9 @@ namespace FormQLKH.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap bg1 {
+        internal static System.Drawing.Bitmap bg {
             get {
-                object obj = ResourceManager.GetObject("bg1", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap bg2 {
-            get {
-                object obj = ResourceManager.GetObject("bg2", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap bg3 {
-            get {
-                object obj = ResourceManager.GetObject("bg3", resourceCulture);
+                object obj = ResourceManager.GetObject("bg", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -153,9 +133,9 @@ namespace FormQLKH.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap DownArrow {
+        internal static System.Drawing.Bitmap down_arrow {
             get {
-                object obj = ResourceManager.GetObject("DownArrow", resourceCulture);
+                object obj = ResourceManager.GetObject("down-arrow", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -266,6 +246,16 @@ namespace FormQLKH.Properties {
         internal static System.Drawing.Bitmap unlock {
             get {
                 object obj = ResourceManager.GetObject("unlock", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap up_arrow {
+            get {
+                object obj = ResourceManager.GetObject("up-arrow", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

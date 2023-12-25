@@ -55,6 +55,7 @@ namespace WinFormsApp
             Name = "FrmLogin";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Đăng nhập";
+            FormClosing += FrmLogin_FormClosing;
             ResumeLayout(false);
         }
 

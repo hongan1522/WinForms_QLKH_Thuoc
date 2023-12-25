@@ -24,10 +24,10 @@ namespace WebAPI_QLKH.Controllers
         [HttpGet]
         public async Task<ActionResult<IEnumerable<NhanVien>>> GetNhanVien()
         {
-          if (_context.NhanVien == null)
-          {
-              return NotFound();
-          }
+            if (_context.NhanVien == null)
+            {
+                return NotFound();
+            }
             return await _context.NhanVien.ToListAsync();
         }
 

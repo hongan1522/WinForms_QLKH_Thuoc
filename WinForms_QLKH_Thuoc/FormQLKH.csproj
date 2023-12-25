@@ -9,6 +9,12 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Properties\DataSources\**" />
+    <EmbeddedResource Remove="Properties\DataSources\**" />
+    <None Remove="Properties\DataSources\**" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\WebAPI_QLKH\WebAPI_QLKH.csproj" />
   </ItemGroup>
 
@@ -28,12 +34,12 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Properties\DataSources\" />
+    <PackageReference Include="EPPlus" Version="7.0.3" />
+    <PackageReference Include="UnidecodeSharpFork" Version="1.0.0" />
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="EPPlus" Version="7.0.3" />
-    <PackageReference Include="UnidecodeSharpFork" Version="1.0.0" />
+    <Folder Include="PermissionManager\" />
   </ItemGroup>
 
 </Project>

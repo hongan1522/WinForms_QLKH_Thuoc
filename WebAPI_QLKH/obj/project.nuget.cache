@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "hEBBMNUrj+50600z4kucbj3iaJIoSHkaylcAtWVUzjZTK6ZhKs94pZhat0t5ECajAt06drtdZYrGWiCgNFEoag==",
+  "dgSpecHash": "BUfXaDYQOOy50owQpVMB5LDkpwPFD9c4F7cTht2lnqpPF7kS+n8mXJkHyHgbnhj51KwQKs2u3yjTPNfcRiaC5A==",
   "success": true,
-  "projectFilePath": "C:\\Users\\MyPC\\Desktop\\WinForms_QLKH_Thuoc1\\WebAPI_QLKH\\WebAPI_QLKH.csproj",
+  "projectFilePath": "C:\\Users\\MyPC\\Desktop\\WinForms_QLKH_Thuoc\\WebAPI_QLKH\\WebAPI_QLKH.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\MyPC\\.nuget\\packages\\azure.core\\1.25.0\\azure.core.1.25.0.nupkg.sha512",
     "C:\\Users\\MyPC\\.nuget\\packages\\azure.identity\\1.7.0\\azure.identity.1.7.0.nupkg.sha512",

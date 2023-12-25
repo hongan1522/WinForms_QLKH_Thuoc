@@ -9,5 +9,9 @@ namespace WinFormsApp
         {
             InitializeComponent();
         }
+        private void FrmLogin_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            Application.Exit();
+        }
     }
 }

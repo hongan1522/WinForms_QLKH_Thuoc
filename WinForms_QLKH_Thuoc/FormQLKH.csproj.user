@@ -10,52 +10,52 @@
     <Compile Update="Frm_QuanLy.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="UC_CTDonNhap.cs">
+    <Compile Update="UserControl\UC_CTDonNhap.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Update="UC_CTDonXuat.cs">
+    <Compile Update="UserControl\UC_CTDonXuat.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Update="FrmLogin.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="UC_CTThuoc.cs">
+    <Compile Update="UserControl\UC_CTThuoc.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Update="UC_Login.cs">
+    <Compile Update="UserControl\UC_Login.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Update="UC_Main.cs">
+    <Compile Update="UserControl\UC_Main.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Update="UC_NCC.cs">
+    <Compile Update="UserControl\UC_NCC.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Update="UC_QLChiNhanh.cs">
+    <Compile Update="UserControl\UC_QLChiNhanh.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Update="UC_QLDonNhap.cs">
+    <Compile Update="UserControl\UC_QLDonNhap.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Update="UC_QLDonXuat.cs">
+    <Compile Update="UserControl\UC_QLDonXuat.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Update="UC_QLKho.cs">
+    <Compile Update="UserControl\UC_QLKho.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Update="UC_QLLo.cs">
+    <Compile Update="UserControl\UC_QLLo.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Update="UC_QLNhomThuoc.cs">
+    <Compile Update="UserControl\UC_QLNhomThuoc.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Update="UC_QLNV.cs">
+    <Compile Update="UserControl\UC_QLNV.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Update="UC_QLThuoc.cs">
+    <Compile Update="UserControl\UC_QLThuoc.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Update="UC_QLTaiKhoan.cs">
+    <Compile Update="UserControl\UC_QLTaiKhoan.cs">
       <SubType>UserControl</SubType>
     </Compile>
   </ItemGroup>

@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "aSRPkhZrX/1cG5dglqhShvXzcoIPRA7jsjOvaCO+uJYRt5P8XPqVN0UaMnF9lszD4Nyu+2HHYd7EuxYBbmck9A==",
+  "dgSpecHash": "Sm+7P2noDf6BaG8l2tIB5XHjf3mdep4OFQdT+CDfFdge7nTR7NFm4wg46k5pJqmF+6GDEIFuqOZGvfaXBb5fdg==",
   "success": true,
-  "projectFilePath": "C:\\Users\\MyPC\\Desktop\\WinForms_QLKH_Thuoc1\\WinForms_QLKH_Thuoc\\FormQLKH.csproj",
+  "projectFilePath": "C:\\Users\\MyPC\\Desktop\\WinForms_QLKH_Thuoc\\WinForms_QLKH_Thuoc\\FormQLKH.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\MyPC\\.nuget\\packages\\azure.core\\1.25.0\\azure.core.1.25.0.nupkg.sha512",
     "C:\\Users\\MyPC\\.nuget\\packages\\azure.identity\\1.7.0\\azure.identity.1.7.0.nupkg.sha512",
