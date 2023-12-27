@@ -33,16 +33,16 @@
             pnlShowForm = new Panel();
             pnlTitleBar = new Panel();
             label1 = new Label();
-            pnlSideBar = new Panel();
+            pnlNCC = new Panel();
+            panel1 = new Panel();
+            btnNCC = new Button();
             pnLogOut = new Panel();
             btnLogout = new Button();
             pnlSubMenuDsnv = new Panel();
-            panel1 = new Panel();
-            btnNCC = new Button();
             btnUser = new Button();
             btnQLNV = new Button();
-            pnlQuanLyNhanVien = new Panel();
-            pbArrowQLNV = new PictureBox();
+            pnlQLNS = new Panel();
+            pbArrowQLNS = new PictureBox();
             btnQLNS = new Button();
             pnlSubMenuQLTK = new Panel();
             pnlSubMenuDssp = new Panel();
@@ -68,12 +68,12 @@
             panel7 = new Panel();
             tlpFrmMain.SuspendLayout();
             pnlTitleBar.SuspendLayout();
-            pnlSideBar.SuspendLayout();
+            pnlNCC.SuspendLayout();
+            panel1.SuspendLayout();
             pnLogOut.SuspendLayout();
             pnlSubMenuDsnv.SuspendLayout();
-            panel1.SuspendLayout();
-            pnlQuanLyNhanVien.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)pbArrowQLNV).BeginInit();
+            pnlQLNS.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pbArrowQLNS).BeginInit();
             pnlSubMenuDssp.SuspendLayout();
             pnlDssp.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pbArrowQLSP).BeginInit();
@@ -92,7 +92,7 @@
             tlpFrmMain.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 75.60976F));
             tlpFrmMain.Controls.Add(pnlShowForm, 1, 1);
             tlpFrmMain.Controls.Add(pnlTitleBar, 0, 0);
-            tlpFrmMain.Controls.Add(pnlSideBar, 0, 1);
+            tlpFrmMain.Controls.Add(pnlNCC, 0, 1);
             tlpFrmMain.Dock = DockStyle.Fill;
             tlpFrmMain.Location = new Point(0, 0);
             tlpFrmMain.Margin = new Padding(0);
@@ -142,35 +142,67 @@
             label1.Text = "DANH SÁCH QUẢN LÝ";
             label1.TextAlign = ContentAlignment.MiddleCenter;
             // 
-            // pnlSideBar
+            // pnlNCC
             // 
-            pnlSideBar.BackColor = Color.FromArgb(64, 64, 64);
-            pnlSideBar.Controls.Add(pnLogOut);
-            pnlSideBar.Controls.Add(pnlSubMenuDsnv);
-            pnlSideBar.Controls.Add(pnlQuanLyNhanVien);
-            pnlSideBar.Controls.Add(pnlSubMenuQLTK);
-            pnlSideBar.Controls.Add(pnlSubMenuDssp);
-            pnlSideBar.Controls.Add(pnlDssp);
-            pnlSideBar.Controls.Add(pnlSubMenuKho);
-            pnlSideBar.Controls.Add(pnlDsKho);
-            pnlSideBar.Controls.Add(pbLogo);
-            pnlSideBar.Controls.Add(pnlMenu);
-            pnlSideBar.Controls.Add(panel7);
-            pnlSideBar.Dock = DockStyle.Fill;
-            pnlSideBar.Location = new Point(0, 77);
-            pnlSideBar.Margin = new Padding(0);
-            pnlSideBar.Name = "pnlSideBar";
-            pnlSideBar.Size = new Size(466, 1082);
-            pnlSideBar.TabIndex = 1;
+            pnlNCC.BackColor = Color.FromArgb(64, 64, 64);
+            pnlNCC.BorderStyle = BorderStyle.FixedSingle;
+            pnlNCC.Controls.Add(panel1);
+            pnlNCC.Controls.Add(pnLogOut);
+            pnlNCC.Controls.Add(pnlSubMenuDsnv);
+            pnlNCC.Controls.Add(pnlQLNS);
+            pnlNCC.Controls.Add(pnlSubMenuQLTK);
+            pnlNCC.Controls.Add(pnlSubMenuDssp);
+            pnlNCC.Controls.Add(pnlDssp);
+            pnlNCC.Controls.Add(pnlSubMenuKho);
+            pnlNCC.Controls.Add(pnlDsKho);
+            pnlNCC.Controls.Add(pbLogo);
+            pnlNCC.Controls.Add(pnlMenu);
+            pnlNCC.Controls.Add(panel7);
+            pnlNCC.Dock = DockStyle.Fill;
+            pnlNCC.Location = new Point(0, 77);
+            pnlNCC.Margin = new Padding(0);
+            pnlNCC.Name = "pnlNCC";
+            pnlNCC.Size = new Size(466, 1082);
+            pnlNCC.TabIndex = 1;
+            // 
+            // panel1
+            // 
+            panel1.Controls.Add(btnNCC);
+            panel1.Dock = DockStyle.Top;
+            panel1.Location = new Point(0, 913);
+            panel1.Name = "panel1";
+            panel1.Size = new Size(464, 77);
+            panel1.TabIndex = 16;
+            // 
+            // btnNCC
+            // 
+            btnNCC.BackColor = Color.FromArgb(15, 142, 219);
+            btnNCC.Dock = DockStyle.Fill;
+            btnNCC.FlatAppearance.BorderSize = 0;
+            btnNCC.FlatAppearance.MouseDownBackColor = Color.FromArgb(15, 142, 219);
+            btnNCC.FlatAppearance.MouseOverBackColor = Color.FromArgb(15, 142, 219);
+            btnNCC.FlatStyle = FlatStyle.Flat;
+            btnNCC.Font = new Font("Segoe UI", 10.125F, FontStyle.Bold, GraphicsUnit.Point);
+            btnNCC.ForeColor = Color.White;
+            btnNCC.Image = Properties.Resources.user11;
+            btnNCC.ImageAlign = ContentAlignment.MiddleLeft;
+            btnNCC.Location = new Point(0, 0);
+            btnNCC.Name = "btnNCC";
+            btnNCC.Padding = new Padding(13, 0, 200, 0);
+            btnNCC.Size = new Size(464, 77);
+            btnNCC.TabIndex = 17;
+            btnNCC.Text = "Quản lý NCC";
+            btnNCC.UseVisualStyleBackColor = false;
+            btnNCC.Click += btnNCC_Click;
             // 
             // pnLogOut
             // 
             pnLogOut.Controls.Add(btnLogout);
             pnLogOut.Dock = DockStyle.Bottom;
-            pnLogOut.Location = new Point(0, 1002);
+            pnLogOut.Location = new Point(0, 1000);
             pnLogOut.Margin = new Padding(4);
             pnLogOut.Name = "pnLogOut";
-            pnLogOut.Size = new Size(466, 80);
+            pnLogOut.Size = new Size(464, 80);
             pnLogOut.TabIndex = 15;
             // 
             // btnLogout
@@ -187,7 +219,7 @@
             btnLogout.Margin = new Padding(0);
             btnLogout.Name = "btnLogout";
             btnLogout.Padding = new Padding(10, 0, 0, 0);
-            btnLogout.Size = new Size(466, 80);
+            btnLogout.Size = new Size(464, 80);
             btnLogout.TabIndex = 0;
             btnLogout.Text = "Đăng xuất";
             btnLogout.UseVisualStyleBackColor = false;
@@ -197,43 +229,14 @@
             // 
             pnlSubMenuDsnv.AutoScroll = true;
             pnlSubMenuDsnv.AutoSize = true;
-            pnlSubMenuDsnv.Controls.Add(panel1);
             pnlSubMenuDsnv.Controls.Add(btnUser);
             pnlSubMenuDsnv.Controls.Add(btnQLNV);
-            pnlSubMenuDsnv.Location = new Point(0, 793);
+            pnlSubMenuDsnv.Dock = DockStyle.Top;
+            pnlSubMenuDsnv.Location = new Point(0, 798);
             pnlSubMenuDsnv.Margin = new Padding(4);
             pnlSubMenuDsnv.Name = "pnlSubMenuDsnv";
-            pnlSubMenuDsnv.Size = new Size(480, 199);
+            pnlSubMenuDsnv.Size = new Size(464, 115);
             pnlSubMenuDsnv.TabIndex = 17;
-            // 
-            // panel1
-            // 
-            panel1.Controls.Add(btnNCC);
-            panel1.Dock = DockStyle.Top;
-            panel1.Location = new Point(0, 115);
-            panel1.Name = "panel1";
-            panel1.Size = new Size(480, 77);
-            panel1.TabIndex = 16;
-            // 
-            // btnNCC
-            // 
-            btnNCC.BackColor = Color.FromArgb(15, 142, 219);
-            btnNCC.Dock = DockStyle.Fill;
-            btnNCC.FlatAppearance.BorderSize = 0;
-            btnNCC.FlatAppearance.MouseOverBackColor = Color.FromArgb(15, 142, 219);
-            btnNCC.FlatStyle = FlatStyle.Flat;
-            btnNCC.Font = new Font("Segoe UI", 10.125F, FontStyle.Bold, GraphicsUnit.Point);
-            btnNCC.ForeColor = Color.White;
-            btnNCC.Image = Properties.Resources.user11;
-            btnNCC.ImageAlign = ContentAlignment.MiddleLeft;
-            btnNCC.Location = new Point(0, 0);
-            btnNCC.Name = "btnNCC";
-            btnNCC.Padding = new Padding(13, 0, 200, 0);
-            btnNCC.Size = new Size(480, 77);
-            btnNCC.TabIndex = 17;
-            btnNCC.Text = "Quản lý NCC";
-            btnNCC.UseVisualStyleBackColor = false;
-            btnNCC.Click += btnNCC_Click;
             // 
             // btnUser
             // 
@@ -247,7 +250,7 @@
             btnUser.Margin = new Padding(4);
             btnUser.Name = "btnUser";
             btnUser.Padding = new Padding(88, 0, 0, 0);
-            btnUser.Size = new Size(480, 57);
+            btnUser.Size = new Size(464, 57);
             btnUser.TabIndex = 1;
             btnUser.Text = "Quản lý tài khoản";
             btnUser.TextAlign = ContentAlignment.MiddleLeft;
@@ -266,43 +269,46 @@
             btnQLNV.Margin = new Padding(4);
             btnQLNV.Name = "btnQLNV";
             btnQLNV.Padding = new Padding(88, 0, 0, 0);
-            btnQLNV.Size = new Size(480, 58);
+            btnQLNV.Size = new Size(464, 58);
             btnQLNV.TabIndex = 0;
             btnQLNV.Text = "Quản lý nhân viên";
             btnQLNV.TextAlign = ContentAlignment.MiddleLeft;
             btnQLNV.UseVisualStyleBackColor = false;
             btnQLNV.Click += btnQLNV_Click;
             // 
-            // pnlQuanLyNhanVien
+            // pnlQLNS
             // 
-            pnlQuanLyNhanVien.Controls.Add(pbArrowQLNV);
-            pnlQuanLyNhanVien.Controls.Add(btnQLNS);
-            pnlQuanLyNhanVien.Dock = DockStyle.Top;
-            pnlQuanLyNhanVien.Location = new Point(0, 721);
-            pnlQuanLyNhanVien.Margin = new Padding(4);
-            pnlQuanLyNhanVien.Name = "pnlQuanLyNhanVien";
-            pnlQuanLyNhanVien.Size = new Size(466, 77);
-            pnlQuanLyNhanVien.TabIndex = 16;
+            pnlQLNS.BorderStyle = BorderStyle.FixedSingle;
+            pnlQLNS.Controls.Add(pbArrowQLNS);
+            pnlQLNS.Controls.Add(btnQLNS);
+            pnlQLNS.Dock = DockStyle.Top;
+            pnlQLNS.Location = new Point(0, 721);
+            pnlQLNS.Margin = new Padding(4);
+            pnlQLNS.Name = "pnlQLNS";
+            pnlQLNS.Size = new Size(464, 77);
+            pnlQLNS.TabIndex = 16;
             // 
-            // pbArrowQLNV
+            // pbArrowQLNS
             // 
-            pbArrowQLNV.BackColor = Color.FromArgb(15, 142, 219);
-            pbArrowQLNV.BackgroundImageLayout = ImageLayout.Center;
-            pbArrowQLNV.Dock = DockStyle.Right;
-            pbArrowQLNV.Image = Properties.Resources.down_arrow;
-            pbArrowQLNV.Location = new Point(381, 0);
-            pbArrowQLNV.Margin = new Padding(4);
-            pbArrowQLNV.Name = "pbArrowQLNV";
-            pbArrowQLNV.Size = new Size(85, 77);
-            pbArrowQLNV.SizeMode = PictureBoxSizeMode.CenterImage;
-            pbArrowQLNV.TabIndex = 1;
-            pbArrowQLNV.TabStop = false;
+            pbArrowQLNS.BackColor = Color.FromArgb(15, 142, 219);
+            pbArrowQLNS.BackgroundImageLayout = ImageLayout.Center;
+            pbArrowQLNS.Dock = DockStyle.Right;
+            pbArrowQLNS.Image = Properties.Resources.down_arrow;
+            pbArrowQLNS.Location = new Point(377, 0);
+            pbArrowQLNS.Margin = new Padding(4);
+            pbArrowQLNS.Name = "pbArrowQLNS";
+            pbArrowQLNS.Size = new Size(85, 75);
+            pbArrowQLNS.SizeMode = PictureBoxSizeMode.CenterImage;
+            pbArrowQLNS.TabIndex = 1;
+            pbArrowQLNS.TabStop = false;
+            pbArrowQLNS.Click += pbArrowQLNS_Click;
             // 
             // btnQLNS
             // 
             btnQLNS.BackColor = Color.FromArgb(15, 142, 219);
             btnQLNS.Dock = DockStyle.Fill;
             btnQLNS.FlatAppearance.BorderSize = 0;
+            btnQLNS.FlatAppearance.MouseDownBackColor = Color.FromArgb(15, 142, 219);
             btnQLNS.FlatAppearance.MouseOverBackColor = Color.FromArgb(15, 142, 219);
             btnQLNS.FlatStyle = FlatStyle.Flat;
             btnQLNS.Font = new Font("Segoe UI", 10.125F, FontStyle.Bold, GraphicsUnit.Point);
@@ -313,10 +319,11 @@
             btnQLNS.Margin = new Padding(0);
             btnQLNS.Name = "btnQLNS";
             btnQLNS.Padding = new Padding(13, 0, 150, 0);
-            btnQLNS.Size = new Size(466, 77);
+            btnQLNS.Size = new Size(462, 75);
             btnQLNS.TabIndex = 0;
             btnQLNS.Text = "Quản lý nhân sự";
             btnQLNS.UseVisualStyleBackColor = false;
+            btnQLNS.Click += btnQLNS_Click;
             // 
             // pnlSubMenuQLTK
             // 
@@ -326,7 +333,7 @@
             pnlSubMenuQLTK.Location = new Point(0, 721);
             pnlSubMenuQLTK.Margin = new Padding(4);
             pnlSubMenuQLTK.Name = "pnlSubMenuQLTK";
-            pnlSubMenuQLTK.Size = new Size(466, 0);
+            pnlSubMenuQLTK.Size = new Size(464, 0);
             pnlSubMenuQLTK.TabIndex = 14;
             // 
             // pnlSubMenuDssp
@@ -339,7 +346,7 @@
             pnlSubMenuDssp.Location = new Point(0, 605);
             pnlSubMenuDssp.Margin = new Padding(4);
             pnlSubMenuDssp.Name = "pnlSubMenuDssp";
-            pnlSubMenuDssp.Size = new Size(466, 116);
+            pnlSubMenuDssp.Size = new Size(464, 116);
             pnlSubMenuDssp.TabIndex = 12;
             // 
             // btnQLNT
@@ -354,7 +361,7 @@
             btnQLNT.Margin = new Padding(4);
             btnQLNT.Name = "btnQLNT";
             btnQLNT.Padding = new Padding(88, 0, 0, 0);
-            btnQLNT.Size = new Size(466, 58);
+            btnQLNT.Size = new Size(464, 58);
             btnQLNT.TabIndex = 1;
             btnQLNT.Text = "Quản lý nhóm thuốc";
             btnQLNT.TextAlign = ContentAlignment.MiddleLeft;
@@ -373,7 +380,7 @@
             btnQLT.Margin = new Padding(4);
             btnQLT.Name = "btnQLT";
             btnQLT.Padding = new Padding(88, 0, 0, 0);
-            btnQLT.Size = new Size(466, 58);
+            btnQLT.Size = new Size(464, 58);
             btnQLT.TabIndex = 0;
             btnQLT.Text = "Quản lý thuốc";
             btnQLT.TextAlign = ContentAlignment.MiddleLeft;
@@ -382,13 +389,14 @@
             // 
             // pnlDssp
             // 
+            pnlDssp.BorderStyle = BorderStyle.FixedSingle;
             pnlDssp.Controls.Add(pbArrowQLSP);
             pnlDssp.Controls.Add(btnQuanLySanPham);
             pnlDssp.Dock = DockStyle.Top;
             pnlDssp.Location = new Point(0, 528);
             pnlDssp.Margin = new Padding(4);
             pnlDssp.Name = "pnlDssp";
-            pnlDssp.Size = new Size(466, 77);
+            pnlDssp.Size = new Size(464, 77);
             pnlDssp.TabIndex = 11;
             // 
             // pbArrowQLSP
@@ -397,19 +405,21 @@
             pbArrowQLSP.BackgroundImageLayout = ImageLayout.Center;
             pbArrowQLSP.Dock = DockStyle.Right;
             pbArrowQLSP.Image = Properties.Resources.down_arrow;
-            pbArrowQLSP.Location = new Point(381, 0);
+            pbArrowQLSP.Location = new Point(377, 0);
             pbArrowQLSP.Margin = new Padding(4);
             pbArrowQLSP.Name = "pbArrowQLSP";
-            pbArrowQLSP.Size = new Size(85, 77);
+            pbArrowQLSP.Size = new Size(85, 75);
             pbArrowQLSP.SizeMode = PictureBoxSizeMode.CenterImage;
             pbArrowQLSP.TabIndex = 1;
             pbArrowQLSP.TabStop = false;
+            pbArrowQLSP.Click += pbArrowQLSP_Click;
             // 
             // btnQuanLySanPham
             // 
             btnQuanLySanPham.BackColor = Color.FromArgb(15, 142, 219);
             btnQuanLySanPham.Dock = DockStyle.Fill;
             btnQuanLySanPham.FlatAppearance.BorderSize = 0;
+            btnQuanLySanPham.FlatAppearance.MouseDownBackColor = Color.FromArgb(15, 142, 219);
             btnQuanLySanPham.FlatAppearance.MouseOverBackColor = Color.FromArgb(15, 142, 219);
             btnQuanLySanPham.FlatStyle = FlatStyle.Flat;
             btnQuanLySanPham.Font = new Font("Segoe UI", 10.125F, FontStyle.Bold, GraphicsUnit.Point);
@@ -420,10 +430,11 @@
             btnQuanLySanPham.Margin = new Padding(0);
             btnQuanLySanPham.Name = "btnQuanLySanPham";
             btnQuanLySanPham.Padding = new Padding(13, 0, 130, 0);
-            btnQuanLySanPham.Size = new Size(466, 77);
+            btnQuanLySanPham.Size = new Size(462, 75);
             btnQuanLySanPham.TabIndex = 0;
             btnQuanLySanPham.Text = "Quản lý sản phẩm";
             btnQuanLySanPham.UseVisualStyleBackColor = false;
+            btnQuanLySanPham.Click += btnQuanLySanPham_Click;
             // 
             // pnlSubMenuKho
             // 
@@ -438,7 +449,7 @@
             pnlSubMenuKho.Location = new Point(0, 238);
             pnlSubMenuKho.Margin = new Padding(4);
             pnlSubMenuKho.Name = "pnlSubMenuKho";
-            pnlSubMenuKho.Size = new Size(466, 290);
+            pnlSubMenuKho.Size = new Size(464, 290);
             pnlSubMenuKho.TabIndex = 10;
             // 
             // btnQLDX
@@ -454,7 +465,7 @@
             btnQLDX.Margin = new Padding(4);
             btnQLDX.Name = "btnQLDX";
             btnQLDX.Padding = new Padding(88, 0, 0, 0);
-            btnQLDX.Size = new Size(466, 58);
+            btnQLDX.Size = new Size(464, 58);
             btnQLDX.TabIndex = 2;
             btnQLDX.Text = "Quản lý đơn xuất";
             btnQLDX.TextAlign = ContentAlignment.MiddleLeft;
@@ -474,7 +485,7 @@
             btnQLDN.Margin = new Padding(4);
             btnQLDN.Name = "btnQLDN";
             btnQLDN.Padding = new Padding(88, 0, 0, 0);
-            btnQLDN.Size = new Size(466, 58);
+            btnQLDN.Size = new Size(464, 58);
             btnQLDN.TabIndex = 5;
             btnQLDN.Text = "Quản lý đơn nhập";
             btnQLDN.TextAlign = ContentAlignment.MiddleLeft;
@@ -494,7 +505,7 @@
             btnQLLo.Margin = new Padding(4);
             btnQLLo.Name = "btnQLLo";
             btnQLLo.Padding = new Padding(88, 0, 0, 0);
-            btnQLLo.Size = new Size(466, 58);
+            btnQLLo.Size = new Size(464, 58);
             btnQLLo.TabIndex = 4;
             btnQLLo.Text = "Quản lý lô";
             btnQLLo.TextAlign = ContentAlignment.MiddleLeft;
@@ -514,7 +525,7 @@
             btnQLK.Margin = new Padding(4);
             btnQLK.Name = "btnQLK";
             btnQLK.Padding = new Padding(88, 0, 0, 0);
-            btnQLK.Size = new Size(466, 58);
+            btnQLK.Size = new Size(464, 58);
             btnQLK.TabIndex = 0;
             btnQLK.Text = "Quản lý kho";
             btnQLK.TextAlign = ContentAlignment.MiddleLeft;
@@ -534,7 +545,7 @@
             btnQLCN.Margin = new Padding(4);
             btnQLCN.Name = "btnQLCN";
             btnQLCN.Padding = new Padding(88, 0, 0, 0);
-            btnQLCN.Size = new Size(466, 58);
+            btnQLCN.Size = new Size(464, 58);
             btnQLCN.TabIndex = 2;
             btnQLCN.Text = "Quản lý chi nhánh";
             btnQLCN.TextAlign = ContentAlignment.MiddleLeft;
@@ -543,13 +554,14 @@
             // 
             // pnlDsKho
             // 
+            pnlDsKho.BorderStyle = BorderStyle.FixedSingle;
             pnlDsKho.Controls.Add(pbArrowQLK);
             pnlDsKho.Controls.Add(btnQuanLyKho);
             pnlDsKho.Dock = DockStyle.Top;
             pnlDsKho.Location = new Point(0, 161);
             pnlDsKho.Margin = new Padding(4);
             pnlDsKho.Name = "pnlDsKho";
-            pnlDsKho.Size = new Size(466, 77);
+            pnlDsKho.Size = new Size(464, 77);
             pnlDsKho.TabIndex = 9;
             // 
             // pbArrowQLK
@@ -558,20 +570,21 @@
             pbArrowQLK.BackgroundImageLayout = ImageLayout.Center;
             pbArrowQLK.Dock = DockStyle.Right;
             pbArrowQLK.Image = Properties.Resources.down_arrow;
-            pbArrowQLK.Location = new Point(381, 0);
+            pbArrowQLK.Location = new Point(377, 0);
             pbArrowQLK.Margin = new Padding(4);
             pbArrowQLK.Name = "pbArrowQLK";
-            pbArrowQLK.Size = new Size(85, 77);
+            pbArrowQLK.Size = new Size(85, 75);
             pbArrowQLK.SizeMode = PictureBoxSizeMode.CenterImage;
             pbArrowQLK.TabIndex = 0;
             pbArrowQLK.TabStop = false;
+            pbArrowQLK.Click += pbArrowQLK_Click;
             // 
             // btnQuanLyKho
             // 
             btnQuanLyKho.BackColor = Color.FromArgb(15, 142, 219);
             btnQuanLyKho.Dock = DockStyle.Fill;
             btnQuanLyKho.FlatAppearance.BorderSize = 0;
-            btnQuanLyKho.FlatAppearance.MouseDownBackColor = Color.White;
+            btnQuanLyKho.FlatAppearance.MouseDownBackColor = Color.FromArgb(15, 142, 219);
             btnQuanLyKho.FlatAppearance.MouseOverBackColor = Color.FromArgb(15, 142, 219);
             btnQuanLyKho.FlatStyle = FlatStyle.Flat;
             btnQuanLyKho.Font = new Font("Segoe UI", 10.125F, FontStyle.Bold, GraphicsUnit.Point);
@@ -582,10 +595,11 @@
             btnQuanLyKho.Margin = new Padding(0);
             btnQuanLyKho.Name = "btnQuanLyKho";
             btnQuanLyKho.Padding = new Padding(10, 0, 200, 0);
-            btnQuanLyKho.Size = new Size(466, 77);
+            btnQuanLyKho.Size = new Size(462, 75);
             btnQuanLyKho.TabIndex = 0;
             btnQuanLyKho.Text = "Quản lý kho";
             btnQuanLyKho.UseVisualStyleBackColor = false;
+            btnQuanLyKho.Click += btnQuanLyKho_Click;
             // 
             // pbLogo
             // 
@@ -595,7 +609,7 @@
             pbLogo.Location = new Point(0, 73);
             pbLogo.Margin = new Padding(0);
             pbLogo.Name = "pbLogo";
-            pbLogo.Size = new Size(466, 88);
+            pbLogo.Size = new Size(464, 88);
             pbLogo.SizeMode = PictureBoxSizeMode.CenterImage;
             pbLogo.TabIndex = 0;
             pbLogo.TabStop = false;
@@ -607,7 +621,7 @@
             pnlMenu.Location = new Point(0, 0);
             pnlMenu.Margin = new Padding(0);
             pnlMenu.Name = "pnlMenu";
-            pnlMenu.Size = new Size(466, 73);
+            pnlMenu.Size = new Size(464, 73);
             pnlMenu.TabIndex = 8;
             // 
             // tlpMenu
@@ -625,7 +639,7 @@
             tlpMenu.RowCount = 1;
             tlpMenu.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
             tlpMenu.RowStyles.Add(new RowStyle(SizeType.Absolute, 73F));
-            tlpMenu.Size = new Size(466, 73);
+            tlpMenu.Size = new Size(464, 73);
             tlpMenu.TabIndex = 0;
             // 
             // btnMenu
@@ -634,11 +648,12 @@
             btnMenu.BackgroundImageLayout = ImageLayout.None;
             btnMenu.Dock = DockStyle.Fill;
             btnMenu.FlatAppearance.BorderSize = 0;
+            btnMenu.FlatAppearance.MouseDownBackColor = Color.FromArgb(64, 64, 64);
             btnMenu.FlatAppearance.MouseOverBackColor = Color.FromArgb(64, 64, 64);
             btnMenu.FlatStyle = FlatStyle.Flat;
             btnMenu.ForeColor = Color.Black;
             btnMenu.Image = (Image)resources.GetObject("btnMenu.Image");
-            btnMenu.Location = new Point(352, 0);
+            btnMenu.Location = new Point(350, 0);
             btnMenu.Margin = new Padding(0);
             btnMenu.Name = "btnMenu";
             btnMenu.Size = new Size(114, 73);
@@ -655,7 +670,7 @@
             label2.Margin = new Padding(0);
             label2.Name = "label2";
             label2.Padding = new Padding(100, 0, 0, 0);
-            label2.Size = new Size(352, 73);
+            label2.Size = new Size(350, 73);
             label2.TabIndex = 1;
             label2.Text = "QUẢN LÝ";
             label2.TextAlign = ContentAlignment.MiddleCenter;
@@ -667,7 +682,7 @@
             panel7.Location = new Point(0, 0);
             panel7.Margin = new Padding(4);
             panel7.Name = "panel7";
-            panel7.Size = new Size(466, 0);
+            panel7.Size = new Size(464, 0);
             panel7.TabIndex = 7;
             // 
             // UC_Main
@@ -681,13 +696,13 @@
             tlpFrmMain.ResumeLayout(false);
             tlpFrmMain.PerformLayout();
             pnlTitleBar.ResumeLayout(false);
-            pnlSideBar.ResumeLayout(false);
-            pnlSideBar.PerformLayout();
+            pnlNCC.ResumeLayout(false);
+            pnlNCC.PerformLayout();
+            panel1.ResumeLayout(false);
             pnLogOut.ResumeLayout(false);
             pnlSubMenuDsnv.ResumeLayout(false);
-            panel1.ResumeLayout(false);
-            pnlQuanLyNhanVien.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)pbArrowQLNV).EndInit();
+            pnlQLNS.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)pbArrowQLNS).EndInit();
             pnlSubMenuDssp.ResumeLayout(false);
             pnlDssp.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)pbArrowQLSP).EndInit();
@@ -704,12 +719,12 @@
         #endregion
 
         private TableLayoutPanel tlpFrmMain;
-        private Panel pnlSideBar;
+        private Panel pnlNCC;
         private Panel pnlSubMenuDsnv;
         private Button btnUser;
         private Button btnQLNV;
-        private Panel pnlQuanLyNhanVien;
-        private PictureBox pbArrowQLNV;
+        private Panel pnlQLNS;
+        private PictureBox pbArrowQLNS;
         private Button btnQLNS;
         private Panel pnLogOut;
         private Button btnLogout;

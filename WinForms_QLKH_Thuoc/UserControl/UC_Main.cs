@@ -129,5 +129,79 @@ namespace FormQLKH
             ucNCC.Dock = DockStyle.Fill;
             ucNCC.Show();
         }
+
+        private bool isSubMenuVisible = true;
+
+        private void ToggleQLK()
+        {
+            if (isSubMenuVisible)
+            {
+                pnlSubMenuKho.Visible = false;
+                pbArrowQLK.Image = Properties.Resources.up_arrow;
+            }
+            else
+            {
+                pnlSubMenuKho.Visible = true;
+                pbArrowQLK.Image = Properties.Resources.down_arrow;
+            }
+
+            isSubMenuVisible = !isSubMenuVisible;
+        }
+        private void pbArrowQLK_Click(object sender, EventArgs e)
+        {
+            ToggleQLK();
+        }
+        private void btnQuanLyKho_Click(object sender, EventArgs e)
+        {
+            ToggleQLK();
+        }
+
+        private void ToggleQLSP()
+        {
+            if (isSubMenuVisible)
+            {
+                pnlSubMenuDssp.Visible = false;
+                pbArrowQLSP.Image = Properties.Resources.up_arrow;
+            }
+            else
+            {
+                pnlSubMenuDssp.Visible = true;
+                pbArrowQLSP.Image = Properties.Resources.down_arrow;
+            }
+
+            isSubMenuVisible = !isSubMenuVisible;
+        }
+        private void pbArrowQLSP_Click(object sender, EventArgs e)
+        {
+            ToggleQLSP();
+        }
+        private void btnQuanLySanPham_Click(object sender, EventArgs e)
+        {
+            ToggleQLSP();
+        }
+
+        private void ToggleQLNV()
+        {
+            if (isSubMenuVisible)
+            {
+                pnlSubMenuDsnv.Visible = false;
+                pbArrowQLNS.Image = Properties.Resources.up_arrow;
+            }
+            else
+            {
+                pnlSubMenuDsnv.Visible = true;
+                pbArrowQLNS.Image = Properties.Resources.down_arrow;
+            }
+
+            isSubMenuVisible = !isSubMenuVisible;
+        }
+        private void pbArrowQLNS_Click(object sender, EventArgs e)
+        {
+            ToggleQLNV();
+        }
+        private void btnQLNS_Click(object sender, EventArgs e)
+        {
+            ToggleQLNV();
+        }
     }
 }
