@@ -23,7 +23,6 @@ namespace FormQLKH
     {
         private readonly TaiKhoanService tKService;
         private readonly RoleService roleService;
-        private DbContextOptions<QLKH_ThuocContext> option;
 
         public UC_QLTaiKhoan()
         {

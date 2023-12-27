@@ -34,19 +34,19 @@
             lbQLDX = new Label();
             splQLDX_TT_TK = new SplitContainer();
             grbQLDX_TT = new GroupBox();
+            cbQLDX_MaNV = new ComboBox();
             dtpQLDX_NgayXuat = new DateTimePicker();
             txtQLDX_TenDX = new TextBox();
-            txtQLDX_MaNV = new TextBox();
             txtQLDX_MaDX = new TextBox();
             lbQLDX_NgayXuat = new Label();
             lbQLDX_TenDX = new Label();
             lbQLDX_MaNV = new Label();
             lbQLDX_MaDX = new Label();
             grbQLDX_TK = new GroupBox();
+            cbQLDX_TK_MaDX = new ComboBox();
+            cbQLDX_TK_MaNV = new ComboBox();
             label2 = new Label();
             label1 = new Label();
-            txtQLDX_TK_MaNV = new TextBox();
-            txtQLDX_TK_MaDX = new TextBox();
             splQLDX_CN_HT = new SplitContainer();
             grbQLDX_CN = new GroupBox();
             btnQLDX_Them = new Button();
@@ -56,10 +56,10 @@
             btnQLDX_Sua = new Button();
             grbQLDX_HT = new GroupBox();
             dgvQLDX = new DataGridView();
-            Column1 = new DataGridViewTextBoxColumn();
-            Column2 = new DataGridViewTextBoxColumn();
-            Column3 = new DataGridViewTextBoxColumn();
-            Column4 = new DataGridViewTextBoxColumn();
+            DXuat_ID = new DataGridViewTextBoxColumn();
+            NV_ID = new DataGridViewTextBoxColumn();
+            DX_Name = new DataGridViewTextBoxColumn();
+            DX_Datetime = new DataGridViewTextBoxColumn();
             tlpQLDX.SuspendLayout();
             pnQLDX.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)splQLDX_TT_TK).BeginInit();
@@ -138,9 +138,9 @@
             // 
             // grbQLDX_TT
             // 
+            grbQLDX_TT.Controls.Add(cbQLDX_MaNV);
             grbQLDX_TT.Controls.Add(dtpQLDX_NgayXuat);
             grbQLDX_TT.Controls.Add(txtQLDX_TenDX);
-            grbQLDX_TT.Controls.Add(txtQLDX_MaNV);
             grbQLDX_TT.Controls.Add(txtQLDX_MaDX);
             grbQLDX_TT.Controls.Add(lbQLDX_NgayXuat);
             grbQLDX_TT.Controls.Add(lbQLDX_TenDX);
@@ -154,30 +154,31 @@
             grbQLDX_TT.TabStop = false;
             grbQLDX_TT.Text = "Thông tin";
             // 
+            // cbQLDX_MaNV
+            // 
+            cbQLDX_MaNV.FormattingEnabled = true;
+            cbQLDX_MaNV.Location = new Point(204, 173);
+            cbQLDX_MaNV.Name = "cbQLDX_MaNV";
+            cbQLDX_MaNV.Size = new Size(229, 45);
+            cbQLDX_MaNV.TabIndex = 8;
+            // 
             // dtpQLDX_NgayXuat
             // 
             dtpQLDX_NgayXuat.CustomFormat = "dd/MM/yyyy";
             dtpQLDX_NgayXuat.Format = DateTimePickerFormat.Custom;
-            dtpQLDX_NgayXuat.Location = new Point(654, 69);
+            dtpQLDX_NgayXuat.Location = new Point(689, 69);
             dtpQLDX_NgayXuat.Name = "dtpQLDX_NgayXuat";
-            dtpQLDX_NgayXuat.Size = new Size(291, 43);
+            dtpQLDX_NgayXuat.Size = new Size(272, 43);
             dtpQLDX_NgayXuat.TabIndex = 7;
             dtpQLDX_NgayXuat.Value = new DateTime(2023, 11, 27, 12, 53, 49, 0);
             // 
             // txtQLDX_TenDX
             // 
-            txtQLDX_TenDX.Location = new Point(654, 165);
+            txtQLDX_TenDX.Location = new Point(689, 165);
             txtQLDX_TenDX.Multiline = true;
             txtQLDX_TenDX.Name = "txtQLDX_TenDX";
-            txtQLDX_TenDX.Size = new Size(291, 109);
+            txtQLDX_TenDX.Size = new Size(274, 126);
             txtQLDX_TenDX.TabIndex = 6;
-            // 
-            // txtQLDX_MaNV
-            // 
-            txtQLDX_MaNV.Location = new Point(204, 165);
-            txtQLDX_MaNV.Name = "txtQLDX_MaNV";
-            txtQLDX_MaNV.Size = new Size(229, 43);
-            txtQLDX_MaNV.TabIndex = 5;
             // 
             // txtQLDX_MaDX
             // 
@@ -192,7 +193,7 @@
             lbQLDX_NgayXuat.BackColor = SystemColors.Control;
             lbQLDX_NgayXuat.BorderStyle = BorderStyle.Fixed3D;
             lbQLDX_NgayXuat.Font = new Font("Segoe UI Semibold", 10.125F, FontStyle.Bold, GraphicsUnit.Point);
-            lbQLDX_NgayXuat.Location = new Point(458, 69);
+            lbQLDX_NgayXuat.Location = new Point(489, 69);
             lbQLDX_NgayXuat.Name = "lbQLDX_NgayXuat";
             lbQLDX_NgayXuat.Size = new Size(145, 39);
             lbQLDX_NgayXuat.TabIndex = 3;
@@ -204,7 +205,7 @@
             lbQLDX_TenDX.BackColor = SystemColors.Control;
             lbQLDX_TenDX.BorderStyle = BorderStyle.Fixed3D;
             lbQLDX_TenDX.Font = new Font("Segoe UI Semibold", 10.125F, FontStyle.Bold, GraphicsUnit.Point);
-            lbQLDX_TenDX.Location = new Point(458, 168);
+            lbQLDX_TenDX.Location = new Point(489, 168);
             lbQLDX_TenDX.Name = "lbQLDX_TenDX";
             lbQLDX_TenDX.Size = new Size(178, 39);
             lbQLDX_TenDX.TabIndex = 2;
@@ -236,10 +237,10 @@
             // 
             // grbQLDX_TK
             // 
+            grbQLDX_TK.Controls.Add(cbQLDX_TK_MaDX);
+            grbQLDX_TK.Controls.Add(cbQLDX_TK_MaNV);
             grbQLDX_TK.Controls.Add(label2);
             grbQLDX_TK.Controls.Add(label1);
-            grbQLDX_TK.Controls.Add(txtQLDX_TK_MaNV);
-            grbQLDX_TK.Controls.Add(txtQLDX_TK_MaDX);
             grbQLDX_TK.Dock = DockStyle.Fill;
             grbQLDX_TK.Location = new Point(0, 0);
             grbQLDX_TK.Name = "grbQLDX_TK";
@@ -248,13 +249,29 @@
             grbQLDX_TK.TabStop = false;
             grbQLDX_TK.Text = "Tìm kiếm";
             // 
+            // cbQLDX_TK_MaDX
+            // 
+            cbQLDX_TK_MaDX.FormattingEnabled = true;
+            cbQLDX_TK_MaDX.Location = new Point(217, 64);
+            cbQLDX_TK_MaDX.Name = "cbQLDX_TK_MaDX";
+            cbQLDX_TK_MaDX.Size = new Size(212, 45);
+            cbQLDX_TK_MaDX.TabIndex = 10;
+            // 
+            // cbQLDX_TK_MaNV
+            // 
+            cbQLDX_TK_MaNV.FormattingEnabled = true;
+            cbQLDX_TK_MaNV.Location = new Point(217, 183);
+            cbQLDX_TK_MaNV.Name = "cbQLDX_TK_MaNV";
+            cbQLDX_TK_MaNV.Size = new Size(212, 45);
+            cbQLDX_TK_MaNV.TabIndex = 9;
+            // 
             // label2
             // 
             label2.AutoSize = true;
             label2.BackColor = SystemColors.Control;
             label2.BorderStyle = BorderStyle.Fixed3D;
             label2.Font = new Font("Segoe UI Semibold", 10.125F, FontStyle.Bold, GraphicsUnit.Point);
-            label2.Location = new Point(21, 171);
+            label2.Location = new Point(21, 189);
             label2.Name = "label2";
             label2.Size = new Size(103, 39);
             label2.TabIndex = 5;
@@ -271,20 +288,6 @@
             label1.Size = new Size(175, 39);
             label1.TabIndex = 4;
             label1.Text = "Mã đơn xuất";
-            // 
-            // txtQLDX_TK_MaNV
-            // 
-            txtQLDX_TK_MaNV.Location = new Point(213, 168);
-            txtQLDX_TK_MaNV.Name = "txtQLDX_TK_MaNV";
-            txtQLDX_TK_MaNV.Size = new Size(211, 43);
-            txtQLDX_TK_MaNV.TabIndex = 3;
-            // 
-            // txtQLDX_TK_MaDX
-            // 
-            txtQLDX_TK_MaDX.Location = new Point(213, 67);
-            txtQLDX_TK_MaDX.Name = "txtQLDX_TK_MaDX";
-            txtQLDX_TK_MaDX.Size = new Size(211, 43);
-            txtQLDX_TK_MaDX.TabIndex = 1;
             // 
             // splQLDX_CN_HT
             // 
@@ -409,7 +412,7 @@
             // dgvQLDX
             // 
             dgvQLDX.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-            dgvQLDX.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
+            dgvQLDX.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.DisplayedCells;
             dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle1.BackColor = SystemColors.Control;
             dataGridViewCellStyle1.Font = new Font("Segoe UI", 10.125F, FontStyle.Regular, GraphicsUnit.Point);
@@ -419,7 +422,7 @@
             dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
             dgvQLDX.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             dgvQLDX.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgvQLDX.Columns.AddRange(new DataGridViewColumn[] { Column1, Column2, Column3, Column4 });
+            dgvQLDX.Columns.AddRange(new DataGridViewColumn[] { DXuat_ID, NV_ID, DX_Name, DX_Datetime });
             dgvQLDX.Dock = DockStyle.Fill;
             dgvQLDX.Location = new Point(3, 39);
             dgvQLDX.Name = "dgvQLDX";
@@ -428,30 +431,36 @@
             dgvQLDX.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dgvQLDX.Size = new Size(1183, 642);
             dgvQLDX.TabIndex = 2;
+            dgvQLDX.RowPostPaint += dgvQLDX_RowPostPaint;
+            dgvQLDX.SelectionChanged += dgvQLDX_SelectionChanged;
             // 
-            // Column1
+            // DXuat_ID
             // 
-            Column1.HeaderText = "Mã đơn xuất";
-            Column1.MinimumWidth = 10;
-            Column1.Name = "Column1";
+            DXuat_ID.DataPropertyName = "DXuat_ID";
+            DXuat_ID.HeaderText = "Mã đơn xuất";
+            DXuat_ID.MinimumWidth = 10;
+            DXuat_ID.Name = "DXuat_ID";
             // 
-            // Column2
+            // NV_ID
             // 
-            Column2.HeaderText = "Mã nhân viên";
-            Column2.MinimumWidth = 10;
-            Column2.Name = "Column2";
+            NV_ID.DataPropertyName = "NV_ID";
+            NV_ID.HeaderText = "Mã nhân viên";
+            NV_ID.MinimumWidth = 10;
+            NV_ID.Name = "NV_ID";
             // 
-            // Column3
+            // DX_Name
             // 
-            Column3.HeaderText = "Tên đơn";
-            Column3.MinimumWidth = 10;
-            Column3.Name = "Column3";
+            DX_Name.DataPropertyName = "DX_Name";
+            DX_Name.HeaderText = "Tên đơn";
+            DX_Name.MinimumWidth = 10;
+            DX_Name.Name = "DX_Name";
             // 
-            // Column4
+            // DX_Datetime
             // 
-            Column4.HeaderText = "Ngày xuất";
-            Column4.MinimumWidth = 10;
-            Column4.Name = "Column4";
+            DX_Datetime.DataPropertyName = "DX_Datetime";
+            DX_Datetime.HeaderText = "Ngày xuất";
+            DX_Datetime.MinimumWidth = 10;
+            DX_Datetime.Name = "DX_Datetime";
             // 
             // UC_QLDonXuat
             // 
@@ -490,15 +499,12 @@
         private GroupBox grbQLDX_TT;
         private DateTimePicker dtpQLDX_NgayXuat;
         private TextBox txtQLDX_TenDX;
-        private TextBox txtQLDX_MaNV;
         private TextBox txtQLDX_MaDX;
         private Label lbQLDX_NgayXuat;
         private Label lbQLDX_TenDX;
         private Label lbQLDX_MaNV;
         private Label lbQLDX_MaDX;
         private GroupBox grbQLDX_TK;
-        private TextBox txtQLDX_TK_MaNV;
-        private TextBox txtQLDX_TK_MaDX;
         private SplitContainer splQLDX_CN_HT;
         private GroupBox grbQLDX_CN;
         private GroupBox grbQLDX_HT;
@@ -510,9 +516,12 @@
         private Button btnQLDX_Sua;
         private Label label2;
         private Label label1;
-        private DataGridViewTextBoxColumn Column1;
-        private DataGridViewTextBoxColumn Column2;
-        private DataGridViewTextBoxColumn Column3;
-        private DataGridViewTextBoxColumn Column4;
+        private ComboBox cbQLDX_MaNV;
+        private ComboBox cbQLDX_TK_MaDX;
+        private ComboBox cbQLDX_TK_MaNV;
+        private DataGridViewTextBoxColumn DXuat_ID;
+        private DataGridViewTextBoxColumn NV_ID;
+        private DataGridViewTextBoxColumn DX_Name;
+        private DataGridViewTextBoxColumn DX_Datetime;
     }
 }

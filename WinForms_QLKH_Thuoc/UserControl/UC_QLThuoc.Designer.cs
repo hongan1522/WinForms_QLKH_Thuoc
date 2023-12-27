@@ -41,23 +41,23 @@
             btnQLT_Xoa = new Button();
             grbQLT_HT = new GroupBox();
             dgvQLT = new DataGridView();
-            Column1 = new DataGridViewTextBoxColumn();
-            Column4 = new DataGridViewTextBoxColumn();
-            Column2 = new DataGridViewTextBoxColumn();
+            Thuoc_ID = new DataGridViewTextBoxColumn();
+            Nhom_ID = new DataGridViewTextBoxColumn();
+            Thuoc_Name = new DataGridViewTextBoxColumn();
             pnQLT_TT_CN = new Panel();
             splQLT_TT_TK = new SplitContainer();
             grbQLT_TT = new GroupBox();
+            cbQLT_MaNhom = new ComboBox();
             txtQLT_TenThuoc = new TextBox();
-            txtQLT_MaNhom = new TextBox();
             txtQLT_MaThuoc = new TextBox();
             lbQLT_MaNhom = new Label();
             lbQLT_TenThuoc = new Label();
             lbQLT_MaThuoc = new Label();
             grbQLT_CN = new GroupBox();
+            cbQLT_TK_MaThuoc = new ComboBox();
             lbQLT_TK_TenThuoc = new Label();
             lbQLT_TK_MaThuoc = new Label();
             txtQLT_TK_TenThuoc = new TextBox();
-            txtQLT_TK_MaThuoc = new TextBox();
             tlpQLT.SuspendLayout();
             pnQLT.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)splQLT_CN_HT).BeginInit();
@@ -159,7 +159,7 @@
             btnQLT_Them.ForeColor = SystemColors.ControlText;
             btnQLT_Them.Image = Properties.Resources.add;
             btnQLT_Them.ImageAlign = ContentAlignment.MiddleLeft;
-            btnQLT_Them.Location = new Point(32, 42);
+            btnQLT_Them.Location = new Point(56, 54);
             btnQLT_Them.Name = "btnQLT_Them";
             btnQLT_Them.Size = new Size(169, 64);
             btnQLT_Them.TabIndex = 6;
@@ -175,7 +175,7 @@
             btnQLT_Export.ForeColor = SystemColors.ControlText;
             btnQLT_Export.Image = Properties.Resources.export;
             btnQLT_Export.ImageAlign = ContentAlignment.MiddleLeft;
-            btnQLT_Export.Location = new Point(1192, 42);
+            btnQLT_Export.Location = new Point(1216, 54);
             btnQLT_Export.Name = "btnQLT_Export";
             btnQLT_Export.Size = new Size(169, 64);
             btnQLT_Export.TabIndex = 9;
@@ -191,7 +191,7 @@
             btnQLT_Sua.ForeColor = SystemColors.ControlText;
             btnQLT_Sua.Image = Properties.Resources.update;
             btnQLT_Sua.ImageAlign = ContentAlignment.MiddleLeft;
-            btnQLT_Sua.Location = new Point(322, 42);
+            btnQLT_Sua.Location = new Point(346, 54);
             btnQLT_Sua.Name = "btnQLT_Sua";
             btnQLT_Sua.Size = new Size(169, 64);
             btnQLT_Sua.TabIndex = 11;
@@ -207,7 +207,7 @@
             btnQLT_Import.ForeColor = SystemColors.ControlText;
             btnQLT_Import.Image = Properties.Resources.import;
             btnQLT_Import.ImageAlign = ContentAlignment.MiddleLeft;
-            btnQLT_Import.Location = new Point(902, 42);
+            btnQLT_Import.Location = new Point(926, 54);
             btnQLT_Import.Name = "btnQLT_Import";
             btnQLT_Import.Size = new Size(169, 64);
             btnQLT_Import.TabIndex = 10;
@@ -223,7 +223,7 @@
             btnQLT_Xoa.ForeColor = SystemColors.ControlText;
             btnQLT_Xoa.Image = Properties.Resources.delete;
             btnQLT_Xoa.ImageAlign = ContentAlignment.MiddleLeft;
-            btnQLT_Xoa.Location = new Point(612, 42);
+            btnQLT_Xoa.Location = new Point(636, 54);
             btnQLT_Xoa.Name = "btnQLT_Xoa";
             btnQLT_Xoa.Size = new Size(169, 64);
             btnQLT_Xoa.TabIndex = 7;
@@ -254,7 +254,7 @@
             dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
             dgvQLT.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             dgvQLT.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgvQLT.Columns.AddRange(new DataGridViewColumn[] { Column1, Column4, Column2 });
+            dgvQLT.Columns.AddRange(new DataGridViewColumn[] { Thuoc_ID, Nhom_ID, Thuoc_Name });
             dgvQLT.Dock = DockStyle.Fill;
             dgvQLT.Location = new Point(3, 39);
             dgvQLT.Name = "dgvQLT";
@@ -263,24 +263,29 @@
             dgvQLT.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dgvQLT.Size = new Size(1436, 488);
             dgvQLT.TabIndex = 0;
+            dgvQLT.RowPostPaint += dgvQLT_RowPostPaint;
+            dgvQLT.SelectionChanged += dgvQLT_SelectionChanged;
             // 
-            // Column1
+            // Thuoc_ID
             // 
-            Column1.HeaderText = "Mã thuốc";
-            Column1.MinimumWidth = 10;
-            Column1.Name = "Column1";
+            Thuoc_ID.DataPropertyName = "Thuoc_ID";
+            Thuoc_ID.HeaderText = "Mã thuốc";
+            Thuoc_ID.MinimumWidth = 10;
+            Thuoc_ID.Name = "Thuoc_ID";
             // 
-            // Column4
+            // Nhom_ID
             // 
-            Column4.HeaderText = "Mã nhóm thuốc";
-            Column4.MinimumWidth = 10;
-            Column4.Name = "Column4";
+            Nhom_ID.DataPropertyName = "Nhom_ID";
+            Nhom_ID.HeaderText = "Mã nhóm thuốc";
+            Nhom_ID.MinimumWidth = 10;
+            Nhom_ID.Name = "Nhom_ID";
             // 
-            // Column2
+            // Thuoc_Name
             // 
-            Column2.HeaderText = "Tên thuốc";
-            Column2.MinimumWidth = 10;
-            Column2.Name = "Column2";
+            Thuoc_Name.DataPropertyName = "Thuoc_Name";
+            Thuoc_Name.HeaderText = "Tên thuốc";
+            Thuoc_Name.MinimumWidth = 10;
+            Thuoc_Name.Name = "Thuoc_Name";
             // 
             // pnQLT_TT_CN
             // 
@@ -312,8 +317,8 @@
             // 
             // grbQLT_TT
             // 
+            grbQLT_TT.Controls.Add(cbQLT_MaNhom);
             grbQLT_TT.Controls.Add(txtQLT_TenThuoc);
-            grbQLT_TT.Controls.Add(txtQLT_MaNhom);
             grbQLT_TT.Controls.Add(txtQLT_MaThuoc);
             grbQLT_TT.Controls.Add(lbQLT_MaNhom);
             grbQLT_TT.Controls.Add(lbQLT_TenThuoc);
@@ -326,25 +331,26 @@
             grbQLT_TT.TabStop = false;
             grbQLT_TT.Text = "Thông tin";
             // 
+            // cbQLT_MaNhom
+            // 
+            cbQLT_MaNhom.FormattingEnabled = true;
+            cbQLT_MaNhom.Location = new Point(275, 145);
+            cbQLT_MaNhom.Name = "cbQLT_MaNhom";
+            cbQLT_MaNhom.Size = new Size(264, 45);
+            cbQLT_MaNhom.TabIndex = 8;
+            // 
             // txtQLT_TenThuoc
             // 
-            txtQLT_TenThuoc.Location = new Point(261, 234);
+            txtQLT_TenThuoc.Location = new Point(275, 234);
             txtQLT_TenThuoc.Name = "txtQLT_TenThuoc";
-            txtQLT_TenThuoc.Size = new Size(439, 43);
+            txtQLT_TenThuoc.Size = new Size(425, 43);
             txtQLT_TenThuoc.TabIndex = 7;
-            // 
-            // txtQLT_MaNhom
-            // 
-            txtQLT_MaNhom.Location = new Point(261, 148);
-            txtQLT_MaNhom.Name = "txtQLT_MaNhom";
-            txtQLT_MaNhom.Size = new Size(439, 43);
-            txtQLT_MaNhom.TabIndex = 6;
             // 
             // txtQLT_MaThuoc
             // 
-            txtQLT_MaThuoc.Location = new Point(261, 63);
+            txtQLT_MaThuoc.Location = new Point(275, 63);
             txtQLT_MaThuoc.Name = "txtQLT_MaThuoc";
-            txtQLT_MaThuoc.Size = new Size(439, 43);
+            txtQLT_MaThuoc.Size = new Size(425, 43);
             txtQLT_MaThuoc.TabIndex = 4;
             // 
             // lbQLT_MaNhom
@@ -385,10 +391,10 @@
             // 
             // grbQLT_CN
             // 
+            grbQLT_CN.Controls.Add(cbQLT_TK_MaThuoc);
             grbQLT_CN.Controls.Add(lbQLT_TK_TenThuoc);
             grbQLT_CN.Controls.Add(lbQLT_TK_MaThuoc);
             grbQLT_CN.Controls.Add(txtQLT_TK_TenThuoc);
-            grbQLT_CN.Controls.Add(txtQLT_TK_MaThuoc);
             grbQLT_CN.Dock = DockStyle.Fill;
             grbQLT_CN.Location = new Point(0, 0);
             grbQLT_CN.Name = "grbQLT_CN";
@@ -396,6 +402,14 @@
             grbQLT_CN.TabIndex = 0;
             grbQLT_CN.TabStop = false;
             grbQLT_CN.Text = "Tìm kiếm";
+            // 
+            // cbQLT_TK_MaThuoc
+            // 
+            cbQLT_TK_MaThuoc.FormattingEnabled = true;
+            cbQLT_TK_MaThuoc.Location = new Point(242, 70);
+            cbQLT_TK_MaThuoc.Name = "cbQLT_TK_MaThuoc";
+            cbQLT_TK_MaThuoc.Size = new Size(242, 45);
+            cbQLT_TK_MaThuoc.TabIndex = 6;
             // 
             // lbQLT_TK_TenThuoc
             // 
@@ -428,13 +442,6 @@
             txtQLT_TK_TenThuoc.Name = "txtQLT_TK_TenThuoc";
             txtQLT_TK_TenThuoc.Size = new Size(324, 93);
             txtQLT_TK_TenThuoc.TabIndex = 3;
-            // 
-            // txtQLT_TK_MaThuoc
-            // 
-            txtQLT_TK_MaThuoc.Location = new Point(240, 69);
-            txtQLT_TK_MaThuoc.Name = "txtQLT_TK_MaThuoc";
-            txtQLT_TK_MaThuoc.Size = new Size(324, 43);
-            txtQLT_TK_MaThuoc.TabIndex = 2;
             // 
             // UC_QLThuoc
             // 
@@ -473,14 +480,12 @@
         private SplitContainer splQLT_CN_HT;
         private GroupBox grbQLT_TK;
         private TextBox txtQLT_TK_TenThuoc;
-        private TextBox txtQLT_TK_MaThuoc;
         private GroupBox grbQLT_HT;
         private DataGridView dgvQLT;
         private Panel pnQLT_TT_CN;
         private SplitContainer splQLT_TT_TK;
         private GroupBox grbQLT_TT;
         private TextBox txtQLT_TenThuoc;
-        private TextBox txtQLT_MaNhom;
         private TextBox txtQLT_MaThuoc;
         private Label lbQLT_MaNhom;
         private Label lbQLT_TenThuoc;
@@ -491,10 +496,12 @@
         private Button btnQLT_Them;
         private Button btnQLT_Import;
         private Button btnQLT_Xoa;
-        private DataGridViewTextBoxColumn Column1;
-        private DataGridViewTextBoxColumn Column4;
-        private DataGridViewTextBoxColumn Column2;
         private Label lbQLT_TK_TenThuoc;
         private Label lbQLT_TK_MaThuoc;
+        private DataGridViewTextBoxColumn Thuoc_ID;
+        private DataGridViewTextBoxColumn Nhom_ID;
+        private DataGridViewTextBoxColumn Thuoc_Name;
+        private ComboBox cbQLT_TK_MaThuoc;
+        private ComboBox cbQLT_MaNhom;
     }
 }

@@ -28,23 +28,23 @@
         /// </summary>
         private void InitializeComponent()
         {
-            uC_qlnv1 = new UC_QLNV();
+            uC_qlDonXuat1 = new UC_QLDonXuat();
             SuspendLayout();
             // 
-            // uC_qlnv1
+            // uC_qlDonXuat1
             // 
-            uC_qlnv1.Dock = DockStyle.Fill;
-            uC_qlnv1.Location = new Point(0, 0);
-            uC_qlnv1.Name = "uC_qlnv1";
-            uC_qlnv1.Size = new Size(1422, 1109);
-            uC_qlnv1.TabIndex = 0;
+            uC_qlDonXuat1.Dock = DockStyle.Fill;
+            uC_qlDonXuat1.Location = new Point(0, 0);
+            uC_qlDonXuat1.Name = "uC_qlDonXuat1";
+            uC_qlDonXuat1.Size = new Size(1422, 1109);
+            uC_qlDonXuat1.TabIndex = 0;
             // 
             // FrmTest
             // 
             AutoScaleDimensions = new SizeF(13F, 32F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1422, 1109);
-            Controls.Add(uC_qlnv1);
+            Controls.Add(uC_qlDonXuat1);
             Name = "FrmTest";
             Text = "FrmTest";
             ResumeLayout(false);
@@ -52,6 +52,6 @@
 
         #endregion
 
-        private UC_QLNV uC_qlnv1;
+        private UC_QLDonXuat uC_qlDonXuat1;
     }
 }

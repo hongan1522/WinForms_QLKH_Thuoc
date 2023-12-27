@@ -35,11 +35,11 @@
             splNCC_HT_CN = new SplitContainer();
             grbNCC_HT = new GroupBox();
             dgvNCC = new DataGridView();
-            dataGridViewTextBoxColumn1 = new DataGridViewTextBoxColumn();
-            dataGridViewTextBoxColumn2 = new DataGridViewTextBoxColumn();
-            dataGridViewTextBoxColumn3 = new DataGridViewTextBoxColumn();
-            dataGridViewTextBoxColumn4 = new DataGridViewTextBoxColumn();
-            dataGridViewTextBoxColumn5 = new DataGridViewTextBoxColumn();
+            NCC_ID = new DataGridViewTextBoxColumn();
+            NCC_Name = new DataGridViewTextBoxColumn();
+            Quantity = new DataGridViewTextBoxColumn();
+            NCC_Phone = new DataGridViewTextBoxColumn();
+            NCC_Address = new DataGridViewTextBoxColumn();
             grbNCC_CN = new GroupBox();
             btnNCC_Export = new Button();
             btnNCC_Import = new Button();
@@ -48,10 +48,10 @@
             btnNCC_Them = new Button();
             splNCC_TK_TT = new SplitContainer();
             grbNCC_TK = new GroupBox();
+            cbNCC_TK_MaNCC = new ComboBox();
             lbNCC_TK_TenNCC = new Label();
             lbNCC_TK_MaNCC = new Label();
             txtNCC_TK_TenNCC = new TextBox();
-            txtNCC_TK_MaNCC = new TextBox();
             grbNCC_TT = new GroupBox();
             numNCC_SoLuongDN = new NumericUpDown();
             txtNCC_DiaChi = new TextBox();
@@ -165,7 +165,7 @@
             dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
             dgvNCC.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             dgvNCC.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgvNCC.Columns.AddRange(new DataGridViewColumn[] { dataGridViewTextBoxColumn1, dataGridViewTextBoxColumn2, dataGridViewTextBoxColumn3, dataGridViewTextBoxColumn4, dataGridViewTextBoxColumn5 });
+            dgvNCC.Columns.AddRange(new DataGridViewColumn[] { NCC_ID, NCC_Name, Quantity, NCC_Phone, NCC_Address });
             dgvNCC.Dock = DockStyle.Fill;
             dgvNCC.Location = new Point(3, 39);
             dgvNCC.Name = "dgvNCC";
@@ -174,36 +174,43 @@
             dgvNCC.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dgvNCC.Size = new Size(1189, 617);
             dgvNCC.TabIndex = 0;
+            dgvNCC.RowPostPaint += dgvNCC_RowPostPaint;
+            dgvNCC.SelectionChanged += dgvNCC_SelectionChanged;
             // 
-            // dataGridViewTextBoxColumn1
+            // NCC_ID
             // 
-            dataGridViewTextBoxColumn1.HeaderText = "Mã NCC";
-            dataGridViewTextBoxColumn1.MinimumWidth = 10;
-            dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
+            NCC_ID.DataPropertyName = "NCC_ID";
+            NCC_ID.HeaderText = "Mã NCC";
+            NCC_ID.MinimumWidth = 10;
+            NCC_ID.Name = "NCC_ID";
             // 
-            // dataGridViewTextBoxColumn2
+            // NCC_Name
             // 
-            dataGridViewTextBoxColumn2.HeaderText = "Tên NCC";
-            dataGridViewTextBoxColumn2.MinimumWidth = 10;
-            dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
+            NCC_Name.DataPropertyName = "NCC_Name";
+            NCC_Name.HeaderText = "Tên NCC";
+            NCC_Name.MinimumWidth = 10;
+            NCC_Name.Name = "NCC_Name";
             // 
-            // dataGridViewTextBoxColumn3
+            // Quantity
             // 
-            dataGridViewTextBoxColumn3.HeaderText = "Số lượng đơn nhập";
-            dataGridViewTextBoxColumn3.MinimumWidth = 10;
-            dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
+            Quantity.DataPropertyName = "Quantity";
+            Quantity.HeaderText = "Số lượng đơn nhập";
+            Quantity.MinimumWidth = 10;
+            Quantity.Name = "Quantity";
             // 
-            // dataGridViewTextBoxColumn4
+            // NCC_Phone
             // 
-            dataGridViewTextBoxColumn4.HeaderText = "SĐT";
-            dataGridViewTextBoxColumn4.MinimumWidth = 10;
-            dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
+            NCC_Phone.DataPropertyName = "NCC_Phone";
+            NCC_Phone.HeaderText = "SĐT";
+            NCC_Phone.MinimumWidth = 10;
+            NCC_Phone.Name = "NCC_Phone";
             // 
-            // dataGridViewTextBoxColumn5
+            // NCC_Address
             // 
-            dataGridViewTextBoxColumn5.HeaderText = "Địa chỉ";
-            dataGridViewTextBoxColumn5.MinimumWidth = 10;
-            dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
+            NCC_Address.DataPropertyName = "NCC_Address";
+            NCC_Address.HeaderText = "Địa chỉ";
+            NCC_Address.MinimumWidth = 10;
+            NCC_Address.Name = "NCC_Address";
             // 
             // grbNCC_CN
             // 
@@ -317,10 +324,10 @@
             // 
             // grbNCC_TK
             // 
+            grbNCC_TK.Controls.Add(cbNCC_TK_MaNCC);
             grbNCC_TK.Controls.Add(lbNCC_TK_TenNCC);
             grbNCC_TK.Controls.Add(lbNCC_TK_MaNCC);
             grbNCC_TK.Controls.Add(txtNCC_TK_TenNCC);
-            grbNCC_TK.Controls.Add(txtNCC_TK_MaNCC);
             grbNCC_TK.Dock = DockStyle.Fill;
             grbNCC_TK.Location = new Point(0, 0);
             grbNCC_TK.Name = "grbNCC_TK";
@@ -328,6 +335,14 @@
             grbNCC_TK.TabIndex = 0;
             grbNCC_TK.TabStop = false;
             grbNCC_TK.Text = "Tìm kiếm";
+            // 
+            // cbNCC_TK_MaNCC
+            // 
+            cbNCC_TK_MaNCC.FormattingEnabled = true;
+            cbNCC_TK_MaNCC.Location = new Point(194, 79);
+            cbNCC_TK_MaNCC.Name = "cbNCC_TK_MaNCC";
+            cbNCC_TK_MaNCC.Size = new Size(235, 45);
+            cbNCC_TK_MaNCC.TabIndex = 10;
             // 
             // lbNCC_TK_TenNCC
             // 
@@ -361,13 +376,6 @@
             txtNCC_TK_TenNCC.Size = new Size(235, 78);
             txtNCC_TK_TenNCC.TabIndex = 3;
             // 
-            // txtNCC_TK_MaNCC
-            // 
-            txtNCC_TK_MaNCC.Location = new Point(194, 82);
-            txtNCC_TK_MaNCC.Name = "txtNCC_TK_MaNCC";
-            txtNCC_TK_MaNCC.Size = new Size(235, 43);
-            txtNCC_TK_MaNCC.TabIndex = 1;
-            // 
             // grbNCC_TT
             // 
             grbNCC_TT.Controls.Add(numNCC_SoLuongDN);
@@ -392,7 +400,7 @@
             // 
             numNCC_SoLuongDN.Location = new Point(297, 246);
             numNCC_SoLuongDN.Name = "numNCC_SoLuongDN";
-            numNCC_SoLuongDN.Size = new Size(122, 43);
+            numNCC_SoLuongDN.Size = new Size(140, 43);
             numNCC_SoLuongDN.TabIndex = 9;
             // 
             // txtNCC_DiaChi
@@ -407,7 +415,7 @@
             // 
             txtNCC_SDT.Location = new Point(156, 160);
             txtNCC_SDT.Name = "txtNCC_SDT";
-            txtNCC_SDT.Size = new Size(263, 43);
+            txtNCC_SDT.Size = new Size(281, 43);
             txtNCC_SDT.TabIndex = 7;
             // 
             // txtNCC_TenNCC
@@ -422,7 +430,7 @@
             // 
             txtNCC_MaNCC.Location = new Point(156, 70);
             txtNCC_MaNCC.Name = "txtNCC_MaNCC";
-            txtNCC_MaNCC.Size = new Size(263, 43);
+            txtNCC_MaNCC.Size = new Size(281, 43);
             txtNCC_MaNCC.TabIndex = 5;
             // 
             // lbNCC_DiaChi
@@ -522,11 +530,6 @@
         private SplitContainer splNCC_HT_CN;
         private GroupBox grbNCC_HT;
         private DataGridView dgvNCC;
-        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
-        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
-        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
-        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
-        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn5;
         private GroupBox grbNCC_CN;
         private Button btnNCC_Export;
         private Button btnNCC_Import;
@@ -536,7 +539,6 @@
         private SplitContainer splNCC_TK_TT;
         private GroupBox grbNCC_TK;
         private TextBox txtNCC_TK_TenNCC;
-        private TextBox txtNCC_TK_MaNCC;
         private GroupBox grbNCC_TT;
         private NumericUpDown numNCC_SoLuongDN;
         private TextBox txtNCC_DiaChi;
@@ -550,5 +552,11 @@
         private Label lbNCC_MaNCC;
         private Label lbNCC_TK_TenNCC;
         private Label lbNCC_TK_MaNCC;
+        private DataGridViewTextBoxColumn NCC_ID;
+        private DataGridViewTextBoxColumn NCC_Name;
+        private DataGridViewTextBoxColumn Quantity;
+        private DataGridViewTextBoxColumn NCC_Phone;
+        private DataGridViewTextBoxColumn NCC_Address;
+        private ComboBox cbNCC_TK_MaNCC;
     }
 }

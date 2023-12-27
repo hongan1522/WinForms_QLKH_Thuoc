@@ -43,15 +43,15 @@
             lbQLNT_TenNhom = new Label();
             grbQLNT_HT = new GroupBox();
             dgvQLNT = new DataGridView();
-            Column1 = new DataGridViewTextBoxColumn();
-            Column2 = new DataGridViewTextBoxColumn();
-            Column3 = new DataGridViewTextBoxColumn();
+            Nhom_ID = new DataGridViewTextBoxColumn();
+            Nhom_Name = new DataGridViewTextBoxColumn();
+            Description = new DataGridViewTextBoxColumn();
             splQLNT_TK_CN = new SplitContainer();
             grbQLNT_TT = new GroupBox();
+            cbQLNT_TK_MaNhom = new ComboBox();
             lbQLNT_TK_TenNhom = new Label();
             txtQLNT_TK_TenNhom = new TextBox();
             lbQLNT_TK_MaNhom = new Label();
-            txtQLNT_TK_MaNhom = new TextBox();
             grbQLNT_CN = new GroupBox();
             btnQLNT_Sua = new Button();
             btnQLNT_Import = new Button();
@@ -178,7 +178,7 @@
             txtQLNT_GhiChu.Multiline = true;
             txtQLNT_GhiChu.Name = "txtQLNT_GhiChu";
             txtQLNT_GhiChu.Size = new Size(284, 123);
-            txtQLNT_GhiChu.TabIndex = 11;
+            txtQLNT_GhiChu.TabIndex = 3;
             // 
             // lbQLNT_MaNhom
             // 
@@ -197,7 +197,7 @@
             txtQLNT_MaNhom.Location = new Point(199, 60);
             txtQLNT_MaNhom.Name = "txtQLNT_MaNhom";
             txtQLNT_MaNhom.Size = new Size(263, 43);
-            txtQLNT_MaNhom.TabIndex = 9;
+            txtQLNT_MaNhom.TabIndex = 1;
             // 
             // txtQLNT_TenNhom
             // 
@@ -205,7 +205,7 @@
             txtQLNT_TenNhom.Multiline = true;
             txtQLNT_TenNhom.Name = "txtQLNT_TenNhom";
             txtQLNT_TenNhom.Size = new Size(263, 56);
-            txtQLNT_TenNhom.TabIndex = 10;
+            txtQLNT_TenNhom.TabIndex = 2;
             // 
             // lbQLNT_GhiChu
             // 
@@ -255,7 +255,7 @@
             dataGridViewCellStyle2.WrapMode = DataGridViewTriState.True;
             dgvQLNT.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             dgvQLNT.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgvQLNT.Columns.AddRange(new DataGridViewColumn[] { Column1, Column2, Column3 });
+            dgvQLNT.Columns.AddRange(new DataGridViewColumn[] { Nhom_ID, Nhom_Name, Description });
             dgvQLNT.Dock = DockStyle.Fill;
             dgvQLNT.Location = new Point(3, 39);
             dgvQLNT.Name = "dgvQLNT";
@@ -264,24 +264,29 @@
             dgvQLNT.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dgvQLNT.Size = new Size(980, 722);
             dgvQLNT.TabIndex = 0;
+            dgvQLNT.RowPostPaint += dgvQLNT_RowPostPaint;
+            dgvQLNT.SelectionChanged += dgvQLNT_SelectionChanged;
             // 
-            // Column1
+            // Nhom_ID
             // 
-            Column1.HeaderText = "Mã nhóm thuốc";
-            Column1.MinimumWidth = 10;
-            Column1.Name = "Column1";
+            Nhom_ID.DataPropertyName = "Nhom_ID";
+            Nhom_ID.HeaderText = "Mã nhóm thuốc";
+            Nhom_ID.MinimumWidth = 10;
+            Nhom_ID.Name = "Nhom_ID";
             // 
-            // Column2
+            // Nhom_Name
             // 
-            Column2.HeaderText = "Tên nhóm thuốc";
-            Column2.MinimumWidth = 10;
-            Column2.Name = "Column2";
+            Nhom_Name.DataPropertyName = "Nhom_Name";
+            Nhom_Name.HeaderText = "Tên nhóm thuốc";
+            Nhom_Name.MinimumWidth = 10;
+            Nhom_Name.Name = "Nhom_Name";
             // 
-            // Column3
+            // Description
             // 
-            Column3.HeaderText = "Ghi chú";
-            Column3.MinimumWidth = 10;
-            Column3.Name = "Column3";
+            Description.DataPropertyName = "Description";
+            Description.HeaderText = "Ghi chú";
+            Description.MinimumWidth = 10;
+            Description.Name = "Description";
             // 
             // splQLNT_TK_CN
             // 
@@ -304,10 +309,10 @@
             // 
             // grbQLNT_TT
             // 
+            grbQLNT_TT.Controls.Add(cbQLNT_TK_MaNhom);
             grbQLNT_TT.Controls.Add(lbQLNT_TK_TenNhom);
             grbQLNT_TT.Controls.Add(txtQLNT_TK_TenNhom);
             grbQLNT_TT.Controls.Add(lbQLNT_TK_MaNhom);
-            grbQLNT_TT.Controls.Add(txtQLNT_TK_MaNhom);
             grbQLNT_TT.Dock = DockStyle.Fill;
             grbQLNT_TT.Location = new Point(0, 0);
             grbQLNT_TT.Name = "grbQLNT_TT";
@@ -315,6 +320,14 @@
             grbQLNT_TT.TabIndex = 0;
             grbQLNT_TT.TabStop = false;
             grbQLNT_TT.Text = "Tìm kiếm";
+            // 
+            // cbQLNT_TK_MaNhom
+            // 
+            cbQLNT_TK_MaNhom.FormattingEnabled = true;
+            cbQLNT_TK_MaNhom.Location = new Point(189, 64);
+            cbQLNT_TK_MaNhom.Name = "cbQLNT_TK_MaNhom";
+            cbQLNT_TK_MaNhom.Size = new Size(233, 45);
+            cbQLNT_TK_MaNhom.TabIndex = 6;
             // 
             // lbQLNT_TK_TenNhom
             // 
@@ -334,7 +347,7 @@
             txtQLNT_TK_TenNhom.Multiline = true;
             txtQLNT_TK_TenNhom.Name = "txtQLNT_TK_TenNhom";
             txtQLNT_TK_TenNhom.Size = new Size(233, 117);
-            txtQLNT_TK_TenNhom.TabIndex = 3;
+            txtQLNT_TK_TenNhom.TabIndex = 8;
             // 
             // lbQLNT_TK_MaNhom
             // 
@@ -347,13 +360,6 @@
             lbQLNT_TK_MaNhom.Size = new Size(137, 39);
             lbQLNT_TK_MaNhom.TabIndex = 4;
             lbQLNT_TK_MaNhom.Text = "Mã nhóm";
-            // 
-            // txtQLNT_TK_MaNhom
-            // 
-            txtQLNT_TK_MaNhom.Location = new Point(189, 60);
-            txtQLNT_TK_MaNhom.Name = "txtQLNT_TK_MaNhom";
-            txtQLNT_TK_MaNhom.Size = new Size(233, 43);
-            txtQLNT_TK_MaNhom.TabIndex = 2;
             // 
             // grbQLNT_CN
             // 
@@ -430,7 +436,7 @@
             btnQLNT_Xoa.Location = new Point(24, 483);
             btnQLNT_Xoa.Name = "btnQLNT_Xoa";
             btnQLNT_Xoa.Size = new Size(169, 64);
-            btnQLNT_Xoa.TabIndex = 1;
+            btnQLNT_Xoa.TabIndex = 5;
             btnQLNT_Xoa.Text = "Xóa";
             btnQLNT_Xoa.UseVisualStyleBackColor = false;
             // 
@@ -491,12 +497,8 @@
         private SplitContainer splQLNT_TT_HT;
         private GroupBox grbQLNT_TK;
         private TextBox txtQLNT_TK_TenNhom;
-        private TextBox txtQLNT_TK_MaNhom;
         private GroupBox grbQLNT_HT;
         private DataGridView dgvQLNT;
-        private DataGridViewTextBoxColumn Column1;
-        private DataGridViewTextBoxColumn Column2;
-        private DataGridViewTextBoxColumn Column3;
         private SplitContainer splQLNT_TK_CN;
         private GroupBox grbQLNT_TT;
         private GroupBox grbQLNT_CN;
@@ -513,5 +515,9 @@
         private TextBox txtQLNT_TenNhom;
         private Label lbQLNT_GhiChu;
         private Label lbQLNT_TenNhom;
+        private DataGridViewTextBoxColumn Nhom_ID;
+        private DataGridViewTextBoxColumn Nhom_Name;
+        private DataGridViewTextBoxColumn Description;
+        private ComboBox cbQLNT_TK_MaNhom;
     }
 }

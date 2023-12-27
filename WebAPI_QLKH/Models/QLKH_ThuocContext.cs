@@ -39,6 +39,8 @@ public partial class QLKH_ThuocContext : DbContext
 
     public virtual DbSet<Role> Role { get; set; }
 
+    public virtual DbSet<Role_Permission> Role_Permission { get; set; }
+
     public virtual DbSet<TaiKhoan> TaiKhoan { get; set; }
 
     public virtual DbSet<Thuoc> Thuoc { get; set; }
@@ -225,10 +227,6 @@ public partial class QLKH_ThuocContext : DbContext
                 .IsFixedLength();
             entity.Property(e => e.NCC_Address).HasMaxLength(50);
             entity.Property(e => e.NCC_Name).HasMaxLength(50);
-            entity.Property(e => e.Quantity)
-                .IsRequired()
-                .HasMaxLength(10)
-                .IsFixedLength();
         });
 
         modelBuilder.Entity<NhanVien>(entity =>
@@ -246,9 +244,7 @@ public partial class QLKH_ThuocContext : DbContext
                 .IsFixedLength();
             entity.Property(e => e.Email).HasMaxLength(50);
             entity.Property(e => e.NV_Name).HasMaxLength(50);
-            entity.Property(e => e.Sex)
-                .HasMaxLength(10)
-                .IsFixedLength();
+            entity.Property(e => e.Sex).HasMaxLength(20);
             entity.Property(e => e.UserID)
                 .IsRequired()
                 .HasMaxLength(10)
@@ -289,28 +285,28 @@ public partial class QLKH_ThuocContext : DbContext
                 .HasMaxLength(10)
                 .IsFixedLength();
             entity.Property(e => e.RoleName).HasMaxLength(50);
+        });
 
-            entity.HasMany(d => d.Permission).WithMany(p => p.Role)
-                .UsingEntity<Dictionary<string, object>>(
-                    "Role_Permission",
-                    r => r.HasOne<Permission>().WithMany()
-                        .HasForeignKey("PermissionID")
-                        .OnDelete(DeleteBehavior.ClientSetNull)
-                        .HasConstraintName("FK_Role_Permission_Permission"),
-                    l => l.HasOne<Role>().WithMany()
-                        .HasForeignKey("RoleID")
-                        .OnDelete(DeleteBehavior.ClientSetNull)
-                        .HasConstraintName("FK_Role_Permission_Role"),
-                    j =>
-                    {
-                        j.HasKey("RoleID", "PermissionID");
-                        j.IndexerProperty<string>("RoleID")
-                            .HasMaxLength(10)
-                            .IsFixedLength();
-                        j.IndexerProperty<string>("PermissionID")
-                            .HasMaxLength(10)
-                            .IsFixedLength();
-                    });
+        modelBuilder.Entity<Role_Permission>(entity =>
+        {
+            entity.HasKey(e => new { e.RoleID, e.PermissionID });
+
+            entity.Property(e => e.RoleID)
+                .HasMaxLength(10)
+                .IsFixedLength();
+            entity.Property(e => e.PermissionID)
+                .HasMaxLength(10)
+                .IsFixedLength();
+
+            entity.HasOne(d => d.Permission).WithMany(p => p.Role_Permission)
+                .HasForeignKey(d => d.PermissionID)
+                .OnDelete(DeleteBehavior.ClientSetNull)
+                .HasConstraintName("FK_Role_Permission_Permission1");
+
+            entity.HasOne(d => d.Role).WithMany(p => p.Role_Permission)
+                .HasForeignKey(d => d.RoleID)
+                .OnDelete(DeleteBehavior.ClientSetNull)
+                .HasConstraintName("FK_Role_Permission_Role1");
         });
 
         modelBuilder.Entity<TaiKhoan>(entity =>

@@ -11,5 +11,5 @@ public partial class Permission
 
     public string PermissionName { get; set; }
 
-    public virtual ICollection<Role> Role { get; set; } = new List<Role>();
+    public virtual ICollection<Role_Permission> Role_Permission { get; set; } = new List<Role_Permission>();
 }

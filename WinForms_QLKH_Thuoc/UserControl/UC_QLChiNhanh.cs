@@ -130,6 +130,37 @@ namespace FormQLKH
                 MessageBox.Show($"Thêm chi nhánh thất bại.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+        //private void btnQLCN_Sua_Click(object sender, EventArgs e)
+        //{
+        //    string maCN = txtQLCN_MaCN.Text.Trim();
+        //    string tenCN = txtQLCN_TenCN.Text.Trim();
+        //    string diaChi = txtQLCN_DiaChi.Text.Trim();
+
+        //    if (string.IsNullOrEmpty(maCN) || string.IsNullOrEmpty(tenCN) || string.IsNullOrEmpty(diaChi))
+        //    {
+        //        MessageBox.Show("Vui lòng điền đầy đủ thông tin.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+        //        return;
+        //    }
+
+        //    var payload = new ChiNhanhPost
+        //    {
+        //        CN_ID = maCN,
+        //        CN_Name = tenCN,
+        //        CN_Address = diaChi
+        //    };
+
+        //    var response = chiNhanhService.CapNhatChiNhanh(maCN, payload);
+
+        //    if (response.IsSuccessStatusCode)
+        //    {
+        //        MessageBox.Show($"Cập nhật chi nhánh {maCN} thành công.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        //        LoadDataGridView();
+        //    }
+        //    else
+        //    {
+        //        MessageBox.Show("Cập nhật chi nhánh thất bại. Vui lòng kiểm tra lại.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+        //    }
+        //}
         private void btnQLCN_Sua_Click(object sender, EventArgs e)
         {
             string maCN = txtQLCN_MaCN.Text.Trim();
@@ -142,23 +173,32 @@ namespace FormQLKH
                 return;
             }
 
-            var payload = new ChiNhanhPost
-            {
-                CN_ID = maCN,
-                CN_Name = tenCN,
-                CN_Address = diaChi
-            };
+            DialogResult result = MessageBox.Show("Bạn chắc muốn sửa chi nhánh này?", "Xác nhận sửa", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 
-            var response = chiNhanhService.CapNhatChiNhanh(maCN, payload);
-
-            if (response.IsSuccessStatusCode)
+            if (result == DialogResult.Yes)
             {
-                MessageBox.Show($"Cập nhật chi nhánh {maCN} thành công.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                LoadDataGridView();
+                var payload = new ChiNhanhPost
+                {
+                    CN_ID = maCN,
+                    CN_Name = tenCN,
+                    CN_Address = diaChi
+                };
+
+                var response = chiNhanhService.CapNhatChiNhanh(maCN, payload);
+
+                if (response.IsSuccessStatusCode)
+                {
+                    MessageBox.Show($"Cập nhật chi nhánh {maCN} thành công.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    LoadDataGridView();
+                }
+                else
+                {
+                    MessageBox.Show("Cập nhật chi nhánh thất bại. Vui lòng kiểm tra lại.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
             }
             else
             {
-                MessageBox.Show("Cập nhật chi nhánh thất bại. Vui lòng kiểm tra lại.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
             }
         }
         private void btnQLCN_Xoa_Click(object sender, EventArgs e)

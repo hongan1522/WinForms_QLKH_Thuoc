@@ -34,8 +34,19 @@
             lbQLNV = new Label();
             grbQLNV_HT = new GroupBox();
             dgvNV = new DataGridView();
+            NV_ID = new DataGridViewTextBoxColumn();
+            UserID = new DataGridViewTextBoxColumn();
+            CN_ID = new DataGridViewTextBoxColumn();
+            NV_Name = new DataGridViewTextBoxColumn();
+            BirthDay = new DataGridViewTextBoxColumn();
+            Sex = new DataGridViewTextBoxColumn();
+            Phone = new DataGridViewTextBoxColumn();
+            Email = new DataGridViewTextBoxColumn();
+            Address = new DataGridViewTextBoxColumn();
             pnQLNV_TT = new Panel();
             grbQLNV_TT = new GroupBox();
+            cbQLNV_MaCN = new ComboBox();
+            cbQLNV_UserID = new ComboBox();
             lbQLNV_GioiTinh = new Label();
             gboxGioiTinh = new GroupBox();
             rdbQLNV_Nam = new RadioButton();
@@ -45,8 +56,6 @@
             txtQLNV_Email = new TextBox();
             txtQLNV_DiaChi = new TextBox();
             txtQLNV_SDT = new TextBox();
-            txtQLNV_UserID = new TextBox();
-            txtQLNV_MaCN = new TextBox();
             txtQLNV_MaNV = new TextBox();
             lbQLNV_DiaChi = new Label();
             lbQLNV_Email = new Label();
@@ -58,25 +67,16 @@
             lbQLNV_MaNV = new Label();
             splQLNV_TK_CN = new SplitContainer();
             grbQLNV_TK = new GroupBox();
+            cbQLNV_TK_MaNV = new ComboBox();
             lbQLNV_TK_HoTen = new Label();
             lbQLNV_TK_MaNV = new Label();
             txtQLNV_TK_TenNV = new TextBox();
-            txtQLNV_TK_MaNV = new TextBox();
             grbQLNV_CN = new GroupBox();
             btnQLNV_Export = new Button();
             btnQLNV_Them = new Button();
             btnQLNV_Import = new Button();
             btnQLNV_Sua = new Button();
             btnQLNV_Xoa = new Button();
-            NV_ID = new DataGridViewTextBoxColumn();
-            UserID = new DataGridViewTextBoxColumn();
-            CN_ID = new DataGridViewTextBoxColumn();
-            NV_Name = new DataGridViewTextBoxColumn();
-            BirthDay = new DataGridViewTextBoxColumn();
-            Sex = new DataGridViewTextBoxColumn();
-            Phone = new DataGridViewTextBoxColumn();
-            Email = new DataGridViewTextBoxColumn();
-            Address = new DataGridViewTextBoxColumn();
             tlpQLNV.SuspendLayout();
             pnQLNV.SuspendLayout();
             grbQLNV_HT.SuspendLayout();
@@ -170,6 +170,71 @@
             dgvNV.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dgvNV.Size = new Size(1436, 400);
             dgvNV.TabIndex = 1;
+            dgvNV.RowPostPaint += dgvNV_RowPostPaint;
+            dgvNV.SelectionChanged += dgvNV_SelectionChanged;
+            // 
+            // NV_ID
+            // 
+            NV_ID.DataPropertyName = "NV_ID";
+            NV_ID.HeaderText = "Mã NV";
+            NV_ID.MinimumWidth = 10;
+            NV_ID.Name = "NV_ID";
+            // 
+            // UserID
+            // 
+            UserID.DataPropertyName = "UserID";
+            UserID.HeaderText = "UserID";
+            UserID.MinimumWidth = 10;
+            UserID.Name = "UserID";
+            // 
+            // CN_ID
+            // 
+            CN_ID.DataPropertyName = "CN_ID";
+            CN_ID.HeaderText = "Mã CN";
+            CN_ID.MinimumWidth = 10;
+            CN_ID.Name = "CN_ID";
+            // 
+            // NV_Name
+            // 
+            NV_Name.DataPropertyName = "NV_Name";
+            NV_Name.HeaderText = "Họ tên";
+            NV_Name.MinimumWidth = 10;
+            NV_Name.Name = "NV_Name";
+            // 
+            // BirthDay
+            // 
+            BirthDay.DataPropertyName = "BirthDay";
+            BirthDay.HeaderText = "Ngày sinh";
+            BirthDay.MinimumWidth = 10;
+            BirthDay.Name = "BirthDay";
+            // 
+            // Sex
+            // 
+            Sex.DataPropertyName = "Sex";
+            Sex.HeaderText = "Giới tính";
+            Sex.MinimumWidth = 10;
+            Sex.Name = "Sex";
+            // 
+            // Phone
+            // 
+            Phone.DataPropertyName = "Phone";
+            Phone.HeaderText = "SĐT";
+            Phone.MinimumWidth = 10;
+            Phone.Name = "Phone";
+            // 
+            // Email
+            // 
+            Email.DataPropertyName = "Email";
+            Email.HeaderText = "Email";
+            Email.MinimumWidth = 10;
+            Email.Name = "Email";
+            // 
+            // Address
+            // 
+            Address.DataPropertyName = "Address";
+            Address.HeaderText = "Địa chỉ";
+            Address.MinimumWidth = 10;
+            Address.Name = "Address";
             // 
             // pnQLNV_TT
             // 
@@ -185,6 +250,8 @@
             // 
             grbQLNV_TT.BackColor = Color.Transparent;
             grbQLNV_TT.BackgroundImage = Properties.Resources.bg;
+            grbQLNV_TT.Controls.Add(cbQLNV_MaCN);
+            grbQLNV_TT.Controls.Add(cbQLNV_UserID);
             grbQLNV_TT.Controls.Add(lbQLNV_GioiTinh);
             grbQLNV_TT.Controls.Add(gboxGioiTinh);
             grbQLNV_TT.Controls.Add(dtpQLNV_NgaySinh);
@@ -192,8 +259,6 @@
             grbQLNV_TT.Controls.Add(txtQLNV_Email);
             grbQLNV_TT.Controls.Add(txtQLNV_DiaChi);
             grbQLNV_TT.Controls.Add(txtQLNV_SDT);
-            grbQLNV_TT.Controls.Add(txtQLNV_UserID);
-            grbQLNV_TT.Controls.Add(txtQLNV_MaCN);
             grbQLNV_TT.Controls.Add(txtQLNV_MaNV);
             grbQLNV_TT.Controls.Add(lbQLNV_DiaChi);
             grbQLNV_TT.Controls.Add(lbQLNV_Email);
@@ -210,6 +275,22 @@
             grbQLNV_TT.TabIndex = 0;
             grbQLNV_TT.TabStop = false;
             grbQLNV_TT.Text = "Thông tin";
+            // 
+            // cbQLNV_MaCN
+            // 
+            cbQLNV_MaCN.FormattingEnabled = true;
+            cbQLNV_MaCN.Location = new Point(664, 49);
+            cbQLNV_MaCN.Name = "cbQLNV_MaCN";
+            cbQLNV_MaCN.Size = new Size(242, 45);
+            cbQLNV_MaCN.TabIndex = 22;
+            // 
+            // cbQLNV_UserID
+            // 
+            cbQLNV_UserID.FormattingEnabled = true;
+            cbQLNV_UserID.Location = new Point(154, 125);
+            cbQLNV_UserID.Name = "cbQLNV_UserID";
+            cbQLNV_UserID.Size = new Size(284, 45);
+            cbQLNV_UserID.TabIndex = 21;
             // 
             // lbQLNV_GioiTinh
             // 
@@ -228,7 +309,7 @@
             gboxGioiTinh.Controls.Add(rdbQLNV_Nam);
             gboxGioiTinh.Controls.Add(rdbQLNV_Nu);
             gboxGioiTinh.FlatStyle = FlatStyle.System;
-            gboxGioiTinh.Location = new Point(688, 204);
+            gboxGioiTinh.Location = new Point(664, 208);
             gboxGioiTinh.Margin = new Padding(4);
             gboxGioiTinh.Name = "gboxGioiTinh";
             gboxGioiTinh.Padding = new Padding(4);
@@ -263,7 +344,7 @@
             // 
             dtpQLNV_NgaySinh.CustomFormat = "dd/MM/yyyy";
             dtpQLNV_NgaySinh.Format = DateTimePickerFormat.Custom;
-            dtpQLNV_NgaySinh.Location = new Point(688, 133);
+            dtpQLNV_NgaySinh.Location = new Point(664, 137);
             dtpQLNV_NgaySinh.Name = "dtpQLNV_NgaySinh";
             dtpQLNV_NgaySinh.Size = new Size(242, 43);
             dtpQLNV_NgaySinh.TabIndex = 16;
@@ -278,39 +359,25 @@
             // 
             // txtQLNV_Email
             // 
-            txtQLNV_Email.Location = new Point(1103, 124);
+            txtQLNV_Email.Location = new Point(1101, 124);
             txtQLNV_Email.Name = "txtQLNV_Email";
-            txtQLNV_Email.Size = new Size(290, 43);
+            txtQLNV_Email.Size = new Size(303, 43);
             txtQLNV_Email.TabIndex = 14;
             // 
             // txtQLNV_DiaChi
             // 
-            txtQLNV_DiaChi.Location = new Point(1103, 204);
+            txtQLNV_DiaChi.Location = new Point(1101, 204);
             txtQLNV_DiaChi.Multiline = true;
             txtQLNV_DiaChi.Name = "txtQLNV_DiaChi";
-            txtQLNV_DiaChi.Size = new Size(290, 86);
+            txtQLNV_DiaChi.Size = new Size(303, 86);
             txtQLNV_DiaChi.TabIndex = 13;
             // 
             // txtQLNV_SDT
             // 
-            txtQLNV_SDT.Location = new Point(1103, 49);
+            txtQLNV_SDT.Location = new Point(1101, 49);
             txtQLNV_SDT.Name = "txtQLNV_SDT";
-            txtQLNV_SDT.Size = new Size(290, 43);
+            txtQLNV_SDT.Size = new Size(303, 43);
             txtQLNV_SDT.TabIndex = 12;
-            // 
-            // txtQLNV_UserID
-            // 
-            txtQLNV_UserID.Location = new Point(154, 127);
-            txtQLNV_UserID.Name = "txtQLNV_UserID";
-            txtQLNV_UserID.Size = new Size(284, 43);
-            txtQLNV_UserID.TabIndex = 11;
-            // 
-            // txtQLNV_MaCN
-            // 
-            txtQLNV_MaCN.Location = new Point(688, 49);
-            txtQLNV_MaCN.Name = "txtQLNV_MaCN";
-            txtQLNV_MaCN.Size = new Size(242, 43);
-            txtQLNV_MaCN.TabIndex = 10;
             // 
             // txtQLNV_MaNV
             // 
@@ -325,7 +392,7 @@
             lbQLNV_DiaChi.BackColor = SystemColors.Control;
             lbQLNV_DiaChi.BorderStyle = BorderStyle.Fixed3D;
             lbQLNV_DiaChi.Font = new Font("Segoe UI Semibold", 10.125F, FontStyle.Bold, GraphicsUnit.Point);
-            lbQLNV_DiaChi.Location = new Point(989, 219);
+            lbQLNV_DiaChi.Location = new Point(968, 223);
             lbQLNV_DiaChi.Name = "lbQLNV_DiaChi";
             lbQLNV_DiaChi.Size = new Size(102, 39);
             lbQLNV_DiaChi.TabIndex = 8;
@@ -337,7 +404,7 @@
             lbQLNV_Email.BackColor = SystemColors.Control;
             lbQLNV_Email.BorderStyle = BorderStyle.Fixed3D;
             lbQLNV_Email.Font = new Font("Segoe UI Semibold", 10.125F, FontStyle.Bold, GraphicsUnit.Point);
-            lbQLNV_Email.Location = new Point(989, 133);
+            lbQLNV_Email.Location = new Point(968, 137);
             lbQLNV_Email.Name = "lbQLNV_Email";
             lbQLNV_Email.Size = new Size(85, 39);
             lbQLNV_Email.TabIndex = 7;
@@ -349,7 +416,7 @@
             lbQLNV_SDT.BackColor = SystemColors.Control;
             lbQLNV_SDT.BorderStyle = BorderStyle.Fixed3D;
             lbQLNV_SDT.Font = new Font("Segoe UI Semibold", 10.125F, FontStyle.Bold, GraphicsUnit.Point);
-            lbQLNV_SDT.Location = new Point(989, 47);
+            lbQLNV_SDT.Location = new Point(968, 51);
             lbQLNV_SDT.Name = "lbQLNV_SDT";
             lbQLNV_SDT.Size = new Size(68, 39);
             lbQLNV_SDT.TabIndex = 6;
@@ -387,9 +454,9 @@
             lbQLNV_MaCN.Font = new Font("Segoe UI Semibold", 10.125F, FontStyle.Bold, GraphicsUnit.Point);
             lbQLNV_MaCN.Location = new Point(496, 51);
             lbQLNV_MaCN.Name = "lbQLNV_MaCN";
-            lbQLNV_MaCN.Size = new Size(186, 39);
+            lbQLNV_MaCN.Size = new Size(103, 39);
             lbQLNV_MaCN.TabIndex = 2;
-            lbQLNV_MaCN.Text = "Mã chi nhánh";
+            lbQLNV_MaCN.Text = "Mã CN";
             // 
             // lbQLNV_UserID
             // 
@@ -436,10 +503,10 @@
             // 
             // grbQLNV_TK
             // 
+            grbQLNV_TK.Controls.Add(cbQLNV_TK_MaNV);
             grbQLNV_TK.Controls.Add(lbQLNV_TK_HoTen);
             grbQLNV_TK.Controls.Add(lbQLNV_TK_MaNV);
             grbQLNV_TK.Controls.Add(txtQLNV_TK_TenNV);
-            grbQLNV_TK.Controls.Add(txtQLNV_TK_MaNV);
             grbQLNV_TK.Dock = DockStyle.Fill;
             grbQLNV_TK.Location = new Point(0, 0);
             grbQLNV_TK.Name = "grbQLNV_TK";
@@ -447,6 +514,14 @@
             grbQLNV_TK.TabIndex = 0;
             grbQLNV_TK.TabStop = false;
             grbQLNV_TK.Text = "Tìm kiếm";
+            // 
+            // cbQLNV_TK_MaNV
+            // 
+            cbQLNV_TK_MaNV.FormattingEnabled = true;
+            cbQLNV_TK_MaNV.Location = new Point(182, 58);
+            cbQLNV_TK_MaNV.Name = "cbQLNV_TK_MaNV";
+            cbQLNV_TK_MaNV.Size = new Size(284, 45);
+            cbQLNV_TK_MaNV.TabIndex = 27;
             // 
             // lbQLNV_TK_HoTen
             // 
@@ -479,13 +554,6 @@
             txtQLNV_TK_TenNV.Name = "txtQLNV_TK_TenNV";
             txtQLNV_TK_TenNV.Size = new Size(333, 71);
             txtQLNV_TK_TenNV.TabIndex = 24;
-            // 
-            // txtQLNV_TK_MaNV
-            // 
-            txtQLNV_TK_MaNV.Location = new Point(182, 62);
-            txtQLNV_TK_MaNV.Name = "txtQLNV_TK_MaNV";
-            txtQLNV_TK_MaNV.Size = new Size(333, 43);
-            txtQLNV_TK_MaNV.TabIndex = 22;
             // 
             // grbQLNV_CN
             // 
@@ -582,69 +650,6 @@
             btnQLNV_Xoa.Text = "Xóa";
             btnQLNV_Xoa.UseVisualStyleBackColor = false;
             // 
-            // NV_ID
-            // 
-            NV_ID.DataPropertyName = "NV_ID";
-            NV_ID.HeaderText = "Mã NV";
-            NV_ID.MinimumWidth = 10;
-            NV_ID.Name = "NV_ID";
-            // 
-            // UserID
-            // 
-            UserID.DataPropertyName = "UserID";
-            UserID.HeaderText = "UserID";
-            UserID.MinimumWidth = 10;
-            UserID.Name = "UserID";
-            // 
-            // CN_ID
-            // 
-            CN_ID.DataPropertyName = "CN_ID";
-            CN_ID.HeaderText = "Mã chi nhánh";
-            CN_ID.MinimumWidth = 10;
-            CN_ID.Name = "CN_ID";
-            // 
-            // NV_Name
-            // 
-            NV_Name.DataPropertyName = "NV_Name";
-            NV_Name.HeaderText = "Họ tên";
-            NV_Name.MinimumWidth = 10;
-            NV_Name.Name = "NV_Name";
-            // 
-            // BirthDay
-            // 
-            BirthDay.DataPropertyName = "BirthDay";
-            BirthDay.HeaderText = "Ngày sinh";
-            BirthDay.MinimumWidth = 10;
-            BirthDay.Name = "BirthDay";
-            // 
-            // Sex
-            // 
-            Sex.DataPropertyName = "Sex";
-            Sex.HeaderText = "Giới tính";
-            Sex.MinimumWidth = 10;
-            Sex.Name = "Sex";
-            // 
-            // Phone
-            // 
-            Phone.DataPropertyName = "Phone";
-            Phone.HeaderText = "SĐT";
-            Phone.MinimumWidth = 10;
-            Phone.Name = "Phone";
-            // 
-            // Email
-            // 
-            Email.DataPropertyName = "Email";
-            Email.HeaderText = "Email";
-            Email.MinimumWidth = 10;
-            Email.Name = "Email";
-            // 
-            // Address
-            // 
-            Address.DataPropertyName = "Address";
-            Address.HeaderText = "Địa chỉ";
-            Address.MinimumWidth = 10;
-            Address.Name = "Address";
-            // 
             // UC_QLNV
             // 
             AutoScaleDimensions = new SizeF(13F, 32F);
@@ -690,8 +695,6 @@
         private TextBox txtQLNV_Email;
         private TextBox txtQLNV_DiaChi;
         private TextBox txtQLNV_SDT;
-        private TextBox txtQLNV_UserID;
-        private TextBox txtQLNV_MaCN;
         private TextBox txtQLNV_MaNV;
         private Label lbQLNV_DiaChi;
         private Label lbQLNV_Email;
@@ -704,7 +707,6 @@
         private SplitContainer splQLNV_TK_CN;
         private GroupBox grbQLNV_TK;
         private TextBox txtQLNV_TK_TenNV;
-        private TextBox txtQLNV_TK_MaNV;
         private GroupBox grbQLNV_CN;
         private Button btnQLNV_Export;
         private Button btnQLNV_Them;
@@ -722,5 +724,8 @@
         private DataGridViewTextBoxColumn Phone;
         private DataGridViewTextBoxColumn Email;
         private DataGridViewTextBoxColumn Address;
+        private ComboBox cbQLNV_MaCN;
+        private ComboBox cbQLNV_UserID;
+        private ComboBox cbQLNV_TK_MaNV;
     }
 }

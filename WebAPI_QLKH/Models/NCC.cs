@@ -15,7 +15,7 @@ public partial class NCC
 
     public int? NCC_Phone { get; set; }
 
-    public string Quantity { get; set; }
+    public int Quantity { get; set; }
 
     public virtual ICollection<DonNhap> DonNhap { get; set; } = new List<DonNhap>();
 }
