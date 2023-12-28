@@ -52,7 +52,6 @@
             Name = "FrmMain";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Quản Lý";
-            TopMost = true;
             FormClosing += FrmMain_FormClosing;
             ResumeLayout(false);
         }
