@@ -13,7 +13,7 @@ public partial class ChiTietDonXuat
 
     public string Description { get; set; }
 
-    public int? Quantity { get; set; }
+    public int Quantity { get; set; }
 
     public virtual DonXuat DXuat { get; set; }
 

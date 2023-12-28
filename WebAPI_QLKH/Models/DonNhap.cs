@@ -11,8 +11,6 @@ public partial class DonNhap
 
     public string NCC_ID { get; set; }
 
-    public string Thuoc_ID { get; set; }
-
     public DateTime DN_Datetime { get; set; }
 
     public string DN_Name { get; set; }
@@ -24,6 +22,4 @@ public partial class DonNhap
     public virtual NCC NCC { get; set; }
 
     public virtual NhanVien NV { get; set; }
-
-    public virtual Thuoc Thuoc { get; set; }
 }

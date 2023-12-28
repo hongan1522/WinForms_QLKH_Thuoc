@@ -16,7 +16,6 @@ namespace FormQLKH
     {
         private readonly DNhapService dNhapService;
         private readonly NCCService nCCService;
-        private readonly ThuocService thuocService;
         private readonly NhanVienService nvService;
         public UC_QLDonNhap()
         {
@@ -25,7 +24,6 @@ namespace FormQLKH
 
             dNhapService = new DNhapService("https://localhost:7195");
             nCCService = new NCCService("https://localhost:7195");
-            thuocService = new ThuocService("https://localhost:7195");
             nvService = new NhanVienService("https://localhost:7195");
 
             LoadDataGridView();
@@ -78,14 +76,12 @@ namespace FormQLKH
                 string maDN = Convert.ToString(selectedRow.Cells["DNhap_ID"].Value);
                 string tenDN = Convert.ToString(selectedRow.Cells["DN_Name"].Value);
                 string maNCC = Convert.ToString(selectedRow.Cells["NCC_ID"].Value);
-                string maThuoc = Convert.ToString(selectedRow.Cells["Thuoc_ID"].Value);
                 string maNV = Convert.ToString(selectedRow.Cells["NV_ID"].Value);
                 DateTime ngayNhap = Convert.ToDateTime(selectedRow.Cells["DN_Datetime"].Value);
 
                 txtQLDN_MaDN.Text = maDN;
                 txtQLDN_TenDN.Text = tenDN;
                 cbQLDN_MaNCC.Text = maNCC;
-                cbQLDN_MaThuoc.Text = maThuoc;
                 cbQLDN_MaNV.Text = maNV;
                 dtpQLDN_NgayNhap.Value = ngayNhap;
 
@@ -136,23 +132,10 @@ namespace FormQLKH
                     cbQLDN_TK_MaNV.SelectedIndex = 0;
                 }
 
-                // Load cbQLDN_MaThuoc
-                List<Thuoc> dsThuoc = thuocService.LayDSThuoc();
-
-                cbQLDN_MaThuoc.DataSource = dsThuoc;
-                cbQLDN_MaThuoc.DisplayMember = "Thuoc_ID";
-                cbQLDN_MaThuoc.ValueMember = "Thuoc_ID";
-                cbQLDN_MaThuoc.DropDownStyle = ComboBoxStyle.DropDownList;
-
-                if (dsThuoc.Count > 0)
-                {
-                    cbQLDN_MaThuoc.SelectedIndex = 0;
-                }
-
                 // Load cbQLDN_TK_MaDN
                 List<DonNhap> dsdn = dNhapService.LayDSDN();
                 dsdn.Insert(0, new DonNhap { DNhap_ID = "All" });
-                
+
                 cbQLDN_TK_MaDN.DataSource = dsdn;
                 cbQLDN_TK_MaDN.DisplayMember = "DNhap_ID";
                 cbQLDN_TK_MaDN.ValueMember = "DNhap_ID";

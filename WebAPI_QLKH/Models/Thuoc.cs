@@ -13,11 +13,11 @@ public partial class Thuoc
 
     public string Nhom_ID { get; set; }
 
+    public virtual ICollection<ChiTietDonNhap> ChiTietDonNhap { get; set; } = new List<ChiTietDonNhap>();
+
     public virtual ICollection<ChiTietDonXuat> ChiTietDonXuat { get; set; } = new List<ChiTietDonXuat>();
 
     public virtual ICollection<ChiTietThuoc> ChiTietThuoc { get; set; } = new List<ChiTietThuoc>();
-
-    public virtual ICollection<DonNhap> DonNhap { get; set; } = new List<DonNhap>();
 
     public virtual NhomThuoc Nhom { get; set; }
 }

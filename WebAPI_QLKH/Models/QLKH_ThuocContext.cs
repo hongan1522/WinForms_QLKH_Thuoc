@@ -60,12 +60,16 @@ public partial class QLKH_ThuocContext : DbContext
 
         modelBuilder.Entity<ChiTietDonNhap>(entity =>
         {
-            entity.HasKey(e => new { e.Lo_ID, e.DNhap_ID });
+            entity.HasKey(e => new { e.DNhap_ID, e.Thuoc_ID });
 
-            entity.Property(e => e.Lo_ID)
+            entity.Property(e => e.DNhap_ID)
                 .HasMaxLength(10)
                 .IsFixedLength();
-            entity.Property(e => e.DNhap_ID)
+            entity.Property(e => e.Thuoc_ID)
+                .HasMaxLength(10)
+                .IsFixedLength();
+            entity.Property(e => e.Lo_ID)
+                .IsRequired()
                 .HasMaxLength(10)
                 .IsFixedLength();
 
@@ -78,6 +82,11 @@ public partial class QLKH_ThuocContext : DbContext
                 .HasForeignKey(d => d.Lo_ID)
                 .OnDelete(DeleteBehavior.ClientSetNull)
                 .HasConstraintName("FK_ChiTietDonNhap_Lo");
+
+            entity.HasOne(d => d.Thuoc).WithMany(p => p.ChiTietDonNhap)
+                .HasForeignKey(d => d.Thuoc_ID)
+                .OnDelete(DeleteBehavior.ClientSetNull)
+                .HasConstraintName("FK_ChiTietDonNhap_Thuoc");
         });
 
         modelBuilder.Entity<ChiTietDonXuat>(entity =>
@@ -140,10 +149,6 @@ public partial class QLKH_ThuocContext : DbContext
             entity.Property(e => e.NV_ID)
                 .HasMaxLength(10)
                 .IsFixedLength();
-            entity.Property(e => e.Thuoc_ID)
-                .IsRequired()
-                .HasMaxLength(10)
-                .IsFixedLength();
 
             entity.HasOne(d => d.NCC).WithMany(p => p.DonNhap)
                 .HasForeignKey(d => d.NCC_ID)
@@ -153,11 +158,6 @@ public partial class QLKH_ThuocContext : DbContext
             entity.HasOne(d => d.NV).WithMany(p => p.DonNhap)
                 .HasForeignKey(d => d.NV_ID)
                 .HasConstraintName("FK_DonNhap_NhanVien");
-
-            entity.HasOne(d => d.Thuoc).WithMany(p => p.DonNhap)
-                .HasForeignKey(d => d.Thuoc_ID)
-                .OnDelete(DeleteBehavior.ClientSetNull)
-                .HasConstraintName("FK_DonNhap_Thuoc1");
         });
 
         modelBuilder.Entity<DonXuat>(entity =>

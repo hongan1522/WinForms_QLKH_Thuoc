@@ -13,7 +13,13 @@ public partial class ChiTietDonNhap
 
     public string Description { get; set; }
 
+    public string Thuoc_ID { get; set; }
+
+    public int? Quantity { get; set; }
+
     public virtual DonNhap DNhap { get; set; }
 
     public virtual Lo Lo { get; set; }
+
+    public virtual Thuoc Thuoc { get; set; }
 }

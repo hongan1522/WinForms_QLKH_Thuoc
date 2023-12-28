@@ -32,14 +32,12 @@
             tlpQLDN = new TableLayoutPanel();
             grbQLDN_TT = new GroupBox();
             cbQLDN_MaNCC = new ComboBox();
-            cbQLDN_MaThuoc = new ComboBox();
             txtQLDN_TenDN = new TextBox();
             cbQLDN_MaNV = new ComboBox();
             dtpQLDN_NgayNhap = new DateTimePicker();
             lbQLDN_TenDN = new Label();
             txtQLDN_MaDN = new TextBox();
             lbQLDN_NgayNhap = new Label();
-            lbQLDN_MaThuoc = new Label();
             lbQLDN_MaNCC = new Label();
             lbQLDN_MaNV = new Label();
             lbQLDN_MaDN = new Label();
@@ -60,7 +58,6 @@
             btnQLDN_Sua = new Button();
             btnQLDN_Them = new Button();
             DNhap_ID = new DataGridViewTextBoxColumn();
-            Thuoc_ID = new DataGridViewTextBoxColumn();
             NV_ID = new DataGridViewTextBoxColumn();
             NCC_ID = new DataGridViewTextBoxColumn();
             DN_Name = new DataGridViewTextBoxColumn();
@@ -103,14 +100,12 @@
             // 
             grbQLDN_TT.BackgroundImage = Properties.Resources.bg;
             grbQLDN_TT.Controls.Add(cbQLDN_MaNCC);
-            grbQLDN_TT.Controls.Add(cbQLDN_MaThuoc);
             grbQLDN_TT.Controls.Add(txtQLDN_TenDN);
             grbQLDN_TT.Controls.Add(cbQLDN_MaNV);
             grbQLDN_TT.Controls.Add(dtpQLDN_NgayNhap);
             grbQLDN_TT.Controls.Add(lbQLDN_TenDN);
             grbQLDN_TT.Controls.Add(txtQLDN_MaDN);
             grbQLDN_TT.Controls.Add(lbQLDN_NgayNhap);
-            grbQLDN_TT.Controls.Add(lbQLDN_MaThuoc);
             grbQLDN_TT.Controls.Add(lbQLDN_MaNCC);
             grbQLDN_TT.Controls.Add(lbQLDN_MaNV);
             grbQLDN_TT.Controls.Add(lbQLDN_MaDN);
@@ -130,19 +125,12 @@
             cbQLDN_MaNCC.Size = new Size(329, 45);
             cbQLDN_MaNCC.TabIndex = 35;
             // 
-            // cbQLDN_MaThuoc
-            // 
-            cbQLDN_MaThuoc.FormattingEnabled = true;
-            cbQLDN_MaThuoc.Location = new Point(1036, 188);
-            cbQLDN_MaThuoc.Name = "cbQLDN_MaThuoc";
-            cbQLDN_MaThuoc.Size = new Size(329, 45);
-            cbQLDN_MaThuoc.TabIndex = 34;
-            // 
             // txtQLDN_TenDN
             // 
             txtQLDN_TenDN.Location = new Point(313, 117);
+            txtQLDN_TenDN.Multiline = true;
             txtQLDN_TenDN.Name = "txtQLDN_TenDN";
-            txtQLDN_TenDN.Size = new Size(381, 43);
+            txtQLDN_TenDN.Size = new Size(381, 111);
             txtQLDN_TenDN.TabIndex = 30;
             // 
             // cbQLDN_MaNV
@@ -157,9 +145,9 @@
             // 
             dtpQLDN_NgayNhap.CustomFormat = "dd/MM/yyyy";
             dtpQLDN_NgayNhap.Format = DateTimePickerFormat.Custom;
-            dtpQLDN_NgayNhap.Location = new Point(313, 184);
+            dtpQLDN_NgayNhap.Location = new Point(1036, 188);
             dtpQLDN_NgayNhap.Name = "dtpQLDN_NgayNhap";
-            dtpQLDN_NgayNhap.Size = new Size(381, 43);
+            dtpQLDN_NgayNhap.Size = new Size(329, 43);
             dtpQLDN_NgayNhap.TabIndex = 32;
             // 
             // lbQLDN_TenDN
@@ -187,23 +175,11 @@
             lbQLDN_NgayNhap.BackColor = SystemColors.Control;
             lbQLDN_NgayNhap.BorderStyle = BorderStyle.Fixed3D;
             lbQLDN_NgayNhap.Font = new Font("Segoe UI Semibold", 10.125F, FontStyle.Bold, GraphicsUnit.Point);
-            lbQLDN_NgayNhap.Location = new Point(59, 185);
+            lbQLDN_NgayNhap.Location = new Point(782, 189);
             lbQLDN_NgayNhap.Name = "lbQLDN_NgayNhap";
             lbQLDN_NgayNhap.Size = new Size(153, 39);
             lbQLDN_NgayNhap.TabIndex = 23;
             lbQLDN_NgayNhap.Text = "Ngày nhập";
-            // 
-            // lbQLDN_MaThuoc
-            // 
-            lbQLDN_MaThuoc.AutoSize = true;
-            lbQLDN_MaThuoc.BackColor = SystemColors.Control;
-            lbQLDN_MaThuoc.BorderStyle = BorderStyle.Fixed3D;
-            lbQLDN_MaThuoc.Font = new Font("Segoe UI Semibold", 10.125F, FontStyle.Bold, GraphicsUnit.Point);
-            lbQLDN_MaThuoc.Location = new Point(779, 188);
-            lbQLDN_MaThuoc.Name = "lbQLDN_MaThuoc";
-            lbQLDN_MaThuoc.Size = new Size(136, 39);
-            lbQLDN_MaThuoc.TabIndex = 20;
-            lbQLDN_MaThuoc.Text = "Mã thuốc";
             // 
             // lbQLDN_MaNCC
             // 
@@ -289,7 +265,7 @@
             dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
             dgvQLDN.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             dgvQLDN.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgvQLDN.Columns.AddRange(new DataGridViewColumn[] { DNhap_ID, Thuoc_ID, NV_ID, NCC_ID, DN_Name, DN_Datetime });
+            dgvQLDN.Columns.AddRange(new DataGridViewColumn[] { DNhap_ID, NV_ID, NCC_ID, DN_Name, DN_Datetime });
             dgvQLDN.Dock = DockStyle.Fill;
             dgvQLDN.Location = new Point(3, 39);
             dgvQLDN.Name = "dgvQLDN";
@@ -477,13 +453,6 @@
             DNhap_ID.MinimumWidth = 10;
             DNhap_ID.Name = "DNhap_ID";
             // 
-            // Thuoc_ID
-            // 
-            Thuoc_ID.DataPropertyName = "Thuoc_ID";
-            Thuoc_ID.HeaderText = "Mã thuốc";
-            Thuoc_ID.MinimumWidth = 10;
-            Thuoc_ID.Name = "Thuoc_ID";
-            // 
             // NV_ID
             // 
             NV_ID.DataPropertyName = "NV_ID";
@@ -557,7 +526,6 @@
         private TextBox txtQLDN_MaDN;
         private Label lbQLDN_NgayNhap;
         private Label lbQLDN_TenDN;
-        private Label lbQLDN_MaThuoc;
         private Label lbQLDN_MaNCC;
         private Label lbQLDN_MaNV;
         private Label lbQLDN_MaDN;
@@ -565,11 +533,9 @@
         private Label lbQLDN_TK_MaDN;
         private ComboBox cbQLDN_MaNV;
         private ComboBox cbQLDN_MaNCC;
-        private ComboBox cbQLDN_MaThuoc;
         private ComboBox cbQLDN_TK_MaDN;
         private ComboBox cbQLDN_TK_MaNV;
         private DataGridViewTextBoxColumn DNhap_ID;
-        private DataGridViewTextBoxColumn Thuoc_ID;
         private DataGridViewTextBoxColumn NV_ID;
         private DataGridViewTextBoxColumn NCC_ID;
         private DataGridViewTextBoxColumn DN_Name;
