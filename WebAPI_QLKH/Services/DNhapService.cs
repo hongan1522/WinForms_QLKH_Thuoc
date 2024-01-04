@@ -26,5 +26,17 @@ namespace WebAPI_QLKH.Services
                 return null;
             }
         }
+        public RestResponse ThemDN(List<DonNhap> payloads)
+        {
+            var request = new RestRequest("api/DonNhap", Method.Post);
+            request.AddJsonBody(payloads);
+            return _client.Execute(request);
+        }
+        public RestResponse CapNhatDN(string id, DonNhap payload)
+        {
+            var request = new RestRequest($"api/DonNhap/{id}", Method.Put);
+            request.AddJsonBody(payload);
+            return _client.Execute(request);
+        }
     }
 }

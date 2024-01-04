@@ -12,6 +12,7 @@ using WebAPI_QLKH.Models;
 using static WebAPI_QLKH.Controllers.KhoController;
 using WebAPI_QLKH.Services;
 using static WebAPI_QLKH.Controllers.ChiNhanhController;
+using WebAPI_QLKH.StateManager;
 
 namespace FormQLKH
 {
@@ -28,25 +29,32 @@ namespace FormQLKH
 
             khoService = new KhoService("https://localhost:7195");
             chiNhanhService = new ChiNhanhService("https://localhost:7195");
-            LoadComboBoxMaCN();
+            LoadComboBox();
             LoadDataGridView();
         }
-        private void LoadDataGridView()
+        private async void LoadDataGridView()
         {
             try
             {
-                foreach (DataGridViewColumn column in dgvQLK.Columns)
+                List<Kho> dsKho = await Task.Run(() => khoService.LayDanhSachKho());
+
+                if (dsKho != null)
                 {
-                    column.DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleLeft;
-                }
+                    dsKho = dsKho
+                        .OrderBy(kho =>
+                        {
+                            string numberPart = new string(kho.Kho_ID.Where(char.IsDigit).ToArray());
+                            if (int.TryParse(numberPart, out int result))
+                            {
+                                return result;
+                            }
 
-                dgvQLK.ColumnHeadersDefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+                            return int.MaxValue;
+                        })
+                        .ToList();
 
-                List<Kho> danhSachKho = khoService.LayDanhSachKho();
-
-                if (danhSachKho != null)
-                {
-                    dgvQLK.DataSource = danhSachKho;
+                    dgvQLK.DataSource = null;
+                    dgvQLK.DataSource = dsKho;
 
                     foreach (DataGridViewColumn column in dgvQLK.Columns)
                     {
@@ -63,13 +71,24 @@ namespace FormQLKH
                 MessageBox.Show($"Lỗi: {ex.Message}", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
-        private void LoadComboBoxMaCN()
+        private void LoadComboBox()
         {
             try
             {
-                List<ChiNhanh> danhSachMaCN = chiNhanhService.LayDanhSachChiNhanh();
+                //Load cbQLK_TK_MaKho
+                List<Kho> dsKho = khoService.LayDanhSachKho();
+                dsKho = dsKho.OrderBy(kho => GetNumericPartOfMa(kho.Kho_ID)).ToList();
+                dsKho.Insert(0, new Kho { Kho_ID = "All" });
+                
+                cbQLK_TK_MaKho.DataSource = dsKho;
+                cbQLK_TK_MaKho.DisplayMember = "Kho_ID";
+                cbQLK_TK_MaKho.ValueMember = "Kho_ID";
+                cbQLK_TK_MaKho.DropDownStyle = ComboBoxStyle.DropDownList;
 
                 // Load cbQLK_MaCN
+                List<ChiNhanh> danhSachMaCN = chiNhanhService.LayDanhSachChiNhanh();
+                danhSachMaCN = danhSachMaCN.OrderBy(cn => GetNumericPartOfMa(cn.CN_ID)).ToList();
+
                 cbQLK_MaCN.DataSource = danhSachMaCN;
                 cbQLK_MaCN.DisplayMember = "CN_ID";
                 cbQLK_MaCN.ValueMember = "CN_ID";
@@ -82,6 +101,7 @@ namespace FormQLKH
 
                 // Load cbQLK_TK_MaCN
                 List<ChiNhanh> danhSachMaCN1 = new List<ChiNhanh>(danhSachMaCN);
+                danhSachMaCN1 = danhSachMaCN1.OrderBy(cn => GetNumericPartOfMa(cn.CN_ID)).ToList();
                 danhSachMaCN1.Insert(0, new ChiNhanh { CN_ID = "All" });
 
                 cbQLK_TK_MaCN.DataSource = danhSachMaCN1;
@@ -98,6 +118,20 @@ namespace FormQLKH
             {
                 MessageBox.Show($"Lỗi: {ex.Message}", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+        }
+        private int GetNumericPartOfMa(string ma)
+        {
+            if (ma.StartsWith("Kho") && int.TryParse(ma.Substring(3), out int result))
+            {
+                return result;
+            }
+
+            if (ma.StartsWith("CN") && int.TryParse(ma.Substring(2), out int cn))
+            {
+                return cn;
+            }
+
+            return int.MaxValue;
         }
         private void dgvQLK_SelectionChanged(object sender, EventArgs e)
         {
@@ -164,6 +198,14 @@ namespace FormQLKH
             string tenKho = txtQLK_TenKho.Text.Trim();
             string diaChi = txtQLK_DiaChi.Text.Trim();
 
+            string roleID = StateManager.RoleID?.Trim();
+
+            if (!PermissionManager.CanAdd(roleID))
+            {
+                MessageBox.Show("Bạn không có quyền thêm kho.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
             if (string.IsNullOrEmpty(maCN) || string.IsNullOrEmpty(maKho) || string.IsNullOrEmpty(tenKho) || string.IsNullOrEmpty(diaChi))
             {
                 MessageBox.Show("Vui lòng điền đầy đủ thông tin.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -187,6 +229,7 @@ namespace FormQLKH
             {
                 MessageBox.Show($"Thêm kho {maKho} thành công.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 LoadDataGridView();
+                LoadComboBox();
             }
             else
             {
@@ -200,35 +243,60 @@ namespace FormQLKH
             string diaChi = txtQLK_DiaChi.Text.Trim();
             string maCN = cbQLK_MaCN.Text.Trim();
 
+            string roleID = StateManager.RoleID?.Trim();
+
+            if (!PermissionManager.CanUpdate(roleID))
+            {
+                MessageBox.Show("Bạn không có quyền cập nhật kho.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
             if (string.IsNullOrEmpty(maKho) || string.IsNullOrEmpty(tenKho) || string.IsNullOrEmpty(diaChi))
             {
                 MessageBox.Show("Vui lòng điền đầy đủ thông tin.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
 
-            var payload = new KhoPost
-            {
-                CN_ID = maCN,
-                Kho_ID = maKho,
-                Kho_Name = tenKho,
-                Kho_Address = diaChi
-            };
+            DialogResult result = MessageBox.Show($"Bạn chắc muốn cập nhật kho {maKho}?", "Xác nhận sửa", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 
-            var response = khoService.CapNhatKho(maKho, payload);
-
-            if (response.IsSuccessStatusCode)
+            if (result == DialogResult.Yes)
             {
-                MessageBox.Show($"Cập nhật kho {maKho} thành công.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                LoadDataGridView();
+                var payload = new KhoPost
+                {
+                    CN_ID = maCN,
+                    Kho_ID = maKho,
+                    Kho_Name = tenKho,
+                    Kho_Address = diaChi
+                };
+
+                var response = khoService.CapNhatKho(maKho, payload);
+
+                if (response.IsSuccessStatusCode)
+                {
+                    MessageBox.Show($"Cập nhật kho {maKho} thành công.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    LoadDataGridView();
+                }
+                else
+                {
+                    MessageBox.Show("Cập nhật kho thất bại. Vui lòng kiểm tra lại.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
             }
             else
             {
-                MessageBox.Show("Cập nhật kho thất bại. Vui lòng kiểm tra lại.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
             }
         }
         private void btnQLK_Xoa_Click(object sender, EventArgs e)
         {
             string maKho = txtQLK_MaKho.Text.Trim();
+
+            string roleID = StateManager.RoleID?.Trim();
+
+            if (!PermissionManager.CanDelete(roleID))
+            {
+                MessageBox.Show("Bạn không có quyền xóa kho.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
 
             var confirmResult = MessageBox.Show($"Bạn có chắc chắn muốn xóa kho {maKho}?", "Xác nhận xóa",
                                              MessageBoxButtons.YesNo, MessageBoxIcon.Question);
@@ -248,7 +316,7 @@ namespace FormQLKH
                 }
             }
         }
-        private async void TimKiemTheoMaKhoMaCN(string maCN, string maKho)
+        private void SearchData(string maCN, string maKho)
         {
             try
             {
@@ -258,18 +326,28 @@ namespace FormQLKH
                 {
                     var filteredKho = danhSachKho;
 
-                    if (!string.IsNullOrEmpty(maCN) && !maCN.Equals("All"))
+                    if (!maCN.Equals("All") && !maKho.Equals("All"))
                     {
                         filteredKho = danhSachKho.Where(kho =>
-                            (string.IsNullOrEmpty(maKho) || kho.Kho_ID.Contains(maKho)) &&
-                            (string.IsNullOrEmpty(maCN) || kho.CN_ID.Contains(maCN))
+                            (kho.Kho_ID.Contains(maKho)) &&
+                            (kho.CN_ID.Contains(maCN))
+                        ).ToList();
+                    }
+                    else if (!maCN.Equals("All") && maKho.Equals("All"))
+                    {
+                        filteredKho = danhSachKho.Where(kho =>
+                            (kho.CN_ID.Contains(maCN))
+                        ).ToList();
+                    }
+                    else if (maCN.Equals("All") && !maKho.Equals("All"))
+                    {
+                        filteredKho = danhSachKho.Where(kho =>
+                            (kho.Kho_ID.Contains(maKho))
                         ).ToList();
                     }
                     else
                     {
-                        filteredKho = danhSachKho.Where(kho =>
-                            (string.IsNullOrEmpty(maKho) || kho.Kho_ID.Contains(maKho))
-                        ).ToList();
+                        LoadDataGridView();
                     }
 
                     dgvQLK.DataSource = filteredKho;
@@ -284,30 +362,22 @@ namespace FormQLKH
                 MessageBox.Show($"Lỗi: {ex.Message}", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
-        private void txtQLK_TK_MaKho_TextChanged(object sender, EventArgs e)
-        {
-            string selectedValue = cbQLK_TK_MaCN.SelectedValue?.ToString();
-            string maKho = txtQLK_TK_MaKho.Text.Trim();
-
-            if (string.IsNullOrEmpty(maKho))
-            {
-                LoadDataGridView();
-            }
-            else
-            {
-                TimKiemTheoMaKhoMaCN(selectedValue, maKho);
-            }
-        }
         private void cbQLK_TK_MaCN_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (cbQLK_TK_MaCN.SelectedItem is ChiNhanh selectedCN)
+            SearchByMaCN_MaKho();
+        }
+        private void cbQLK_TK_MaKho_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            SearchByMaCN_MaKho();
+        }
+        private void SearchByMaCN_MaKho()
+        {
+            if (cbQLK_TK_MaCN.SelectedItem is ChiNhanh selectedCN && cbQLK_TK_MaKho.SelectedItem is Kho selectedKho)
             {
-                string selectedValue = selectedCN.CN_ID;
-                string maKho = txtQLK_TK_MaKho.Text.Trim();
+                string maCN = selectedCN.CN_ID;
+                string maKho = selectedKho.Kho_ID;
 
-                txtQLK_TK_MaKho.Clear();
-
-                TimKiemTheoMaKhoMaCN(selectedValue, maKho);
+                SearchData(maCN, maKho);
             }
         }
     }

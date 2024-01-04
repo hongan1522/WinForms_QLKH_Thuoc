@@ -26,5 +26,17 @@ namespace WebAPI_QLKH.Services
                 return null;
             }
         }
+        public RestResponse ThemNCC(List<NCC> payloads)
+        {
+            var request = new RestRequest("api/NCC", Method.Post);
+            request.AddJsonBody(payloads);
+            return _client.Execute(request);
+        }
+        public RestResponse CapNhatNCC(string id, NCC payload)
+        {
+            var request = new RestRequest($"api/NCC/{id}", Method.Put);
+            request.AddJsonBody(payload);
+            return _client.Execute(request);
+        }
     }
 }

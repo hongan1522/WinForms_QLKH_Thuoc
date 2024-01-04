@@ -15,7 +15,7 @@ public partial class NhanVien
 
     public string Sex { get; set; }
 
-    public int? Phone { get; set; }
+    public string Phone { get; set; }
 
     public string Address { get; set; }
 

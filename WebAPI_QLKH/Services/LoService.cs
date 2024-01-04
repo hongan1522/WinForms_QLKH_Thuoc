@@ -19,9 +19,17 @@ namespace WebAPI_QLKH.Services
         public async Task<List<Lo>> LayDanhSachLo()
         {
             var request = new RestRequest("api/Lo", Method.Get);
-            var response = await _restClient.ExecuteAsync<List<Lo>>(request);
+            var response = _restClient.Execute<List<Lo>>(request);
 
-            return response.Data;
+            if (response.IsSuccessful)
+            {
+                return response.Data;
+            }
+            else
+            {
+                Console.WriteLine($"Lỗi khi lấy dữ liệu: {response.ErrorMessage}");
+                return null;
+            }
         }
         public async Task<RestResponse> ThemLo(LoPost loPost)
         {

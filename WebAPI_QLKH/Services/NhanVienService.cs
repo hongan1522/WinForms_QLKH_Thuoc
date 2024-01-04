@@ -1,5 +1,6 @@
 ﻿using RestSharp;
 using WebAPI_QLKH.Models;
+using static WebAPI_QLKH.Controllers.KhoController;
 using static WebAPI_QLKH.Controllers.NhanVienController;
 
 namespace WebAPI_QLKH.Services
@@ -26,6 +27,18 @@ namespace WebAPI_QLKH.Services
                 Console.WriteLine($"Lỗi khi lấy dữ liệu: {response.ErrorMessage}");
                 return null;
             }
+        }
+        public RestResponse ThemNV(List<NhanVien> payloads)
+        {
+            var request = new RestRequest("api/NhanVien", Method.Post);
+            request.AddJsonBody(payloads);
+            return _client.Execute(request);
+        }
+        public RestResponse CapNhatNV(string id, NhanVien payload)
+        {
+            var request = new RestRequest($"api/NhanVien/{id}", Method.Put);
+            request.AddJsonBody(payload);
+            return _client.Execute(request);
         }
     }
 }

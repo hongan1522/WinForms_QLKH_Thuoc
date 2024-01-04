@@ -227,6 +227,7 @@ public partial class QLKH_ThuocContext : DbContext
                 .IsFixedLength();
             entity.Property(e => e.NCC_Address).HasMaxLength(50);
             entity.Property(e => e.NCC_Name).HasMaxLength(50);
+            entity.Property(e => e.NCC_Phone).HasMaxLength(15);
         });
 
         modelBuilder.Entity<NhanVien>(entity =>
@@ -244,6 +245,7 @@ public partial class QLKH_ThuocContext : DbContext
                 .IsFixedLength();
             entity.Property(e => e.Email).HasMaxLength(50);
             entity.Property(e => e.NV_Name).HasMaxLength(50);
+            entity.Property(e => e.Phone).HasMaxLength(15);
             entity.Property(e => e.Sex).HasMaxLength(20);
             entity.Property(e => e.UserID)
                 .IsRequired()

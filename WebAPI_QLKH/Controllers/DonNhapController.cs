@@ -83,30 +83,26 @@ namespace WebAPI_QLKH.Controllers
         // POST: api/DonNhap
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPost]
-        public async Task<ActionResult<DonNhap>> PostDonNhap(DonNhap donNhap)
+        public async Task<ActionResult<IEnumerable<DonNhap>>> PostDonNhap([FromBody] List<DonNhap> payloads)
         {
-          if (_context.DonNhap == null)
-          {
-              return Problem("Entity set 'QLKH_ThuocContext.DonNhap'  is null.");
-          }
-            _context.DonNhap.Add(donNhap);
-            try
+            if (payloads == null || !payloads.Any())
             {
-                await _context.SaveChangesAsync();
-            }
-            catch (DbUpdateException)
-            {
-                if (DonNhapExists(donNhap.DNhap_ID))
-                {
-                    return Conflict();
-                }
-                else
-                {
-                    throw;
-                }
+                return BadRequest("Danh sách payload không hợp lệ");
             }
 
-            return CreatedAtAction("GetDonNhap", new { id = donNhap.DNhap_ID }, donNhap);
+            var DNList = payloads.Select(payload => new DonNhap
+            {
+                DNhap_ID = payload.DNhap_ID?.Trim() ?? string.Empty,
+                DN_Name = payload.DN_Name?.Trim() ?? string.Empty,
+                NV_ID = payload.NV_ID?.Trim() ?? string.Empty,
+                NCC_ID = payload.NCC_ID?.Trim() ?? string.Empty,
+                DN_Datetime = payload.DN_Datetime
+            }).ToList();
+
+            _context.DonNhap.AddRange(DNList);
+            await _context.SaveChangesAsync();
+
+            return DNList;
         }
 
         // DELETE: api/DonNhap/5

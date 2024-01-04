@@ -83,30 +83,24 @@ namespace WebAPI_QLKH.Controllers
         // POST: api/NhomThuoc
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPost]
-        public async Task<ActionResult<NhomThuoc>> PostNhomThuoc(NhomThuoc nhomThuoc)
+        public async Task<ActionResult<IEnumerable<NhomThuoc>>> PostNhomThuoc([FromBody] List<NhomThuoc> payloads)
         {
-          if (_context.NhomThuoc == null)
-          {
-              return Problem("Entity set 'QLKH_ThuocContext.NhomThuoc'  is null.");
-          }
-            _context.NhomThuoc.Add(nhomThuoc);
-            try
+            if (payloads == null || !payloads.Any())
             {
-                await _context.SaveChangesAsync();
-            }
-            catch (DbUpdateException)
-            {
-                if (NhomThuocExists(nhomThuoc.Nhom_ID))
-                {
-                    return Conflict();
-                }
-                else
-                {
-                    throw;
-                }
+                return BadRequest("Danh sách payload không hợp lệ");
             }
 
-            return CreatedAtAction("GetNhomThuoc", new { id = nhomThuoc.Nhom_ID }, nhomThuoc);
+            var NTList = payloads.Select(payload => new NhomThuoc
+            {
+                Nhom_ID = payload.Nhom_ID?.Trim() ?? string.Empty,
+                Nhom_Name = payload.Nhom_Name?.Trim() ?? string.Empty,
+                Description = payload.Description?.Trim() ?? string.Empty
+            }).ToList();
+
+            _context.NhomThuoc.AddRange(NTList);
+            await _context.SaveChangesAsync();
+
+            return NTList;
         }
 
         // DELETE: api/NhomThuoc/5

@@ -177,6 +177,7 @@
             txtQLDX_TenDX.Location = new Point(689, 165);
             txtQLDX_TenDX.Multiline = true;
             txtQLDX_TenDX.Name = "txtQLDX_TenDX";
+            txtQLDX_TenDX.ScrollBars = ScrollBars.Vertical;
             txtQLDX_TenDX.Size = new Size(274, 126);
             txtQLDX_TenDX.TabIndex = 6;
             // 
@@ -256,6 +257,7 @@
             cbQLDX_TK_MaDX.Name = "cbQLDX_TK_MaDX";
             cbQLDX_TK_MaDX.Size = new Size(212, 45);
             cbQLDX_TK_MaDX.TabIndex = 10;
+            cbQLDX_TK_MaDX.SelectedIndexChanged += cbQLDX_TK_MaDX_SelectedIndexChanged;
             // 
             // cbQLDX_TK_MaNV
             // 
@@ -264,6 +266,7 @@
             cbQLDX_TK_MaNV.Name = "cbQLDX_TK_MaNV";
             cbQLDX_TK_MaNV.Size = new Size(212, 45);
             cbQLDX_TK_MaNV.TabIndex = 9;
+            cbQLDX_TK_MaNV.SelectedIndexChanged += cbQLDX_TK_MaNV_SelectedIndexChanged;
             // 
             // label2
             // 
@@ -337,6 +340,7 @@
             btnQLDX_Them.TabIndex = 12;
             btnQLDX_Them.Text = "Thêm";
             btnQLDX_Them.UseVisualStyleBackColor = false;
+            btnQLDX_Them.Click += btnQLDX_Them_Click;
             // 
             // btnQLDX_Xoa
             // 
@@ -352,6 +356,7 @@
             btnQLDX_Xoa.TabIndex = 14;
             btnQLDX_Xoa.Text = "Xóa";
             btnQLDX_Xoa.UseVisualStyleBackColor = false;
+            btnQLDX_Xoa.Click += btnQLDX_Xoa_Click;
             // 
             // btnQLDX_Export
             // 
@@ -397,6 +402,7 @@
             btnQLDX_Sua.TabIndex = 13;
             btnQLDX_Sua.Text = "Sửa";
             btnQLDX_Sua.UseVisualStyleBackColor = false;
+            btnQLDX_Sua.Click += btnQLDX_Sua_Click;
             // 
             // grbQLDX_HT
             // 

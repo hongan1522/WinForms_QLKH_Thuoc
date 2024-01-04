@@ -83,30 +83,26 @@ namespace WebAPI_QLKH.Controllers
         // POST: api/NCC
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPost]
-        public async Task<ActionResult<NCC>> PostNCC(NCC nCC)
+        public async Task<ActionResult<IEnumerable<NCC>>> PostNCC([FromBody] List<NCC> payloads)
         {
-          if (_context.NCC == null)
-          {
-              return Problem("Entity set 'QLKH_ThuocContext.NCC'  is null.");
-          }
-            _context.NCC.Add(nCC);
-            try
+            if (payloads == null || !payloads.Any())
             {
-                await _context.SaveChangesAsync();
-            }
-            catch (DbUpdateException)
-            {
-                if (NCCExists(nCC.NCC_ID))
-                {
-                    return Conflict();
-                }
-                else
-                {
-                    throw;
-                }
+                return BadRequest("Danh sách payload không hợp lệ");
             }
 
-            return CreatedAtAction("GetNCC", new { id = nCC.NCC_ID }, nCC);
+            var NCCList = payloads.Select(payload => new NCC
+            {
+                NCC_ID = payload.NCC_ID?.Trim() ?? string.Empty,
+                NCC_Name = payload.NCC_Name?.Trim() ?? string.Empty,
+                NCC_Phone = payload.NCC_Phone?.Trim() ?? string.Empty,
+                NCC_Address = payload.NCC_Address?.Trim() ?? string.Empty, 
+                Quantity = payload.Quantity
+            }).ToList();
+
+            _context.NCC.AddRange(NCCList);
+            await _context.SaveChangesAsync();
+
+            return NCCList;
         }
 
         // DELETE: api/NCC/5

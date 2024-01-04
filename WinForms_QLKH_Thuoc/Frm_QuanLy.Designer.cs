@@ -28,23 +28,23 @@
         /// </summary>
         private void InitializeComponent()
         {
-            uC_qlTaiKhoan1 = new UC_QLTaiKhoan();
+            uC_qlChiNhanh1 = new UC_QLChiNhanh();
             SuspendLayout();
             // 
-            // uC_qlTaiKhoan1
+            // uC_qlChiNhanh1
             // 
-            uC_qlTaiKhoan1.Dock = DockStyle.Fill;
-            uC_qlTaiKhoan1.Location = new Point(0, 0);
-            uC_qlTaiKhoan1.Name = "uC_qlTaiKhoan1";
-            uC_qlTaiKhoan1.Size = new Size(1404, 989);
-            uC_qlTaiKhoan1.TabIndex = 0;
+            uC_qlChiNhanh1.Dock = DockStyle.Fill;
+            uC_qlChiNhanh1.Location = new Point(0, 0);
+            uC_qlChiNhanh1.Name = "uC_qlChiNhanh1";
+            uC_qlChiNhanh1.Size = new Size(1411, 1080);
+            uC_qlChiNhanh1.TabIndex = 0;
             // 
             // Frm_QuanLy
             // 
             AutoScaleDimensions = new SizeF(13F, 32F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1404, 989);
-            Controls.Add(uC_qlTaiKhoan1);
+            ClientSize = new Size(1411, 1080);
+            Controls.Add(uC_qlChiNhanh1);
             Name = "Frm_QuanLy";
             Text = "Frm_QuanLy";
             FormClosing += FrmQuanLy_FormClosing;
@@ -53,6 +53,6 @@
 
         #endregion
 
-        private UC_QLTaiKhoan uC_qlTaiKhoan1;
+        private UC_QLChiNhanh uC_qlChiNhanh1;
     }
 }

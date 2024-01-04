@@ -28,7 +28,7 @@ namespace FormQLKH
             pnlShowForm.Controls.Clear();
             pnlShowForm.Controls.Add(ucLoading);
             ucLoading.Show();
-            await Task.Delay(1600);
+            await Task.Delay(1000);
 
             if (!workerLoadData.IsBusy)
             {
@@ -222,6 +222,25 @@ namespace FormQLKH
         private void btnQLNS_Click(object sender, EventArgs e)
         {
             ToggleQLNV();
+        }
+        public void ShowUserNameLabel(string userName, string roleID)
+        {
+            string greeting = "";
+
+            switch (roleID)
+            {
+                case "Role1":
+                    greeting = "Admin, ";
+                    break;
+                case "Role2":
+                    greeting = "NV, ";
+                    break;
+                default:
+                    greeting = ""; 
+                    break;
+            }
+
+            lbUserName.Text = greeting + userName;
         }
     }
 }

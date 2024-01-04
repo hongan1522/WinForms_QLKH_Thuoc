@@ -33,18 +33,32 @@ namespace FormQLKH
 
             tKService = new TaiKhoanService("https://localhost:7195");
             roleService = new RoleService("https://localhost:7195");
-            LoadComboBoxRoleID();
+            LoadComboBox();
             LoadDataGridView();
         }
-        private void LoadDataGridView()
+        private async void LoadDataGridView()
         {
             try
             {
-                List<TaiKhoan> danhSachtK = tKService.LayDSTaiKhoan();
+                List<TaiKhoan> dsTK = await Task.Run(() => tKService.LayDSTaiKhoan());
 
-                if (danhSachtK != null)
+                if (dsTK != null)
                 {
-                    dgvQLTK.DataSource = danhSachtK;
+                    dsTK = dsTK
+                        .OrderBy(tk =>
+                        {
+                            string numberPart = new string(tk.UserID.Where(char.IsDigit).ToArray());
+                            if (int.TryParse(numberPart, out int result))
+                            {
+                                return result;
+                            }
+
+                            return int.MaxValue;
+                        })
+                        .ToList();
+
+                    dgvQLTK.DataSource = null;
+                    dgvQLTK.DataSource = dsTK;
 
                     foreach (DataGridViewColumn column in dgvQLTK.Columns)
                     {
@@ -61,13 +75,29 @@ namespace FormQLKH
                 MessageBox.Show($"Lỗi: {ex.Message}", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
-        private void LoadComboBoxRoleID()
+        private void LoadComboBox()
         {
             try
             {
-                List<Role> danhSachRoleID = roleService.LayDanhSachRole();
+                // Load cbQLTK_TK_UserID
+                List<TaiKhoan> dstk = tKService.LayDSTaiKhoan();
+                dstk = dstk.OrderBy(tk => GetNumericPartOfMa(tk.UserID)).ToList();
+                dstk.Insert(0, new TaiKhoan { UserID = "All" });
+
+                cbQLTK_TK_UserID.DataSource = dstk;
+                cbQLTK_TK_UserID.DisplayMember = "UserID";
+                cbQLTK_TK_UserID.ValueMember = "UserID";
+                cbQLTK_TK_UserID.DropDownStyle = ComboBoxStyle.DropDownList;
+
+                if (dstk.Count > 0)
+                {
+                    cbQLTK_TK_UserID.SelectedIndex = 0;
+                }
 
                 // Load cbQLTK_RoleID
+                List<Role> danhSachRoleID = roleService.LayDanhSachRole();
+                danhSachRoleID = danhSachRoleID.OrderBy(role => GetNumericPartOfMa(role.RoleID)).ToList();
+
                 cbQLTK_RoleID.DataSource = danhSachRoleID;
                 cbQLTK_RoleID.DisplayMember = "RoleID";
                 cbQLTK_RoleID.ValueMember = "RoleID";
@@ -80,6 +110,7 @@ namespace FormQLKH
 
                 // Load cbQLTK_TK_RoleID
                 List<Role> danhSachRoleID1 = new List<Role>(danhSachRoleID);
+                danhSachRoleID1 = danhSachRoleID1.OrderBy(role => GetNumericPartOfMa(role.RoleID)).ToList();
                 danhSachRoleID1.Insert(0, new Role { RoleID = "All" });
 
                 cbQLTK_TK_RoleID.DataSource = danhSachRoleID1;
@@ -96,6 +127,20 @@ namespace FormQLKH
             {
                 MessageBox.Show($"Lỗi: {ex.Message}", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+        }
+        private int GetNumericPartOfMa(string ma)
+        {
+            if (ma.StartsWith("User") && int.TryParse(ma.Substring(4), out int result))
+            {
+                return result;
+            }
+
+            if (ma.StartsWith("Role") && int.TryParse(ma.Substring(4), out int role))
+            {
+                return role;
+            }
+
+            return int.MaxValue;
         }
         private void dgvQLTK_SelectionChanged(object sender, EventArgs e)
         {
@@ -286,6 +331,7 @@ namespace FormQLKH
             {
                 MessageBox.Show($"Thêm tài khoản {userID} thành công.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 LoadDataGridView();
+                LoadComboBox();
             }
             else
             {
@@ -298,14 +344,14 @@ namespace FormQLKH
 
             if (!PermissionManager.CanUpdate(roleID))
             {
-                MessageBox.Show("Bạn không có quyền sửa tài khoản.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Bạn không có quyền cập nhật tài khoản.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
 
             string userID = txtQLTK_UserID.Text.Trim();
             string userName = txtQLTK_UserName.Text.Trim();
             string ghiChu = txtQLTK_GhiChu.Text.Trim();
-            string RoleId = cbQLTK_RoleID.Text.Trim();
+            string roleId = cbQLTK_RoleID.Text.Trim();
 
             string userNameBanDau = dgvQLTK.CurrentRow.Cells["UserName"].Value.ToString();
 
@@ -315,24 +361,33 @@ namespace FormQLKH
                 return;
             }
 
-            var payload = new TKPayload
-            {
-                UserID = userID,
-                RoleID = RoleId,
-                UserName = userName,
-                Description = ghiChu
-            };
+            DialogResult dialogResult = MessageBox.Show($"Bạn có chắc chắn muốn cập nhật tài khoản {userID}?", "Xác nhận sửa", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
 
-            var response = tKService.CapNhatTaiKhoan(userID, payload);
-
-            if (response.IsSuccessStatusCode)
+            if (dialogResult == DialogResult.OK)
             {
-                MessageBox.Show($"Cập nhật tài khoản {userID} thành công.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                LoadDataGridView();
+                var payload = new TKPayload
+                {
+                    UserID = userID,
+                    RoleID = roleId,
+                    UserName = userName,
+                    Description = ghiChu
+                };
+
+                var response = tKService.CapNhatTaiKhoan(userID, payload);
+
+                if (response.IsSuccessStatusCode)
+                {
+                    MessageBox.Show($"Cập nhật tài khoản {userID} thành công.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    LoadDataGridView();
+                }
+                else
+                {
+                    MessageBox.Show("Cập nhật tài khoản thất bại. Vui lòng kiểm tra lại.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
             }
-            else
+            else if (dialogResult == DialogResult.Cancel)
             {
-                MessageBox.Show("Cập nhật tài khoản thất bại. Vui lòng kiểm tra lại.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
             }
         }
         private void btnQLTK_Xoa_Click(object sender, EventArgs e)
@@ -365,7 +420,7 @@ namespace FormQLKH
                 }
             }
         }
-        private async void TimKiemTheoUserIDRoleID(string userID, string roleID)
+        private async void SearchData(string userID, string roleID)
         {
             try
             {
@@ -375,18 +430,28 @@ namespace FormQLKH
                 {
                     var filteredTK = danhSachTK;
 
-                    if (!string.IsNullOrEmpty(roleID) && !roleID.Equals("All"))
+                    if (!userID.Equals("All") && !roleID.Equals("All"))
                     {
                         filteredTK = danhSachTK.Where(tk =>
-                            (string.IsNullOrEmpty(userID) || tk.UserID.Contains(userID)) &&
-                            (string.IsNullOrEmpty(roleID) || tk.RoleID.Contains(roleID))
+                            (tk.UserID.Contains(userID)) &&
+                            (tk.RoleID.Contains(roleID))
+                        ).ToList();
+                    }
+                    else if (!userID.Equals("All") && roleID.Equals("All"))
+                    {
+                        filteredTK = danhSachTK.Where(tk =>
+                            (tk.UserID.Contains(userID))
+                        ).ToList();
+                    }
+                    else if (userID.Equals("All") && !roleID.Equals("All"))
+                    {
+                        filteredTK = danhSachTK.Where(tk =>
+                            (tk.RoleID.Contains(roleID))
                         ).ToList();
                     }
                     else
                     {
-                        filteredTK = danhSachTK.Where(tk =>
-                            (string.IsNullOrEmpty(userID) || tk.UserID.Contains(userID))
-                        ).ToList();
+                        LoadDataGridView();
                     }
 
                     dgvQLTK.DataSource = filteredTK;
@@ -401,49 +466,23 @@ namespace FormQLKH
                 MessageBox.Show($"Lỗi: {ex.Message}", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
-        private void txtQLTK_TK_UserID_TextChanged(object sender, EventArgs e)
+        private void SearchByUserID_RoleID()
         {
-            string roleID = StateManager.RoleID?.Trim();
-
-            if (!PermissionManager.CanSearch(roleID))
+            if (cbQLTK_TK_UserID.SelectedItem is TaiKhoan selectedTK && cbQLTK_TK_RoleID.SelectedItem is Role selectedRole)
             {
-                MessageBox.Show("Bạn không có quyền tìm kiếm tài khoản.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
-            }
+                string userID = selectedTK.UserID;
+                string roleID = selectedRole.RoleID;
 
-            string selectedValue = cbQLTK_TK_RoleID.SelectedValue?.ToString();
-            string userID = txtQLTK_TK_UserID.Text.Trim();
-
-            if (string.IsNullOrEmpty(userID))
-            {
-                LoadDataGridView();
-            }
-            else
-            {
-                TimKiemTheoUserIDRoleID(userID, selectedValue);
+                SearchData(userID, roleID);
             }
         }
         private void cbQLTK_TK_RoleID_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (cbQLTK_TK_RoleID.SelectedItem is Role selectedRole)
-            {
-                string roleID = StateManager.RoleID?.Trim();
-
-                if (!PermissionManager.CanSearch(roleID))
-                {
-                    MessageBox.Show("Bạn không có quyền tìm kiếm tài khoản.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    return;
-                }
-
-                txtQLTK_TK_UserID.Clear();
-
-                string selectedValue = selectedRole.RoleID;
-                string userID = txtQLTK_TK_UserID.Text.Trim();
-
-                TimKiemTheoUserIDRoleID(userID, selectedValue);
-            }
+            SearchByUserID_RoleID();
         }
-
-
+        private void cbQLTK_TK_UserID_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            SearchByUserID_RoleID();
+        }
     }
 }

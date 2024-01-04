@@ -67,10 +67,12 @@
             lbQLNV_MaNV = new Label();
             splQLNV_TK_CN = new SplitContainer();
             grbQLNV_TK = new GroupBox();
+            pnQLNV_TK = new Panel();
+            btnQLNV_TK = new Button();
+            txtQLNV_TK_TenNV = new TextBox();
             cbQLNV_TK_MaNV = new ComboBox();
             lbQLNV_TK_HoTen = new Label();
             lbQLNV_TK_MaNV = new Label();
-            txtQLNV_TK_TenNV = new TextBox();
             grbQLNV_CN = new GroupBox();
             btnQLNV_Export = new Button();
             btnQLNV_Them = new Button();
@@ -89,6 +91,7 @@
             splQLNV_TK_CN.Panel2.SuspendLayout();
             splQLNV_TK_CN.SuspendLayout();
             grbQLNV_TK.SuspendLayout();
+            pnQLNV_TK.SuspendLayout();
             grbQLNV_CN.SuspendLayout();
             SuspendLayout();
             // 
@@ -363,6 +366,7 @@
             txtQLNV_Email.Name = "txtQLNV_Email";
             txtQLNV_Email.Size = new Size(303, 43);
             txtQLNV_Email.TabIndex = 14;
+            txtQLNV_Email.KeyPress += txtQLNV_Email_KeyPress;
             // 
             // txtQLNV_DiaChi
             // 
@@ -378,6 +382,7 @@
             txtQLNV_SDT.Name = "txtQLNV_SDT";
             txtQLNV_SDT.Size = new Size(303, 43);
             txtQLNV_SDT.TabIndex = 12;
+            txtQLNV_SDT.KeyPress += txtQLNV_SDT_KeyPress;
             // 
             // txtQLNV_MaNV
             // 
@@ -503,10 +508,10 @@
             // 
             // grbQLNV_TK
             // 
+            grbQLNV_TK.Controls.Add(pnQLNV_TK);
             grbQLNV_TK.Controls.Add(cbQLNV_TK_MaNV);
             grbQLNV_TK.Controls.Add(lbQLNV_TK_HoTen);
             grbQLNV_TK.Controls.Add(lbQLNV_TK_MaNV);
-            grbQLNV_TK.Controls.Add(txtQLNV_TK_TenNV);
             grbQLNV_TK.Dock = DockStyle.Fill;
             grbQLNV_TK.Location = new Point(0, 0);
             grbQLNV_TK.Name = "grbQLNV_TK";
@@ -515,13 +520,48 @@
             grbQLNV_TK.TabStop = false;
             grbQLNV_TK.Text = "Tìm kiếm";
             // 
+            // pnQLNV_TK
+            // 
+            pnQLNV_TK.BackColor = Color.White;
+            pnQLNV_TK.Controls.Add(btnQLNV_TK);
+            pnQLNV_TK.Controls.Add(txtQLNV_TK_TenNV);
+            pnQLNV_TK.Location = new Point(182, 127);
+            pnQLNV_TK.Name = "pnQLNV_TK";
+            pnQLNV_TK.Size = new Size(350, 94);
+            pnQLNV_TK.TabIndex = 28;
+            // 
+            // btnQLNV_TK
+            // 
+            btnQLNV_TK.BackColor = Color.WhiteSmoke;
+            btnQLNV_TK.Dock = DockStyle.Right;
+            btnQLNV_TK.FlatStyle = FlatStyle.Popup;
+            btnQLNV_TK.Image = Properties.Resources.glass;
+            btnQLNV_TK.Location = new Point(279, 0);
+            btnQLNV_TK.Name = "btnQLNV_TK";
+            btnQLNV_TK.Size = new Size(71, 94);
+            btnQLNV_TK.TabIndex = 25;
+            btnQLNV_TK.UseVisualStyleBackColor = false;
+            btnQLNV_TK.Click += btnQLNV_TK_Click;
+            // 
+            // txtQLNV_TK_TenNV
+            // 
+            txtQLNV_TK_TenNV.Dock = DockStyle.Left;
+            txtQLNV_TK_TenNV.Location = new Point(0, 0);
+            txtQLNV_TK_TenNV.Multiline = true;
+            txtQLNV_TK_TenNV.Name = "txtQLNV_TK_TenNV";
+            txtQLNV_TK_TenNV.ScrollBars = ScrollBars.Vertical;
+            txtQLNV_TK_TenNV.Size = new Size(281, 94);
+            txtQLNV_TK_TenNV.TabIndex = 24;
+            txtQLNV_TK_TenNV.KeyUp += txtQLNV_TK_TenNV_KeyUp;
+            // 
             // cbQLNV_TK_MaNV
             // 
             cbQLNV_TK_MaNV.FormattingEnabled = true;
             cbQLNV_TK_MaNV.Location = new Point(182, 58);
             cbQLNV_TK_MaNV.Name = "cbQLNV_TK_MaNV";
-            cbQLNV_TK_MaNV.Size = new Size(284, 45);
+            cbQLNV_TK_MaNV.Size = new Size(350, 45);
             cbQLNV_TK_MaNV.TabIndex = 27;
+            cbQLNV_TK_MaNV.SelectedIndexChanged += cbQLNV_TK_MaNV_SelectedIndexChanged;
             // 
             // lbQLNV_TK_HoTen
             // 
@@ -546,14 +586,6 @@
             lbQLNV_TK_MaNV.Size = new Size(103, 39);
             lbQLNV_TK_MaNV.TabIndex = 25;
             lbQLNV_TK_MaNV.Text = "Mã NV";
-            // 
-            // txtQLNV_TK_TenNV
-            // 
-            txtQLNV_TK_TenNV.Location = new Point(182, 132);
-            txtQLNV_TK_TenNV.Multiline = true;
-            txtQLNV_TK_TenNV.Name = "txtQLNV_TK_TenNV";
-            txtQLNV_TK_TenNV.Size = new Size(333, 71);
-            txtQLNV_TK_TenNV.TabIndex = 24;
             // 
             // grbQLNV_CN
             // 
@@ -601,6 +633,7 @@
             btnQLNV_Them.TabIndex = 7;
             btnQLNV_Them.Text = " Thêm";
             btnQLNV_Them.UseVisualStyleBackColor = false;
+            btnQLNV_Them.Click += btnQLNV_Them_Click;
             // 
             // btnQLNV_Import
             // 
@@ -633,6 +666,7 @@
             btnQLNV_Sua.TabIndex = 8;
             btnQLNV_Sua.Text = "Sửa";
             btnQLNV_Sua.UseVisualStyleBackColor = false;
+            btnQLNV_Sua.Click += btnQLNV_Sua_Click;
             // 
             // btnQLNV_Xoa
             // 
@@ -649,6 +683,7 @@
             btnQLNV_Xoa.TabIndex = 9;
             btnQLNV_Xoa.Text = "Xóa";
             btnQLNV_Xoa.UseVisualStyleBackColor = false;
+            btnQLNV_Xoa.Click += btnQLNV_Xoa_Click;
             // 
             // UC_QLNV
             // 
@@ -673,6 +708,8 @@
             splQLNV_TK_CN.ResumeLayout(false);
             grbQLNV_TK.ResumeLayout(false);
             grbQLNV_TK.PerformLayout();
+            pnQLNV_TK.ResumeLayout(false);
+            pnQLNV_TK.PerformLayout();
             grbQLNV_CN.ResumeLayout(false);
             ResumeLayout(false);
         }
@@ -727,5 +764,7 @@
         private ComboBox cbQLNV_MaCN;
         private ComboBox cbQLNV_UserID;
         private ComboBox cbQLNV_TK_MaNV;
+        private Panel pnQLNV_TK;
+        private Button btnQLNV_TK;
     }
 }

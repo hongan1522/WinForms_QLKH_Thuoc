@@ -83,30 +83,25 @@ namespace WebAPI_QLKH.Controllers
         // POST: api/DonXuat
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPost]
-        public async Task<ActionResult<DonXuat>> PostDonXuat(DonXuat donXuat)
+        public async Task<ActionResult<IEnumerable<DonXuat>>> PostDonXuat([FromBody] List<DonXuat> payloads)
         {
-          if (_context.DonXuat == null)
-          {
-              return Problem("Entity set 'QLKH_ThuocContext.DonXuat'  is null.");
-          }
-            _context.DonXuat.Add(donXuat);
-            try
+            if (payloads == null || !payloads.Any())
             {
-                await _context.SaveChangesAsync();
-            }
-            catch (DbUpdateException)
-            {
-                if (DonXuatExists(donXuat.DXuat_ID))
-                {
-                    return Conflict();
-                }
-                else
-                {
-                    throw;
-                }
+                return BadRequest("Danh sách payload không hợp lệ");
             }
 
-            return CreatedAtAction("GetDonXuat", new { id = donXuat.DXuat_ID }, donXuat);
+            var DXList = payloads.Select(payload => new DonXuat
+            {
+                DXuat_ID = payload.DXuat_ID?.Trim() ?? string.Empty,
+                DX_Name = payload.DX_Name?.Trim() ?? string.Empty,
+                NV_ID = payload.NV_ID?.Trim() ?? string.Empty,
+                DX_Datetime = payload.DX_Datetime
+            }).ToList();
+
+            _context.DonXuat.AddRange(DXList);
+            await _context.SaveChangesAsync();
+
+            return DXList;
         }
 
         // DELETE: api/DonXuat/5

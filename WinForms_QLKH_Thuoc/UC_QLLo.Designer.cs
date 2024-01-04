@@ -56,10 +56,10 @@
             txtQLLo_MaLo = new TextBox();
             lbQLLo_MaLo = new Label();
             gpbQLLo_TK = new GroupBox();
+            cbQLLo_TK_MaLo = new ComboBox();
             cbQLLo_TK_MaKho = new ComboBox();
             lbQLLo_TK_MaKho = new Label();
             lbQLLo_TK_MaLo = new Label();
-            txtQLLo_TK_MaLo = new TextBox();
             tlpQLLo.SuspendLayout();
             pnQLLo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)splQLLo_HT_CN).BeginInit();
@@ -335,7 +335,7 @@
             // cbQLLo_MaKho
             // 
             cbQLLo_MaKho.FormattingEnabled = true;
-            cbQLLo_MaKho.Location = new Point(147, 156);
+            cbQLLo_MaKho.Location = new Point(147, 162);
             cbQLLo_MaKho.Name = "cbQLLo_MaKho";
             cbQLLo_MaKho.Size = new Size(200, 45);
             cbQLLo_MaKho.TabIndex = 8;
@@ -343,7 +343,7 @@
             // cbQLLo_ViTri
             // 
             cbQLLo_ViTri.FormattingEnabled = true;
-            cbQLLo_ViTri.Location = new Point(555, 163);
+            cbQLLo_ViTri.Location = new Point(555, 169);
             cbQLLo_ViTri.Name = "cbQLLo_ViTri";
             cbQLLo_ViTri.Size = new Size(177, 45);
             cbQLLo_ViTri.TabIndex = 7;
@@ -354,7 +354,7 @@
             lbQLLo_ViTri.BackColor = SystemColors.Control;
             lbQLLo_ViTri.BorderStyle = BorderStyle.Fixed3D;
             lbQLLo_ViTri.Font = new Font("Segoe UI Semibold", 10.125F, FontStyle.Bold, GraphicsUnit.Point);
-            lbQLLo_ViTri.Location = new Point(435, 163);
+            lbQLLo_ViTri.Location = new Point(435, 169);
             lbQLLo_ViTri.Name = "lbQLLo_ViTri";
             lbQLLo_ViTri.Size = new Size(77, 39);
             lbQLLo_ViTri.TabIndex = 6;
@@ -386,7 +386,7 @@
             lbQLLo_MaKho.BackColor = SystemColors.Control;
             lbQLLo_MaKho.BorderStyle = BorderStyle.Fixed3D;
             lbQLLo_MaKho.Font = new Font("Segoe UI Semibold", 10.125F, FontStyle.Bold, GraphicsUnit.Point);
-            lbQLLo_MaKho.Location = new Point(20, 159);
+            lbQLLo_MaKho.Location = new Point(20, 165);
             lbQLLo_MaKho.Name = "lbQLLo_MaKho";
             lbQLLo_MaKho.Size = new Size(111, 39);
             lbQLLo_MaKho.TabIndex = 2;
@@ -413,10 +413,10 @@
             // 
             // gpbQLLo_TK
             // 
+            gpbQLLo_TK.Controls.Add(cbQLLo_TK_MaLo);
             gpbQLLo_TK.Controls.Add(cbQLLo_TK_MaKho);
             gpbQLLo_TK.Controls.Add(lbQLLo_TK_MaKho);
             gpbQLLo_TK.Controls.Add(lbQLLo_TK_MaLo);
-            gpbQLLo_TK.Controls.Add(txtQLLo_TK_MaLo);
             gpbQLLo_TK.Dock = DockStyle.Fill;
             gpbQLLo_TK.Location = new Point(0, 0);
             gpbQLLo_TK.Name = "gpbQLLo_TK";
@@ -425,10 +425,19 @@
             gpbQLLo_TK.TabStop = false;
             gpbQLLo_TK.Text = "Tìm kiếm";
             // 
+            // cbQLLo_TK_MaLo
+            // 
+            cbQLLo_TK_MaLo.FormattingEnabled = true;
+            cbQLLo_TK_MaLo.Location = new Point(204, 56);
+            cbQLLo_TK_MaLo.Name = "cbQLLo_TK_MaLo";
+            cbQLLo_TK_MaLo.Size = new Size(284, 45);
+            cbQLLo_TK_MaLo.TabIndex = 10;
+            cbQLLo_TK_MaLo.SelectedIndexChanged += cbQLLo_TK_MaLo_SelectedIndexChanged;
+            // 
             // cbQLLo_TK_MaKho
             // 
             cbQLLo_TK_MaKho.FormattingEnabled = true;
-            cbQLLo_TK_MaKho.Location = new Point(204, 153);
+            cbQLLo_TK_MaKho.Location = new Point(204, 166);
             cbQLLo_TK_MaKho.Name = "cbQLLo_TK_MaKho";
             cbQLLo_TK_MaKho.Size = new Size(284, 45);
             cbQLLo_TK_MaKho.TabIndex = 9;
@@ -440,7 +449,7 @@
             lbQLLo_TK_MaKho.BackColor = SystemColors.Control;
             lbQLLo_TK_MaKho.BorderStyle = BorderStyle.Fixed3D;
             lbQLLo_TK_MaKho.Font = new Font("Segoe UI Semibold", 10.125F, FontStyle.Bold, GraphicsUnit.Point);
-            lbQLLo_TK_MaKho.Location = new Point(53, 159);
+            lbQLLo_TK_MaKho.Location = new Point(53, 169);
             lbQLLo_TK_MaKho.Name = "lbQLLo_TK_MaKho";
             lbQLLo_TK_MaKho.Size = new Size(111, 39);
             lbQLLo_TK_MaKho.TabIndex = 7;
@@ -457,14 +466,6 @@
             lbQLLo_TK_MaLo.Size = new Size(88, 39);
             lbQLLo_TK_MaLo.TabIndex = 6;
             lbQLLo_TK_MaLo.Text = "Mã lô";
-            // 
-            // txtQLLo_TK_MaLo
-            // 
-            txtQLLo_TK_MaLo.Location = new Point(204, 63);
-            txtQLLo_TK_MaLo.Name = "txtQLLo_TK_MaLo";
-            txtQLLo_TK_MaLo.Size = new Size(284, 43);
-            txtQLLo_TK_MaLo.TabIndex = 4;
-            txtQLLo_TK_MaLo.TextChanged += txtQLLo_TK_MaLo_TextChanged;
             // 
             // UC_QLLo
             // 
@@ -513,7 +514,6 @@
         private TextBox txtQLLo_MaLo;
         private Label lbQLLo_MaLo;
         private GroupBox gpbQLLo_TK;
-        private TextBox txtQLLo_TK_MaLo;
         private Button btnQLLo_Them;
         private Button btnQLLo_Export;
         private Button btnQLLo_Sua;
@@ -527,5 +527,6 @@
         private DataGridViewTextBoxColumn TenLo;
         private DataGridViewTextBoxColumn ViTri;
         private ComboBox cbQLLo_TK_MaKho;
+        private ComboBox cbQLLo_TK_MaLo;
     }
 }

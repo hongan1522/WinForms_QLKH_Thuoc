@@ -64,7 +64,7 @@
             pnlMenu = new Panel();
             tlpMenu = new TableLayoutPanel();
             btnMenu = new Button();
-            label2 = new Label();
+            lbUserName = new Label();
             panel7 = new Panel();
             tlpFrmMain.SuspendLayout();
             pnlTitleBar.SuspendLayout();
@@ -631,7 +631,7 @@
             tlpMenu.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 75.54348F));
             tlpMenu.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 24.456522F));
             tlpMenu.Controls.Add(btnMenu, 1, 0);
-            tlpMenu.Controls.Add(label2, 0, 0);
+            tlpMenu.Controls.Add(lbUserName, 0, 0);
             tlpMenu.Dock = DockStyle.Fill;
             tlpMenu.Location = new Point(0, 0);
             tlpMenu.Margin = new Padding(0);
@@ -660,20 +660,19 @@
             btnMenu.TabIndex = 0;
             btnMenu.UseVisualStyleBackColor = false;
             // 
-            // label2
+            // lbUserName
             // 
-            label2.Dock = DockStyle.Fill;
-            label2.FlatStyle = FlatStyle.Flat;
-            label2.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
-            label2.ForeColor = Color.White;
-            label2.Location = new Point(0, 0);
-            label2.Margin = new Padding(0);
-            label2.Name = "label2";
-            label2.Padding = new Padding(100, 0, 0, 0);
-            label2.Size = new Size(350, 73);
-            label2.TabIndex = 1;
-            label2.Text = "QUẢN LÝ";
-            label2.TextAlign = ContentAlignment.MiddleCenter;
+            lbUserName.Dock = DockStyle.Fill;
+            lbUserName.FlatStyle = FlatStyle.Flat;
+            lbUserName.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            lbUserName.ForeColor = Color.White;
+            lbUserName.Location = new Point(0, 0);
+            lbUserName.Margin = new Padding(0);
+            lbUserName.Name = "lbUserName";
+            lbUserName.Padding = new Padding(20, 0, 0, 0);
+            lbUserName.Size = new Size(350, 73);
+            lbUserName.TabIndex = 1;
+            lbUserName.TextAlign = ContentAlignment.MiddleLeft;
             // 
             // panel7
             // 
@@ -747,7 +746,7 @@
         private Panel pnlMenu;
         private TableLayoutPanel tlpMenu;
         private Button btnMenu;
-        private Label label2;
+        private Label lbUserName;
         private Panel panel7;
         private Panel pnlShowForm;
         private Panel pnlTitleBar;

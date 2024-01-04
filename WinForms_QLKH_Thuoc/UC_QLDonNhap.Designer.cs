@@ -45,6 +45,11 @@
             lbQLDN = new Label();
             grbQLDN_HT = new GroupBox();
             dgvQLDN = new DataGridView();
+            DNhap_ID = new DataGridViewTextBoxColumn();
+            NV_ID = new DataGridViewTextBoxColumn();
+            NCC_ID = new DataGridViewTextBoxColumn();
+            DN_Name = new DataGridViewTextBoxColumn();
+            DN_Datetime = new DataGridViewTextBoxColumn();
             splQLDN_TK_CN = new SplitContainer();
             grbQLDN_TK = new GroupBox();
             cbQLDN_TK_MaDN = new ComboBox();
@@ -57,11 +62,6 @@
             btnQLDN_Xoa = new Button();
             btnQLDN_Sua = new Button();
             btnQLDN_Them = new Button();
-            DNhap_ID = new DataGridViewTextBoxColumn();
-            NV_ID = new DataGridViewTextBoxColumn();
-            NCC_ID = new DataGridViewTextBoxColumn();
-            DN_Name = new DataGridViewTextBoxColumn();
-            DN_Datetime = new DataGridViewTextBoxColumn();
             tlpQLDN.SuspendLayout();
             grbQLDN_TT.SuspendLayout();
             pnQLDN.SuspendLayout();
@@ -277,6 +277,41 @@
             dgvQLDN.RowPostPaint += dgvQLDN_RowPostPaint;
             dgvQLDN.SelectionChanged += dgvQLDN_SelectionChanged;
             // 
+            // DNhap_ID
+            // 
+            DNhap_ID.DataPropertyName = "DNhap_ID";
+            DNhap_ID.HeaderText = "Mã đơn nhập";
+            DNhap_ID.MinimumWidth = 10;
+            DNhap_ID.Name = "DNhap_ID";
+            // 
+            // NV_ID
+            // 
+            NV_ID.DataPropertyName = "NV_ID";
+            NV_ID.HeaderText = "Mã NV";
+            NV_ID.MinimumWidth = 10;
+            NV_ID.Name = "NV_ID";
+            // 
+            // NCC_ID
+            // 
+            NCC_ID.DataPropertyName = "NCC_ID";
+            NCC_ID.HeaderText = "Mã NCC";
+            NCC_ID.MinimumWidth = 10;
+            NCC_ID.Name = "NCC_ID";
+            // 
+            // DN_Name
+            // 
+            DN_Name.DataPropertyName = "DN_Name";
+            DN_Name.HeaderText = "Tên đơn";
+            DN_Name.MinimumWidth = 10;
+            DN_Name.Name = "DN_Name";
+            // 
+            // DN_Datetime
+            // 
+            DN_Datetime.DataPropertyName = "DN_Datetime";
+            DN_Datetime.HeaderText = "Ngày nhập ";
+            DN_Datetime.MinimumWidth = 10;
+            DN_Datetime.Name = "DN_Datetime";
+            // 
             // splQLDN_TK_CN
             // 
             splQLDN_TK_CN.BackgroundImage = Properties.Resources.bg;
@@ -318,14 +353,16 @@
             cbQLDN_TK_MaDN.Name = "cbQLDN_TK_MaDN";
             cbQLDN_TK_MaDN.Size = new Size(329, 45);
             cbQLDN_TK_MaDN.TabIndex = 37;
+            cbQLDN_TK_MaDN.SelectedIndexChanged += cbQLDN_TK_MaDN_SelectedIndexChanged;
             // 
             // cbQLDN_TK_MaNV
             // 
             cbQLDN_TK_MaNV.FormattingEnabled = true;
-            cbQLDN_TK_MaNV.Location = new Point(295, 158);
+            cbQLDN_TK_MaNV.Location = new Point(295, 163);
             cbQLDN_TK_MaNV.Name = "cbQLDN_TK_MaNV";
             cbQLDN_TK_MaNV.Size = new Size(329, 45);
             cbQLDN_TK_MaNV.TabIndex = 36;
+            cbQLDN_TK_MaNV.SelectedIndexChanged += cbQLDN_TK_MaNV_SelectedIndexChanged;
             // 
             // lbQLDN_TK_MaNV
             // 
@@ -413,6 +450,7 @@
             btnQLDN_Xoa.TabIndex = 2;
             btnQLDN_Xoa.Text = "Xóa";
             btnQLDN_Xoa.UseVisualStyleBackColor = false;
+            btnQLDN_Xoa.Click += btnQLDN_Xoa_Click;
             // 
             // btnQLDN_Sua
             // 
@@ -429,6 +467,7 @@
             btnQLDN_Sua.TabIndex = 1;
             btnQLDN_Sua.Text = "Sửa";
             btnQLDN_Sua.UseVisualStyleBackColor = false;
+            btnQLDN_Sua.Click += btnQLDN_Sua_Click;
             // 
             // btnQLDN_Them
             // 
@@ -445,41 +484,7 @@
             btnQLDN_Them.TabIndex = 0;
             btnQLDN_Them.Text = " Thêm";
             btnQLDN_Them.UseVisualStyleBackColor = false;
-            // 
-            // DNhap_ID
-            // 
-            DNhap_ID.DataPropertyName = "DNhap_ID";
-            DNhap_ID.HeaderText = "Mã đơn nhập";
-            DNhap_ID.MinimumWidth = 10;
-            DNhap_ID.Name = "DNhap_ID";
-            // 
-            // NV_ID
-            // 
-            NV_ID.DataPropertyName = "NV_ID";
-            NV_ID.HeaderText = "Mã NV";
-            NV_ID.MinimumWidth = 10;
-            NV_ID.Name = "NV_ID";
-            // 
-            // NCC_ID
-            // 
-            NCC_ID.DataPropertyName = "NCC_ID";
-            NCC_ID.HeaderText = "Mã NCC";
-            NCC_ID.MinimumWidth = 10;
-            NCC_ID.Name = "NCC_ID";
-            // 
-            // DN_Name
-            // 
-            DN_Name.DataPropertyName = "DN_Name";
-            DN_Name.HeaderText = "Tên đơn";
-            DN_Name.MinimumWidth = 10;
-            DN_Name.Name = "DN_Name";
-            // 
-            // DN_Datetime
-            // 
-            DN_Datetime.DataPropertyName = "DN_Datetime";
-            DN_Datetime.HeaderText = "Ngày nhập ";
-            DN_Datetime.MinimumWidth = 10;
-            DN_Datetime.Name = "DN_Datetime";
+            btnQLDN_Them.Click += btnQLDN_Them_Click;
             // 
             // UC_QLDonNhap
             // 

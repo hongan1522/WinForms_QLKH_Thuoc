@@ -8,6 +8,7 @@ using Newtonsoft.Json;
 using OfficeOpenXml;
 using WebAPI_QLKH.Models;
 using WebAPI_QLKH.Services;
+using WebAPI_QLKH.StateManager;
 using static WebAPI_QLKH.Controllers.ChiNhanhController;
 
 namespace FormQLKH
@@ -22,19 +23,30 @@ namespace FormQLKH
 
             chiNhanhService = new ChiNhanhService("https://localhost:7195");
             LoadDataGridView();
+            LoadComboBox();
         }
-        private void UC_QLChiNhanh_Load(object sender, EventArgs e)
-        {
-            txtQLCN_TK_MaCN.KeyPress += new KeyPressEventHandler(txtQLCN_TK_MaCN_KeyPress);
-        }
-        private void LoadDataGridView()
+        private async void LoadDataGridView()
         {
             try
             {
-                List<ChiNhanh> danhSachChiNhanh = chiNhanhService.LayDanhSachChiNhanh();
+                List<ChiNhanh> danhSachChiNhanh = await Task.Run(() => chiNhanhService.LayDanhSachChiNhanh());
 
                 if (danhSachChiNhanh != null)
                 {
+                    danhSachChiNhanh = danhSachChiNhanh
+                        .OrderBy(cn =>
+                        {
+                            string numberPart = new string(cn.CN_ID.Where(char.IsDigit).ToArray());
+                            if (int.TryParse(numberPart, out int result))
+                            {
+                                return result;
+                            }
+
+                            return int.MaxValue;
+                        })
+                        .ToList();
+
+                    dgvQLCN.DataSource = null;
                     dgvQLCN.DataSource = danhSachChiNhanh;
 
                     foreach (DataGridViewColumn column in dgvQLCN.Columns)
@@ -96,11 +108,19 @@ namespace FormQLKH
 
             return "CN1";
         }
-        private void btnQLCN_Them_Click(object sender, EventArgs e)
+        private async void btnQLCN_Them_Click(object sender, EventArgs e)
         {
             string maCN = TaoMaCNTuDong();
             string tenCN = txtQLCN_TenCN.Text.Trim();
             string diaChi = txtQLCN_DiaChi.Text.Trim();
+
+            string roleID = StateManager.RoleID?.Trim();
+
+            if (!PermissionManager.CanAdd(roleID))
+            {
+                MessageBox.Show("Bạn không có quyền thêm chi nhánh.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
 
             if (string.IsNullOrEmpty(maCN) || string.IsNullOrEmpty(tenCN) || string.IsNullOrEmpty(diaChi))
             {
@@ -123,46 +143,26 @@ namespace FormQLKH
             if (response.IsSuccessful)
             {
                 MessageBox.Show($"Thêm chi nhánh {maCN} thành công.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                await Task.Delay(1000);
                 LoadDataGridView();
+                LoadComboBox();
             }
             else
             {
                 MessageBox.Show($"Thêm chi nhánh thất bại.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
-        //private void btnQLCN_Sua_Click(object sender, EventArgs e)
-        //{
-        //    string maCN = txtQLCN_MaCN.Text.Trim();
-        //    string tenCN = txtQLCN_TenCN.Text.Trim();
-        //    string diaChi = txtQLCN_DiaChi.Text.Trim();
-
-        //    if (string.IsNullOrEmpty(maCN) || string.IsNullOrEmpty(tenCN) || string.IsNullOrEmpty(diaChi))
-        //    {
-        //        MessageBox.Show("Vui lòng điền đầy đủ thông tin.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
-        //        return;
-        //    }
-
-        //    var payload = new ChiNhanhPost
-        //    {
-        //        CN_ID = maCN,
-        //        CN_Name = tenCN,
-        //        CN_Address = diaChi
-        //    };
-
-        //    var response = chiNhanhService.CapNhatChiNhanh(maCN, payload);
-
-        //    if (response.IsSuccessStatusCode)
-        //    {
-        //        MessageBox.Show($"Cập nhật chi nhánh {maCN} thành công.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-        //        LoadDataGridView();
-        //    }
-        //    else
-        //    {
-        //        MessageBox.Show("Cập nhật chi nhánh thất bại. Vui lòng kiểm tra lại.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
-        //    }
-        //}
         private void btnQLCN_Sua_Click(object sender, EventArgs e)
         {
+            string roleID = StateManager.RoleID?.Trim();
+
+            if (!PermissionManager.CanUpdate(roleID))
+            {
+                MessageBox.Show("Bạn không có quyền cập nhật chi nhánh.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
             string maCN = txtQLCN_MaCN.Text.Trim();
             string tenCN = txtQLCN_TenCN.Text.Trim();
             string diaChi = txtQLCN_DiaChi.Text.Trim();
@@ -173,7 +173,7 @@ namespace FormQLKH
                 return;
             }
 
-            DialogResult result = MessageBox.Show("Bạn chắc muốn sửa chi nhánh này?", "Xác nhận sửa", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            DialogResult result = MessageBox.Show($"Bạn chắc muốn cập nhật chi nhánh {maCN}?", "Xác nhận sửa", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 
             if (result == DialogResult.Yes)
             {
@@ -203,6 +203,14 @@ namespace FormQLKH
         }
         private void btnQLCN_Xoa_Click(object sender, EventArgs e)
         {
+            string roleID = StateManager.RoleID?.Trim();
+
+            if (!PermissionManager.CanDelete(roleID))
+            {
+                MessageBox.Show("Bạn không có quyền xóa chi nhánh.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
             string maCN = txtQLCN_MaCN.Text.Trim();
 
             var confirmResult = MessageBox.Show($"Bạn có chắc chắn muốn xóa chi nhánh {maCN}?", "Xác nhận xóa",
@@ -223,36 +231,6 @@ namespace FormQLKH
                 }
             }
         }
-        private void txtQLCN_TK_MaCN_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            if (e.KeyChar == (char)Keys.Enter)
-            {
-                TimTheoID();
-            }
-        }
-        private void TimTheoID()
-        {
-            string maCN = txtQLCN_TK_MaCN.Text.Trim();
-
-            if (string.IsNullOrEmpty(maCN))
-            {
-                LoadDataGridView();
-                return;
-            }
-
-            var chiNhanh = chiNhanhService.TimKiemTheoID(maCN);
-
-            if (chiNhanh != null)
-            {
-                txtQLCN_TK_MaCN.Text = chiNhanh.CN_ID;
-                dgvQLCN.DataSource = new List<ChiNhanh> { chiNhanh };
-            }
-            else
-            {
-                MessageBox.Show($"Không tìm thấy chi nhánh {maCN}.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                LoadDataGridView();
-            }
-        }
         private void dgvQLCN_RowPostPaint(object sender, DataGridViewRowPostPaintEventArgs e)
         {
             var rowIndex = (e.RowIndex + 1).ToString();
@@ -265,19 +243,59 @@ namespace FormQLKH
             var headerBounds = new Rectangle(e.RowBounds.Left, e.RowBounds.Top, dgvQLCN.RowHeadersWidth, e.RowBounds.Height);
             e.Graphics.DrawString(rowIndex, Font, SystemBrushes.ControlText, headerBounds, centerFormat);
         }
-        private async void TimKiemTheoMaCN(string maCN)
+        private int GetNumericPartOfMa(string maCN)
+        {
+            if (maCN.StartsWith("CN") && int.TryParse(maCN.Substring(2), out int cn))
+            {
+                return cn;
+            }
+
+            return int.MaxValue;
+        }
+        private void LoadComboBox()
         {
             try
             {
-                List<ChiNhanh> danhSachCN = chiNhanhService.LayDanhSachChiNhanh();
+                List<ChiNhanh> dsCN = chiNhanhService.LayDanhSachChiNhanh();
+                dsCN = dsCN.OrderBy(cn => GetNumericPartOfMa(cn.CN_ID)).ToList();
+                dsCN.Insert(0, new ChiNhanh { CN_ID = "All" });
 
-                if (danhSachCN != null)
+                // Load cbQLCN_TK_MaCN
+                cbQLCN_TK_MaCN.DataSource = dsCN;
+                cbQLCN_TK_MaCN.DisplayMember = "CN_ID";
+                cbQLCN_TK_MaCN.ValueMember = "CN_ID";
+                cbQLCN_TK_MaCN.DropDownStyle = ComboBoxStyle.DropDownList;
+
+                if (dsCN.Count > 0)
                 {
-                    var filteredCN = danhSachCN;
+                    cbQLCN_TK_MaCN.SelectedIndex = 0;
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Lỗi: {ex.Message}", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+        private async void SearchData(string maCN)
+        {
+            try
+            {
+                List<ChiNhanh> dsCN = chiNhanhService.LayDanhSachChiNhanh();
 
-                    filteredCN = danhSachCN.Where(cn =>
+                if (dsCN != null)
+                {
+                    var filteredCN = dsCN;
+
+                    if (maCN.Equals("All"))
+                    {
+                        LoadDataGridView();
+                    }
+                    else
+                    {
+                        filteredCN = dsCN.Where(cn =>
                         (string.IsNullOrEmpty(maCN) || cn.CN_ID.Contains(maCN))
                     ).ToList();
+                    }
 
                     dgvQLCN.DataSource = filteredCN;
                 }
@@ -291,24 +309,22 @@ namespace FormQLKH
                 MessageBox.Show($"Lỗi: {ex.Message}", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
-        private void txtQLCN_TK_MaCN_TextChanged(object sender, EventArgs e)
+        private void cbQLCN_TK_MaCN_SelectedIndexChanged(object sender, EventArgs e)
         {
-            string maCN = txtQLCN_TK_MaCN.Text.Trim();
-
-            if (string.IsNullOrEmpty(maCN))
+            if (cbQLCN_TK_MaCN.SelectedItem is ChiNhanh selectedCN)
             {
-                LoadDataGridView();
-            }
-            else
-            {
-                TimKiemTheoMaCN(maCN);
-            }
-        }
+                string roleID = StateManager.RoleID?.Trim();
 
-        public async Task PrepareDataAsync()
-        {
-            // Simulate some time-consuming data preparation
-            await Task.Delay(3000); // Replace this with your actual data preparation logic
+                if (!PermissionManager.CanSearch(roleID))
+                {
+                    MessageBox.Show("Bạn không có quyền tìm kiếm tài khoản.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+
+                string selectedValue = selectedCN.CN_ID;
+
+                SearchData(selectedValue);
+            }
         }
     }
 }

@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using WebAPI_QLKH.Models;
 using WebAPI_QLKH.Services;
+using WebAPI_QLKH.StateManager;
 
 namespace FormQLKH
 {
@@ -31,11 +32,25 @@ namespace FormQLKH
         {
             try
             {
-                List<DonXuat> dsdx = dXuatService.LayDSDX();
+                List<DonXuat> dsDX = await Task.Run(() => dXuatService.LayDSDX());
 
-                if (dsdx != null)
+                if (dsDX != null)
                 {
-                    dgvQLDX.DataSource = dsdx;
+                    dsDX = dsDX
+                        .OrderBy(dn =>
+                        {
+                            string numberPart = new string(dn.DXuat_ID.Where(char.IsDigit).ToArray());
+                            if (int.TryParse(numberPart, out int result))
+                            {
+                                return result;
+                            }
+
+                            return int.MaxValue;
+                        })
+                        .ToList();
+
+                    dgvQLDX.DataSource = null;
+                    dgvQLDX.DataSource = dsDX;
 
                     foreach (DataGridViewColumn column in dgvQLDX.Columns)
                     {
@@ -52,6 +67,20 @@ namespace FormQLKH
             {
                 MessageBox.Show($"Lỗi: {ex.Message}", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+        }
+        private int GetNumericPartOfMa(string ma)
+        {
+            if (ma.StartsWith("DX") && int.TryParse(ma.Substring(2), out int result))
+            {
+                return result;
+            }
+
+            if (ma.StartsWith("NV") && int.TryParse(ma.Substring(2), out int nv))
+            {
+                return nv;
+            }
+
+            return int.MaxValue;
         }
         private void dgvQLDX_RowPostPaint(object sender, DataGridViewRowPostPaintEventArgs e)
         {
@@ -95,6 +124,7 @@ namespace FormQLKH
             {
                 // Load cbQLDX_MaNV
                 List<NhanVien> dsnv = nvService.LayDSNV();
+                dsnv = dsnv.OrderBy(nv => GetNumericPartOfMa(nv.NV_ID)).ToList();
 
                 cbQLDX_MaNV.DataSource = dsnv;
                 cbQLDX_MaNV.DisplayMember = "NV_ID";
@@ -108,6 +138,7 @@ namespace FormQLKH
 
                 // Load cbQLDX_TK_MaNV
                 List<NhanVien> dsnv1 = new List<NhanVien>(dsnv);
+                dsnv1 = dsnv1.OrderBy(nv => GetNumericPartOfMa(nv.NV_ID)).ToList();
                 dsnv1.Insert(0, new NhanVien { NV_ID = "All" });
 
                 cbQLDX_TK_MaNV.DataSource = dsnv1;
@@ -122,6 +153,7 @@ namespace FormQLKH
 
                 // Load cbQLDX_TK_MaDX
                 List<DonXuat> dsdx = dXuatService.LayDSDX();
+                dsdx = dsdx.OrderBy(dx => GetNumericPartOfMa(dx.DXuat_ID)).ToList();
                 dsdx.Insert(0, new DonXuat { DXuat_ID = "All" });
 
                 cbQLDX_TK_MaDX.DataSource = dsdx;
@@ -138,6 +170,195 @@ namespace FormQLKH
             {
                 MessageBox.Show($"Lỗi: {ex.Message}", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+        }
+        private string TaoMaDXTuDong()
+        {
+            List<string> dsDX = dgvQLDX.Rows
+                .Cast<DataGridViewRow>()
+                .Select(row => row.Cells["DXuat_ID"].Value.ToString())
+                .ToList();
+
+            for (int i = 1; i <= dsDX.Count + 1; i++)
+            {
+                string maDinhDang = "DX" + i;
+                if (!dsDX.Any(ma => ma.Trim().Equals(maDinhDang, StringComparison.OrdinalIgnoreCase)))
+                {
+                    return maDinhDang;
+                }
+            }
+
+            if (dsDX.Count > 0)
+            {
+                string maLonNhat = dsDX.Max();
+                if (int.TryParse(maLonNhat.Substring(2), out int so))
+                {
+                    return "DX" + (so + 1).ToString();
+                }
+            }
+
+            return "DX1";
+        }
+        private void btnQLDX_Them_Click(object sender, EventArgs e)
+        {
+            string maDX = TaoMaDXTuDong();
+            string tenDX = txtQLDX_TenDX.Text.Trim();
+            string maNV = cbQLDX_MaNV.Text.Trim();
+            DateTime ngayXuat = dtpQLDX_NgayXuat.Value;
+
+            string roleID = StateManager.RoleID?.Trim();
+
+            if (!PermissionManager.CanAdd(roleID))
+            {
+                MessageBox.Show("Bạn không có quyền thêm đơn xuất.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            if (string.IsNullOrEmpty(tenDX))
+            {
+                MessageBox.Show("Vui lòng nhập đầy đủ thông tin.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
+            var dx = new List<DonXuat>
+            {
+                new DonXuat
+                {
+                    DXuat_ID = maDX,
+                    DX_Datetime = ngayXuat,
+                    NV_ID = maNV,
+                    DX_Name = tenDX
+                }
+            };
+
+            var response = dXuatService.ThemDX(dx);
+
+            if (response.IsSuccessful)
+            {
+                MessageBox.Show($"Thêm đơn xuất {maDX} thành công.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                LoadDataGridView();
+                LoadComboBox();
+            }
+            else
+            {
+                MessageBox.Show($"Thêm đơn xuất thất bại.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+        private void btnQLDX_Sua_Click(object sender, EventArgs e)
+        {
+            string maDX = txtQLDX_MaDX.Text.Trim();
+            string tenDX = txtQLDX_TenDX.Text.Trim();
+            string maNV = cbQLDX_MaNV.Text.Trim();
+            DateTime ngayXuat = dtpQLDX_NgayXuat.Value;
+
+            string roleID = StateManager.RoleID?.Trim();
+
+            if (!PermissionManager.CanUpdate(roleID))
+            {
+                MessageBox.Show("Bạn không có quyền cập nhật đơn xuất", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            if (string.IsNullOrEmpty(tenDX))
+            {
+                MessageBox.Show("Vui lòng điền đầy đủ thông tin.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            DialogResult result = MessageBox.Show($"Bạn chắc muốn cập nhật đơn xuất {maDX}?", "Xác nhận sửa", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+            if (result == DialogResult.Yes)
+            {
+                var dx = new DonXuat
+                {
+                    DXuat_ID = maDX,
+                    DX_Datetime = ngayXuat,
+                    NV_ID = maNV,
+                    DX_Name = tenDX
+                };
+
+                var response = dXuatService.CapNhatDX(maDX, dx);
+
+                if (response.IsSuccessStatusCode)
+                {
+                    MessageBox.Show($"Cập nhật đơn xuất {maDX} thành công.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    LoadDataGridView();
+                }
+                else
+                {
+                    MessageBox.Show("Cập nhật đơn xuất thất bại. Vui lòng kiểm tra lại.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+            else
+            {
+                return;
+            }
+        }
+        private void btnQLDX_Xoa_Click(object sender, EventArgs e)
+        {
+
+        }
+        private void SearchData(string maDX, string maNV)
+        {
+            try
+            {
+                List<DonXuat> dsDX = dXuatService.LayDSDX();
+
+                if (dsDX != null)
+                {
+                    var filteredDX = dsDX;
+
+                    if (!maDX.Equals("All") && !maNV.Equals("All"))
+                    {
+                        filteredDX = dsDX.Where(kho =>
+                            (kho.NV_ID.Contains(maNV)) &&
+                            (kho.DXuat_ID.Contains(maDX))
+                        ).ToList();
+                    }
+                    else if (!maDX.Equals("All") && maNV.Equals("All"))
+                    {
+                        filteredDX = dsDX.Where(kho =>
+                            (kho.DXuat_ID.Contains(maDX))
+                        ).ToList();
+                    }
+                    else if (maDX.Equals("All") && !maNV.Equals("All"))
+                    {
+                        filteredDX = dsDX.Where(kho =>
+                            (kho.NV_ID.Contains(maNV))
+                        ).ToList();
+                    }
+                    else
+                    {
+                        LoadDataGridView();
+                    }
+
+                    dgvQLDX.DataSource = filteredDX;
+                }
+                else
+                {
+                    MessageBox.Show("Không thể lấy dữ liệu từ API.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Lỗi: {ex.Message}", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+        private void SearchBymaDX_MaNV()
+        {
+            if (cbQLDX_TK_MaDX.SelectedItem is DonXuat selectedDX && cbQLDX_TK_MaNV.SelectedItem is NhanVien selectedNV)
+            {
+                string maDX = selectedDX.DXuat_ID;
+                string maNV = selectedNV.NV_ID;
+
+                SearchData(maDX, maNV);
+            }
+        }
+        private void cbQLDX_TK_MaDX_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            SearchBymaDX_MaNV();
+        }
+        private void cbQLDX_TK_MaNV_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            SearchBymaDX_MaNV();
         }
     }
 }

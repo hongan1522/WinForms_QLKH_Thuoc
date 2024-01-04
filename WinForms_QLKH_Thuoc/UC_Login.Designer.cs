@@ -137,15 +137,16 @@
             txtLogin_Password.PlaceholderText = "Nhập Password...";
             txtLogin_Password.Size = new Size(423, 54);
             txtLogin_Password.TabIndex = 2;
+            txtLogin_Password.KeyDown += txtLogin_Password_KeyDown;
             txtLogin_Password.KeyPress += txtLogin_Password_KeyPress;
             // 
             // lbLogin_Password
             // 
             lbLogin_Password.AutoSize = true;
-            lbLogin_Password.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            lbLogin_Password.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point);
             lbLogin_Password.Location = new Point(64, 171);
             lbLogin_Password.Name = "lbLogin_Password";
-            lbLogin_Password.Size = new Size(153, 45);
+            lbLogin_Password.Size = new Size(157, 45);
             lbLogin_Password.TabIndex = 2;
             lbLogin_Password.Text = "Password";
             // 
@@ -159,15 +160,16 @@
             txtLogin_UserName.Size = new Size(423, 54);
             txtLogin_UserName.TabIndex = 1;
             txtLogin_UserName.TextChanged += txtLogin_UserName_TextChanged;
+            txtLogin_UserName.KeyDown += txtLogin_UserName_KeyDown;
             txtLogin_UserName.KeyPress += txtLogin_UserName_KeyPress;
             // 
             // lbLogin_UserName
             // 
             lbLogin_UserName.AutoSize = true;
-            lbLogin_UserName.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            lbLogin_UserName.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point);
             lbLogin_UserName.Location = new Point(64, 60);
             lbLogin_UserName.Name = "lbLogin_UserName";
-            lbLogin_UserName.Size = new Size(169, 45);
+            lbLogin_UserName.Size = new Size(173, 45);
             lbLogin_UserName.TabIndex = 0;
             lbLogin_UserName.Text = "UserName";
             // 

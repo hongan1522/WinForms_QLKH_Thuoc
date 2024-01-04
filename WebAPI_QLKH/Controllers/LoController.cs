@@ -36,9 +36,10 @@ namespace WebAPI_QLKH.Controllers
 
         // GET: api/Lo
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<Lo>>> GetLos()
+        public IActionResult GetLo()
         {
-            return await _context.Lo.ToListAsync();
+            var lo = _context.Lo.ToList();
+            return Ok(lo);
         }
 
         // GET: api/Lo/5

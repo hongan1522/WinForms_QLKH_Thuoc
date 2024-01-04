@@ -48,10 +48,12 @@
             btnNCC_Them = new Button();
             splNCC_TK_TT = new SplitContainer();
             grbNCC_TK = new GroupBox();
+            pnNCC_TK = new Panel();
+            btnNCC_TK = new Button();
+            txtNCC_TK_TenNCC = new TextBox();
             cbNCC_TK_MaNCC = new ComboBox();
             lbNCC_TK_TenNCC = new Label();
             lbNCC_TK_MaNCC = new Label();
-            txtNCC_TK_TenNCC = new TextBox();
             grbNCC_TT = new GroupBox();
             numNCC_SoLuongDN = new NumericUpDown();
             txtNCC_DiaChi = new TextBox();
@@ -77,6 +79,7 @@
             splNCC_TK_TT.Panel2.SuspendLayout();
             splNCC_TK_TT.SuspendLayout();
             grbNCC_TK.SuspendLayout();
+            pnNCC_TK.SuspendLayout();
             grbNCC_TT.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)numNCC_SoLuongDN).BeginInit();
             SuspendLayout();
@@ -271,6 +274,7 @@
             btnNCC_Xoa.TabIndex = 2;
             btnNCC_Xoa.Text = "Xóa";
             btnNCC_Xoa.UseVisualStyleBackColor = false;
+            btnNCC_Xoa.Click += btnNCC_Xoa_Click;
             // 
             // btnNCC_Sua
             // 
@@ -286,6 +290,7 @@
             btnNCC_Sua.TabIndex = 1;
             btnNCC_Sua.Text = "Sửa";
             btnNCC_Sua.UseVisualStyleBackColor = false;
+            btnNCC_Sua.Click += btnNCC_Sua_Click;
             // 
             // btnNCC_Them
             // 
@@ -301,6 +306,7 @@
             btnNCC_Them.TabIndex = 0;
             btnNCC_Them.Text = "Thêm";
             btnNCC_Them.UseVisualStyleBackColor = false;
+            btnNCC_Them.Click += btnNCC_Them_Click;
             // 
             // splNCC_TK_TT
             // 
@@ -324,10 +330,10 @@
             // 
             // grbNCC_TK
             // 
+            grbNCC_TK.Controls.Add(pnNCC_TK);
             grbNCC_TK.Controls.Add(cbNCC_TK_MaNCC);
             grbNCC_TK.Controls.Add(lbNCC_TK_TenNCC);
             grbNCC_TK.Controls.Add(lbNCC_TK_MaNCC);
-            grbNCC_TK.Controls.Add(txtNCC_TK_TenNCC);
             grbNCC_TK.Dock = DockStyle.Fill;
             grbNCC_TK.Location = new Point(0, 0);
             grbNCC_TK.Name = "grbNCC_TK";
@@ -336,13 +342,47 @@
             grbNCC_TK.TabStop = false;
             grbNCC_TK.Text = "Tìm kiếm";
             // 
+            // pnNCC_TK
+            // 
+            pnNCC_TK.Controls.Add(btnNCC_TK);
+            pnNCC_TK.Controls.Add(txtNCC_TK_TenNCC);
+            pnNCC_TK.Location = new Point(182, 189);
+            pnNCC_TK.Name = "pnNCC_TK";
+            pnNCC_TK.Size = new Size(266, 117);
+            pnNCC_TK.TabIndex = 11;
+            // 
+            // btnNCC_TK
+            // 
+            btnNCC_TK.BackColor = Color.WhiteSmoke;
+            btnNCC_TK.Dock = DockStyle.Right;
+            btnNCC_TK.FlatStyle = FlatStyle.Popup;
+            btnNCC_TK.Image = Properties.Resources.glass;
+            btnNCC_TK.Location = new Point(218, 0);
+            btnNCC_TK.Name = "btnNCC_TK";
+            btnNCC_TK.Size = new Size(48, 117);
+            btnNCC_TK.TabIndex = 4;
+            btnNCC_TK.UseVisualStyleBackColor = false;
+            btnNCC_TK.Click += btnNCC_TK_Click;
+            // 
+            // txtNCC_TK_TenNCC
+            // 
+            txtNCC_TK_TenNCC.Dock = DockStyle.Left;
+            txtNCC_TK_TenNCC.Location = new Point(0, 0);
+            txtNCC_TK_TenNCC.Multiline = true;
+            txtNCC_TK_TenNCC.Name = "txtNCC_TK_TenNCC";
+            txtNCC_TK_TenNCC.ScrollBars = ScrollBars.Vertical;
+            txtNCC_TK_TenNCC.Size = new Size(219, 117);
+            txtNCC_TK_TenNCC.TabIndex = 3;
+            txtNCC_TK_TenNCC.KeyUp += txtNCC_TK_TenNCC_KeyUp;
+            // 
             // cbNCC_TK_MaNCC
             // 
             cbNCC_TK_MaNCC.FormattingEnabled = true;
-            cbNCC_TK_MaNCC.Location = new Point(194, 79);
+            cbNCC_TK_MaNCC.Location = new Point(182, 79);
             cbNCC_TK_MaNCC.Name = "cbNCC_TK_MaNCC";
-            cbNCC_TK_MaNCC.Size = new Size(235, 45);
+            cbNCC_TK_MaNCC.Size = new Size(266, 45);
             cbNCC_TK_MaNCC.TabIndex = 10;
+            cbNCC_TK_MaNCC.SelectedIndexChanged += cbNCC_TK_MaNCC_SelectedIndexChanged;
             // 
             // lbNCC_TK_TenNCC
             // 
@@ -367,14 +407,6 @@
             lbNCC_TK_MaNCC.Size = new Size(119, 39);
             lbNCC_TK_MaNCC.TabIndex = 4;
             lbNCC_TK_MaNCC.Text = "Mã NCC";
-            // 
-            // txtNCC_TK_TenNCC
-            // 
-            txtNCC_TK_TenNCC.Location = new Point(194, 195);
-            txtNCC_TK_TenNCC.Multiline = true;
-            txtNCC_TK_TenNCC.Name = "txtNCC_TK_TenNCC";
-            txtNCC_TK_TenNCC.Size = new Size(235, 78);
-            txtNCC_TK_TenNCC.TabIndex = 3;
             // 
             // grbNCC_TT
             // 
@@ -516,6 +548,8 @@
             splNCC_TK_TT.ResumeLayout(false);
             grbNCC_TK.ResumeLayout(false);
             grbNCC_TK.PerformLayout();
+            pnNCC_TK.ResumeLayout(false);
+            pnNCC_TK.PerformLayout();
             grbNCC_TT.ResumeLayout(false);
             grbNCC_TT.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)numNCC_SoLuongDN).EndInit();
@@ -558,5 +592,7 @@
         private DataGridViewTextBoxColumn NCC_Phone;
         private DataGridViewTextBoxColumn NCC_Address;
         private ComboBox cbNCC_TK_MaNCC;
+        private Panel pnNCC_TK;
+        private Button btnNCC_TK;
     }
 }

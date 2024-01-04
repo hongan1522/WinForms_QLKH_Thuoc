@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
             tlpQLNT = new TableLayoutPanel();
             pnQLNT = new Panel();
             lbQLNT = new Label();
@@ -48,9 +48,11 @@
             Description = new DataGridViewTextBoxColumn();
             splQLNT_TK_CN = new SplitContainer();
             grbQLNT_TT = new GroupBox();
+            pnlQLNT_TK = new Panel();
+            btnQLNT_TK = new Button();
+            txtQLNT_TK_TenNhom = new TextBox();
             cbQLNT_TK_MaNhom = new ComboBox();
             lbQLNT_TK_TenNhom = new Label();
-            txtQLNT_TK_TenNhom = new TextBox();
             lbQLNT_TK_MaNhom = new Label();
             grbQLNT_CN = new GroupBox();
             btnQLNT_Sua = new Button();
@@ -76,6 +78,7 @@
             splQLNT_TK_CN.Panel2.SuspendLayout();
             splQLNT_TK_CN.SuspendLayout();
             grbQLNT_TT.SuspendLayout();
+            pnlQLNT_TK.SuspendLayout();
             grbQLNT_CN.SuspendLayout();
             SuspendLayout();
             // 
@@ -246,14 +249,14 @@
             // 
             dgvQLNT.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dgvQLNT.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.DisplayedCellsExceptHeaders;
-            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle2.BackColor = SystemColors.Control;
-            dataGridViewCellStyle2.Font = new Font("Segoe UI", 10.125F, FontStyle.Regular, GraphicsUnit.Point);
-            dataGridViewCellStyle2.ForeColor = SystemColors.WindowText;
-            dataGridViewCellStyle2.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = DataGridViewTriState.True;
-            dgvQLNT.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.BackColor = SystemColors.Control;
+            dataGridViewCellStyle1.Font = new Font("Segoe UI", 10.125F, FontStyle.Regular, GraphicsUnit.Point);
+            dataGridViewCellStyle1.ForeColor = SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
+            dgvQLNT.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             dgvQLNT.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dgvQLNT.Columns.AddRange(new DataGridViewColumn[] { Nhom_ID, Nhom_Name, Description });
             dgvQLNT.Dock = DockStyle.Fill;
@@ -309,9 +312,9 @@
             // 
             // grbQLNT_TT
             // 
+            grbQLNT_TT.Controls.Add(pnlQLNT_TK);
             grbQLNT_TT.Controls.Add(cbQLNT_TK_MaNhom);
             grbQLNT_TT.Controls.Add(lbQLNT_TK_TenNhom);
-            grbQLNT_TT.Controls.Add(txtQLNT_TK_TenNhom);
             grbQLNT_TT.Controls.Add(lbQLNT_TK_MaNhom);
             grbQLNT_TT.Dock = DockStyle.Fill;
             grbQLNT_TT.Location = new Point(0, 0);
@@ -321,6 +324,39 @@
             grbQLNT_TT.TabStop = false;
             grbQLNT_TT.Text = "Tìm kiếm";
             // 
+            // pnlQLNT_TK
+            // 
+            pnlQLNT_TK.Controls.Add(btnQLNT_TK);
+            pnlQLNT_TK.Controls.Add(txtQLNT_TK_TenNhom);
+            pnlQLNT_TK.Location = new Point(189, 184);
+            pnlQLNT_TK.Name = "pnlQLNT_TK";
+            pnlQLNT_TK.Size = new Size(234, 157);
+            pnlQLNT_TK.TabIndex = 9;
+            // 
+            // btnQLNT_TK
+            // 
+            btnQLNT_TK.BackColor = Color.WhiteSmoke;
+            btnQLNT_TK.Dock = DockStyle.Right;
+            btnQLNT_TK.FlatStyle = FlatStyle.Popup;
+            btnQLNT_TK.Image = Properties.Resources.glass;
+            btnQLNT_TK.Location = new Point(185, 0);
+            btnQLNT_TK.Name = "btnQLNT_TK";
+            btnQLNT_TK.Size = new Size(49, 157);
+            btnQLNT_TK.TabIndex = 10;
+            btnQLNT_TK.UseVisualStyleBackColor = false;
+            btnQLNT_TK.Click += btnQLNT_TK_Click;
+            // 
+            // txtQLNT_TK_TenNhom
+            // 
+            txtQLNT_TK_TenNhom.Dock = DockStyle.Left;
+            txtQLNT_TK_TenNhom.Location = new Point(0, 0);
+            txtQLNT_TK_TenNhom.Multiline = true;
+            txtQLNT_TK_TenNhom.Name = "txtQLNT_TK_TenNhom";
+            txtQLNT_TK_TenNhom.ScrollBars = ScrollBars.Vertical;
+            txtQLNT_TK_TenNhom.Size = new Size(186, 157);
+            txtQLNT_TK_TenNhom.TabIndex = 8;
+            txtQLNT_TK_TenNhom.KeyUp += txtQLNT_TK_TenNhom_KeyUp;
+            // 
             // cbQLNT_TK_MaNhom
             // 
             cbQLNT_TK_MaNhom.FormattingEnabled = true;
@@ -328,6 +364,7 @@
             cbQLNT_TK_MaNhom.Name = "cbQLNT_TK_MaNhom";
             cbQLNT_TK_MaNhom.Size = new Size(233, 45);
             cbQLNT_TK_MaNhom.TabIndex = 6;
+            cbQLNT_TK_MaNhom.SelectedIndexChanged += cbQLNT_TK_MaNhom_SelectedIndexChanged;
             // 
             // lbQLNT_TK_TenNhom
             // 
@@ -340,14 +377,6 @@
             lbQLNT_TK_TenNhom.Size = new Size(140, 39);
             lbQLNT_TK_TenNhom.TabIndex = 5;
             lbQLNT_TK_TenNhom.Text = "Tên nhóm";
-            // 
-            // txtQLNT_TK_TenNhom
-            // 
-            txtQLNT_TK_TenNhom.Location = new Point(189, 196);
-            txtQLNT_TK_TenNhom.Multiline = true;
-            txtQLNT_TK_TenNhom.Name = "txtQLNT_TK_TenNhom";
-            txtQLNT_TK_TenNhom.Size = new Size(233, 117);
-            txtQLNT_TK_TenNhom.TabIndex = 8;
             // 
             // lbQLNT_TK_MaNhom
             // 
@@ -391,6 +420,7 @@
             btnQLNT_Sua.TabIndex = 5;
             btnQLNT_Sua.Text = "Sửa";
             btnQLNT_Sua.UseVisualStyleBackColor = false;
+            btnQLNT_Sua.Click += btnQLNT_Sua_Click;
             // 
             // btnQLNT_Import
             // 
@@ -455,6 +485,7 @@
             btnQLNT_Them.TabIndex = 0;
             btnQLNT_Them.Text = "Thêm";
             btnQLNT_Them.UseVisualStyleBackColor = false;
+            btnQLNT_Them.Click += btnQLNT_Them_Click;
             // 
             // UC_QLNhomThuoc
             // 
@@ -484,6 +515,8 @@
             splQLNT_TK_CN.ResumeLayout(false);
             grbQLNT_TT.ResumeLayout(false);
             grbQLNT_TT.PerformLayout();
+            pnlQLNT_TK.ResumeLayout(false);
+            pnlQLNT_TK.PerformLayout();
             grbQLNT_CN.ResumeLayout(false);
             ResumeLayout(false);
         }
@@ -519,5 +552,7 @@
         private DataGridViewTextBoxColumn Nhom_Name;
         private DataGridViewTextBoxColumn Description;
         private ComboBox cbQLNT_TK_MaNhom;
+        private Panel pnlQLNT_TK;
+        private Button btnQLNT_TK;
     }
 }

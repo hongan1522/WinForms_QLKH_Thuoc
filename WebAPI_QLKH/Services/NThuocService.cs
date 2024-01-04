@@ -26,5 +26,17 @@ namespace WebAPI_QLKH.Services
                 return null;
             }
         }
+        public RestResponse ThemNT(List<NhomThuoc> payloads)
+        {
+            var request = new RestRequest("api/NhomThuoc", Method.Post);
+            request.AddJsonBody(payloads);
+            return _client.Execute(request);
+        }
+        public RestResponse CapNhatNT(string id, NhomThuoc payload)
+        {
+            var request = new RestRequest($"api/NhomThuoc/{id}", Method.Put);
+            request.AddJsonBody(payload);
+            return _client.Execute(request);
+        }
     }
 }

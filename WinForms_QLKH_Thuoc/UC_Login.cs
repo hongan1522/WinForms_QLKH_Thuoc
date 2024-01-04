@@ -61,6 +61,14 @@ namespace FormQLKH
                 e.Handled = true;
             }
         }
+        private void txtLogin_UserName_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Down)
+            {
+                txtLogin_Password.Focus();
+                e.Handled = true;
+            }
+        }
         private bool IsSpecialKey(KeyPressEventArgs e)
         {
             return e.KeyChar == (char)Keys.Delete || e.KeyChar == (char)Keys.Tab ||
@@ -118,6 +126,14 @@ namespace FormQLKH
                 e.Handled = true;
             }
         }
+        private void txtLogin_Password_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Up)
+            {
+                txtLogin_UserName.Focus();
+                e.Handled = true;
+            }
+        }
         private string BamPassword(string password)
         {
             using (SHA256 sha256 = SHA256.Create())
@@ -152,9 +168,13 @@ namespace FormQLKH
                         {
                             StateManager.SetUserState(userName, taiKhoan.RoleID);
 
-                            MessageBox.Show("Đăng nhập thành công!");
-
                             FrmMain quanLyForm = new FrmMain();
+
+                            UC_Main ucMain = quanLyForm.Controls.OfType<UC_Main>().FirstOrDefault();
+                            if (ucMain != null)
+                            {
+                                ucMain.ShowUserNameLabel(StateManager.UserName, StateManager.RoleID.Trim());
+                            }
 
                             Form parentForm = FindForm();
                             if (parentForm is FrmLogin frmLogin)

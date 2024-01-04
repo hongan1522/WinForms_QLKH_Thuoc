@@ -28,8 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle4 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
             tlpQLCN = new TableLayoutPanel();
             pnQLCN = new Panel();
             lbQLCN = new Label();
@@ -47,8 +47,8 @@
             btnQLCN_Xoa = new Button();
             splQLCN_TK_TT = new SplitContainer();
             grbQLCN_TK = new GroupBox();
+            cbQLCN_TK_MaCN = new ComboBox();
             lbQLCN_TK_MaCN = new Label();
-            txtQLCN_TK_MaCN = new TextBox();
             grbQLCN_TT = new GroupBox();
             txtQLCN_TenCN = new TextBox();
             txtQLCN_DiaChi = new TextBox();
@@ -147,24 +147,24 @@
             // 
             dgvQLCN.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dgvQLCN.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
-            dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle3.BackColor = SystemColors.Control;
-            dataGridViewCellStyle3.Font = new Font("Segoe UI", 10.125F, FontStyle.Regular, GraphicsUnit.Point);
-            dataGridViewCellStyle3.ForeColor = SystemColors.WindowText;
-            dataGridViewCellStyle3.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle3.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = DataGridViewTriState.True;
-            dgvQLCN.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.BackColor = SystemColors.Control;
+            dataGridViewCellStyle1.Font = new Font("Segoe UI", 10.125F, FontStyle.Regular, GraphicsUnit.Point);
+            dataGridViewCellStyle1.ForeColor = SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
+            dgvQLCN.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             dgvQLCN.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dgvQLCN.Columns.AddRange(new DataGridViewColumn[] { MaCN, TenCN, DiaChi });
-            dataGridViewCellStyle4.Alignment = DataGridViewContentAlignment.TopLeft;
-            dataGridViewCellStyle4.BackColor = SystemColors.Window;
-            dataGridViewCellStyle4.Font = new Font("Segoe UI", 10.125F, FontStyle.Regular, GraphicsUnit.Point);
-            dataGridViewCellStyle4.ForeColor = SystemColors.ControlText;
-            dataGridViewCellStyle4.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle4.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle4.WrapMode = DataGridViewTriState.False;
-            dgvQLCN.DefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.TopLeft;
+            dataGridViewCellStyle2.BackColor = SystemColors.Window;
+            dataGridViewCellStyle2.Font = new Font("Segoe UI", 10.125F, FontStyle.Regular, GraphicsUnit.Point);
+            dataGridViewCellStyle2.ForeColor = SystemColors.ControlText;
+            dataGridViewCellStyle2.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = DataGridViewTriState.False;
+            dgvQLCN.DefaultCellStyle = dataGridViewCellStyle2;
             dgvQLCN.Dock = DockStyle.Fill;
             dgvQLCN.Location = new Point(3, 39);
             dgvQLCN.Name = "dgvQLCN";
@@ -316,8 +316,8 @@
             // grbQLCN_TK
             // 
             grbQLCN_TK.BackColor = Color.Transparent;
+            grbQLCN_TK.Controls.Add(cbQLCN_TK_MaCN);
             grbQLCN_TK.Controls.Add(lbQLCN_TK_MaCN);
-            grbQLCN_TK.Controls.Add(txtQLCN_TK_MaCN);
             grbQLCN_TK.Dock = DockStyle.Fill;
             grbQLCN_TK.Location = new Point(0, 0);
             grbQLCN_TK.Name = "grbQLCN_TK";
@@ -326,26 +326,26 @@
             grbQLCN_TK.TabStop = false;
             grbQLCN_TK.Text = "Tìm kiếm";
             // 
+            // cbQLCN_TK_MaCN
+            // 
+            cbQLCN_TK_MaCN.FormattingEnabled = true;
+            cbQLCN_TK_MaCN.Location = new Point(189, 87);
+            cbQLCN_TK_MaCN.Name = "cbQLCN_TK_MaCN";
+            cbQLCN_TK_MaCN.Size = new Size(218, 45);
+            cbQLCN_TK_MaCN.TabIndex = 4;
+            cbQLCN_TK_MaCN.SelectedIndexChanged += cbQLCN_TK_MaCN_SelectedIndexChanged;
+            // 
             // lbQLCN_TK_MaCN
             // 
             lbQLCN_TK_MaCN.AutoSize = true;
             lbQLCN_TK_MaCN.BackColor = SystemColors.Control;
             lbQLCN_TK_MaCN.BorderStyle = BorderStyle.Fixed3D;
             lbQLCN_TK_MaCN.Font = new Font("Segoe UI Semibold", 10.125F, FontStyle.Bold, GraphicsUnit.Point);
-            lbQLCN_TK_MaCN.Location = new Point(60, 61);
+            lbQLCN_TK_MaCN.Location = new Point(27, 87);
             lbQLCN_TK_MaCN.Name = "lbQLCN_TK_MaCN";
             lbQLCN_TK_MaCN.Size = new Size(103, 39);
             lbQLCN_TK_MaCN.TabIndex = 3;
             lbQLCN_TK_MaCN.Text = "Mã CN";
-            // 
-            // txtQLCN_TK_MaCN
-            // 
-            txtQLCN_TK_MaCN.Location = new Point(60, 124);
-            txtQLCN_TK_MaCN.Multiline = true;
-            txtQLCN_TK_MaCN.Name = "txtQLCN_TK_MaCN";
-            txtQLCN_TK_MaCN.Size = new Size(320, 51);
-            txtQLCN_TK_MaCN.TabIndex = 2;
-            txtQLCN_TK_MaCN.TextChanged += txtQLCN_TK_MaCN_TextChanged;
             // 
             // grbQLCN_TT
             // 
@@ -431,7 +431,6 @@
             Controls.Add(tlpQLCN);
             Name = "UC_QLChiNhanh";
             Size = new Size(1448, 1082);
-            Load += UC_QLChiNhanh_Load;
             tlpQLCN.ResumeLayout(false);
             pnQLCN.ResumeLayout(false);
             pnQLCN.PerformLayout();
@@ -464,7 +463,6 @@
         private GroupBox grbQLCN_CN;
         private SplitContainer splQLCN_TK_TT;
         private GroupBox grbQLCN_TK;
-        private TextBox txtQLCN_TK_MaCN;
         private GroupBox grbQLCN_TT;
         private TextBox txtQLCN_TenCN;
         private TextBox txtQLCN_DiaChi;
@@ -481,5 +479,6 @@
         private DataGridViewTextBoxColumn MaCN;
         private DataGridViewTextBoxColumn TenCN;
         private DataGridViewTextBoxColumn DiaChi;
+        private ComboBox cbQLCN_TK_MaCN;
     }
 }

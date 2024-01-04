@@ -53,10 +53,10 @@
             btnQLK_Export = new Button();
             splQLK_TK_TT = new SplitContainer();
             grbQLK_TK = new GroupBox();
+            cbQLK_TK_MaKho = new ComboBox();
             cbQLK_TK_MaCN = new ComboBox();
             label2 = new Label();
             label1 = new Label();
-            txtQLK_TK_MaKho = new TextBox();
             grbQLK_TT = new GroupBox();
             cbQLK_MaCN = new ComboBox();
             lbQLK_MaCN = new Label();
@@ -344,10 +344,10 @@
             // 
             // grbQLK_TK
             // 
+            grbQLK_TK.Controls.Add(cbQLK_TK_MaKho);
             grbQLK_TK.Controls.Add(cbQLK_TK_MaCN);
             grbQLK_TK.Controls.Add(label2);
             grbQLK_TK.Controls.Add(label1);
-            grbQLK_TK.Controls.Add(txtQLK_TK_MaKho);
             grbQLK_TK.Dock = DockStyle.Fill;
             grbQLK_TK.Location = new Point(0, 0);
             grbQLK_TK.Name = "grbQLK_TK";
@@ -355,6 +355,15 @@
             grbQLK_TK.TabIndex = 0;
             grbQLK_TK.TabStop = false;
             grbQLK_TK.Text = "Tìm kiếm";
+            // 
+            // cbQLK_TK_MaKho
+            // 
+            cbQLK_TK_MaKho.FormattingEnabled = true;
+            cbQLK_TK_MaKho.Location = new Point(227, 68);
+            cbQLK_TK_MaKho.Name = "cbQLK_TK_MaKho";
+            cbQLK_TK_MaKho.Size = new Size(265, 45);
+            cbQLK_TK_MaKho.TabIndex = 12;
+            cbQLK_TK_MaKho.SelectedIndexChanged += cbQLK_TK_MaKho_SelectedIndexChanged;
             // 
             // cbQLK_TK_MaCN
             // 
@@ -388,14 +397,6 @@
             label1.Size = new Size(111, 39);
             label1.TabIndex = 4;
             label1.Text = "Mã kho";
-            // 
-            // txtQLK_TK_MaKho
-            // 
-            txtQLK_TK_MaKho.Location = new Point(227, 76);
-            txtQLK_TK_MaKho.Name = "txtQLK_TK_MaKho";
-            txtQLK_TK_MaKho.Size = new Size(265, 43);
-            txtQLK_TK_MaKho.TabIndex = 2;
-            txtQLK_TK_MaKho.TextChanged += txtQLK_TK_MaKho_TextChanged;
             // 
             // grbQLK_TT
             // 
@@ -534,7 +535,6 @@
         private SplitContainer splQLK_TK_TT;
         private GroupBox grbQLK_TK;
         private GroupBox grbQLK_TT;
-        private TextBox txtQLK_TK_MaKho;
         private Label lbQLK_MaCN;
         private TextBox txtQLK_DiaChi;
         private Label lbQLK_DiaChi;
@@ -555,5 +555,6 @@
         private DataGridViewTextBoxColumn MaCN;
         private DataGridViewTextBoxColumn TenKho;
         private DataGridViewTextBoxColumn DiaChi;
+        private ComboBox cbQLK_TK_MaKho;
     }
 }

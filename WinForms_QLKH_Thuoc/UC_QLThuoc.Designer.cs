@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
             tlpQLT = new TableLayoutPanel();
             pnQLT = new Panel();
             lbQLT = new Label();
@@ -54,10 +54,10 @@
             lbQLT_TenThuoc = new Label();
             lbQLT_MaThuoc = new Label();
             grbQLT_CN = new GroupBox();
+            cbQLT_TK_MaNhom = new ComboBox();
             cbQLT_TK_MaThuoc = new ComboBox();
-            lbQLT_TK_TenThuoc = new Label();
+            lbQLT_TK_MaNhom = new Label();
             lbQLT_TK_MaThuoc = new Label();
-            txtQLT_TK_TenThuoc = new TextBox();
             tlpQLT.SuspendLayout();
             pnQLT.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)splQLT_CN_HT).BeginInit();
@@ -165,6 +165,7 @@
             btnQLT_Them.TabIndex = 6;
             btnQLT_Them.Text = "Thêm";
             btnQLT_Them.UseVisualStyleBackColor = false;
+            btnQLT_Them.Click += btnQLT_Them_Click;
             // 
             // btnQLT_Export
             // 
@@ -197,6 +198,7 @@
             btnQLT_Sua.TabIndex = 11;
             btnQLT_Sua.Text = "Sửa";
             btnQLT_Sua.UseVisualStyleBackColor = false;
+            btnQLT_Sua.Click += btnQLT_Sua_Click;
             // 
             // btnQLT_Import
             // 
@@ -229,6 +231,7 @@
             btnQLT_Xoa.TabIndex = 7;
             btnQLT_Xoa.Text = "Xóa";
             btnQLT_Xoa.UseVisualStyleBackColor = false;
+            btnQLT_Xoa.Click += btnQLT_Xoa_Click;
             // 
             // grbQLT_HT
             // 
@@ -245,14 +248,14 @@
             // 
             dgvQLT.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dgvQLT.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
-            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle1.BackColor = SystemColors.Control;
-            dataGridViewCellStyle1.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
-            dataGridViewCellStyle1.ForeColor = SystemColors.WindowText;
-            dataGridViewCellStyle1.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
-            dgvQLT.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle2.BackColor = SystemColors.Control;
+            dataGridViewCellStyle2.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
+            dataGridViewCellStyle2.ForeColor = SystemColors.WindowText;
+            dataGridViewCellStyle2.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = DataGridViewTriState.True;
+            dgvQLT.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             dgvQLT.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dgvQLT.Columns.AddRange(new DataGridViewColumn[] { Thuoc_ID, Nhom_ID, Thuoc_Name });
             dgvQLT.Dock = DockStyle.Fill;
@@ -391,10 +394,10 @@
             // 
             // grbQLT_CN
             // 
+            grbQLT_CN.Controls.Add(cbQLT_TK_MaNhom);
             grbQLT_CN.Controls.Add(cbQLT_TK_MaThuoc);
-            grbQLT_CN.Controls.Add(lbQLT_TK_TenThuoc);
+            grbQLT_CN.Controls.Add(lbQLT_TK_MaNhom);
             grbQLT_CN.Controls.Add(lbQLT_TK_MaThuoc);
-            grbQLT_CN.Controls.Add(txtQLT_TK_TenThuoc);
             grbQLT_CN.Dock = DockStyle.Fill;
             grbQLT_CN.Location = new Point(0, 0);
             grbQLT_CN.Name = "grbQLT_CN";
@@ -403,25 +406,35 @@
             grbQLT_CN.TabStop = false;
             grbQLT_CN.Text = "Tìm kiếm";
             // 
+            // cbQLT_TK_MaNhom
+            // 
+            cbQLT_TK_MaNhom.FormattingEnabled = true;
+            cbQLT_TK_MaNhom.Location = new Point(242, 212);
+            cbQLT_TK_MaNhom.Name = "cbQLT_TK_MaNhom";
+            cbQLT_TK_MaNhom.Size = new Size(297, 45);
+            cbQLT_TK_MaNhom.TabIndex = 7;
+            cbQLT_TK_MaNhom.SelectedIndexChanged += cbQLT_TK_MaNhom_SelectedIndexChanged;
+            // 
             // cbQLT_TK_MaThuoc
             // 
             cbQLT_TK_MaThuoc.FormattingEnabled = true;
             cbQLT_TK_MaThuoc.Location = new Point(242, 70);
             cbQLT_TK_MaThuoc.Name = "cbQLT_TK_MaThuoc";
-            cbQLT_TK_MaThuoc.Size = new Size(242, 45);
+            cbQLT_TK_MaThuoc.Size = new Size(297, 45);
             cbQLT_TK_MaThuoc.TabIndex = 6;
+            cbQLT_TK_MaThuoc.SelectedIndexChanged += cbQLT_TK_MaThuoc_SelectedIndexChanged;
             // 
-            // lbQLT_TK_TenThuoc
+            // lbQLT_TK_MaNhom
             // 
-            lbQLT_TK_TenThuoc.AutoSize = true;
-            lbQLT_TK_TenThuoc.BackColor = SystemColors.Control;
-            lbQLT_TK_TenThuoc.BorderStyle = BorderStyle.Fixed3D;
-            lbQLT_TK_TenThuoc.Font = new Font("Segoe UI Semibold", 10.125F, FontStyle.Bold, GraphicsUnit.Point);
-            lbQLT_TK_TenThuoc.Location = new Point(59, 184);
-            lbQLT_TK_TenThuoc.Name = "lbQLT_TK_TenThuoc";
-            lbQLT_TK_TenThuoc.Size = new Size(139, 39);
-            lbQLT_TK_TenThuoc.TabIndex = 5;
-            lbQLT_TK_TenThuoc.Text = "Tên thuốc";
+            lbQLT_TK_MaNhom.AutoSize = true;
+            lbQLT_TK_MaNhom.BackColor = SystemColors.Control;
+            lbQLT_TK_MaNhom.BorderStyle = BorderStyle.Fixed3D;
+            lbQLT_TK_MaNhom.Font = new Font("Segoe UI Semibold", 10.125F, FontStyle.Bold, GraphicsUnit.Point);
+            lbQLT_TK_MaNhom.Location = new Point(59, 212);
+            lbQLT_TK_MaNhom.Name = "lbQLT_TK_MaNhom";
+            lbQLT_TK_MaNhom.Size = new Size(137, 39);
+            lbQLT_TK_MaNhom.TabIndex = 5;
+            lbQLT_TK_MaNhom.Text = "Mã nhóm";
             // 
             // lbQLT_TK_MaThuoc
             // 
@@ -434,14 +447,6 @@
             lbQLT_TK_MaThuoc.Size = new Size(136, 39);
             lbQLT_TK_MaThuoc.TabIndex = 4;
             lbQLT_TK_MaThuoc.Text = "Mã thuốc";
-            // 
-            // txtQLT_TK_TenThuoc
-            // 
-            txtQLT_TK_TenThuoc.Location = new Point(240, 184);
-            txtQLT_TK_TenThuoc.Multiline = true;
-            txtQLT_TK_TenThuoc.Name = "txtQLT_TK_TenThuoc";
-            txtQLT_TK_TenThuoc.Size = new Size(324, 93);
-            txtQLT_TK_TenThuoc.TabIndex = 3;
             // 
             // UC_QLThuoc
             // 
@@ -479,7 +484,6 @@
         private Label lbQLT;
         private SplitContainer splQLT_CN_HT;
         private GroupBox grbQLT_TK;
-        private TextBox txtQLT_TK_TenThuoc;
         private GroupBox grbQLT_HT;
         private DataGridView dgvQLT;
         private Panel pnQLT_TT_CN;
@@ -496,12 +500,13 @@
         private Button btnQLT_Them;
         private Button btnQLT_Import;
         private Button btnQLT_Xoa;
-        private Label lbQLT_TK_TenThuoc;
+        private Label lbQLT_TK_MaNhom;
         private Label lbQLT_TK_MaThuoc;
         private DataGridViewTextBoxColumn Thuoc_ID;
         private DataGridViewTextBoxColumn Nhom_ID;
         private DataGridViewTextBoxColumn Thuoc_Name;
         private ComboBox cbQLT_TK_MaThuoc;
         private ComboBox cbQLT_MaNhom;
+        private ComboBox cbQLT_TK_MaNhom;
     }
 }

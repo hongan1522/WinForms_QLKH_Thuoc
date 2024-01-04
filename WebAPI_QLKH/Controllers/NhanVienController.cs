@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using WebAPI_QLKH.Models;
+using static WebAPI_QLKH.Controllers.KhoController;
 
 namespace WebAPI_QLKH.Controllers
 {
@@ -19,7 +20,6 @@ namespace WebAPI_QLKH.Controllers
         {
             _context = context;
         }
-
         // GET: api/NhanVien
         [HttpGet]
         public async Task<ActionResult<IEnumerable<NhanVien>>> GetNhanVien()
@@ -83,30 +83,30 @@ namespace WebAPI_QLKH.Controllers
         // POST: api/NhanVien
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPost]
-        public async Task<ActionResult<NhanVien>> PostNhanVien(NhanVien nhanVien)
+        public async Task<ActionResult<IEnumerable<NhanVien>>> PostNhanVien([FromBody] List<NhanVien> payloads)
         {
-          if (_context.NhanVien == null)
-          {
-              return Problem("Entity set 'QLKH_ThuocContext.NhanVien'  is null.");
-          }
-            _context.NhanVien.Add(nhanVien);
-            try
+            if (payloads == null || !payloads.Any())
             {
-                await _context.SaveChangesAsync();
-            }
-            catch (DbUpdateException)
-            {
-                if (NhanVienExists(nhanVien.NV_ID))
-                {
-                    return Conflict();
-                }
-                else
-                {
-                    throw;
-                }
+                return BadRequest("Danh sách payload không hợp lệ");
             }
 
-            return CreatedAtAction("GetNhanVien", new { id = nhanVien.NV_ID }, nhanVien);
+            var NVList = payloads.Select(payload => new NhanVien
+            {
+                CN_ID = payload.CN_ID?.Trim() ?? string.Empty,
+                UserID = payload.UserID?.Trim() ?? string.Empty,
+                NV_Name = payload.NV_Name?.Trim() ?? string.Empty,
+                Address = payload.Address?.Trim() ?? string.Empty,
+                NV_ID = payload.NV_ID?.Trim() ?? string.Empty,
+                BirthDay = payload.BirthDay,
+                Phone = payload.Phone ?? string.Empty, 
+                Email = payload.Email?.Trim() ?? string.Empty,
+                Sex = payload.Sex?.Trim() ?? string.Empty
+            }).ToList();
+
+            _context.NhanVien.AddRange(NVList);
+            await _context.SaveChangesAsync();
+
+            return NVList;
         }
 
         // DELETE: api/NhanVien/5

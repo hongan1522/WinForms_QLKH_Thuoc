@@ -83,30 +83,24 @@ namespace WebAPI_QLKH.Controllers
         // POST: api/Thuoc
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPost]
-        public async Task<ActionResult<Thuoc>> PostThuoc(Thuoc thuoc)
+        public async Task<ActionResult<IEnumerable<Thuoc>>> PostThuoc([FromBody] List<Thuoc> payloads)
         {
-          if (_context.Thuoc == null)
-          {
-              return Problem("Entity set 'QLKH_ThuocContext.Thuoc'  is null.");
-          }
-            _context.Thuoc.Add(thuoc);
-            try
+            if (payloads == null || !payloads.Any())
             {
-                await _context.SaveChangesAsync();
-            }
-            catch (DbUpdateException)
-            {
-                if (ThuocExists(thuoc.Thuoc_ID))
-                {
-                    return Conflict();
-                }
-                else
-                {
-                    throw;
-                }
+                return BadRequest("Danh sách payload không hợp lệ");
             }
 
-            return CreatedAtAction("GetThuoc", new { id = thuoc.Thuoc_ID }, thuoc);
+            var thuocList = payloads.Select(payload => new Thuoc
+            {
+                Thuoc_ID = payload.Thuoc_ID?.Trim() ?? string.Empty,
+                Nhom_ID = payload.Nhom_ID?.Trim() ?? string.Empty,
+                Thuoc_Name = payload.Thuoc_Name?.Trim() ?? string.Empty
+            }).ToList();
+
+            _context.Thuoc.AddRange(thuocList);
+            await _context.SaveChangesAsync();
+
+            return thuocList;
         }
 
         // DELETE: api/Thuoc/5

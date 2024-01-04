@@ -13,7 +13,7 @@ public partial class NCC
 
     public string NCC_Address { get; set; }
 
-    public int? NCC_Phone { get; set; }
+    public string NCC_Phone { get; set; }
 
     public int Quantity { get; set; }
 

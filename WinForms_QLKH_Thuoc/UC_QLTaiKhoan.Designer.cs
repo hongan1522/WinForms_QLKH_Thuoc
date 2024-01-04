@@ -44,10 +44,10 @@
             lbQLTK_RoleID = new Label();
             lbQLTK_UserID = new Label();
             grbQLTK_TK = new GroupBox();
+            cbQLTK_TK_UserID = new ComboBox();
             cbQLTK_TK_RoleID = new ComboBox();
             lbQLTK_TK_UserID = new Label();
             lbQLTK_TK_RoleID = new Label();
-            txtQLTK_TK_UserID = new TextBox();
             grbQLTK_CN = new GroupBox();
             btnQLTK_Export = new Button();
             btnQLTK_Import = new Button();
@@ -257,10 +257,10 @@
             // 
             // grbQLTK_TK
             // 
+            grbQLTK_TK.Controls.Add(cbQLTK_TK_UserID);
             grbQLTK_TK.Controls.Add(cbQLTK_TK_RoleID);
             grbQLTK_TK.Controls.Add(lbQLTK_TK_UserID);
             grbQLTK_TK.Controls.Add(lbQLTK_TK_RoleID);
-            grbQLTK_TK.Controls.Add(txtQLTK_TK_UserID);
             grbQLTK_TK.Dock = DockStyle.Fill;
             grbQLTK_TK.Location = new Point(0, 0);
             grbQLTK_TK.Name = "grbQLTK_TK";
@@ -269,10 +269,19 @@
             grbQLTK_TK.TabStop = false;
             grbQLTK_TK.Text = "Tìm kiếm";
             // 
+            // cbQLTK_TK_UserID
+            // 
+            cbQLTK_TK_UserID.FormattingEnabled = true;
+            cbQLTK_TK_UserID.Location = new Point(49, 126);
+            cbQLTK_TK_UserID.Name = "cbQLTK_TK_UserID";
+            cbQLTK_TK_UserID.Size = new Size(442, 45);
+            cbQLTK_TK_UserID.TabIndex = 14;
+            cbQLTK_TK_UserID.SelectedIndexChanged += cbQLTK_TK_UserID_SelectedIndexChanged;
+            // 
             // cbQLTK_TK_RoleID
             // 
             cbQLTK_TK_RoleID.FormattingEnabled = true;
-            cbQLTK_TK_RoleID.Location = new Point(580, 114);
+            cbQLTK_TK_RoleID.Location = new Point(618, 126);
             cbQLTK_TK_RoleID.Name = "cbQLTK_TK_RoleID";
             cbQLTK_TK_RoleID.Size = new Size(442, 45);
             cbQLTK_TK_RoleID.TabIndex = 13;
@@ -296,19 +305,11 @@
             lbQLTK_TK_RoleID.BackColor = SystemColors.Control;
             lbQLTK_TK_RoleID.BorderStyle = BorderStyle.Fixed3D;
             lbQLTK_TK_RoleID.Font = new Font("Segoe UI Semibold", 10.125F, FontStyle.Bold, GraphicsUnit.Point);
-            lbQLTK_TK_RoleID.Location = new Point(580, 56);
+            lbQLTK_TK_RoleID.Location = new Point(618, 62);
             lbQLTK_TK_RoleID.Name = "lbQLTK_TK_RoleID";
             lbQLTK_TK_RoleID.Size = new Size(99, 39);
             lbQLTK_TK_RoleID.TabIndex = 9;
             lbQLTK_TK_RoleID.Text = "RoleID";
-            // 
-            // txtQLTK_TK_UserID
-            // 
-            txtQLTK_TK_UserID.Location = new Point(49, 116);
-            txtQLTK_TK_UserID.Name = "txtQLTK_TK_UserID";
-            txtQLTK_TK_UserID.Size = new Size(439, 43);
-            txtQLTK_TK_UserID.TabIndex = 7;
-            txtQLTK_TK_UserID.TextChanged += txtQLTK_TK_UserID_TextChanged;
             // 
             // grbQLTK_CN
             // 
@@ -542,10 +543,10 @@
         private ComboBox cbQLTK_TK_RoleID;
         private Label lbQLTK_TK_UserID;
         private Label lbQLTK_TK_RoleID;
-        private TextBox txtQLTK_TK_UserID;
         private DataGridViewTextBoxColumn UserID;
         private DataGridViewTextBoxColumn RoleID;
         private DataGridViewTextBoxColumn UserName;
         private DataGridViewTextBoxColumn GhiChu;
+        private ComboBox cbQLTK_TK_UserID;
     }
 }
