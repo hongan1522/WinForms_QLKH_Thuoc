@@ -45,7 +45,8 @@ namespace WebAPI_QLKH.Services
         public RestResponse XoaKho(string id)
         {
             var request = new RestRequest($"api/Kho/{id}", Method.Delete);
-            return _client.Execute(request);
+            var response = _client.Execute(request);
+            return response;
         }
     }
 }

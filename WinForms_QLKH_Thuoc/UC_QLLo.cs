@@ -12,6 +12,7 @@ using Azure;
 using Microsoft.VisualBasic.ApplicationServices;
 using System.Data;
 using WebAPI_QLKH.StateManager;
+using System.Text.RegularExpressions;
 
 namespace FormQLKH
 {
@@ -249,23 +250,63 @@ namespace FormQLKH
                 return;
             }
 
-            string maLo = txtQLLo_MaLo.Text.Trim();
+            var selectedRows = dgvQLLo.SelectedRows;
 
-            var confirmResult = MessageBox.Show($"Bạn có chắc chắn muốn xóa lô {maLo}?", "Xác nhận xóa",
-                                             MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (selectedRows.Count == 0)
+            {
+                MessageBox.Show("Vui lòng chọn ít nhất một lô để xóa.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            List<string> dsMaLo = new List<string>();
+
+            foreach (DataGridViewRow row in selectedRows)
+            {
+                string maLo = row.Cells["MaLo"].Value.ToString().Trim();
+                dsMaLo.Add(maLo);
+            }
+
+            dsMaLo = dsMaLo.OrderBy(maLo => int.Parse(Regex.Match(maLo, @"\d+").Value)).ToList();
+
+            string manyMaLo = string.Join(", ", dsMaLo);
+
+            var confirmResult = MessageBox.Show($"Bạn có chắc chắn muốn xóa lô ({manyMaLo}) đã chọn?", "Xác nhận xóa",
+                                               MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 
             if (confirmResult == DialogResult.Yes)
             {
-                var response = await loService.XoaLo(maLo);
-
-                if (response.IsSuccessStatusCode)
+                if (selectedRows.Count > 1)
                 {
-                    MessageBox.Show($"Xóa lô {maLo} thành công.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    foreach (DataGridViewRow row in selectedRows)
+                    {
+                        string maLo = row.Cells["MaLo"].Value.ToString().Trim();
+                        var response = loService.XoaLo(maLo);
+
+                        if (!response.IsSuccessStatusCode)
+                        {
+                            MessageBox.Show($"Xóa lô {maLo} thất bại. Vui lòng kiểm tra lại.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        }
+                    }
+
+                    MessageBox.Show($"Xóa các lô ({manyMaLo}) đã chọn thành công.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     LoadDataGridView();
+                    LoadComboBox();
                 }
                 else
                 {
-                    MessageBox.Show("Xóa lô thất bại. Vui lòng kiểm tra lại.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    string maLo = dsMaLo[0];
+                    var response = loService.XoaLo(maLo);
+
+                    if (response.IsSuccessStatusCode)
+                    {
+                        MessageBox.Show($"Xóa lô {maLo} thành công.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        LoadDataGridView();
+                        LoadComboBox();
+                    }
+                    else
+                    {
+                        MessageBox.Show($"Xóa lô {maLo} thất bại. Vui lòng kiểm tra lại.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
                 }
             }
         }

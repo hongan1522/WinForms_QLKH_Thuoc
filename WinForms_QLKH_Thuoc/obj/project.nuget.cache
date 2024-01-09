@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "Sm+7P2noDf6BaG8l2tIB5XHjf3mdep4OFQdT+CDfFdge7nTR7NFm4wg46k5pJqmF+6GDEIFuqOZGvfaXBb5fdg==",
+  "dgSpecHash": "q9RUs+NOEoQK+W7yQiVc+QsmI0kLg6CtrXBOODICA75MEYnvRdSWrOzjZrMIxc1hjRR0291obF7l8NdnTZhAuw==",
   "success": true,
   "projectFilePath": "C:\\Users\\MyPC\\Desktop\\WinForms_QLKH_Thuoc\\WinForms_QLKH_Thuoc\\FormQLKH.csproj",
   "expectedPackageFiles": [
@@ -76,7 +76,7 @@
     "C:\\Users\\MyPC\\.nuget\\packages\\microsoft.codeanalysis.razor\\6.0.0\\microsoft.codeanalysis.razor.6.0.0.nupkg.sha512",
     "C:\\Users\\MyPC\\.nuget\\packages\\microsoft.codeanalysis.scripting.common\\4.0.0\\microsoft.codeanalysis.scripting.common.4.0.0.nupkg.sha512",
     "C:\\Users\\MyPC\\.nuget\\packages\\microsoft.codeanalysis.workspaces.common\\4.0.0\\microsoft.codeanalysis.workspaces.common.4.0.0.nupkg.sha512",
-    "C:\\Users\\MyPC\\.nuget\\packages\\microsoft.csharp\\4.5.0\\microsoft.csharp.4.5.0.nupkg.sha512",
+    "C:\\Users\\MyPC\\.nuget\\packages\\microsoft.csharp\\4.7.0\\microsoft.csharp.4.7.0.nupkg.sha512",
     "C:\\Users\\MyPC\\.nuget\\packages\\microsoft.data.sqlclient\\5.1.1\\microsoft.data.sqlclient.5.1.1.nupkg.sha512",
     "C:\\Users\\MyPC\\.nuget\\packages\\microsoft.data.sqlclient.sni.runtime\\5.1.0\\microsoft.data.sqlclient.sni.runtime.5.1.0.nupkg.sha512",
     "C:\\Users\\MyPC\\.nuget\\packages\\microsoft.data.sqlite.core\\6.0.23\\microsoft.data.sqlite.core.6.0.23.nupkg.sha512",
@@ -85,6 +85,7 @@
     "C:\\Users\\MyPC\\.nuget\\packages\\microsoft.entityframeworkcore\\7.0.14\\microsoft.entityframeworkcore.7.0.14.nupkg.sha512",
     "C:\\Users\\MyPC\\.nuget\\packages\\microsoft.entityframeworkcore.abstractions\\7.0.14\\microsoft.entityframeworkcore.abstractions.7.0.14.nupkg.sha512",
     "C:\\Users\\MyPC\\.nuget\\packages\\microsoft.entityframeworkcore.analyzers\\7.0.14\\microsoft.entityframeworkcore.analyzers.7.0.14.nupkg.sha512",
+    "C:\\Users\\MyPC\\.nuget\\packages\\microsoft.entityframeworkcore.design\\5.0.0\\microsoft.entityframeworkcore.design.5.0.0.nupkg.sha512",
     "C:\\Users\\MyPC\\.nuget\\packages\\microsoft.entityframeworkcore.relational\\7.0.14\\microsoft.entityframeworkcore.relational.7.0.14.nupkg.sha512",
     "C:\\Users\\MyPC\\.nuget\\packages\\microsoft.entityframeworkcore.sqlite\\6.0.23\\microsoft.entityframeworkcore.sqlite.6.0.23.nupkg.sha512",
     "C:\\Users\\MyPC\\.nuget\\packages\\microsoft.entityframeworkcore.sqlite.core\\6.0.23\\microsoft.entityframeworkcore.sqlite.core.6.0.23.nupkg.sha512",

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Text.RegularExpressions;
 using System.Windows.Forms;
 using FormQLKH.Services;
 using Microsoft.AspNetCore.Mvc;
@@ -211,23 +212,63 @@ namespace FormQLKH
                 return;
             }
 
-            string maCN = txtQLCN_MaCN.Text.Trim();
+            var selectedRows = dgvQLCN.SelectedRows;
 
-            var confirmResult = MessageBox.Show($"Bạn có chắc chắn muốn xóa chi nhánh {maCN}?", "Xác nhận xóa",
-                                             MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (selectedRows.Count == 0)
+            {
+                MessageBox.Show("Vui lòng chọn ít nhất một chi nhánh để xóa.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            List<string> dsMaCN = new List<string>();
+
+            foreach (DataGridViewRow row in selectedRows)
+            {
+                string maCN = row.Cells["MaCN"].Value.ToString().Trim();
+                dsMaCN.Add(maCN);
+            }
+
+            dsMaCN = dsMaCN.OrderBy(maCN => int.Parse(Regex.Match(maCN, @"\d+").Value)).ToList();
+
+            string manyMaCN = string.Join(", ", dsMaCN);
+
+            var confirmResult = MessageBox.Show($"Bạn có chắc chắn muốn xóa chi nhánh ({manyMaCN}) đã chọn?", "Xác nhận xóa",
+                                               MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 
             if (confirmResult == DialogResult.Yes)
             {
-                var response = chiNhanhService.XoaChiNhanh(maCN);
-
-                if (response.IsSuccessStatusCode)
+                if (selectedRows.Count > 1)
                 {
-                    MessageBox.Show($"Xóa chi nhánh {maCN} thành công.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    foreach (DataGridViewRow row in selectedRows)
+                    {
+                        string maCN = row.Cells["MaCN"].Value.ToString().Trim();
+                        var response = chiNhanhService.XoaChiNhanh(maCN);
+
+                        if (!response.IsSuccessStatusCode)
+                        {
+                            MessageBox.Show($"Xóa chi nhánh {maCN} thất bại. Vui lòng kiểm tra lại.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        }
+                    }
+
+                    MessageBox.Show($"Xóa các chi nhánh ({manyMaCN}) đã chọn thành công.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     LoadDataGridView();
+                    LoadComboBox();
                 }
                 else
                 {
-                    MessageBox.Show("Xóa chi nhánh thất bại. Vui lòng kiểm tra lại.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    string maCN = dsMaCN[0];
+                    var response = chiNhanhService.XoaChiNhanh(maCN);
+
+                    if (response.IsSuccessStatusCode)
+                    {
+                        MessageBox.Show($"Xóa chi nhánh {maCN} thành công.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        LoadDataGridView();
+                        LoadComboBox();
+                    }
+                    else
+                    {
+                        MessageBox.Show($"Xóa chi nhánh {maCN} thất bại. Vui lòng kiểm tra lại.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
                 }
             }
         }

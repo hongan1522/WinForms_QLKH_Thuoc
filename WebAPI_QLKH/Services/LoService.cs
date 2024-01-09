@@ -38,7 +38,6 @@ namespace WebAPI_QLKH.Services
 
             return await _restClient.ExecuteAsync(request);
         }
-
         public async Task<RestResponse> CapNhatLo(string id, LoPut loPut)
         {
             var request = new RestRequest($"api/Lo/{id}", Method.Put)
@@ -46,13 +45,11 @@ namespace WebAPI_QLKH.Services
 
             return await _restClient.ExecuteAsync(request);
         }
-
-        public async Task<RestResponse> XoaLo(string id)
+        public RestResponse XoaLo(string id)
         {
             var request = new RestRequest($"api/Lo/{id}", Method.Delete);
-
-            return await _restClient.ExecuteAsync(request);
+            var response = _restClient.Execute(request);
+            return response;
         }
-
     }
 }

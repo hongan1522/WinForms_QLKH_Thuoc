@@ -433,7 +433,7 @@
             lbQLNV_NgaySinh.BackColor = SystemColors.Control;
             lbQLNV_NgaySinh.BorderStyle = BorderStyle.Fixed3D;
             lbQLNV_NgaySinh.Font = new Font("Segoe UI Semibold", 10.125F, FontStyle.Bold, GraphicsUnit.Point);
-            lbQLNV_NgaySinh.Location = new Point(500, 140);
+            lbQLNV_NgaySinh.Location = new Point(496, 141);
             lbQLNV_NgaySinh.Name = "lbQLNV_NgaySinh";
             lbQLNV_NgaySinh.Size = new Size(142, 39);
             lbQLNV_NgaySinh.TabIndex = 5;

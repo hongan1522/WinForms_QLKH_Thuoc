@@ -228,6 +228,9 @@ public partial class QLKH_ThuocContext : DbContext
             entity.Property(e => e.NCC_Address).HasMaxLength(50);
             entity.Property(e => e.NCC_Name).HasMaxLength(50);
             entity.Property(e => e.NCC_Phone).HasMaxLength(15);
+            entity.Property(e => e.NCC_Status)
+                .IsRequired()
+                .HasMaxLength(50);
         });
 
         modelBuilder.Entity<NhanVien>(entity =>
@@ -248,7 +251,6 @@ public partial class QLKH_ThuocContext : DbContext
             entity.Property(e => e.Phone).HasMaxLength(15);
             entity.Property(e => e.Sex).HasMaxLength(20);
             entity.Property(e => e.UserID)
-                .IsRequired()
                 .HasMaxLength(10)
                 .IsFixedLength();
 
@@ -259,7 +261,6 @@ public partial class QLKH_ThuocContext : DbContext
 
             entity.HasOne(d => d.User).WithMany(p => p.NhanVien)
                 .HasForeignKey(d => d.UserID)
-                .OnDelete(DeleteBehavior.ClientSetNull)
                 .HasConstraintName("FK_NhanVien_TaiKhoan");
         });
 
@@ -336,14 +337,12 @@ public partial class QLKH_ThuocContext : DbContext
                 .HasMaxLength(10)
                 .IsFixedLength();
             entity.Property(e => e.Nhom_ID)
-                .IsRequired()
                 .HasMaxLength(10)
                 .IsFixedLength();
             entity.Property(e => e.Thuoc_Name).HasMaxLength(50);
 
             entity.HasOne(d => d.Nhom).WithMany(p => p.Thuoc)
                 .HasForeignKey(d => d.Nhom_ID)
-                .OnDelete(DeleteBehavior.ClientSetNull)
                 .HasConstraintName("FK_Thuoc_NhomThuoc");
         });
 

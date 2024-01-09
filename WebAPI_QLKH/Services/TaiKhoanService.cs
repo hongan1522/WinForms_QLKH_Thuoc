@@ -28,13 +28,13 @@ namespace WebAPI_QLKH.Services
                 return null;
             }
         }
-        public RestResponse ThemTaiKhoan(List<TKPayload> payloads)
+        public RestResponse ThemTaiKhoan(List<TaiKhoan> payloads)
         {
             var request = new RestRequest("api/TaiKhoan", Method.Post);
             request.AddJsonBody(payloads);
             return _client.Execute(request);
         }
-        public RestResponse CapNhatTaiKhoan(string id, TKPayload payload)
+        public RestResponse CapNhatTaiKhoan(string id, TaiKhoan payload)
         {
             var request = new RestRequest($"api/TaiKhoan/{id}", Method.Put);
             request.AddJsonBody(payload);
@@ -43,7 +43,8 @@ namespace WebAPI_QLKH.Services
         public RestResponse XoaTaiKhoan(string id)
         {
             var request = new RestRequest($"api/TaiKhoan/{id}", Method.Delete);
-            return _client.Execute(request);
+            var response = _client.Execute(request);
+            return response;
         }
     }
 }

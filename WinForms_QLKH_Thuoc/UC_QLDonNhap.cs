@@ -5,6 +5,7 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using WebAPI_QLKH.Models;
@@ -316,7 +317,80 @@ namespace FormQLKH
         }
         private void btnQLDN_Xoa_Click(object sender, EventArgs e)
         {
+            string roleID = StateManager.RoleID?.Trim();
 
+            if (!PermissionManager.CanDelete(roleID))
+            {
+                MessageBox.Show("Bạn không có quyền xóa đơn nhập.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            var selectedRows = dgvQLDN.SelectedRows;
+
+            if (selectedRows.Count == 0)
+            {
+                MessageBox.Show("Vui lòng chọn ít nhất một đơn nhập để xóa.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            List<string> dsMaDN = new List<string>();
+            List<string> deletedMaDN = new List<string>();
+
+            foreach (DataGridViewRow row in selectedRows)
+            {
+                string maDN = row.Cells["DNhap_ID"].Value.ToString().Trim();
+                dsMaDN.Add(maDN);
+            }
+
+            dsMaDN = dsMaDN.OrderBy(maDN => int.Parse(Regex.Match(maDN, @"\d+").Value)).ToList();
+
+            string manyMaDN = string.Join(", ", dsMaDN);
+
+            var confirmResult = MessageBox.Show($"Bạn có chắc chắn muốn xóa đơn nhập ({manyMaDN}) đã chọn?", "Xác nhận xóa",
+                                               MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+            if (confirmResult == DialogResult.Yes)
+            {
+                if (selectedRows.Count > 1)
+                {
+                    foreach (DataGridViewRow row in selectedRows)
+                    {
+                        string maDN = row.Cells["DNhap_ID"].Value.ToString().Trim();
+                        var response = dNhapService.XoaDN(maDN);
+
+                        if (response.IsSuccessStatusCode)
+                        {
+                            deletedMaDN.Add(maDN);
+                        }
+                        else
+                        {
+                            MessageBox.Show($"Xóa đơn nhập {maDN} thất bại. Vui lòng kiểm tra lại.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        }
+                    }
+
+                    string deletedMaDNString = string.Join(", ", deletedMaDN);
+                    MessageBox.Show($"Xóa các đơn nhập ({deletedMaDNString}) thành công.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    LoadDataGridView();
+                    LoadComboBox();
+                }
+                else
+                {
+                    string maDN = dsMaDN[0];
+                    var response = dNhapService.XoaDN(maDN);
+
+                    if (response.IsSuccessStatusCode)
+                    {
+                        deletedMaDN.Add(maDN);
+                        MessageBox.Show($"Xóa đơn nhập {maDN} thành công.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        LoadDataGridView();
+                        LoadComboBox();
+                    }
+                    else
+                    {
+                        MessageBox.Show($"Xóa đơn nhập {maDN} thất bại. Vui lòng kiểm tra lại.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
+            }
         }
         private void SearchData(string maDN, string maNV)
         {

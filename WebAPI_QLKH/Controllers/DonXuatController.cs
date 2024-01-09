@@ -35,18 +35,26 @@ namespace WebAPI_QLKH.Controllers
         [HttpGet("{id}")]
         public async Task<ActionResult<DonXuat>> GetDonXuat(string id)
         {
-          if (_context.DonXuat == null)
-          {
-              return NotFound();
-          }
+            if (_context.DonXuat== null)
+            {
+                return NotFound();
+            }
             var donXuat = await _context.DonXuat.FindAsync(id);
-
             if (donXuat == null)
             {
                 return NotFound();
             }
 
-            return donXuat;
+            var ctdx = await _context.ChiTietDonXuat.FindAsync(donXuat.DXuat_ID);
+            if (ctdx != null)
+            {
+                _context.ChiTietDonXuat.Remove(ctdx);
+            }
+
+            _context.DonXuat.Remove(donXuat);
+            await _context.SaveChangesAsync();
+
+            return NoContent();
         }
 
         // PUT: api/DonXuat/5

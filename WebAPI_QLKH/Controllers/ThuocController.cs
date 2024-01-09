@@ -111,10 +111,29 @@ namespace WebAPI_QLKH.Controllers
             {
                 return NotFound();
             }
+
             var thuoc = await _context.Thuoc.FindAsync(id);
             if (thuoc == null)
             {
                 return NotFound();
+            }
+
+            var ctdx = await _context.ChiTietDonXuat.FirstOrDefaultAsync(ct => ct.Thuoc.Thuoc_ID == id);
+            if (ctdx != null)
+            {
+                _context.ChiTietDonXuat.Remove(ctdx);
+            }
+
+            var ctdn = await _context.ChiTietDonNhap.FirstOrDefaultAsync(ct => ct.Thuoc.Thuoc_ID == id);
+            if (ctdn != null)
+            {
+                _context.ChiTietDonNhap.Remove(ctdn);
+            }
+
+            var ctt = await _context.ChiTietThuoc.FirstOrDefaultAsync(ct => ct.Thuoc.Thuoc_ID == id);
+            if (ctt != null)
+            {
+                _context.ChiTietThuoc.Remove(ctt);
             }
 
             _context.Thuoc.Remove(thuoc);

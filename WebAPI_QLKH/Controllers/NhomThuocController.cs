@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.DotNet.Scaffolding.Shared.Messaging;
 using Microsoft.EntityFrameworkCore;
 using WebAPI_QLKH.Models;
 
@@ -111,10 +112,17 @@ namespace WebAPI_QLKH.Controllers
             {
                 return NotFound();
             }
+
             var nhomThuoc = await _context.NhomThuoc.FindAsync(id);
             if (nhomThuoc == null)
             {
                 return NotFound();
+            }
+
+            var thuoc = await _context.Thuoc.FirstOrDefaultAsync(t => t.Nhom_ID == id);
+            if (thuoc != null)
+            {
+                thuoc.Nhom_ID = null;
             }
 
             _context.NhomThuoc.Remove(nhomThuoc);

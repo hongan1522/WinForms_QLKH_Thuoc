@@ -20,19 +20,6 @@ namespace WebAPI_QLKH.Controllers
         {
             _context = context;
         }
-        public class TKPayload
-        {
-            public string UserID { get; set; }
-            public string UserName { get; set; }
-            public string Password { get; set; }
-            public string Description { get; set; }
-            public string RoleID { get; set; }
-        }
-        public class TKPayloadPut
-        {
-            public string Description { get; set; }
-            public string RoleID { get; set; }
-        }
 
         // GET: api/TaiKhoan
         [HttpGet]
@@ -66,7 +53,7 @@ namespace WebAPI_QLKH.Controllers
         // PUT: api/TaiKhoan/5
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPut("{id}")]
-        public async Task<IActionResult> PutTaiKhoan(string id, [FromBody] TKPayloadPut payload)
+        public async Task<IActionResult> PutTaiKhoan(string id, [FromBody] TaiKhoan payload)
         {
             var taiKhoan = await _context.TaiKhoan.FindAsync(id);
 
@@ -77,6 +64,8 @@ namespace WebAPI_QLKH.Controllers
 
             taiKhoan.Description = payload.Description;
             taiKhoan.RoleID = payload.RoleID;
+            taiKhoan.UserName = payload.UserName;
+            taiKhoan.Password = payload.Password;
 
             try
             {
@@ -100,7 +89,7 @@ namespace WebAPI_QLKH.Controllers
         // POST: api/TaiKhoan
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPost]
-        public async Task<ActionResult<IEnumerable<TaiKhoan>>> PostTaiKhoan([FromBody] List<TKPayload> payloads)
+        public async Task<ActionResult<IEnumerable<TaiKhoan>>> PostTaiKhoan([FromBody] List<TaiKhoan> payloads)
         {
             if (payloads == null || !payloads.Any())
             {
@@ -124,7 +113,7 @@ namespace WebAPI_QLKH.Controllers
 
         // DELETE: api/TaiKhoan/5
         [HttpDelete("{id}")]
-        
+
         public async Task<IActionResult> DeleteTaiKhoan(string id)
         {
             using (var transaction = _context.Database.BeginTransaction())
@@ -138,35 +127,14 @@ namespace WebAPI_QLKH.Controllers
                     }
 
                     var nhanVien = await _context.NhanVien.FirstOrDefaultAsync(nv => nv.UserID == id);
-
                     if (nhanVien != null)
                     {
-                        var chiTietDonXuat = await _context.ChiTietDonXuat
-                            .Where(ctdx => ctdx.DXuat_ID == nhanVien.NV_ID)
-                            .ToListAsync();
-                        _context.ChiTietDonXuat.RemoveRange(chiTietDonXuat);
-
-                        var donXuat = await _context.DonXuat
-                            .Where(dx => dx.NV_ID == nhanVien.NV_ID)
-                            .ToListAsync();
-                        _context.DonXuat.RemoveRange(donXuat);
-
-                        var chiTietDonNhap = await _context.ChiTietDonNhap
-                            .Where(ctdn => ctdn.DNhap_ID == nhanVien.NV_ID)
-                            .ToListAsync();
-                        _context.ChiTietDonNhap.RemoveRange(chiTietDonNhap);
-
-                        var donNhap = await _context.DonNhap
-                            .Where(dn => dn.NV_ID == nhanVien.NV_ID)
-                            .ToListAsync();
-                        _context.DonNhap.RemoveRange(donNhap);
-
-                        _context.NhanVien.Remove(nhanVien);
+                        nhanVien.UserID = null;
+                        await _context.SaveChangesAsync();
                     }
 
                     _context.TaiKhoan.Remove(taiKhoan);
-
-                    await _context.SaveChangesAsync();
+                    await _context.SaveChangesAsync(); 
 
                     transaction.Commit();
 
@@ -179,6 +147,7 @@ namespace WebAPI_QLKH.Controllers
                 }
             }
         }
+
 
         private bool TaiKhoanExists(string id)
         {

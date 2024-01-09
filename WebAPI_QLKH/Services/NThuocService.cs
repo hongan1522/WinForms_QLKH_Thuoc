@@ -38,5 +38,11 @@ namespace WebAPI_QLKH.Services
             request.AddJsonBody(payload);
             return _client.Execute(request);
         }
+        public RestResponse XoaNT(string id)
+        {
+            var request = new RestRequest($"api/NhomThuoc/{id}", Method.Delete);
+            var response = _client.Execute(request);
+            return response;
+        }
     }
 }

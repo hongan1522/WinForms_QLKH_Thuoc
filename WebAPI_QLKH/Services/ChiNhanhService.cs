@@ -45,19 +45,8 @@ namespace FormQLKH.Services
         public RestResponse XoaChiNhanh(string id)
         {
             var request = new RestRequest($"api/ChiNhanh/{id}", Method.Delete);
-            return _client.Execute(request);
-        }
-        public ChiNhanh TimKiemTheoID(string id)
-        {
-            var request = new RestRequest($"api/ChiNhanh/{id}", Method.Get);
-            var response = _client.Execute<ChiNhanh>(request);
-
-            if (response.IsSuccessful)
-            {
-                return response.Data;
-            }
-
-            return null; 
+            var response = _client.Execute(request);
+            return response;
         }
     }
 }

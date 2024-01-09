@@ -469,6 +469,7 @@
             btnQLNT_Xoa.TabIndex = 5;
             btnQLNT_Xoa.Text = "Xóa";
             btnQLNT_Xoa.UseVisualStyleBackColor = false;
+            btnQLNT_Xoa.Click += btnQLNT_Xoa_Click;
             // 
             // btnQLNT_Them
             // 

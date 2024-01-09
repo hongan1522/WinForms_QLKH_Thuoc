@@ -96,7 +96,8 @@ namespace WebAPI_QLKH.Controllers
                 NCC_Name = payload.NCC_Name?.Trim() ?? string.Empty,
                 NCC_Phone = payload.NCC_Phone?.Trim() ?? string.Empty,
                 NCC_Address = payload.NCC_Address?.Trim() ?? string.Empty, 
-                Quantity = payload.Quantity
+                Quantity = payload.Quantity,
+                NCC_Status = payload.NCC_Status?.Trim() ?? string.Empty
             }).ToList();
 
             _context.NCC.AddRange(NCCList);
@@ -109,20 +110,35 @@ namespace WebAPI_QLKH.Controllers
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteNCC(string id)
         {
-            if (_context.NCC == null)
+            using (var transaction = _context.Database.BeginTransaction())
             {
-                return NotFound();
-            }
-            var nCC = await _context.NCC.FindAsync(id);
-            if (nCC == null)
-            {
-                return NotFound();
-            }
+                try
+                {
+                    var ncc = await _context.NCC.FindAsync(id);
+                    if (ncc == null)
+                    {
+                        return NotFound();
+                    }
 
-            _context.NCC.Remove(nCC);
-            await _context.SaveChangesAsync();
+                    var donNhap = await _context.DonNhap.FirstOrDefaultAsync(dn => dn.NCC_ID == id);
+                    if (donNhap != null)
+                    {
+                        donNhap.NCC_ID = null;
+                    }
 
-            return NoContent();
+                    _context.NCC.Remove(ncc);
+                    await _context.SaveChangesAsync();
+
+                    transaction.Commit();
+
+                    return NoContent();
+                }
+                catch (Exception)
+                {
+                    transaction.Rollback();
+                    throw;
+                }
+            }
         }
 
         private bool NCCExists(string id)

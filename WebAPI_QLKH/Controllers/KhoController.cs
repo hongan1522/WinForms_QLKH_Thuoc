@@ -124,26 +124,48 @@ namespace WebAPI_QLKH.Controllers
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteKho(string id)
         {
-            var kho = await _context.Kho.FindAsync(id);
-            if (kho == null)
+            using (var transaction = _context.Database.BeginTransaction())
             {
-                return NotFound();
+                try
+                {
+                    var kho = await _context.Kho.FindAsync(id);
+                    if (kho == null)
+                    {
+                        return NotFound();
+                    }
+
+                    string defaultKho_ID = "Kho1";
+
+                    UpdateKho_ID(id, defaultKho_ID);
+
+                    _context.Kho.Remove(kho);
+
+                    await _context.SaveChangesAsync();
+
+                    transaction.Commit();
+
+                    return NoContent();
+                }
+                catch (Exception)
+                {
+                    transaction.Rollback();
+                    throw;
+                }
             }
+        }
+        private void UpdateKho_ID(string currentID, string newID)
+        {
+            _context.ChiTietDonNhap.Where(ctdn => ctdn.Lo_ID == currentID)
+                .ToList()
+                .ForEach(ctdn => ctdn.Lo_ID = newID);
 
-            var chiTietDonNhap = await _context.ChiTietDonNhap.Where(ctdn => ctdn.Lo_ID == id).ToListAsync();
-            _context.ChiTietDonNhap.RemoveRange(chiTietDonNhap);
+            _context.ChiTietThuoc.Where(ctt => ctt.Lo_ID == currentID)
+                .ToList()
+                .ForEach(ctt => ctt.Lo_ID = newID);
 
-            var chiTietThuoc = await _context.ChiTietThuoc.Where(ctt => ctt.Lo_ID == id).ToListAsync();
-            _context.ChiTietThuoc.RemoveRange(chiTietThuoc);
-
-            var los = await _context.Lo.Where(lo => lo.Kho_ID == id).ToListAsync();
-            _context.Lo.RemoveRange(los);
-
-            _context.Kho.Remove(kho);
-
-            await _context.SaveChangesAsync();
-
-            return NoContent();
+            _context.Lo.Where(lo => lo.Kho_ID == currentID)
+                .ToList()
+                .ForEach(lo => lo.Kho_ID = newID);
         }
         private bool KhoExists(string id)
         {

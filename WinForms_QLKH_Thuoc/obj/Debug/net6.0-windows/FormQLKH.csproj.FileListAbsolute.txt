@@ -645,3 +645,4 @@ C:\Users\MyPC\Desktop\WinForms_QLKH_Thuoc\WinForms_QLKH_Thuoc\obj\Debug\net6.0-w
 C:\Users\MyPC\Desktop\WinForms_QLKH_Thuoc\WinForms_QLKH_Thuoc\obj\Debug\net6.0-windows\FormQLKH.genruntimeconfig.cache
 C:\Users\MyPC\Desktop\WinForms_QLKH_Thuoc\WinForms_QLKH_Thuoc\obj\Debug\net6.0-windows\ref\FormQLKH.dll
 C:\Users\MyPC\Desktop\WinForms_QLKH_Thuoc\WinForms_QLKH_Thuoc\obj\Debug\net6.0-windows\FormQLKH.UC_Loading.resources
+C:\Users\MyPC\Desktop\WinForms_QLKH_Thuoc\WinForms_QLKH_Thuoc\bin\Debug\net6.0-windows\Microsoft.EntityFrameworkCore.Design.dll

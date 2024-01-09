@@ -5,6 +5,7 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using WebAPI_QLKH.Models;
@@ -294,7 +295,80 @@ namespace FormQLKH
         }
         private void btnQLDX_Xoa_Click(object sender, EventArgs e)
         {
+            string roleID = StateManager.RoleID?.Trim();
 
+            if (!PermissionManager.CanDelete(roleID))
+            {
+                MessageBox.Show("Bạn không có quyền xóa đơn xuất.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            var selectedRows = dgvQLDX.SelectedRows;
+
+            if (selectedRows.Count == 0)
+            {
+                MessageBox.Show("Vui lòng chọn ít nhất một đơn xuất để xóa.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            List<string> dsMaDX = new List<string>();
+            List<string> deletedMaDX = new List<string>();
+
+            foreach (DataGridViewRow row in selectedRows)
+            {
+                string maDX = row.Cells["DXuat_ID"].Value.ToString().Trim();
+                dsMaDX.Add(maDX);
+            }
+
+            dsMaDX = dsMaDX.OrderBy(maDX => int.Parse(Regex.Match(maDX, @"\d+").Value)).ToList();
+
+            string manyMaDX = string.Join(", ", dsMaDX);
+
+            var confirmResult = MessageBox.Show($"Bạn có chắc chắn muốn xóa đơn xuất ({manyMaDX}) đã chọn?", "Xác nhận xóa",
+                                               MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+            if (confirmResult == DialogResult.Yes)
+            {
+                if (selectedRows.Count > 1)
+                {
+                    foreach (DataGridViewRow row in selectedRows)
+                    {
+                        string maDX = row.Cells["DXuat_ID"].Value.ToString().Trim();
+                        var response = dXuatService.XoaDX(maDX);
+
+                        if (response.IsSuccessStatusCode)
+                        {
+                            deletedMaDX.Add(maDX);
+                        }
+                        else
+                        {
+                            MessageBox.Show($"Xóa đơn xuất {maDX} thất bại. Vui lòng kiểm tra lại.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        }
+                    }
+
+                    string deletedMaDXString = string.Join(", ", deletedMaDX);
+                    MessageBox.Show($"Xóa các đơn xuất ({deletedMaDXString}) thành công.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    LoadDataGridView();
+                    LoadComboBox();
+                }
+                else
+                {
+                    string maDX = dsMaDX[0];
+                    var response = dXuatService.XoaDX(maDX);
+
+                    if (response.IsSuccessStatusCode)
+                    {
+                        deletedMaDX.Add(maDX);
+                        MessageBox.Show($"Xóa đơn xuất {maDX} thành công.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        LoadDataGridView();
+                        LoadComboBox();
+                    }
+                    else
+                    {
+                        MessageBox.Show($"Xóa đơn xuất {maDX} thất bại. Vui lòng kiểm tra lại.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
+            }
         }
         private void SearchData(string maDX, string maNV)
         {

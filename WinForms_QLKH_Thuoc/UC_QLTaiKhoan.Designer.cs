@@ -56,12 +56,13 @@
             btnQLTK_Them = new Button();
             grbQLTK_HT = new GroupBox();
             dgvQLTK = new DataGridView();
+            pnQLTK = new Panel();
+            lbQLTK = new Label();
             UserID = new DataGridViewTextBoxColumn();
             RoleID = new DataGridViewTextBoxColumn();
             UserName = new DataGridViewTextBoxColumn();
             GhiChu = new DataGridViewTextBoxColumn();
-            pnQLTK = new Panel();
-            lbQLTK = new Label();
+            Password = new DataGridViewTextBoxColumn();
             tlpQLTK.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)splQLTK_TTTK_CN).BeginInit();
             splQLTK_TTTK_CN.Panel1.SuspendLayout();
@@ -422,7 +423,7 @@
             dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
             dgvQLTK.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             dgvQLTK.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgvQLTK.Columns.AddRange(new DataGridViewColumn[] { UserID, RoleID, UserName, GhiChu });
+            dgvQLTK.Columns.AddRange(new DataGridViewColumn[] { UserID, RoleID, UserName, GhiChu, Password });
             dgvQLTK.Dock = DockStyle.Fill;
             dgvQLTK.Location = new Point(3, 39);
             dgvQLTK.Name = "dgvQLTK";
@@ -433,6 +434,27 @@
             dgvQLTK.TabIndex = 0;
             dgvQLTK.RowPostPaint += dgvQLTK_RowPostPaint;
             dgvQLTK.SelectionChanged += dgvQLTK_SelectionChanged;
+            // 
+            // pnQLTK
+            // 
+            pnQLTK.BackColor = Color.FromArgb(15, 142, 219);
+            pnQLTK.Controls.Add(lbQLTK);
+            pnQLTK.Dock = DockStyle.Fill;
+            pnQLTK.Location = new Point(3, 3);
+            pnQLTK.Name = "pnQLTK";
+            pnQLTK.Size = new Size(1442, 87);
+            pnQLTK.TabIndex = 3;
+            // 
+            // lbQLTK
+            // 
+            lbQLTK.AutoSize = true;
+            lbQLTK.Font = new Font("Segoe UI", 13.875F, FontStyle.Bold, GraphicsUnit.Point);
+            lbQLTK.ForeColor = SystemColors.ButtonHighlight;
+            lbQLTK.Location = new Point(510, 15);
+            lbQLTK.Name = "lbQLTK";
+            lbQLTK.Size = new Size(394, 50);
+            lbQLTK.TabIndex = 0;
+            lbQLTK.Text = "QUẢN LÝ TÀI KHOẢN";
             // 
             // UserID
             // 
@@ -463,26 +485,13 @@
             GhiChu.MinimumWidth = 10;
             GhiChu.Name = "GhiChu";
             // 
-            // pnQLTK
+            // Password
             // 
-            pnQLTK.BackColor = Color.FromArgb(15, 142, 219);
-            pnQLTK.Controls.Add(lbQLTK);
-            pnQLTK.Dock = DockStyle.Fill;
-            pnQLTK.Location = new Point(3, 3);
-            pnQLTK.Name = "pnQLTK";
-            pnQLTK.Size = new Size(1442, 87);
-            pnQLTK.TabIndex = 3;
-            // 
-            // lbQLTK
-            // 
-            lbQLTK.AutoSize = true;
-            lbQLTK.Font = new Font("Segoe UI", 13.875F, FontStyle.Bold, GraphicsUnit.Point);
-            lbQLTK.ForeColor = SystemColors.ButtonHighlight;
-            lbQLTK.Location = new Point(510, 15);
-            lbQLTK.Name = "lbQLTK";
-            lbQLTK.Size = new Size(394, 50);
-            lbQLTK.TabIndex = 0;
-            lbQLTK.Text = "QUẢN LÝ TÀI KHOẢN";
+            Password.DataPropertyName = "Password";
+            Password.HeaderText = "Password";
+            Password.MinimumWidth = 10;
+            Password.Name = "Password";
+            Password.Visible = false;
             // 
             // UC_QLTaiKhoan
             // 
@@ -543,10 +552,11 @@
         private ComboBox cbQLTK_TK_RoleID;
         private Label lbQLTK_TK_UserID;
         private Label lbQLTK_TK_RoleID;
+        private ComboBox cbQLTK_TK_UserID;
         private DataGridViewTextBoxColumn UserID;
         private DataGridViewTextBoxColumn RoleID;
         private DataGridViewTextBoxColumn UserName;
         private DataGridViewTextBoxColumn GhiChu;
-        private ComboBox cbQLTK_TK_UserID;
+        private DataGridViewTextBoxColumn Password;
     }
 }

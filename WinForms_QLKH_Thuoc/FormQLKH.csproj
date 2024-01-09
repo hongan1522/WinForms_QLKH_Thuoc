@@ -35,6 +35,10 @@
 
   <ItemGroup>
     <PackageReference Include="EPPlus" Version="7.0.3" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="5.0.0">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
     <PackageReference Include="UnidecodeSharpFork" Version="1.0.0" />
   </ItemGroup>
 

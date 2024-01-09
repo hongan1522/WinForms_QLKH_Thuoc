@@ -17,5 +17,7 @@ public partial class NCC
 
     public int Quantity { get; set; }
 
+    public string NCC_Status { get; set; }
+
     public virtual ICollection<DonNhap> DonNhap { get; set; } = new List<DonNhap>();
 }

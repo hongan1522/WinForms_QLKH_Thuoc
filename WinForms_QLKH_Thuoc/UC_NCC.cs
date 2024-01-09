@@ -99,12 +99,14 @@ namespace FormQLKH
                 string sdt = Convert.ToString(selectedRow.Cells["NCC_Phone"].Value);
                 string address = Convert.ToString(selectedRow.Cells["NCC_Address"].Value);
                 int sldn = Convert.ToInt32(selectedRow.Cells["Quantity"].Value);
+                string trangThai = Convert.ToString(selectedRow.Cells["NCC_Status"].Value);
 
                 txtNCC_MaNCC.Text = maNCC;
                 txtNCC_TenNCC.Text = hoTen;
                 txtNCC_SDT.Text = sdt;
                 txtNCC_DiaChi.Text = address;
                 numNCC_SoLuongDN.Value = sldn;
+                cbNCC_TK_MaNCC.Text = trangThai;
                 txtNCC_MaNCC.ReadOnly = true;
             }
         }
@@ -126,6 +128,13 @@ namespace FormQLKH
                 {
                     cbNCC_TK_MaNCC.SelectedIndex = 0;
                 }
+
+                //Load cbNCC_TrangThai
+                cbNCC_TrangThai.Items.AddRange(new object[] { "Hoạt động", "Không hoạt động" });
+
+                cbNCC_TrangThai.SelectedIndex = 0;
+                cbNCC_TrangThai.DropDownStyle = ComboBoxStyle.DropDownList;
+
             }
             catch (Exception ex)
             {
@@ -193,6 +202,7 @@ namespace FormQLKH
             string sdt = txtNCC_SDT.Text.Trim();
             string diaChi = txtNCC_DiaChi.Text.Trim();
             int soLuong = Convert.ToInt32(numNCC_SoLuongDN.Value);
+            string trangThai = cbNCC_TrangThai.Text.Trim();
 
             string roleID = StateManager.RoleID?.Trim();
 
@@ -222,7 +232,8 @@ namespace FormQLKH
                     NCC_Name = tenNCC,
                     NCC_Address = diaChi,
                     NCC_Phone = sdt,
-                    Quantity = soLuong
+                    Quantity = soLuong,
+                    NCC_Status = trangThai
                 }
             };
 
@@ -256,17 +267,27 @@ namespace FormQLKH
                 return "Số điện thoại phải bắt đầu bằng số 0.";
             }
 
+            bool isPhoneDuplicate = false;
+
             foreach (DataGridViewRow row in dgvNCC.Rows)
             {
-                if (row.Cells["NCC_Phone"].Value != null)
+                if (row.Cells["NCC_Phone"].Value != null && row.Cells["NCC_ID"].Value != null)
                 {
-                    string existingPhone = row.Cells["NCC_Phone"].Value.ToString();
+                    string existingPhone = row.Cells["NCC_Phone"].Value.ToString().Trim();
+                    string existingID = row.Cells["NCC_ID"].Value.ToString().Trim();
 
-                    if (!existingPhone.Equals(currentID, StringComparison.OrdinalIgnoreCase) && existingPhone.Equals(sdt, StringComparison.OrdinalIgnoreCase))
+                    if (existingPhone.Equals(sdt, StringComparison.OrdinalIgnoreCase) &&
+                        !existingID.Equals(currentID, StringComparison.OrdinalIgnoreCase))
                     {
-                        return "Số điện thoại đã tồn tại.";
+                        isPhoneDuplicate = true;
+                        break;
                     }
                 }
+            }
+
+            if (isPhoneDuplicate)
+            {
+                return "Số điện thoại đã tồn tại.";
             }
 
             return null;
@@ -278,6 +299,7 @@ namespace FormQLKH
             string sdt = txtNCC_SDT.Text.Trim();
             string diaChi = txtNCC_DiaChi.Text.Trim();
             int soLuong = Convert.ToInt32(numNCC_SoLuongDN.Value);
+            string trangThai = cbNCC_TrangThai.Text.Trim();
 
             string roleID = StateManager.RoleID?.Trim();
 
@@ -309,7 +331,8 @@ namespace FormQLKH
                     NCC_Address = diaChi,
                     NCC_Phone = sdt,
                     NCC_Name = tenNCC,
-                    Quantity = soLuong
+                    Quantity = soLuong,
+                    NCC_Status = trangThai
                 };
 
                 var response = nccService.CapNhatNCC(maNCC, ncc);
@@ -328,10 +351,6 @@ namespace FormQLKH
             {
                 return;
             }
-        }
-        private void btnNCC_Xoa_Click(object sender, EventArgs e)
-        {
-
         }
         private void SearchData(string maNCC, string hoTen)
         {
@@ -415,6 +434,13 @@ namespace FormQLKH
             if (e.KeyCode == Keys.Enter)
             {
                 btnNCC_TK.PerformClick();
+            }
+        }
+        private void numNCC_SoLuongDN_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+            {
+                e.Handled = true;
             }
         }
     }

@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Internal;
 using WebAPI_QLKH.Models;
+using WebAPI_QLKH.Services;
 
 namespace WebAPI_QLKH.Controllers
 {
@@ -111,73 +112,26 @@ namespace WebAPI_QLKH.Controllers
                 }
             }
 
-            // Trả về kết quả thành công
             return NoContent();
         }
 
         // DELETE: api/ChiNhanh/5
         [HttpDelete("{id}")]
-        
         public async Task<IActionResult> DeleteChiNhanh(string id)
         {
             using (var transaction = _context.Database.BeginTransaction())
             {
                 try
                 {
-                    // Xóa dữ liệu liên quan trong ChiTietDonNhap
-                    var relatedChiTietDonNhaps = await _context.ChiTietDonNhap
-                        .Where(ctdn => ctdn.DNhap.NV_ID == id)
-                        .ToListAsync();
-                    _context.ChiTietDonNhap.RemoveRange(relatedChiTietDonNhaps);
-
-                    // Xóa dữ liệu liên quan trong DonNhap
-                    var relatedDonNhaps = await _context.DonNhap
-                        .Where(dn => dn.NV_ID == id)
-                        .ToListAsync();
-                    _context.DonNhap.RemoveRange(relatedDonNhaps);
-
-                    // Xóa dữ liệu liên quan trong ChiTietDonXuat
-                    var relatedChiTietDonXuats = await _context.ChiTietDonXuat
-                        .Where(ctdx => ctdx.DXuat.NV_ID == id)
-                        .ToListAsync();
-                    _context.ChiTietDonXuat.RemoveRange(relatedChiTietDonXuats);
-
-                    // Xóa dữ liệu liên quan trong DonXuat
-                    var relatedDonXuats = await _context.DonXuat
-                        .Where(dx => dx.NV_ID == id)
-                        .ToListAsync();
-                    _context.DonXuat.RemoveRange(relatedDonXuats);
-
-                    // Xóa dữ liệu liên quan trong ChiTietThuoc
-                    var relatedChiTietThuocs = await _context.ChiTietThuoc
-                        .Where(ctt => ctt.Lo.Kho.CN_ID == id)
-                        .ToListAsync();
-                    _context.ChiTietThuoc.RemoveRange(relatedChiTietThuocs);
-
-                    // Xóa dữ liệu liên quan trong Lo
-                    var relatedLos = await _context.Lo
-                        .Where(lo => lo.Kho.CN_ID == id)
-                        .ToListAsync();
-                    _context.Lo.RemoveRange(relatedLos);
-
-                    // Xóa dữ liệu liên quan trong Kho
-                    var relatedKhos = await _context.Kho
-                        .Where(kho => kho.CN_ID == id)
-                        .ToListAsync();
-                    _context.Kho.RemoveRange(relatedKhos);
-
-                    // Xóa dữ liệu liên quan trong NhanVien
-                    var relatedNhanViens = await _context.NhanVien
-                        .Where(nv => nv.CN_ID == id)
-                        .ToListAsync();
-                    _context.NhanVien.RemoveRange(relatedNhanViens);
-
-                    // Xóa dữ liệu trong ChiNhanh
                     var chiNhanh = await _context.ChiNhanh.FindAsync(id);
                     if (chiNhanh == null)
                     {
                         return NotFound();
                     }
+
+                    string defaultCN_ID = "CN1";
+
+                    UpdateCN_ID(id, defaultCN_ID);
 
                     _context.ChiNhanh.Remove(chiNhanh);
 
@@ -195,5 +149,45 @@ namespace WebAPI_QLKH.Controllers
             }
         }
 
+        private void UpdateCN_ID(string currentID, string newID)
+        {
+            _context.ChiTietDonNhap.Where(ctdn => ctdn.DNhap.NV_ID == currentID)
+                .ToList()
+                .ForEach(ctdn => ctdn.DNhap.NV_ID = newID);
+
+            _context.DonNhap.Where(dn => dn.NV_ID == currentID)
+                .ToList()
+                .ForEach(dn => dn.NV_ID = newID);
+
+            _context.ChiTietDonXuat.Where(ctdx => ctdx.DXuat.NV_ID == currentID)
+                .ToList()
+                .ForEach(ctdx => ctdx.DXuat.NV_ID = newID);
+
+            _context.DonXuat.Where(dx => dx.NV_ID == currentID)
+                .ToList()
+                .ForEach(dx => dx.NV_ID = newID);
+
+            _context.ChiTietThuoc.Where(ctt => ctt.Lo.Kho.CN_ID == currentID)
+                .ToList()
+                .ForEach(ctt => ctt.Lo.Kho.CN_ID = newID);
+
+            _context.Lo.Where(lo => lo != null && lo.Kho != null && lo.Kho.CN_ID == currentID)
+                .ToList()
+                .ForEach(lo =>
+                {
+                    if (lo.Kho != null)
+                    {
+                        lo.Kho.CN_ID = newID;
+                    }
+                });
+
+            _context.Kho.Where(kho => kho.CN_ID == currentID)
+                .ToList()
+                .ForEach(kho => kho.CN_ID = newID);
+
+            _context.NhanVien.Where(nv => nv.CN_ID == currentID)
+                .ToList()
+                .ForEach(nv => nv.CN_ID = newID);
+        }
     }
 }

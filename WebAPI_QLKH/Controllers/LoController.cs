@@ -112,26 +112,44 @@ namespace WebAPI_QLKH.Controllers
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteLo(string id)
         {
+            if (_context.Lo == null)
+            {
+                return NotFound();
+            }
+
             var lo = await _context.Lo.FindAsync(id);
             if (lo == null)
             {
                 return NotFound();
             }
 
-            var relatedChiTietDonNhaps = await _context.ChiTietDonNhap.Where(ctdn => ctdn.Lo_ID == id).ToListAsync();
-            _context.ChiTietDonNhap.RemoveRange(relatedChiTietDonNhaps);
+            var ctdn = await _context.ChiTietDonNhap.FindAsync(lo.Lo_ID);
+            if (ctdn != null)
+            {
+                _context.ChiTietDonNhap.Remove(ctdn);
+            }
 
-
-            var relatedChiTietThuocs = await _context.ChiTietThuoc.Where(ctt => ctt.Lo_ID == id).ToListAsync();
-            _context.ChiTietThuoc.RemoveRange(relatedChiTietThuocs);
+            var ctt = await _context.ChiTietThuoc.FindAsync(lo.Lo_ID);
+            if (ctt != null)
+            {
+                _context.ChiTietThuoc.Remove(ctt);
+            }
 
             _context.Lo.Remove(lo);
-
             await _context.SaveChangesAsync();
 
             return NoContent();
         }
+        private void UpdateLo_ID(string currentID, string newID)
+        {
+            _context.ChiTietDonNhap.Where(ctdn => ctdn.Lo_ID == currentID)
+                .ToList()
+                .ForEach(ctdn => ctdn.Lo_ID = newID);
 
+            _context.ChiTietThuoc.Where(ctt => ctt.Lo_ID == currentID)
+                .ToList()
+                .ForEach(ctt => ctt.Lo_ID = newID);
+        }
 
         private bool LoExists(string id)
         {

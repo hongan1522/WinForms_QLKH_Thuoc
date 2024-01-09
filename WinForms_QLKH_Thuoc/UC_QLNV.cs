@@ -392,17 +392,27 @@ namespace FormQLKH
         }
         public string IsValidUserID(string userID, string currentID)
         {
+            bool isUserIDDuplicate = false;
+
             foreach (DataGridViewRow row in dgvNV.Rows)
             {
-                if (row.Cells["UserID"].Value != null)
+                if (row.Cells["UserID"].Value != null && row.Cells["NV_ID"].Value != null)
                 {
-                    string existingUserID = row.Cells["UserID"].Value.ToString();
+                    string existingUserID = row.Cells["UserID"].Value.ToString().Trim();
+                    string existingID = row.Cells["NV_ID"].Value.ToString().Trim();
 
-                    if (!existingUserID.Equals(currentID, StringComparison.OrdinalIgnoreCase) && existingUserID.Equals(userID, StringComparison.OrdinalIgnoreCase))
+                    if (existingUserID.Equals(userID, StringComparison.OrdinalIgnoreCase) &&
+                        !existingID.Equals(currentID, StringComparison.OrdinalIgnoreCase))
                     {
-                        return "UserID đã tồn tại.";
+                        isUserIDDuplicate = true;
+                        break;
                     }
                 }
+            }
+
+            if (isUserIDDuplicate)
+            {
+                return "UserID đã tồn tại.";
             }
 
             return null;
@@ -415,18 +425,29 @@ namespace FormQLKH
                 return "Email phải đúng định dạng (example@gmail.com)";
             }
 
+            bool isEmailDuplicate = false;
+
             foreach (DataGridViewRow row in dgvNV.Rows)
             {
-                if (row.Cells["Email"].Value != null)
+                if (row.Cells["Email"].Value != null && row.Cells["NV_ID"].Value != null)
                 {
-                    string existingEmail = row.Cells["Email"].Value.ToString();
+                    string existingEmail = row.Cells["Email"].Value.ToString().Trim();
+                    string existingID = row.Cells["NV_ID"].Value.ToString().Trim();
 
-                    if (!existingEmail.Equals(currentID, StringComparison.OrdinalIgnoreCase) && existingEmail.Equals(email, StringComparison.OrdinalIgnoreCase))
+                    if (existingEmail.Equals(email, StringComparison.OrdinalIgnoreCase) &&
+                        !existingID.Equals(currentID, StringComparison.OrdinalIgnoreCase))
                     {
-                        return "Email đã tồn tại.";
+                        isEmailDuplicate = true;
+                        break;
                     }
                 }
             }
+
+            if (isEmailDuplicate)
+            {
+                return "Email đã tồn tại.";
+            }
+
             return null;
         }
         public string IsValidSDT(string sdt, string currentID)
@@ -446,17 +467,27 @@ namespace FormQLKH
                 return "Số điện thoại phải bắt đầu bằng số 0.";
             }
 
+            bool isPhoneDuplicate = false;
+
             foreach (DataGridViewRow row in dgvNV.Rows)
             {
-                if (row.Cells["Phone"].Value != null)
+                if (row.Cells["Phone"].Value != null && row.Cells["NV_ID"].Value != null)
                 {
-                    string existingPhone = row.Cells["Phone"].Value.ToString();
+                    string existingPhone = row.Cells["Phone"].Value.ToString().Trim();
+                    string existingID = row.Cells["NV_ID"].Value.ToString().Trim();
 
-                    if (!existingPhone.Equals(currentID, StringComparison.OrdinalIgnoreCase) && existingPhone.Equals(sdt, StringComparison.OrdinalIgnoreCase))
+                    if (existingPhone.Equals(sdt, StringComparison.OrdinalIgnoreCase) &&
+                        !existingID.Equals(currentID, StringComparison.OrdinalIgnoreCase))
                     {
-                        return "Số điện thoại đã tồn tại.";
+                        isPhoneDuplicate = true;
+                        break;
                     }
                 }
+            }
+
+            if (isPhoneDuplicate)
+            {
+                return "Số điện thoại đã tồn tại.";
             }
 
             return null;
@@ -494,6 +525,7 @@ namespace FormQLKH
                 MessageBox.Show(errorPhone, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
+
 
             string errorEmail = IsValidEmail(email, maNV);
             if (errorEmail != null)
@@ -545,7 +577,80 @@ namespace FormQLKH
         }
         private void btnQLNV_Xoa_Click(object sender, EventArgs e)
         {
+            string roleID = StateManager.RoleID?.Trim();
 
+            if (!PermissionManager.CanDelete(roleID))
+            {
+                MessageBox.Show("Bạn không có quyền xóa nhân viên.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            var selectedRows = dgvNV.SelectedRows;
+
+            if (selectedRows.Count == 0)
+            {
+                MessageBox.Show("Vui lòng chọn ít nhất một nhân viên để xóa.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            List<string> dsMaNV = new List<string>();
+            List<string> deletedMaNV = new List<string>();
+
+            foreach (DataGridViewRow row in selectedRows)
+            {
+                string maNV = row.Cells["NV_ID"].Value.ToString().Trim();
+                dsMaNV.Add(maNV);
+            }
+
+            dsMaNV = dsMaNV.OrderBy(maNV => int.Parse(Regex.Match(maNV, @"\d+").Value)).ToList();
+
+            string manyUserID = string.Join(", ", dsMaNV);
+
+            var confirmResult = MessageBox.Show($"Bạn có chắc chắn muốn xóa nhân viên ({manyUserID}) đã chọn?", "Xác nhận xóa",
+                                               MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+            if (confirmResult == DialogResult.Yes)
+            {
+                if (selectedRows.Count > 1)
+                {
+                    foreach (DataGridViewRow row in selectedRows)
+                    {
+                        string maNV = row.Cells["NV_ID"].Value.ToString().Trim();
+                        var response = nvService.XoaNV(maNV);
+
+                        if (response.IsSuccessStatusCode)
+                        {
+                            deletedMaNV.Add(maNV);
+                        }
+                        else
+                        {
+                            MessageBox.Show($"Xóa nhân viên {maNV} thất bại. Vui lòng kiểm tra lại.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        }
+                    }
+
+                    string deletedMaNVString = string.Join(", ", deletedMaNV);
+                    MessageBox.Show($"Xóa các nhân viên ({deletedMaNVString}) thành công.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    LoadDataGridView();
+                    LoadComboBox();
+                }
+                else
+                {
+                    string maNV = dsMaNV[0];
+                    var response = nvService.XoaNV(maNV);
+
+                    if (response.IsSuccessStatusCode)
+                    {
+                        deletedMaNV.Add(maNV);
+                        MessageBox.Show($"Xóa nhân viên {maNV} thành công.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        LoadDataGridView();
+                        LoadComboBox();
+                    }
+                    else
+                    {
+                        MessageBox.Show($"Xóa nhân viên {maNV} thất bại. Vui lòng kiểm tra lại.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
+            }
         }
         private void SearchData(string maNV, string hoTen)
         {

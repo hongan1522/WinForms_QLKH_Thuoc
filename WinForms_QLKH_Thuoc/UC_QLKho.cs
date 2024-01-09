@@ -13,6 +13,7 @@ using static WebAPI_QLKH.Controllers.KhoController;
 using WebAPI_QLKH.Services;
 using static WebAPI_QLKH.Controllers.ChiNhanhController;
 using WebAPI_QLKH.StateManager;
+using System.Text.RegularExpressions;
 
 namespace FormQLKH
 {
@@ -288,8 +289,6 @@ namespace FormQLKH
         }
         private void btnQLK_Xoa_Click(object sender, EventArgs e)
         {
-            string maKho = txtQLK_MaKho.Text.Trim();
-
             string roleID = StateManager.RoleID?.Trim();
 
             if (!PermissionManager.CanDelete(roleID))
@@ -298,21 +297,63 @@ namespace FormQLKH
                 return;
             }
 
-            var confirmResult = MessageBox.Show($"Bạn có chắc chắn muốn xóa kho {maKho}?", "Xác nhận xóa",
-                                             MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            var selectedRows = dgvQLK.SelectedRows;
+
+            if (selectedRows.Count == 0)
+            {
+                MessageBox.Show("Vui lòng chọn ít nhất một kho để xóa.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            List<string> dsMaKho = new List<string>();
+
+            foreach (DataGridViewRow row in selectedRows)
+            {
+                string maKho = row.Cells["MaKho"].Value.ToString().Trim();
+                dsMaKho.Add(maKho);
+            }
+
+            dsMaKho = dsMaKho.OrderBy(maKho => int.Parse(Regex.Match(maKho, @"\d+").Value)).ToList();
+
+            string manyMaKho = string.Join(", ", dsMaKho);
+
+            var confirmResult = MessageBox.Show($"Bạn có chắc chắn muốn xóa kho ({manyMaKho}) đã chọn?", "Xác nhận xóa",
+                                               MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 
             if (confirmResult == DialogResult.Yes)
             {
-                var response = khoService.XoaKho(maKho);
-
-                if (response.IsSuccessStatusCode)
+                if (selectedRows.Count > 1)
                 {
-                    MessageBox.Show($"Xóa kho {maKho} thành công.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    foreach (DataGridViewRow row in selectedRows)
+                    {
+                        string maKho = row.Cells["MaKho"].Value.ToString().Trim();
+                        var response = khoService.XoaKho(maKho);
+
+                        if (!response.IsSuccessStatusCode)
+                        {
+                            MessageBox.Show($"Xóa kho {maKho} thất bại. Vui lòng kiểm tra lại.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        }
+                    }
+
+                    MessageBox.Show($"Xóa các kho ({manyMaKho}) đã chọn thành công.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     LoadDataGridView();
+                    LoadComboBox();
                 }
                 else
                 {
-                    MessageBox.Show("Xóa kho thất bại. Vui lòng kiểm tra lại.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    string maKho = dsMaKho[0];
+                    var response = khoService.XoaKho(maKho);
+
+                    if (response.IsSuccessStatusCode)
+                    {
+                        MessageBox.Show($"Xóa kho {maKho} thành công.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        LoadDataGridView();
+                        LoadComboBox();
+                    }
+                    else
+                    {
+                        MessageBox.Show($"Xóa kho {maKho} thất bại. Vui lòng kiểm tra lại.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
                 }
             }
         }

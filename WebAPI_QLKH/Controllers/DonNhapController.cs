@@ -119,6 +119,12 @@ namespace WebAPI_QLKH.Controllers
                 return NotFound();
             }
 
+            var ctdn = await _context.ChiTietDonNhap.FirstOrDefaultAsync(ct => ct.DNhap.DNhap_ID == id);
+            if (ctdn != null)
+            {
+                _context.ChiTietDonNhap.Remove(ctdn);
+            }
+
             _context.DonNhap.Remove(donNhap);
             await _context.SaveChangesAsync();
 

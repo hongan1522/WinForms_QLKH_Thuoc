@@ -6,6 +6,7 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using WebAPI_QLKH.Models;
@@ -243,6 +244,83 @@ namespace FormQLKH
             else
             {
                 return;
+            }
+        }
+        private void btnQLNT_Xoa_Click(object sender, EventArgs e)
+        {
+            string roleID = StateManager.RoleID?.Trim();
+
+            if (!PermissionManager.CanDelete(roleID))
+            {
+                MessageBox.Show("Bạn không có quyền xóa nhóm thuốc.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            var selectedRows = dgvQLNT.SelectedRows;
+
+            if (selectedRows.Count == 0)
+            {
+                MessageBox.Show("Vui lòng chọn ít nhất một nhóm thuốc để xóa.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            List<string> dsMaNT = new List<string>();
+            List<string> deletedMaNT = new List<string>();
+
+            foreach (DataGridViewRow row in selectedRows)
+            {
+                string maNT = row.Cells["Nhom_ID"].Value.ToString().Trim();
+                dsMaNT.Add(maNT);
+            }
+
+            dsMaNT = dsMaNT.OrderBy(maNT => int.Parse(Regex.Match(maNT, @"\d+").Value)).ToList();
+
+            string manyMaNT = string.Join(", ", dsMaNT);
+
+            var confirmResult = MessageBox.Show($"Bạn có chắc chắn muốn xóa nhóm thuốc ({manyMaNT}) đã chọn?", "Xác nhận xóa",
+                                               MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+            if (confirmResult == DialogResult.Yes)
+            {
+                if (selectedRows.Count > 1)
+                {
+                    foreach (DataGridViewRow row in selectedRows)
+                    {
+                        string maNT = row.Cells["Nhom_ID"].Value.ToString().Trim();
+                        var response = nThuocService.XoaNT(maNT);
+
+                        if (response.IsSuccessStatusCode)
+                        {
+                            deletedMaNT.Add(maNT);
+                        }
+                        else
+                        {
+                            MessageBox.Show($"Xóa nhóm thuốc {maNT} thất bại. Vui lòng kiểm tra lại.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        }
+                    }
+
+                    string deletedMaNTString = string.Join(", ", deletedMaNT);
+                    MessageBox.Show($"Xóa các nhóm thuốc ({deletedMaNTString}) thành công.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    LoadDataGridView();
+                    LoadComboBox();
+                }
+                else
+                {
+                    string maNT = dsMaNT[0];
+                    var response = nThuocService.XoaNT(maNT);
+
+                    if (response.IsSuccessStatusCode)
+                    {
+                        deletedMaNT.Add(maNT);
+                        MessageBox.Show($"Xóa nhóm thuốc {maNT} thành công.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        LoadDataGridView();
+                        LoadComboBox();
+                    }
+                    else
+                    {
+                        MessageBox.Show($"Xóa nhóm thuốc {maNT} thất bại. Vui lòng kiểm tra lại.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
             }
         }
         private void SearchData(string maNhom, string tenNhom)

@@ -117,10 +117,17 @@ namespace WebAPI_QLKH.Controllers
             {
                 return NotFound();
             }
+
             var nhanVien = await _context.NhanVien.FindAsync(id);
             if (nhanVien == null)
             {
                 return NotFound();
+            }
+
+            var taiKhoan = await _context.TaiKhoan.FindAsync(nhanVien.UserID);
+            if (taiKhoan != null)
+            {
+                _context.TaiKhoan.Remove(taiKhoan);
             }
 
             _context.NhanVien.Remove(nhanVien);

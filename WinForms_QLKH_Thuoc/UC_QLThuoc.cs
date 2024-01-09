@@ -5,6 +5,7 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using WebAPI_QLKH.Models;
@@ -281,7 +282,80 @@ namespace FormQLKH
         }
         private void btnQLT_Xoa_Click(object sender, EventArgs e)
         {
+            string roleID = StateManager.RoleID?.Trim();
 
+            if (!PermissionManager.CanDelete(roleID))
+            {
+                MessageBox.Show("Bạn không có quyền xóa thuốc.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            var selectedRows = dgvQLT.SelectedRows;
+
+            if (selectedRows.Count == 0)
+            {
+                MessageBox.Show("Vui lòng chọn ít nhất một thuốc để xóa.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            List<string> dsMaThuoc = new List<string>();
+            List<string> deletedMaThuoc = new List<string>();
+
+            foreach (DataGridViewRow row in selectedRows)
+            {
+                string maThuoc = row.Cells["Thuoc_ID"].Value.ToString().Trim();
+                dsMaThuoc.Add(maThuoc);
+            }
+
+            dsMaThuoc = dsMaThuoc.OrderBy(maThuoc => int.Parse(Regex.Match(maThuoc, @"\d+").Value)).ToList();
+
+            string manyMaThuoc = string.Join(", ", dsMaThuoc);
+
+            var confirmResult = MessageBox.Show($"Bạn có chắc chắn muốn xóa thuốc ({manyMaThuoc}) đã chọn?", "Xác nhận xóa",
+                                               MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+            if (confirmResult == DialogResult.Yes)
+            {
+                if (selectedRows.Count > 1)
+                {
+                    foreach (DataGridViewRow row in selectedRows)
+                    {
+                        string maThuoc = row.Cells["Thuoc_ID"].Value.ToString().Trim();
+                        var response = thuocService.XoaThuoc(maThuoc);
+
+                        if (response.IsSuccessStatusCode)
+                        {
+                            deletedMaThuoc.Add(maThuoc);
+                        }
+                        else
+                        {
+                            MessageBox.Show($"Xóa thuốc {maThuoc} thất bại. Vui lòng kiểm tra lại.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        }
+                    }
+
+                    string deletedMaThuocString = string.Join(", ", deletedMaThuoc);
+                    MessageBox.Show($"Xóa các thuốc ({deletedMaThuocString}) thành công.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    LoadDataGridView();
+                    LoadComboBox();
+                }
+                else
+                {
+                    string maThuoc = dsMaThuoc[0];
+                    var response = thuocService.XoaThuoc(maThuoc);
+
+                    if (response.IsSuccessStatusCode)
+                    {
+                        deletedMaThuoc.Add(maThuoc);
+                        MessageBox.Show($"Xóa thuốc {maThuoc} thành công.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        LoadDataGridView();
+                        LoadComboBox();
+                    }
+                    else
+                    {
+                        MessageBox.Show($"Xóa thuốc {maThuoc} thất bại. Vui lòng kiểm tra lại.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
+            }
         }
         private void SearchData(string maThuoc, string maNhom)
         {

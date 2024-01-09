@@ -16,6 +16,7 @@ using System.Security.Cryptography;
 using Microsoft.EntityFrameworkCore;
 using Azure;
 using WebAPI_QLKH.StateManager;
+using System.Text.RegularExpressions;
 
 namespace FormQLKH
 {
@@ -57,7 +58,6 @@ namespace FormQLKH
                         })
                         .ToList();
 
-                    dgvQLTK.DataSource = null;
                     dgvQLTK.DataSource = dsTK;
 
                     foreach (DataGridViewColumn column in dgvQLTK.Columns)
@@ -240,6 +240,38 @@ namespace FormQLKH
 
             return false;
         }
+        private bool IsUserNameExists(string userName, string currentID)
+        {
+            if (userName.Trim() != userName)
+            {
+                return true;
+            }
+
+            bool isUserIDDuplicate = false;
+
+            foreach (DataGridViewRow row in dgvQLTK.Rows)
+            {
+                if (row.Cells["UserID"].Value != null && row.Cells["UserName"].Value != null)
+                {
+                    string existingUserID = row.Cells["UserID"].Value.ToString().Trim();
+                    string existingUserName = row.Cells["UserName"].Value.ToString().Trim();
+
+                    if (existingUserName.Equals(userName, StringComparison.OrdinalIgnoreCase) &&
+                        !existingUserID.Equals(currentID, StringComparison.OrdinalIgnoreCase))
+                    {
+                        isUserIDDuplicate = true;
+                        break;
+                    }
+                }
+            }
+
+            if (isUserIDDuplicate)
+            {
+                return true;
+            }
+
+            return false;
+        }
         private void txtQLTK_UserName_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (char.IsWhiteSpace(e.KeyChar) || (!char.IsLetterOrDigit(e.KeyChar) && !IsSpecialKey(e)))
@@ -307,15 +339,15 @@ namespace FormQLKH
 
             if (IsUserNameExists(userName))
             {
-                MessageBox.Show("User Name đã tồn tại. Vui lòng chọn một User Name khác.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("UserName đã tồn tại. Vui lòng chọn một UserName khác.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
 
             string hashedPassword = BamPassword(password);
 
-            var payloads = new List<TKPayload>
+            var payloads = new List<TaiKhoan>
                 {
-                    new TKPayload
+                    new TaiKhoan
                     {
                         UserID = userID,
                         RoleID = roleID,
@@ -352,42 +384,53 @@ namespace FormQLKH
             string userName = txtQLTK_UserName.Text.Trim();
             string ghiChu = txtQLTK_GhiChu.Text.Trim();
             string roleId = cbQLTK_RoleID.Text.Trim();
+            string password = txtQLTK_Password.Text.Trim();
 
-            string userNameBanDau = dgvQLTK.CurrentRow.Cells["UserName"].Value.ToString();
-
-            if (userName != userNameBanDau)
+            if (password.Length > 0)
             {
-                MessageBox.Show("Không được sửa đổi UserName.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
-            }
+                string hashedPassword = BamPassword(password);
 
-            DialogResult dialogResult = MessageBox.Show($"Bạn có chắc chắn muốn cập nhật tài khoản {userID}?", "Xác nhận sửa", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
-
-            if (dialogResult == DialogResult.OK)
-            {
-                var payload = new TKPayload
+                if (IsUserNameExists(userName, userID))
                 {
-                    UserID = userID,
-                    RoleID = roleId,
-                    UserName = userName,
-                    Description = ghiChu
-                };
-
-                var response = tKService.CapNhatTaiKhoan(userID, payload);
-
-                if (response.IsSuccessStatusCode)
-                {
-                    MessageBox.Show($"Cập nhật tài khoản {userID} thành công.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    LoadDataGridView();
+                    MessageBox.Show("UserName đã tồn tại. Vui lòng chọn một UserName khác.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
                 }
-                else
+
+                if (IsUserNameExists(userName, userID))
                 {
-                    MessageBox.Show("Cập nhật tài khoản thất bại. Vui lòng kiểm tra lại.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("UserName đã tồn tại. Vui lòng chọn một UserName khác.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
                 }
-            }
-            else if (dialogResult == DialogResult.Cancel)
-            {
-                return;
+
+                DialogResult dialogResult = MessageBox.Show($"Bạn có chắc chắn muốn cập nhật tài khoản {userID}?", "Xác nhận sửa", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
+
+                if (dialogResult == DialogResult.OK)
+                {
+                    var payload = new TaiKhoan
+                    {
+                        UserID = userID,
+                        RoleID = roleId,
+                        UserName = userName,
+                        Description = ghiChu,
+                        Password = hashedPassword
+                    };
+
+                    var response = tKService.CapNhatTaiKhoan(userID, payload);
+
+                    if (response.IsSuccessStatusCode)
+                    {
+                        MessageBox.Show($"Cập nhật tài khoản {userID} thành công.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        LoadDataGridView();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Cập nhật tài khoản thất bại. Vui lòng kiểm tra lại.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
+                else if (dialogResult == DialogResult.Cancel)
+                {
+                    return;
+                }
             }
         }
         private void btnQLTK_Xoa_Click(object sender, EventArgs e)
@@ -400,23 +443,70 @@ namespace FormQLKH
                 return;
             }
 
-            string userID = txtQLTK_UserID.Text.Trim();
+            var selectedRows = dgvQLTK.SelectedRows;
 
-            var confirmResult = MessageBox.Show($"Bạn có chắc chắn muốn xóa tài khoản {userID}?", "Xác nhận xóa",
-                                             MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (selectedRows.Count == 0)
+            {
+                MessageBox.Show("Vui lòng chọn ít nhất một tài khoản để xóa.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            List<string> dsUserID = new List<string>();
+            List<string> deletedUserID = new List<string>();
+
+            foreach (DataGridViewRow row in selectedRows)
+            {
+                string userID = row.Cells["UserID"].Value.ToString().Trim();
+                dsUserID.Add(userID);
+            }
+
+            dsUserID = dsUserID.OrderBy(userID => int.Parse(Regex.Match(userID, @"\d+").Value)).ToList();
+
+            string manyUserIDN = string.Join(", ", dsUserID);
+
+            var confirmResult = MessageBox.Show($"Bạn có chắc chắn muốn xóa tài khoản ({manyUserIDN}) đã chọn?", "Xác nhận xóa",
+                                               MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 
             if (confirmResult == DialogResult.Yes)
             {
-                var response = tKService.XoaTaiKhoan(userID);
-
-                if (response.IsSuccessStatusCode)
+                if (selectedRows.Count > 1)
                 {
-                    MessageBox.Show($"Xóa tài khoản {userID} thành công.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    foreach (DataGridViewRow row in selectedRows)
+                    {
+                        string userID = row.Cells["UserID"].Value.ToString().Trim();
+                        var response = tKService.XoaTaiKhoan(userID);
+
+                        if (response.IsSuccessStatusCode)
+                        {
+                            deletedUserID.Add(userID);
+                        }
+                        else
+                        {
+                            MessageBox.Show($"Xóa tài khoản {userID} thất bại. Vui lòng kiểm tra lại.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        }
+                    }
+
+                    string deletedUserIDString = string.Join(", ", deletedUserID);
+                    MessageBox.Show($"Xóa các tài khoản ({deletedUserIDString}) thành công.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     LoadDataGridView();
+                    LoadComboBox();
                 }
                 else
                 {
-                    MessageBox.Show("Xóa tài khoản thất bại. Vui lòng kiểm tra lại.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    string userID = dsUserID[0];
+                    var response = tKService.XoaTaiKhoan(userID);
+
+                    if (response.IsSuccessStatusCode)
+                    {
+                        deletedUserID.Add(userID);
+                        MessageBox.Show($"Xóa tài khoản {userID} thành công.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        LoadDataGridView();
+                        LoadComboBox();
+                    }
+                    else
+                    {
+                        MessageBox.Show($"Xóa tài khoản {userID} thất bại. Vui lòng kiểm tra lại.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
                 }
             }
         }
