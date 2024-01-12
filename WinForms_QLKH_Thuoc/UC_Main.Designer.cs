@@ -188,10 +188,10 @@
             btnNCC.ImageAlign = ContentAlignment.MiddleLeft;
             btnNCC.Location = new Point(0, 0);
             btnNCC.Name = "btnNCC";
-            btnNCC.Padding = new Padding(13, 0, 200, 0);
+            btnNCC.Padding = new Padding(13, 0, 80, 0);
             btnNCC.Size = new Size(464, 77);
             btnNCC.TabIndex = 17;
-            btnNCC.Text = "Quản lý NCC";
+            btnNCC.Text = "Quản lý nhà cung cấp";
             btnNCC.UseVisualStyleBackColor = false;
             btnNCC.Click += btnNCC_Click;
             // 

@@ -383,7 +383,7 @@ namespace FormQLKH
                     greeting = "NV, ";
                     break;
                 default:
-                    greeting = ""; 
+                    greeting = "";
                     break;
             }
 
