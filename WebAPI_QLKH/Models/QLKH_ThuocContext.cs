@@ -13,6 +13,14 @@ public partial class QLKH_ThuocContext : DbContext
     {
     }
 
+    protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+    {
+        if (!optionsBuilder.IsConfigured)
+        {
+            optionsBuilder.UseSqlServer("YourConnectionString");
+        }
+    }
+
     public virtual DbSet<ChiNhanh> ChiNhanh { get; set; }
 
     public virtual DbSet<ChiTietDonNhap> ChiTietDonNhap { get; set; }
@@ -60,21 +68,22 @@ public partial class QLKH_ThuocContext : DbContext
 
         modelBuilder.Entity<ChiTietDonNhap>(entity =>
         {
-            entity.HasKey(e => new { e.DNhap_ID, e.Thuoc_ID });
+            entity.HasKey(e => e.DNhap_ID);
 
             entity.Property(e => e.DNhap_ID)
-                .HasMaxLength(10)
-                .IsFixedLength();
-            entity.Property(e => e.Thuoc_ID)
                 .HasMaxLength(10)
                 .IsFixedLength();
             entity.Property(e => e.Lo_ID)
                 .IsRequired()
                 .HasMaxLength(10)
                 .IsFixedLength();
+            entity.Property(e => e.Thuoc_ID)
+                .IsRequired()
+                .HasMaxLength(10)
+                .IsFixedLength();
 
-            entity.HasOne(d => d.DNhap).WithMany(p => p.ChiTietDonNhap)
-                .HasForeignKey(d => d.DNhap_ID)
+            entity.HasOne(d => d.DNhap).WithOne(p => p.ChiTietDonNhap)
+                .HasForeignKey<ChiTietDonNhap>(d => d.DNhap_ID)
                 .OnDelete(DeleteBehavior.ClientSetNull)
                 .HasConstraintName("FK_ChiTietDonNhap_DonNhap");
 
@@ -91,17 +100,18 @@ public partial class QLKH_ThuocContext : DbContext
 
         modelBuilder.Entity<ChiTietDonXuat>(entity =>
         {
-            entity.HasKey(e => new { e.Thuoc_ID, e.DXuat_ID });
+            entity.HasKey(e => e.DXuat_ID);
 
-            entity.Property(e => e.Thuoc_ID)
-                .HasMaxLength(10)
-                .IsFixedLength();
             entity.Property(e => e.DXuat_ID)
                 .HasMaxLength(10)
                 .IsFixedLength();
+            entity.Property(e => e.Thuoc_ID)
+                .IsRequired()
+                .HasMaxLength(10)
+                .IsFixedLength();
 
-            entity.HasOne(d => d.DXuat).WithMany(p => p.ChiTietDonXuat)
-                .HasForeignKey(d => d.DXuat_ID)
+            entity.HasOne(d => d.DXuat).WithOne(p => p.ChiTietDonXuat)
+                .HasForeignKey<ChiTietDonXuat>(d => d.DXuat_ID)
                 .OnDelete(DeleteBehavior.ClientSetNull)
                 .HasConstraintName("FK_ChiTietDonXuat_DonXuat");
 
@@ -113,12 +123,13 @@ public partial class QLKH_ThuocContext : DbContext
 
         modelBuilder.Entity<ChiTietThuoc>(entity =>
         {
-            entity.HasKey(e => new { e.Thuoc_ID, e.Lo_ID });
+            entity.HasKey(e => e.Thuoc_ID).HasName("PK_ChiTietThuoc_1");
 
             entity.Property(e => e.Thuoc_ID)
                 .HasMaxLength(10)
                 .IsFixedLength();
             entity.Property(e => e.Lo_ID)
+                .IsRequired()
                 .HasMaxLength(10)
                 .IsFixedLength();
 
@@ -127,8 +138,8 @@ public partial class QLKH_ThuocContext : DbContext
                 .OnDelete(DeleteBehavior.ClientSetNull)
                 .HasConstraintName("FK_ChiTietThuoc_Lo");
 
-            entity.HasOne(d => d.Thuoc).WithMany(p => p.ChiTietThuoc)
-                .HasForeignKey(d => d.Thuoc_ID)
+            entity.HasOne(d => d.Thuoc).WithOne(p => p.ChiTietThuoc)
+                .HasForeignKey<ChiTietThuoc>(d => d.Thuoc_ID)
                 .OnDelete(DeleteBehavior.ClientSetNull)
                 .HasConstraintName("FK_ChiTietThuoc_Thuoc");
         });
@@ -228,9 +239,7 @@ public partial class QLKH_ThuocContext : DbContext
             entity.Property(e => e.NCC_Address).HasMaxLength(50);
             entity.Property(e => e.NCC_Name).HasMaxLength(50);
             entity.Property(e => e.NCC_Phone).HasMaxLength(15);
-            entity.Property(e => e.NCC_Status)
-                .IsRequired()
-                .HasMaxLength(50);
+            entity.Property(e => e.NCC_Status).HasMaxLength(50);
         });
 
         modelBuilder.Entity<NhanVien>(entity =>

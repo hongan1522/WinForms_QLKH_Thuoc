@@ -49,8 +49,6 @@
             btnQLK_Them = new Button();
             btnQLK_Sua = new Button();
             btnQLK_Xoa = new Button();
-            btnQLK_Import = new Button();
-            btnQLK_Export = new Button();
             splQLK_TK_TT = new SplitContainer();
             grbQLK_TK = new GroupBox();
             cbQLK_TK_MaKho = new ComboBox();
@@ -234,8 +232,6 @@
             grbQLK_CN.Controls.Add(btnQLK_Them);
             grbQLK_CN.Controls.Add(btnQLK_Sua);
             grbQLK_CN.Controls.Add(btnQLK_Xoa);
-            grbQLK_CN.Controls.Add(btnQLK_Import);
-            grbQLK_CN.Controls.Add(btnQLK_Export);
             grbQLK_CN.Dock = DockStyle.Fill;
             grbQLK_CN.Location = new Point(0, 0);
             grbQLK_CN.Name = "grbQLK_CN";
@@ -252,7 +248,7 @@
             btnQLK_Them.Font = new Font("Segoe UI", 10.125F, FontStyle.Bold, GraphicsUnit.Point);
             btnQLK_Them.Image = Properties.Resources.add;
             btnQLK_Them.ImageAlign = ContentAlignment.MiddleLeft;
-            btnQLK_Them.Location = new Point(26, 52);
+            btnQLK_Them.Location = new Point(23, 70);
             btnQLK_Them.Name = "btnQLK_Them";
             btnQLK_Them.Size = new Size(182, 58);
             btnQLK_Them.TabIndex = 18;
@@ -268,7 +264,7 @@
             btnQLK_Sua.Font = new Font("Segoe UI", 10.125F, FontStyle.Bold, GraphicsUnit.Point);
             btnQLK_Sua.Image = Properties.Resources.update;
             btnQLK_Sua.ImageAlign = ContentAlignment.MiddleLeft;
-            btnQLK_Sua.Location = new Point(26, 189);
+            btnQLK_Sua.Location = new Point(23, 342);
             btnQLK_Sua.Name = "btnQLK_Sua";
             btnQLK_Sua.Size = new Size(182, 58);
             btnQLK_Sua.TabIndex = 19;
@@ -284,43 +280,13 @@
             btnQLK_Xoa.Font = new Font("Segoe UI", 10.125F, FontStyle.Bold, GraphicsUnit.Point);
             btnQLK_Xoa.Image = Properties.Resources.delete;
             btnQLK_Xoa.ImageAlign = ContentAlignment.MiddleLeft;
-            btnQLK_Xoa.Location = new Point(26, 326);
+            btnQLK_Xoa.Location = new Point(23, 614);
             btnQLK_Xoa.Name = "btnQLK_Xoa";
             btnQLK_Xoa.Size = new Size(182, 58);
             btnQLK_Xoa.TabIndex = 20;
             btnQLK_Xoa.Text = "Xóa";
             btnQLK_Xoa.UseVisualStyleBackColor = false;
             btnQLK_Xoa.Click += btnQLK_Xoa_Click;
-            // 
-            // btnQLK_Import
-            // 
-            btnQLK_Import.BackColor = SystemColors.ButtonHighlight;
-            btnQLK_Import.FlatAppearance.BorderSize = 0;
-            btnQLK_Import.FlatStyle = FlatStyle.Popup;
-            btnQLK_Import.Font = new Font("Segoe UI", 10.125F, FontStyle.Bold, GraphicsUnit.Point);
-            btnQLK_Import.Image = Properties.Resources.import;
-            btnQLK_Import.ImageAlign = ContentAlignment.MiddleLeft;
-            btnQLK_Import.Location = new Point(26, 463);
-            btnQLK_Import.Name = "btnQLK_Import";
-            btnQLK_Import.Size = new Size(182, 58);
-            btnQLK_Import.TabIndex = 21;
-            btnQLK_Import.Text = "Import";
-            btnQLK_Import.UseVisualStyleBackColor = false;
-            // 
-            // btnQLK_Export
-            // 
-            btnQLK_Export.BackColor = SystemColors.ButtonHighlight;
-            btnQLK_Export.FlatAppearance.BorderSize = 0;
-            btnQLK_Export.FlatStyle = FlatStyle.Popup;
-            btnQLK_Export.Font = new Font("Segoe UI", 10.125F, FontStyle.Bold, GraphicsUnit.Point);
-            btnQLK_Export.Image = Properties.Resources.export;
-            btnQLK_Export.ImageAlign = ContentAlignment.MiddleLeft;
-            btnQLK_Export.Location = new Point(26, 600);
-            btnQLK_Export.Name = "btnQLK_Export";
-            btnQLK_Export.Size = new Size(182, 58);
-            btnQLK_Export.TabIndex = 22;
-            btnQLK_Export.Text = "Export";
-            btnQLK_Export.UseVisualStyleBackColor = false;
             // 
             // splQLK_TK_TT
             // 
@@ -545,8 +511,6 @@
         private Button btnQLK_Them;
         private Button btnQLK_Sua;
         private Button btnQLK_Xoa;
-        private Button btnQLK_Import;
-        private Button btnQLK_Export;
         private Label label2;
         private Label label1;
         private ComboBox cbQLK_MaCN;

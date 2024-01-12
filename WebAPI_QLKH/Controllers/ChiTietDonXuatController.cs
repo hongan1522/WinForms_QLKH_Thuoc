@@ -39,7 +39,7 @@ namespace WebAPI_QLKH.Controllers
           {
               return NotFound();
           }
-            var chiTietDonXuat = await _context.ChiTietDonXuat.FindAsync(id);
+            var chiTietDonXuat = await _context.ChiTietDonXuat.FirstOrDefaultAsync(x => x.DXuat_ID == id);
 
             if (chiTietDonXuat == null)
             {
@@ -51,13 +51,44 @@ namespace WebAPI_QLKH.Controllers
 
         // PUT: api/ChiTietDonXuat/5
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
+        //[HttpPut("{id}")]
+        //public async Task<IActionResult> PutChiTietDonXuat(string id, ChiTietDonXuat chiTietDonXuat)
+        //{
+        //    if (id != chiTietDonXuat.DXuat_ID)
+        //    {
+        //        return BadRequest();
+        //    }
+
+        //    _context.Entry(chiTietDonXuat).State = EntityState.Modified;
+
+        //    try
+        //    {
+        //        await _context.SaveChangesAsync();
+        //    }
+        //    catch (DbUpdateConcurrencyException)
+        //    {
+        //        if (!ChiTietDonXuatExists(id))
+        //        {
+        //            return NotFound();
+        //        }
+        //        else
+        //        {
+        //            throw;
+        //        }
+        //    }
+
+        //    return NoContent();
+        //}
+
         [HttpPut("{id}")]
         public async Task<IActionResult> PutChiTietDonXuat(string id, ChiTietDonXuat chiTietDonXuat)
         {
-            if (id != chiTietDonXuat.Thuoc_ID)
+            if (id != chiTietDonXuat.DXuat_ID)
             {
-                return BadRequest();
+                return BadRequest("DXuat_ID mismatch");
             }
+
+            // Tiếp tục xử lý như bình thường
 
             _context.Entry(chiTietDonXuat).State = EntityState.Modified;
 
@@ -79,6 +110,8 @@ namespace WebAPI_QLKH.Controllers
 
             return NoContent();
         }
+
+
 
         // POST: api/ChiTietDonXuat
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754

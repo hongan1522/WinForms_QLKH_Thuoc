@@ -354,14 +354,6 @@ namespace FormQLKH
         {
             if (cbQLCN_TK_MaCN.SelectedItem is ChiNhanh selectedCN)
             {
-                string roleID = StateManager.RoleID?.Trim();
-
-                if (!PermissionManager.CanSearch(roleID))
-                {
-                    MessageBox.Show("Bạn không có quyền tìm kiếm tài khoản.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    return;
-                }
-
                 string selectedValue = selectedCN.CN_ID;
 
                 SearchData(selectedValue);

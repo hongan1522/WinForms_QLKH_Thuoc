@@ -32,11 +32,11 @@
             pnCTT = new Panel();
             lbCTT = new Label();
             grbCCT_TT = new GroupBox();
+            cbCTT_MaLo = new ComboBox();
             btnCTT_Sua = new Button();
             numCTT_SoLuong = new NumericUpDown();
             txtCTT_GhiChu = new TextBox();
             txtCTT_MaThuoc = new TextBox();
-            txtCTT_MaLo = new TextBox();
             lbCTT_GhiChu = new Label();
             lbCTT_MaThuoc = new Label();
             lbCTT_SoLuong = new Label();
@@ -86,11 +86,11 @@
             // grbCCT_TT
             // 
             grbCCT_TT.BackColor = SystemColors.Control;
+            grbCCT_TT.Controls.Add(cbCTT_MaLo);
             grbCCT_TT.Controls.Add(btnCTT_Sua);
             grbCCT_TT.Controls.Add(numCTT_SoLuong);
             grbCCT_TT.Controls.Add(txtCTT_GhiChu);
             grbCCT_TT.Controls.Add(txtCTT_MaThuoc);
-            grbCCT_TT.Controls.Add(txtCTT_MaLo);
             grbCCT_TT.Controls.Add(lbCTT_GhiChu);
             grbCCT_TT.Controls.Add(lbCTT_MaThuoc);
             grbCCT_TT.Controls.Add(lbCTT_SoLuong);
@@ -104,6 +104,14 @@
             grbCCT_TT.TabStop = false;
             grbCCT_TT.Text = "Thông tin";
             // 
+            // cbCTT_MaLo
+            // 
+            cbCTT_MaLo.FormattingEnabled = true;
+            cbCTT_MaLo.Location = new Point(218, 158);
+            cbCTT_MaLo.Name = "cbCTT_MaLo";
+            cbCTT_MaLo.Size = new Size(376, 45);
+            cbCTT_MaLo.TabIndex = 9;
+            // 
             // btnCTT_Sua
             // 
             btnCTT_Sua.BackColor = SystemColors.Highlight;
@@ -115,10 +123,12 @@
             btnCTT_Sua.TabIndex = 8;
             btnCTT_Sua.Text = "Sửa";
             btnCTT_Sua.UseVisualStyleBackColor = false;
+            btnCTT_Sua.Click += btnCTT_Sua_Click;
             // 
             // numCTT_SoLuong
             // 
             numCTT_SoLuong.Location = new Point(216, 239);
+            numCTT_SoLuong.Maximum = new decimal(new int[] { 1000, 0, 0, 0 });
             numCTT_SoLuong.Name = "numCTT_SoLuong";
             numCTT_SoLuong.Size = new Size(167, 43);
             numCTT_SoLuong.TabIndex = 7;
@@ -133,17 +143,10 @@
             // 
             // txtCTT_MaThuoc
             // 
-            txtCTT_MaThuoc.Location = new Point(216, 157);
+            txtCTT_MaThuoc.Location = new Point(216, 79);
             txtCTT_MaThuoc.Name = "txtCTT_MaThuoc";
             txtCTT_MaThuoc.Size = new Size(378, 43);
             txtCTT_MaThuoc.TabIndex = 5;
-            // 
-            // txtCTT_MaLo
-            // 
-            txtCTT_MaLo.Location = new Point(216, 72);
-            txtCTT_MaLo.Name = "txtCTT_MaLo";
-            txtCTT_MaLo.Size = new Size(378, 43);
-            txtCTT_MaLo.TabIndex = 4;
             // 
             // lbCTT_GhiChu
             // 
@@ -157,7 +160,7 @@
             // lbCTT_MaThuoc
             // 
             lbCTT_MaThuoc.AutoSize = true;
-            lbCTT_MaThuoc.Location = new Point(30, 160);
+            lbCTT_MaThuoc.Location = new Point(30, 82);
             lbCTT_MaThuoc.Name = "lbCTT_MaThuoc";
             lbCTT_MaThuoc.Size = new Size(129, 37);
             lbCTT_MaThuoc.TabIndex = 2;
@@ -166,7 +169,7 @@
             // lbCTT_SoLuong
             // 
             lbCTT_SoLuong.AutoSize = true;
-            lbCTT_SoLuong.Location = new Point(30, 246);
+            lbCTT_SoLuong.Location = new Point(30, 250);
             lbCTT_SoLuong.Name = "lbCTT_SoLuong";
             lbCTT_SoLuong.Size = new Size(124, 37);
             lbCTT_SoLuong.TabIndex = 1;
@@ -175,7 +178,7 @@
             // lbCTT_MaLo
             // 
             lbCTT_MaLo.AutoSize = true;
-            lbCTT_MaLo.Location = new Point(30, 71);
+            lbCTT_MaLo.Location = new Point(30, 166);
             lbCTT_MaLo.Name = "lbCTT_MaLo";
             lbCTT_MaLo.Size = new Size(85, 37);
             lbCTT_MaLo.TabIndex = 0;
@@ -207,10 +210,10 @@
         private NumericUpDown numCTT_SoLuong;
         private TextBox txtCTT_GhiChu;
         private TextBox txtCTT_MaThuoc;
-        private TextBox txtCTT_MaLo;
         private Label lbCTT_GhiChu;
         private Label lbCTT_MaThuoc;
         private Label lbCTT_SoLuong;
         private Label lbCTT_MaLo;
+        private ComboBox cbCTT_MaLo;
     }
 }

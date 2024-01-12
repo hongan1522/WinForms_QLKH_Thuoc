@@ -18,6 +18,7 @@ namespace FormQLKH
     {
         private readonly ThuocService thuocService;
         private readonly NThuocService nThuocService;
+        private readonly CTThuocService cttService;
         public UC_QLThuoc()
         {
             InitializeComponent();
@@ -25,6 +26,7 @@ namespace FormQLKH
 
             thuocService = new ThuocService("https://localhost:7195");
             nThuocService = new NThuocService("https://localhost:7195");
+            cttService = new CTThuocService("https://localhost:7195");
 
             LoadDataGridView();
             LoadComboBox();
@@ -420,6 +422,35 @@ namespace FormQLKH
         private void cbQLT_TK_MaNhom_SelectedIndexChanged(object sender, EventArgs e)
         {
             SearchByMaThuoc_MaNhom();
+        }
+        private void linkQLT_CTT_Click(object sender, EventArgs e)
+        {
+            string maThuoc = txtQLT_MaThuoc.Text.Trim();
+
+            if (!string.IsNullOrEmpty(maThuoc))
+            {
+                UC_CTThuoc ucCTT = new UC_CTThuoc();
+                ucCTT.LoadDataByMaThuoc(maThuoc);
+
+                List<ChiTietThuoc> dsChiTiet = cttService.LayCTT(maThuoc);
+
+                if (dsChiTiet != null && dsChiTiet.Any())
+                {
+                    FrmChiTiet frmCT = new FrmChiTiet();
+                    frmCT.Controls.Clear();
+                    frmCT.ClientSize = new Size(ucCTT.Width + 2, ucCTT.Height + 2);
+                    frmCT.Controls.Add(ucCTT);
+                    frmCT.Show();
+                }
+                else
+                {
+                    MessageBox.Show("Không có chi tiết thuốc cho mã đơn nhập này.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+            }
+            else
+            {
+                MessageBox.Show("Mã thuốc không hợp lệ.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
     }
 }

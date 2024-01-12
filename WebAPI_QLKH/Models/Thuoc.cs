@@ -17,7 +17,7 @@ public partial class Thuoc
 
     public virtual ICollection<ChiTietDonXuat> ChiTietDonXuat { get; set; } = new List<ChiTietDonXuat>();
 
-    public virtual ICollection<ChiTietThuoc> ChiTietThuoc { get; set; } = new List<ChiTietThuoc>();
+    public virtual ChiTietThuoc ChiTietThuoc { get; set; }
 
     public virtual NhomThuoc Nhom { get; set; }
 }

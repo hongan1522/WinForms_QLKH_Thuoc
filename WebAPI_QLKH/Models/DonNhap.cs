@@ -17,7 +17,7 @@ public partial class DonNhap
 
     public string NV_ID { get; set; }
 
-    public virtual ICollection<ChiTietDonNhap> ChiTietDonNhap { get; set; } = new List<ChiTietDonNhap>();
+    public virtual ChiTietDonNhap ChiTietDonNhap { get; set; }
 
     public virtual NCC NCC { get; set; }
 

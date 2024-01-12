@@ -56,8 +56,6 @@
             lbQLNT_TK_MaNhom = new Label();
             grbQLNT_CN = new GroupBox();
             btnQLNT_Sua = new Button();
-            btnQLNT_Import = new Button();
-            btnQLNT_Export = new Button();
             btnQLNT_Xoa = new Button();
             btnQLNT_Them = new Button();
             tlpQLNT.SuspendLayout();
@@ -393,8 +391,6 @@
             // grbQLNT_CN
             // 
             grbQLNT_CN.Controls.Add(btnQLNT_Sua);
-            grbQLNT_CN.Controls.Add(btnQLNT_Import);
-            grbQLNT_CN.Controls.Add(btnQLNT_Export);
             grbQLNT_CN.Controls.Add(btnQLNT_Xoa);
             grbQLNT_CN.Controls.Add(btnQLNT_Them);
             grbQLNT_CN.Dock = DockStyle.Fill;
@@ -414,45 +410,13 @@
             btnQLNT_Sua.ForeColor = SystemColors.ControlText;
             btnQLNT_Sua.Image = Properties.Resources.update;
             btnQLNT_Sua.ImageAlign = ContentAlignment.MiddleLeft;
-            btnQLNT_Sua.Location = new Point(24, 293);
+            btnQLNT_Sua.Location = new Point(141, 297);
             btnQLNT_Sua.Name = "btnQLNT_Sua";
             btnQLNT_Sua.Size = new Size(169, 64);
             btnQLNT_Sua.TabIndex = 5;
             btnQLNT_Sua.Text = "Sửa";
             btnQLNT_Sua.UseVisualStyleBackColor = false;
             btnQLNT_Sua.Click += btnQLNT_Sua_Click;
-            // 
-            // btnQLNT_Import
-            // 
-            btnQLNT_Import.BackColor = SystemColors.ButtonHighlight;
-            btnQLNT_Import.FlatAppearance.BorderSize = 0;
-            btnQLNT_Import.FlatStyle = FlatStyle.Popup;
-            btnQLNT_Import.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
-            btnQLNT_Import.ForeColor = SystemColors.ControlText;
-            btnQLNT_Import.Image = Properties.Resources.import;
-            btnQLNT_Import.ImageAlign = ContentAlignment.MiddleLeft;
-            btnQLNT_Import.Location = new Point(262, 400);
-            btnQLNT_Import.Name = "btnQLNT_Import";
-            btnQLNT_Import.Size = new Size(169, 64);
-            btnQLNT_Import.TabIndex = 4;
-            btnQLNT_Import.Text = "Import";
-            btnQLNT_Import.UseVisualStyleBackColor = false;
-            // 
-            // btnQLNT_Export
-            // 
-            btnQLNT_Export.BackColor = SystemColors.ButtonHighlight;
-            btnQLNT_Export.FlatAppearance.BorderSize = 0;
-            btnQLNT_Export.FlatStyle = FlatStyle.Popup;
-            btnQLNT_Export.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
-            btnQLNT_Export.ForeColor = SystemColors.ControlText;
-            btnQLNT_Export.Image = Properties.Resources.export;
-            btnQLNT_Export.ImageAlign = ContentAlignment.MiddleLeft;
-            btnQLNT_Export.Location = new Point(262, 211);
-            btnQLNT_Export.Name = "btnQLNT_Export";
-            btnQLNT_Export.Size = new Size(169, 64);
-            btnQLNT_Export.TabIndex = 3;
-            btnQLNT_Export.Text = "Export";
-            btnQLNT_Export.UseVisualStyleBackColor = false;
             // 
             // btnQLNT_Xoa
             // 
@@ -463,7 +427,7 @@
             btnQLNT_Xoa.ForeColor = SystemColors.ControlText;
             btnQLNT_Xoa.Image = Properties.Resources.delete;
             btnQLNT_Xoa.ImageAlign = ContentAlignment.MiddleLeft;
-            btnQLNT_Xoa.Location = new Point(24, 483);
+            btnQLNT_Xoa.Location = new Point(141, 487);
             btnQLNT_Xoa.Name = "btnQLNT_Xoa";
             btnQLNT_Xoa.Size = new Size(169, 64);
             btnQLNT_Xoa.TabIndex = 5;
@@ -480,7 +444,7 @@
             btnQLNT_Them.ForeColor = SystemColors.ControlText;
             btnQLNT_Them.Image = Properties.Resources.add;
             btnQLNT_Them.ImageAlign = ContentAlignment.MiddleLeft;
-            btnQLNT_Them.Location = new Point(24, 104);
+            btnQLNT_Them.Location = new Point(141, 108);
             btnQLNT_Them.Name = "btnQLNT_Them";
             btnQLNT_Them.Size = new Size(169, 64);
             btnQLNT_Them.TabIndex = 0;
@@ -537,8 +501,6 @@
         private GroupBox grbQLNT_TT;
         private GroupBox grbQLNT_CN;
         private Button btnQLNT_Sua;
-        private Button btnQLNT_Import;
-        private Button btnQLNT_Export;
         private Button btnQLNT_Xoa;
         private Button btnQLNT_Them;
         private Label lbQLNT_TK_TenNhom;

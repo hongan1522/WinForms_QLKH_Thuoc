@@ -41,9 +41,7 @@
             DiaChi = new DataGridViewTextBoxColumn();
             grbQLCN_CN = new GroupBox();
             btnQLCN_Them = new Button();
-            btnQLCN_Export = new Button();
             btnQLCN_Sua = new Button();
-            btnQLCN_Import = new Button();
             btnQLCN_Xoa = new Button();
             splQLCN_TK_TT = new SplitContainer();
             grbQLCN_TK = new GroupBox();
@@ -200,9 +198,7 @@
             // grbQLCN_CN
             // 
             grbQLCN_CN.Controls.Add(btnQLCN_Them);
-            grbQLCN_CN.Controls.Add(btnQLCN_Export);
             grbQLCN_CN.Controls.Add(btnQLCN_Sua);
-            grbQLCN_CN.Controls.Add(btnQLCN_Import);
             grbQLCN_CN.Controls.Add(btnQLCN_Xoa);
             grbQLCN_CN.Dock = DockStyle.Fill;
             grbQLCN_CN.Location = new Point(0, 0);
@@ -222,28 +218,13 @@
             btnQLCN_Them.Font = new Font("Segoe UI", 10.125F, FontStyle.Bold, GraphicsUnit.Point);
             btnQLCN_Them.Image = Properties.Resources.add;
             btnQLCN_Them.ImageAlign = ContentAlignment.MiddleLeft;
-            btnQLCN_Them.Location = new Point(32, 55);
+            btnQLCN_Them.Location = new Point(34, 83);
             btnQLCN_Them.Name = "btnQLCN_Them";
             btnQLCN_Them.Size = new Size(182, 58);
             btnQLCN_Them.TabIndex = 6;
             btnQLCN_Them.Text = "Thêm";
             btnQLCN_Them.UseVisualStyleBackColor = false;
             btnQLCN_Them.Click += btnQLCN_Them_Click;
-            // 
-            // btnQLCN_Export
-            // 
-            btnQLCN_Export.BackColor = SystemColors.ButtonHighlight;
-            btnQLCN_Export.FlatAppearance.BorderSize = 0;
-            btnQLCN_Export.FlatStyle = FlatStyle.Popup;
-            btnQLCN_Export.Font = new Font("Segoe UI", 10.125F, FontStyle.Bold, GraphicsUnit.Point);
-            btnQLCN_Export.Image = Properties.Resources.export;
-            btnQLCN_Export.ImageAlign = ContentAlignment.MiddleLeft;
-            btnQLCN_Export.Location = new Point(32, 660);
-            btnQLCN_Export.Name = "btnQLCN_Export";
-            btnQLCN_Export.Size = new Size(182, 58);
-            btnQLCN_Export.TabIndex = 10;
-            btnQLCN_Export.Text = "Export";
-            btnQLCN_Export.UseVisualStyleBackColor = false;
             // 
             // btnQLCN_Sua
             // 
@@ -253,28 +234,13 @@
             btnQLCN_Sua.Font = new Font("Segoe UI", 10.125F, FontStyle.Bold, GraphicsUnit.Point);
             btnQLCN_Sua.Image = Properties.Resources.update;
             btnQLCN_Sua.ImageAlign = ContentAlignment.MiddleLeft;
-            btnQLCN_Sua.Location = new Point(32, 206);
+            btnQLCN_Sua.Location = new Point(34, 376);
             btnQLCN_Sua.Name = "btnQLCN_Sua";
             btnQLCN_Sua.Size = new Size(182, 58);
             btnQLCN_Sua.TabIndex = 7;
             btnQLCN_Sua.Text = "Sửa";
             btnQLCN_Sua.UseVisualStyleBackColor = false;
             btnQLCN_Sua.Click += btnQLCN_Sua_Click;
-            // 
-            // btnQLCN_Import
-            // 
-            btnQLCN_Import.BackColor = SystemColors.ButtonHighlight;
-            btnQLCN_Import.FlatAppearance.BorderSize = 0;
-            btnQLCN_Import.FlatStyle = FlatStyle.Popup;
-            btnQLCN_Import.Font = new Font("Segoe UI", 10.125F, FontStyle.Bold, GraphicsUnit.Point);
-            btnQLCN_Import.Image = Properties.Resources.import;
-            btnQLCN_Import.ImageAlign = ContentAlignment.MiddleLeft;
-            btnQLCN_Import.Location = new Point(32, 509);
-            btnQLCN_Import.Name = "btnQLCN_Import";
-            btnQLCN_Import.Size = new Size(182, 58);
-            btnQLCN_Import.TabIndex = 9;
-            btnQLCN_Import.Text = "Import";
-            btnQLCN_Import.UseVisualStyleBackColor = false;
             // 
             // btnQLCN_Xoa
             // 
@@ -284,7 +250,7 @@
             btnQLCN_Xoa.Font = new Font("Segoe UI", 10.125F, FontStyle.Bold, GraphicsUnit.Point);
             btnQLCN_Xoa.Image = Properties.Resources.delete;
             btnQLCN_Xoa.ImageAlign = ContentAlignment.MiddleLeft;
-            btnQLCN_Xoa.Location = new Point(32, 358);
+            btnQLCN_Xoa.Location = new Point(34, 669);
             btnQLCN_Xoa.Name = "btnQLCN_Xoa";
             btnQLCN_Xoa.Size = new Size(182, 58);
             btnQLCN_Xoa.TabIndex = 8;
@@ -471,9 +437,7 @@
         private Label lbQLCN_TenCN;
         private Label lbQLCN_MaCN;
         private Button btnQLCN_Them;
-        private Button btnQLCN_Export;
         private Button btnQLCN_Sua;
-        private Button btnQLCN_Import;
         private Button btnQLCN_Xoa;
         private Label lbQLCN_TK_MaCN;
         private DataGridViewTextBoxColumn MaCN;

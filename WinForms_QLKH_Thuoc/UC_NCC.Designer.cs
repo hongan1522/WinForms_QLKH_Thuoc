@@ -37,13 +37,10 @@
             dgvNCC = new DataGridView();
             NCC_ID = new DataGridViewTextBoxColumn();
             NCC_Name = new DataGridViewTextBoxColumn();
-            Quantity = new DataGridViewTextBoxColumn();
             NCC_Phone = new DataGridViewTextBoxColumn();
             NCC_Address = new DataGridViewTextBoxColumn();
             NCC_Status = new DataGridViewTextBoxColumn();
             grbNCC_CN = new GroupBox();
-            btnNCC_Export = new Button();
-            btnNCC_Import = new Button();
             btnNCC_Sua = new Button();
             btnNCC_Them = new Button();
             splNCC_TK_TT = new SplitContainer();
@@ -57,13 +54,11 @@
             grbNCC_TT = new GroupBox();
             cbNCC_TrangThai = new ComboBox();
             lbNCC_TrangThai = new Label();
-            numNCC_SoLuongDN = new NumericUpDown();
             txtNCC_DiaChi = new TextBox();
             txtNCC_SDT = new TextBox();
             txtNCC_TenNCC = new TextBox();
             txtNCC_MaNCC = new TextBox();
             lbNCC_DiaChi = new Label();
-            lbNCC_SoLuongDN = new Label();
             lbNCC_SDT = new Label();
             lbNCC_TenNCC = new Label();
             lbNCC_MaNCC = new Label();
@@ -83,7 +78,6 @@
             grbNCC_TK.SuspendLayout();
             pnNCC_TK.SuspendLayout();
             grbNCC_TT.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)numNCC_SoLuongDN).BeginInit();
             SuspendLayout();
             // 
             // tlpNCC
@@ -170,7 +164,7 @@
             dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
             dgvNCC.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             dgvNCC.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgvNCC.Columns.AddRange(new DataGridViewColumn[] { NCC_ID, NCC_Name, Quantity, NCC_Phone, NCC_Address, NCC_Status });
+            dgvNCC.Columns.AddRange(new DataGridViewColumn[] { NCC_ID, NCC_Name, NCC_Phone, NCC_Address, NCC_Status });
             dgvNCC.Dock = DockStyle.Fill;
             dgvNCC.Location = new Point(3, 39);
             dgvNCC.Name = "dgvNCC";
@@ -196,13 +190,6 @@
             NCC_Name.MinimumWidth = 10;
             NCC_Name.Name = "NCC_Name";
             // 
-            // Quantity
-            // 
-            Quantity.DataPropertyName = "Quantity";
-            Quantity.HeaderText = "SL đơn nhập";
-            Quantity.MinimumWidth = 10;
-            Quantity.Name = "Quantity";
-            // 
             // NCC_Phone
             // 
             NCC_Phone.DataPropertyName = "NCC_Phone";
@@ -227,8 +214,6 @@
             // 
             // grbNCC_CN
             // 
-            grbNCC_CN.Controls.Add(btnNCC_Export);
-            grbNCC_CN.Controls.Add(btnNCC_Import);
             grbNCC_CN.Controls.Add(btnNCC_Sua);
             grbNCC_CN.Controls.Add(btnNCC_Them);
             grbNCC_CN.Dock = DockStyle.Fill;
@@ -239,37 +224,6 @@
             grbNCC_CN.TabStop = false;
             grbNCC_CN.Text = "Chức năng";
             // 
-            // btnNCC_Export
-            // 
-            btnNCC_Export.BackColor = SystemColors.ButtonHighlight;
-            btnNCC_Export.FlatAppearance.BorderSize = 0;
-            btnNCC_Export.FlatStyle = FlatStyle.Popup;
-            btnNCC_Export.Font = new Font("Segoe UI", 10.125F, FontStyle.Bold, GraphicsUnit.Point);
-            btnNCC_Export.Image = Properties.Resources.export;
-            btnNCC_Export.ImageAlign = ContentAlignment.MiddleLeft;
-            btnNCC_Export.Location = new Point(23, 573);
-            btnNCC_Export.Name = "btnNCC_Export";
-            btnNCC_Export.Size = new Size(157, 58);
-            btnNCC_Export.TabIndex = 4;
-            btnNCC_Export.Text = "   Export";
-            btnNCC_Export.UseVisualStyleBackColor = false;
-            // 
-            // btnNCC_Import
-            // 
-            btnNCC_Import.BackColor = SystemColors.ButtonHighlight;
-            btnNCC_Import.FlatAppearance.BorderSize = 0;
-            btnNCC_Import.FlatStyle = FlatStyle.Popup;
-            btnNCC_Import.Font = new Font("Segoe UI", 10.125F, FontStyle.Bold, GraphicsUnit.Point);
-            btnNCC_Import.Image = Properties.Resources.import;
-            btnNCC_Import.ImageAlign = ContentAlignment.MiddleLeft;
-            btnNCC_Import.Location = new Point(23, 404);
-            btnNCC_Import.Name = "btnNCC_Import";
-            btnNCC_Import.Padding = new Padding(3, 0, 0, 0);
-            btnNCC_Import.Size = new Size(157, 58);
-            btnNCC_Import.TabIndex = 3;
-            btnNCC_Import.Text = "   Import";
-            btnNCC_Import.UseVisualStyleBackColor = false;
-            // 
             // btnNCC_Sua
             // 
             btnNCC_Sua.BackColor = SystemColors.ButtonHighlight;
@@ -278,7 +232,7 @@
             btnNCC_Sua.Font = new Font("Segoe UI", 10.125F, FontStyle.Bold, GraphicsUnit.Point);
             btnNCC_Sua.Image = Properties.Resources.update;
             btnNCC_Sua.ImageAlign = ContentAlignment.MiddleLeft;
-            btnNCC_Sua.Location = new Point(23, 235);
+            btnNCC_Sua.Location = new Point(19, 398);
             btnNCC_Sua.Name = "btnNCC_Sua";
             btnNCC_Sua.Size = new Size(157, 58);
             btnNCC_Sua.TabIndex = 1;
@@ -294,7 +248,7 @@
             btnNCC_Them.Font = new Font("Segoe UI", 10.125F, FontStyle.Bold, GraphicsUnit.Point);
             btnNCC_Them.Image = Properties.Resources.add;
             btnNCC_Them.ImageAlign = ContentAlignment.MiddleLeft;
-            btnNCC_Them.Location = new Point(23, 66);
+            btnNCC_Them.Location = new Point(19, 227);
             btnNCC_Them.Name = "btnNCC_Them";
             btnNCC_Them.Size = new Size(157, 58);
             btnNCC_Them.TabIndex = 0;
@@ -406,13 +360,11 @@
             // 
             grbNCC_TT.Controls.Add(cbNCC_TrangThai);
             grbNCC_TT.Controls.Add(lbNCC_TrangThai);
-            grbNCC_TT.Controls.Add(numNCC_SoLuongDN);
             grbNCC_TT.Controls.Add(txtNCC_DiaChi);
             grbNCC_TT.Controls.Add(txtNCC_SDT);
             grbNCC_TT.Controls.Add(txtNCC_TenNCC);
             grbNCC_TT.Controls.Add(txtNCC_MaNCC);
             grbNCC_TT.Controls.Add(lbNCC_DiaChi);
-            grbNCC_TT.Controls.Add(lbNCC_SoLuongDN);
             grbNCC_TT.Controls.Add(lbNCC_SDT);
             grbNCC_TT.Controls.Add(lbNCC_TenNCC);
             grbNCC_TT.Controls.Add(lbNCC_MaNCC);
@@ -444,27 +396,19 @@
             lbNCC_TrangThai.TabIndex = 10;
             lbNCC_TrangThai.Text = "Trạng thái";
             // 
-            // numNCC_SoLuongDN
-            // 
-            numNCC_SoLuongDN.Location = new Point(268, 246);
-            numNCC_SoLuongDN.Name = "numNCC_SoLuongDN";
-            numNCC_SoLuongDN.Size = new Size(140, 43);
-            numNCC_SoLuongDN.TabIndex = 9;
-            numNCC_SoLuongDN.KeyPress += numNCC_SoLuongDN_KeyPress;
-            // 
             // txtNCC_DiaChi
             // 
-            txtNCC_DiaChi.Location = new Point(631, 226);
+            txtNCC_DiaChi.Location = new Point(631, 197);
             txtNCC_DiaChi.Multiline = true;
             txtNCC_DiaChi.Name = "txtNCC_DiaChi";
-            txtNCC_DiaChi.Size = new Size(289, 80);
+            txtNCC_DiaChi.Size = new Size(289, 109);
             txtNCC_DiaChi.TabIndex = 8;
             // 
             // txtNCC_SDT
             // 
-            txtNCC_SDT.Location = new Point(631, 145);
+            txtNCC_SDT.Location = new Point(191, 242);
             txtNCC_SDT.Name = "txtNCC_SDT";
-            txtNCC_SDT.Size = new Size(289, 43);
+            txtNCC_SDT.Size = new Size(250, 43);
             txtNCC_SDT.TabIndex = 7;
             // 
             // txtNCC_TenNCC
@@ -472,7 +416,7 @@
             txtNCC_TenNCC.Location = new Point(631, 56);
             txtNCC_TenNCC.Multiline = true;
             txtNCC_TenNCC.Name = "txtNCC_TenNCC";
-            txtNCC_TenNCC.Size = new Size(289, 44);
+            txtNCC_TenNCC.Size = new Size(289, 112);
             txtNCC_TenNCC.TabIndex = 6;
             // 
             // txtNCC_MaNCC
@@ -488,23 +432,11 @@
             lbNCC_DiaChi.BackColor = SystemColors.Control;
             lbNCC_DiaChi.BorderStyle = BorderStyle.Fixed3D;
             lbNCC_DiaChi.Font = new Font("Segoe UI Semibold", 10.125F, FontStyle.Bold, GraphicsUnit.Point);
-            lbNCC_DiaChi.Location = new Point(485, 246);
+            lbNCC_DiaChi.Location = new Point(485, 200);
             lbNCC_DiaChi.Name = "lbNCC_DiaChi";
             lbNCC_DiaChi.Size = new Size(102, 39);
             lbNCC_DiaChi.TabIndex = 4;
             lbNCC_DiaChi.Text = "Địa chỉ";
-            // 
-            // lbNCC_SoLuongDN
-            // 
-            lbNCC_SoLuongDN.AutoSize = true;
-            lbNCC_SoLuongDN.BackColor = SystemColors.Control;
-            lbNCC_SoLuongDN.BorderStyle = BorderStyle.Fixed3D;
-            lbNCC_SoLuongDN.Font = new Font("Segoe UI Semibold", 10.125F, FontStyle.Bold, GraphicsUnit.Point);
-            lbNCC_SoLuongDN.Location = new Point(23, 250);
-            lbNCC_SoLuongDN.Name = "lbNCC_SoLuongDN";
-            lbNCC_SoLuongDN.Size = new Size(186, 39);
-            lbNCC_SoLuongDN.TabIndex = 3;
-            lbNCC_SoLuongDN.Text = "Số lượng đơn";
             // 
             // lbNCC_SDT
             // 
@@ -512,7 +444,7 @@
             lbNCC_SDT.BackColor = SystemColors.Control;
             lbNCC_SDT.BorderStyle = BorderStyle.Fixed3D;
             lbNCC_SDT.Font = new Font("Segoe UI Semibold", 10.125F, FontStyle.Bold, GraphicsUnit.Point);
-            lbNCC_SDT.Location = new Point(485, 149);
+            lbNCC_SDT.Location = new Point(28, 246);
             lbNCC_SDT.Name = "lbNCC_SDT";
             lbNCC_SDT.Size = new Size(68, 39);
             lbNCC_SDT.TabIndex = 2;
@@ -569,7 +501,6 @@
             pnNCC_TK.PerformLayout();
             grbNCC_TT.ResumeLayout(false);
             grbNCC_TT.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)numNCC_SoLuongDN).EndInit();
             ResumeLayout(false);
         }
 
@@ -582,21 +513,17 @@
         private GroupBox grbNCC_HT;
         private DataGridView dgvNCC;
         private GroupBox grbNCC_CN;
-        private Button btnNCC_Export;
-        private Button btnNCC_Import;
         private Button btnNCC_Sua;
         private Button btnNCC_Them;
         private SplitContainer splNCC_TK_TT;
         private GroupBox grbNCC_TK;
         private TextBox txtNCC_TK_TenNCC;
         private GroupBox grbNCC_TT;
-        private NumericUpDown numNCC_SoLuongDN;
         private TextBox txtNCC_DiaChi;
         private TextBox txtNCC_SDT;
         private TextBox txtNCC_TenNCC;
         private TextBox txtNCC_MaNCC;
         private Label lbNCC_DiaChi;
-        private Label lbNCC_SoLuongDN;
         private Label lbNCC_SDT;
         private Label lbNCC_TenNCC;
         private Label lbNCC_MaNCC;
@@ -609,7 +536,6 @@
         private ComboBox cbNCC_TrangThai;
         private DataGridViewTextBoxColumn NCC_ID;
         private DataGridViewTextBoxColumn NCC_Name;
-        private DataGridViewTextBoxColumn Quantity;
         private DataGridViewTextBoxColumn NCC_Phone;
         private DataGridViewTextBoxColumn NCC_Address;
         private DataGridViewTextBoxColumn NCC_Status;

@@ -18,6 +18,7 @@ namespace FormQLKH
     {
         private readonly DXuatService dXuatService;
         private readonly NhanVienService nvService;
+        private readonly CTDXuatService ctdxService;
         public UC_QLDonXuat()
         {
             InitializeComponent();
@@ -25,6 +26,7 @@ namespace FormQLKH
 
             dXuatService = new DXuatService("https://localhost:7195");
             nvService = new NhanVienService("https://localhost:7195");
+            ctdxService = new CTDXuatService("https://localhost:7195");
 
             LoadDataGridView();
             LoadComboBox();
@@ -433,6 +435,35 @@ namespace FormQLKH
         private void cbQLDX_TK_MaNV_SelectedIndexChanged(object sender, EventArgs e)
         {
             SearchBymaDX_MaNV();
+        }
+        private void linkQLDX_Click(object sender, EventArgs e)
+        {
+            string maDX = txtQLDX_MaDX.Text.Trim();
+
+            if (!string.IsNullOrEmpty(maDX))
+            {
+                UC_CTDonXuat ucCTDX = new UC_CTDonXuat();
+                ucCTDX.LoadDataByMaDX(maDX);
+
+                List<ChiTietDonXuat> dsChiTiet = ctdxService.LayCTDX(maDX);
+
+                if (dsChiTiet != null && dsChiTiet.Any())
+                {
+                    FrmChiTiet frmCT = new FrmChiTiet();
+                    frmCT.Controls.Clear();
+                    frmCT.ClientSize = new Size(ucCTDX.Width + 2, ucCTDX.Height + 2);
+                    frmCT.Controls.Add(ucCTDX);
+                    frmCT.Show();
+                }
+                else
+                {
+                    MessageBox.Show("Không có chi tiết đơn xuất cho mã đơn nhập này.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+            }
+            else
+            {
+                MessageBox.Show("Mã đơn xuất không hợp lệ.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
     }
 }

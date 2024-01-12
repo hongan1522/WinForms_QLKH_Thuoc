@@ -80,7 +80,7 @@ namespace FormQLKH
                 List<Kho> dsKho = khoService.LayDanhSachKho();
                 dsKho = dsKho.OrderBy(kho => GetNumericPartOfMa(kho.Kho_ID)).ToList();
                 dsKho.Insert(0, new Kho { Kho_ID = "All" });
-                
+
                 cbQLK_TK_MaKho.DataSource = dsKho;
                 cbQLK_TK_MaKho.DisplayMember = "Kho_ID";
                 cbQLK_TK_MaKho.ValueMember = "Kho_ID";

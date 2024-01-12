@@ -54,7 +54,7 @@ namespace WebAPI_QLKH.Controllers
         [HttpPut("{id}")]
         public async Task<IActionResult> PutChiTietDonNhap(string id, ChiTietDonNhap chiTietDonNhap)
         {
-            if (id != chiTietDonNhap.Lo_ID)
+            if (id != chiTietDonNhap.DNhap_ID)
             {
                 return BadRequest();
             }

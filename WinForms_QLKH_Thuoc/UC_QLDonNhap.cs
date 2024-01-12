@@ -11,6 +11,7 @@ using System.Windows.Forms;
 using WebAPI_QLKH.Models;
 using WebAPI_QLKH.Services;
 using WebAPI_QLKH.StateManager;
+using WinFormsApp;
 
 namespace FormQLKH
 {
@@ -19,6 +20,7 @@ namespace FormQLKH
         private readonly DNhapService dNhapService;
         private readonly NCCService nCCService;
         private readonly NhanVienService nvService;
+        private readonly CTDNhapService ctdnService;
         public UC_QLDonNhap()
         {
             InitializeComponent();
@@ -27,6 +29,7 @@ namespace FormQLKH
             dNhapService = new DNhapService("https://localhost:7195");
             nCCService = new NCCService("https://localhost:7195");
             nvService = new NhanVienService("https://localhost:7195");
+            ctdnService = new CTDNhapService("https://localhost:7195");
 
             LoadDataGridView();
             LoadComboBox();
@@ -455,6 +458,35 @@ namespace FormQLKH
         private void cbQLDN_TK_MaNV_SelectedIndexChanged(object sender, EventArgs e)
         {
             SearchByMaDN_MaNV();
+        }
+        private void linkLb_CTDN_Click(object sender, EventArgs e)
+        {
+            string maDN = txtQLDN_MaDN.Text.Trim();
+
+            if (!string.IsNullOrEmpty(maDN))
+            {
+                UC_CTDonNhap ucCTDN = new UC_CTDonNhap();
+                ucCTDN.LoadDataByMaDN(maDN);
+
+                List<ChiTietDonNhap> dsChiTiet = ctdnService.LayCTDN(maDN);
+
+                if (dsChiTiet != null && dsChiTiet.Any())
+                {
+                    FrmChiTiet frmCT = new FrmChiTiet();
+                    frmCT.Controls.Clear();
+                    frmCT.ClientSize = new Size(ucCTDN.Width + 2, ucCTDN.Height + 2);
+                    frmCT.Controls.Add(ucCTDN);
+                    frmCT.Show();
+                }
+                else
+                {
+                    MessageBox.Show("Không có chi tiết đơn nhập cho mã đơn nhập này.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+            }
+            else
+            {
+                MessageBox.Show("Mã đơn nhập không hợp lệ.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
     }
 }

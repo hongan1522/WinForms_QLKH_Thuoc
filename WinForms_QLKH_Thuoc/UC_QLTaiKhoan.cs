@@ -384,53 +384,40 @@ namespace FormQLKH
             string userName = txtQLTK_UserName.Text.Trim();
             string ghiChu = txtQLTK_GhiChu.Text.Trim();
             string roleId = cbQLTK_RoleID.Text.Trim();
-            string password = txtQLTK_Password.Text.Trim();
 
-            if (password.Length > 0)
+            if (IsUserNameExists(userName, userID))
             {
-                string hashedPassword = BamPassword(password);
+                MessageBox.Show("UserName đã tồn tại. Vui lòng chọn một UserName khác.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
 
-                if (IsUserNameExists(userName, userID))
+            DialogResult dialogResult = MessageBox.Show($"Bạn có chắc chắn muốn cập nhật tài khoản {userID}?", "Xác nhận sửa", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
+
+            if (dialogResult == DialogResult.OK)
+            {
+                var payload = new TaiKhoan
                 {
-                    MessageBox.Show("UserName đã tồn tại. Vui lòng chọn một UserName khác.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    return;
-                }
+                    UserID = userID,
+                    RoleID = roleId,
+                    UserName = userName,
+                    Description = ghiChu
+                };
 
-                if (IsUserNameExists(userName, userID))
+                var response = tKService.CapNhatTaiKhoan(userID, payload);
+
+                if (response.IsSuccessStatusCode)
                 {
-                    MessageBox.Show("UserName đã tồn tại. Vui lòng chọn một UserName khác.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    return;
+                    MessageBox.Show($"Cập nhật tài khoản {userID} thành công.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    LoadDataGridView();
                 }
-
-                DialogResult dialogResult = MessageBox.Show($"Bạn có chắc chắn muốn cập nhật tài khoản {userID}?", "Xác nhận sửa", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
-
-                if (dialogResult == DialogResult.OK)
+                else
                 {
-                    var payload = new TaiKhoan
-                    {
-                        UserID = userID,
-                        RoleID = roleId,
-                        UserName = userName,
-                        Description = ghiChu,
-                        Password = hashedPassword
-                    };
-
-                    var response = tKService.CapNhatTaiKhoan(userID, payload);
-
-                    if (response.IsSuccessStatusCode)
-                    {
-                        MessageBox.Show($"Cập nhật tài khoản {userID} thành công.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        LoadDataGridView();
-                    }
-                    else
-                    {
-                        MessageBox.Show("Cập nhật tài khoản thất bại. Vui lòng kiểm tra lại.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    }
+                    MessageBox.Show("Cập nhật tài khoản thất bại. Vui lòng kiểm tra lại.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
-                else if (dialogResult == DialogResult.Cancel)
-                {
-                    return;
-                }
+            }
+            else if (dialogResult == DialogResult.Cancel)
+            {
+                return;
             }
         }
         private void btnQLTK_Xoa_Click(object sender, EventArgs e)

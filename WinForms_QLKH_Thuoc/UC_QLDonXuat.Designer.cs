@@ -28,12 +28,13 @@
         /// </summary>
         private void InitializeComponent()
         {
-            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
             tlpQLDX = new TableLayoutPanel();
             pnQLDX = new Panel();
             lbQLDX = new Label();
             splQLDX_TT_TK = new SplitContainer();
             grbQLDX_TT = new GroupBox();
+            linkQLDX = new LinkLabel();
             cbQLDX_MaNV = new ComboBox();
             dtpQLDX_NgayXuat = new DateTimePicker();
             txtQLDX_TenDX = new TextBox();
@@ -51,8 +52,6 @@
             grbQLDX_CN = new GroupBox();
             btnQLDX_Them = new Button();
             btnQLDX_Xoa = new Button();
-            btnQLDX_Export = new Button();
-            btnQLDX_Import = new Button();
             btnQLDX_Sua = new Button();
             grbQLDX_HT = new GroupBox();
             dgvQLDX = new DataGridView();
@@ -138,6 +137,7 @@
             // 
             // grbQLDX_TT
             // 
+            grbQLDX_TT.Controls.Add(linkQLDX);
             grbQLDX_TT.Controls.Add(cbQLDX_MaNV);
             grbQLDX_TT.Controls.Add(dtpQLDX_NgayXuat);
             grbQLDX_TT.Controls.Add(txtQLDX_TenDX);
@@ -153,6 +153,17 @@
             grbQLDX_TT.TabIndex = 0;
             grbQLDX_TT.TabStop = false;
             grbQLDX_TT.Text = "Thông tin";
+            // 
+            // linkQLDX
+            // 
+            linkQLDX.AutoSize = true;
+            linkQLDX.Location = new Point(750, 254);
+            linkQLDX.Name = "linkQLDX";
+            linkQLDX.Size = new Size(213, 37);
+            linkQLDX.TabIndex = 10;
+            linkQLDX.TabStop = true;
+            linkQLDX.Text = "Chi tiết đơn xuất";
+            linkQLDX.Click += linkQLDX_Click;
             // 
             // cbQLDX_MaNV
             // 
@@ -174,11 +185,11 @@
             // 
             // txtQLDX_TenDX
             // 
-            txtQLDX_TenDX.Location = new Point(689, 165);
+            txtQLDX_TenDX.Location = new Point(689, 147);
             txtQLDX_TenDX.Multiline = true;
             txtQLDX_TenDX.Name = "txtQLDX_TenDX";
             txtQLDX_TenDX.ScrollBars = ScrollBars.Vertical;
-            txtQLDX_TenDX.Size = new Size(274, 126);
+            txtQLDX_TenDX.Size = new Size(274, 81);
             txtQLDX_TenDX.TabIndex = 6;
             // 
             // txtQLDX_MaDX
@@ -315,8 +326,6 @@
             // 
             grbQLDX_CN.Controls.Add(btnQLDX_Them);
             grbQLDX_CN.Controls.Add(btnQLDX_Xoa);
-            grbQLDX_CN.Controls.Add(btnQLDX_Export);
-            grbQLDX_CN.Controls.Add(btnQLDX_Import);
             grbQLDX_CN.Controls.Add(btnQLDX_Sua);
             grbQLDX_CN.Dock = DockStyle.Fill;
             grbQLDX_CN.Location = new Point(0, 0);
@@ -334,7 +343,7 @@
             btnQLDX_Them.Font = new Font("Segoe UI", 10.125F, FontStyle.Bold, GraphicsUnit.Point);
             btnQLDX_Them.Image = Properties.Resources.add;
             btnQLDX_Them.ImageAlign = ContentAlignment.MiddleLeft;
-            btnQLDX_Them.Location = new Point(31, 66);
+            btnQLDX_Them.Location = new Point(31, 75);
             btnQLDX_Them.Name = "btnQLDX_Them";
             btnQLDX_Them.Size = new Size(182, 58);
             btnQLDX_Them.TabIndex = 12;
@@ -350,43 +359,13 @@
             btnQLDX_Xoa.Font = new Font("Segoe UI", 10.125F, FontStyle.Bold, GraphicsUnit.Point);
             btnQLDX_Xoa.Image = Properties.Resources.delete;
             btnQLDX_Xoa.ImageAlign = ContentAlignment.MiddleLeft;
-            btnQLDX_Xoa.Location = new Point(31, 320);
+            btnQLDX_Xoa.Location = new Point(31, 597);
             btnQLDX_Xoa.Name = "btnQLDX_Xoa";
             btnQLDX_Xoa.Size = new Size(182, 58);
             btnQLDX_Xoa.TabIndex = 14;
             btnQLDX_Xoa.Text = "Xóa";
             btnQLDX_Xoa.UseVisualStyleBackColor = false;
             btnQLDX_Xoa.Click += btnQLDX_Xoa_Click;
-            // 
-            // btnQLDX_Export
-            // 
-            btnQLDX_Export.BackColor = SystemColors.ButtonHighlight;
-            btnQLDX_Export.FlatAppearance.BorderSize = 0;
-            btnQLDX_Export.FlatStyle = FlatStyle.Popup;
-            btnQLDX_Export.Font = new Font("Segoe UI", 10.125F, FontStyle.Bold, GraphicsUnit.Point);
-            btnQLDX_Export.Image = Properties.Resources.export;
-            btnQLDX_Export.ImageAlign = ContentAlignment.MiddleLeft;
-            btnQLDX_Export.Location = new Point(31, 574);
-            btnQLDX_Export.Name = "btnQLDX_Export";
-            btnQLDX_Export.Size = new Size(182, 58);
-            btnQLDX_Export.TabIndex = 16;
-            btnQLDX_Export.Text = "Export";
-            btnQLDX_Export.UseVisualStyleBackColor = false;
-            // 
-            // btnQLDX_Import
-            // 
-            btnQLDX_Import.BackColor = SystemColors.ButtonHighlight;
-            btnQLDX_Import.FlatAppearance.BorderSize = 0;
-            btnQLDX_Import.FlatStyle = FlatStyle.Popup;
-            btnQLDX_Import.Font = new Font("Segoe UI", 10.125F, FontStyle.Bold, GraphicsUnit.Point);
-            btnQLDX_Import.Image = Properties.Resources.import;
-            btnQLDX_Import.ImageAlign = ContentAlignment.MiddleLeft;
-            btnQLDX_Import.Location = new Point(31, 447);
-            btnQLDX_Import.Name = "btnQLDX_Import";
-            btnQLDX_Import.Size = new Size(182, 58);
-            btnQLDX_Import.TabIndex = 15;
-            btnQLDX_Import.Text = "Import";
-            btnQLDX_Import.UseVisualStyleBackColor = false;
             // 
             // btnQLDX_Sua
             // 
@@ -396,7 +375,7 @@
             btnQLDX_Sua.Font = new Font("Segoe UI", 10.125F, FontStyle.Bold, GraphicsUnit.Point);
             btnQLDX_Sua.Image = Properties.Resources.update;
             btnQLDX_Sua.ImageAlign = ContentAlignment.MiddleLeft;
-            btnQLDX_Sua.Location = new Point(31, 193);
+            btnQLDX_Sua.Location = new Point(31, 336);
             btnQLDX_Sua.Name = "btnQLDX_Sua";
             btnQLDX_Sua.Size = new Size(182, 58);
             btnQLDX_Sua.TabIndex = 13;
@@ -419,14 +398,14 @@
             // 
             dgvQLDX.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dgvQLDX.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.DisplayedCells;
-            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle1.BackColor = SystemColors.Control;
-            dataGridViewCellStyle1.Font = new Font("Segoe UI", 10.125F, FontStyle.Regular, GraphicsUnit.Point);
-            dataGridViewCellStyle1.ForeColor = SystemColors.WindowText;
-            dataGridViewCellStyle1.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
-            dgvQLDX.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle2.BackColor = SystemColors.Control;
+            dataGridViewCellStyle2.Font = new Font("Segoe UI", 10.125F, FontStyle.Regular, GraphicsUnit.Point);
+            dataGridViewCellStyle2.ForeColor = SystemColors.WindowText;
+            dataGridViewCellStyle2.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = DataGridViewTriState.True;
+            dgvQLDX.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             dgvQLDX.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dgvQLDX.Columns.AddRange(new DataGridViewColumn[] { DXuat_ID, NV_ID, DX_Name, DX_Datetime });
             dgvQLDX.Dock = DockStyle.Fill;
@@ -517,8 +496,6 @@
         private DataGridView dgvQLDX;
         private Button btnQLDX_Them;
         private Button btnQLDX_Xoa;
-        private Button btnQLDX_Export;
-        private Button btnQLDX_Import;
         private Button btnQLDX_Sua;
         private Label label2;
         private Label label1;
@@ -529,5 +506,6 @@
         private DataGridViewTextBoxColumn NV_ID;
         private DataGridViewTextBoxColumn DX_Name;
         private DataGridViewTextBoxColumn DX_Datetime;
+        private LinkLabel linkQLDX;
     }
 }

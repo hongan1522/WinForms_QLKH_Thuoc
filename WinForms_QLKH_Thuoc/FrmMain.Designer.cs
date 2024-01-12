@@ -48,7 +48,6 @@
             FormBorderStyle = FormBorderStyle.Fixed3D;
             Margin = new Padding(4);
             MaximizeBox = false;
-            MinimizeBox = false;
             Name = "FrmMain";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Quản Lý";

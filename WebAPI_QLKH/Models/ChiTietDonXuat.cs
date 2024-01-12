@@ -7,9 +7,9 @@ namespace WebAPI_QLKH.Models;
 
 public partial class ChiTietDonXuat
 {
-    public string Thuoc_ID { get; set; }
-
     public string DXuat_ID { get; set; }
+
+    public string Thuoc_ID { get; set; }
 
     public string Description { get; set; }
 

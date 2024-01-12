@@ -51,7 +51,6 @@ namespace WinFormsApp
             Controls.Add(uC_Login1);
             Margin = new Padding(4);
             MaximizeBox = false;
-            MinimizeBox = false;
             Name = "FrmLogin";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Đăng nhập";

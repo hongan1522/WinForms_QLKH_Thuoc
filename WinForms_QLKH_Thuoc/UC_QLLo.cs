@@ -31,12 +31,13 @@ namespace FormQLKH
 
             LoadDataGridView();
             LoadComboBox();
+            LoadComboViTri();
         }
         private async void LoadDataGridView()
         {
             try
             {
-                List<Lo> dsLo = await Task.Run(() => loService.LayDanhSachLo());
+                List<Lo> dsLo = await Task.Run(() => loService.LayDSLo());
 
                 if (dsLo != null)
                 {
@@ -104,8 +105,8 @@ namespace FormQLKH
                     cbQLLo_TK_MaKho.SelectedIndex = 0;
                 }
 
-                // Load cbQLLo_TK_MaKho
-                List<Lo> dsLo = await loService.LayDanhSachLo();
+                // Load cbQLLo_TK_MaLo
+                List<Lo> dsLo = loService.LayDSLo();
                 dsLo = dsLo.OrderBy(lo => GetNumericPartOfMa(lo.Lo_ID)).ToList();
                 dsLo.Insert(0, new Lo { Lo_ID = "All" });
 
@@ -118,23 +119,24 @@ namespace FormQLKH
                 {
                     cbQLLo_TK_MaLo.SelectedIndex = 0;
                 }
-
-                //Load cbQLLo_ViTri
-                cbQLLo_ViTri.Items.AddRange(new object[] { "A", "B", "C", "D" });
-
-                cbQLLo_ViTri.SelectedIndex = 0;
-                cbQLLo_ViTri.DropDownStyle = ComboBoxStyle.DropDownList;
             }
             catch (Exception ex)
             {
                 MessageBox.Show($"Lỗi: {ex.Message}", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+        private void LoadComboViTri()
+        {
+            cbQLLo_ViTri.Items.AddRange(new object[] { "A", "B", "C", "D" });
+
+            cbQLLo_ViTri.SelectedIndex = 0;
+            cbQLLo_ViTri.DropDownStyle = ComboBoxStyle.DropDownList;
+        }
         private string TaoMaLoTuDong()
         {
             List<string> danhSachMaLo = dgvQLLo.Rows
                 .Cast<DataGridViewRow>()
-                .Select(row => row.Cells["MaLo"].Value.ToString())
+                .Select(row => row.Cells["LO_ID"].Value.ToString())
                 .ToList();
 
             for (int i = 1; i <= danhSachMaLo.Count + 1; i++)
@@ -209,35 +211,44 @@ namespace FormQLKH
                 return;
             }
 
-            var selectedLo = dgvQLLo.SelectedRows[0].DataBoundItem as Lo;
+            string maLo = txtQLLo_MaLo.Text.Trim();
+            string tenLo = txtQLLo_TenLo.Text.Trim();
+            string maKho = cbQLLo_MaKho.Text.Trim();
+            string viTri = cbQLLo_ViTri.Text.Trim();
 
-            if (string.IsNullOrEmpty(txtQLLo_TenLo.Text.Trim()))
+            if (string.IsNullOrEmpty(tenLo))
             {
                 MessageBox.Show("Vui lòng điền đầy đủ thông tin.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
 
-            DialogResult result = MessageBox.Show($"Bạn chắc muốn cập nhật lô {txtQLLo_MaLo.Text.Trim()}?", "Xác nhận sửa", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            DialogResult result = MessageBox.Show($"Bạn chắc muốn cập nhật lô {maLo}?", "Xác nhận sửa", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 
             if (result == DialogResult.Yes)
             {
-                var loPut = new LoPut
+                var lo = new Lo
                 {
-                    Lo_Name = txtQLLo_TenLo.Text,
-                    Lo_Position = cbQLLo_ViTri.SelectedItem.ToString()
+                    Lo_ID = maLo,
+                    Lo_Name = tenLo,
+                    Lo_Position = viTri,
+                    Kho_ID = maKho
                 };
 
-                var response = await loService.CapNhatLo(selectedLo.Lo_ID, loPut);
+                var response = loService.CapNhatLo(maLo, lo);
 
                 if (response.IsSuccessStatusCode)
                 {
-                    MessageBox.Show($"Cập nhật lô {txtQLLo_MaLo.Text.Trim()} thành công.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show($"Cập nhật lô {maLo} thành công.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     LoadDataGridView();
                 }
                 else
                 {
                     MessageBox.Show("Cập nhật lô thất bại. Vui lòng kiểm tra lại.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
+            }
+            else
+            {
+                return;
             }
         }
         private async void btnQLLo_Xoa_Click(object sender, EventArgs e)
@@ -326,17 +337,18 @@ namespace FormQLKH
         {
             if (dgvQLLo.SelectedRows.Count > 0)
             {
-                var selectedLo = dgvQLLo.SelectedRows[0].DataBoundItem as Lo;
+                DataGridViewRow selectedRow = dgvQLLo.SelectedRows[0];
 
-                if (selectedLo != null)
-                {
-                    txtQLLo_MaLo.Text = selectedLo.Lo_ID;
-                    cbQLLo_MaKho.SelectedItem = selectedLo.Kho_ID;
-                    txtQLLo_TenLo.Text = selectedLo.Lo_Name;
-                    cbQLLo_ViTri.SelectedItem = selectedLo.Lo_Position;
+                string maLo = Convert.ToString(selectedRow.Cells["Lo_ID"].Value);
+                string maKho = Convert.ToString(selectedRow.Cells["Kho_ID"].Value);
+                string tenLo = Convert.ToString(selectedRow.Cells["Lo_Name"].Value);
+                string viTri = Convert.ToString(selectedRow.Cells["Lo_Position"].Value);
 
-                    txtQLLo_MaLo.ReadOnly = true;
-                }
+                txtQLLo_MaLo.Text = maLo;
+                cbQLLo_ViTri.Text = viTri;
+                cbQLLo_MaKho.Text = maKho;
+                txtQLLo_TenLo.Text = tenLo;
+                txtQLLo_MaLo.ReadOnly = true;
             }
         }
         private int GetNumericPartOfMa(string ma)
@@ -357,7 +369,7 @@ namespace FormQLKH
         {
             try
             {
-                List<Lo> danhSachLo = await loService.LayDanhSachLo();
+                List<Lo> danhSachLo = loService.LayDSLo();
 
                 if (danhSachLo != null)
                 {

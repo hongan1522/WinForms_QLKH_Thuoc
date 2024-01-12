@@ -65,7 +65,6 @@ namespace WebAPI_QLKH.Controllers
             taiKhoan.Description = payload.Description;
             taiKhoan.RoleID = payload.RoleID;
             taiKhoan.UserName = payload.UserName;
-            taiKhoan.Password = payload.Password;
 
             try
             {

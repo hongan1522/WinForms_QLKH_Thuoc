@@ -1,3 +1,5 @@
+using FormQLKH;
+
 namespace WinFormsApp
 {
     public partial class FrmMain : Form

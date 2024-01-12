@@ -64,90 +64,237 @@ namespace FormQLKH
 
             frmLogin.Show();
         }
-        private void btnUser_Click(object sender, EventArgs e)
+        private async void btnUser_Click(object sender, EventArgs e)
         {
-            UC_QLTaiKhoan ucUser = new UC_QLTaiKhoan();
+            ucLoading.Dock = DockStyle.Fill;
+            pnlShowForm.Controls.Clear();
+            pnlShowForm.Controls.Add(ucLoading);
+            ucLoading.Show();
 
+            await Task.Delay(1000);
+
+            if (!workerLoadData.IsBusy)
+            {
+                workerLoadData.RunWorkerAsync();
+            }
+            else
+            {
+                return;
+            }
+
+            UC_QLTaiKhoan ucUser = new UC_QLTaiKhoan();
             pnlShowForm.Controls.Clear();
             ucUser.Parent = pnlShowForm;
             ucUser.Dock = DockStyle.Fill;
             ucUser.Show();
-        }
-        private void btnQLNV_Click(object sender, EventArgs e)
-        {
-            UC_QLNV ucNV = new UC_QLNV();
 
+            ucLoading.Hide();
+        }
+        private async void btnQLNV_Click(object sender, EventArgs e)
+        {
+            ucLoading.Dock = DockStyle.Fill;
+            pnlShowForm.Controls.Clear();
+            pnlShowForm.Controls.Add(ucLoading);
+            ucLoading.Show();
+
+            await Task.Delay(1000);
+
+            if (!workerLoadData.IsBusy)
+            {
+                workerLoadData.RunWorkerAsync();
+            }
+            else
+            {
+                return;
+            }
+
+            UC_QLNV ucNV = new UC_QLNV();
             pnlShowForm.Controls.Clear();
             ucNV.Parent = pnlShowForm;
             ucNV.Dock = DockStyle.Fill;
             ucNV.Show();
-        }
-        private void btnQLNT_Click(object sender, EventArgs e)
-        {
-            UC_QLNhomThuoc ucNT = new UC_QLNhomThuoc();
 
+            ucLoading.Hide();
+        }
+        private async void btnQLNT_Click(object sender, EventArgs e)
+        {
+            ucLoading.Dock = DockStyle.Fill;
+            pnlShowForm.Controls.Clear();
+            pnlShowForm.Controls.Add(ucLoading);
+            ucLoading.Show();
+
+            await Task.Delay(1000);
+
+            if (!workerLoadData.IsBusy)
+            {
+                workerLoadData.RunWorkerAsync();
+            }
+            else
+            {
+                return;
+            }
+
+            UC_QLNhomThuoc ucNT = new UC_QLNhomThuoc();
             pnlShowForm.Controls.Clear();
             ucNT.Parent = pnlShowForm;
             ucNT.Dock = DockStyle.Fill;
             ucNT.Show();
-        }
-        private void btnQLT_Click(object sender, EventArgs e)
-        {
-            UC_QLThuoc ucThuoc = new UC_QLThuoc();
 
+            ucLoading.Hide();
+        }
+        private async void btnQLT_Click(object sender, EventArgs e)
+        {
+            ucLoading.Dock = DockStyle.Fill;
+            pnlShowForm.Controls.Clear();
+            pnlShowForm.Controls.Add(ucLoading);
+            ucLoading.Show();
+
+            await Task.Delay(1000);
+
+            if (!workerLoadData.IsBusy)
+            {
+                workerLoadData.RunWorkerAsync();
+            }
+            else
+            {
+                return;
+            }
+
+            UC_QLThuoc ucThuoc = new UC_QLThuoc();
             pnlShowForm.Controls.Clear();
             ucThuoc.Parent = pnlShowForm;
             ucThuoc.Dock = DockStyle.Fill;
             ucThuoc.Show();
+            ucLoading.Hide();
         }
-        private void btnQLDX_Click(object sender, EventArgs e)
+        private async void btnQLDX_Click(object sender, EventArgs e)
         {
-            UC_QLDonXuat ucDX = new UC_QLDonXuat();
+            ucLoading.Dock = DockStyle.Fill;
+            pnlShowForm.Controls.Clear();
+            pnlShowForm.Controls.Add(ucLoading);
+            ucLoading.Show();
 
+            await Task.Delay(1000);
+
+            if (!workerLoadData.IsBusy)
+            {
+                workerLoadData.RunWorkerAsync();
+            }
+            else
+            {
+                return;
+            }
+
+            UC_QLDonXuat ucDX = new UC_QLDonXuat();
             pnlShowForm.Controls.Clear();
             ucDX.Parent = pnlShowForm;
             ucDX.Dock = DockStyle.Fill;
             ucDX.Show();
+            ucLoading.Hide();
         }
-        private void btnQLDN_Click(object sender, EventArgs e)
+        private async void btnQLDN_Click(object sender, EventArgs e)
         {
-            UC_QLDonNhap ucDN = new UC_QLDonNhap();
+            ucLoading.Dock = DockStyle.Fill;
+            pnlShowForm.Controls.Clear();
+            pnlShowForm.Controls.Add(ucLoading);
+            ucLoading.Show();
 
+            await Task.Delay(1000);
+
+            if (!workerLoadData.IsBusy)
+            {
+                workerLoadData.RunWorkerAsync();
+            }
+            else
+            {
+                return;
+            }
+
+            UC_QLDonNhap ucDN = new UC_QLDonNhap();
             pnlShowForm.Controls.Clear();
             ucDN.Parent = pnlShowForm;
             ucDN.Dock = DockStyle.Fill;
             ucDN.Show();
+            ucLoading.Hide();
         }
-        private void btnQLLo_Click(object sender, EventArgs e)
+        private async void btnQLLo_Click(object sender, EventArgs e)
         {
-            UC_QLLo ucLo = new UC_QLLo();
+            ucLoading.Dock = DockStyle.Fill;
+            pnlShowForm.Controls.Clear();
+            pnlShowForm.Controls.Add(ucLoading);
+            ucLoading.Show();
 
+            await Task.Delay(1000);
+
+            if (!workerLoadData.IsBusy)
+            {
+                workerLoadData.RunWorkerAsync();
+            }
+            else
+            {
+                return;
+            }
+
+            UC_QLLo ucLo = new UC_QLLo();
             pnlShowForm.Controls.Clear();
             ucLo.Parent = pnlShowForm;
             ucLo.Dock = DockStyle.Fill;
             ucLo.Show();
+            ucLoading.Hide();
         }
-        private void btnQLK_Click(object sender, EventArgs e)
+        private async void btnQLK_Click(object sender, EventArgs e)
         {
-            UC_QLKho ucKho = new UC_QLKho();
+            ucLoading.Dock = DockStyle.Fill;
+            pnlShowForm.Controls.Clear();
+            pnlShowForm.Controls.Add(ucLoading);
+            ucLoading.Show();
 
+            await Task.Delay(1000);
+
+            if (!workerLoadData.IsBusy)
+            {
+                workerLoadData.RunWorkerAsync();
+            }
+            else
+            {
+                return;
+            }
+
+            UC_QLKho ucKho = new UC_QLKho();
             pnlShowForm.Controls.Clear();
             ucKho.Parent = pnlShowForm;
             ucKho.Dock = DockStyle.Fill;
             ucKho.Show();
+            ucLoading.Hide();
         }
         private void btnQLCN_Click(object sender, EventArgs e)
         {
             ShowUC_QLChiNhanh();
         }
-        private void btnNCC_Click(object sender, EventArgs e)
+        private async void btnNCC_Click(object sender, EventArgs e)
         {
-            UC_NCC ucNCC = new UC_NCC();
+            ucLoading.Dock = DockStyle.Fill;
+            pnlShowForm.Controls.Clear();
+            pnlShowForm.Controls.Add(ucLoading);
+            ucLoading.Show();
 
+            await Task.Delay(1000);
+
+            if (!workerLoadData.IsBusy)
+            {
+                workerLoadData.RunWorkerAsync();
+            }
+            else
+            {
+                return;
+            }
+
+            UC_NCC ucNCC = new UC_NCC();
             pnlShowForm.Controls.Clear();
             ucNCC.Parent = pnlShowForm;
             ucNCC.Dock = DockStyle.Fill;
             ucNCC.Show();
+            ucLoading.Hide();
         }
 
         private bool isSubMenuVisible = true;

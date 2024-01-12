@@ -96,7 +96,6 @@ namespace WebAPI_QLKH.Controllers
                 NCC_Name = payload.NCC_Name?.Trim() ?? string.Empty,
                 NCC_Phone = payload.NCC_Phone?.Trim() ?? string.Empty,
                 NCC_Address = payload.NCC_Address?.Trim() ?? string.Empty, 
-                Quantity = payload.Quantity,
                 NCC_Status = payload.NCC_Status?.Trim() ?? string.Empty
             }).ToList();
 

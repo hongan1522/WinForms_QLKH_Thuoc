@@ -1,4 +1,5 @@
-﻿using Microsoft.VisualBasic.ApplicationServices;
+﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.VisualBasic.ApplicationServices;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -27,6 +28,7 @@ namespace FormQLKH
 
             LoadDataGridView();
             LoadComboBox();
+            LoadCbTrangThai();
         }
         private async void LoadDataGridView()
         {
@@ -98,15 +100,13 @@ namespace FormQLKH
                 string hoTen = Convert.ToString(selectedRow.Cells["NCC_Name"].Value);
                 string sdt = Convert.ToString(selectedRow.Cells["NCC_Phone"].Value);
                 string address = Convert.ToString(selectedRow.Cells["NCC_Address"].Value);
-                int sldn = Convert.ToInt32(selectedRow.Cells["Quantity"].Value);
                 string trangThai = Convert.ToString(selectedRow.Cells["NCC_Status"].Value);
 
                 txtNCC_MaNCC.Text = maNCC;
                 txtNCC_TenNCC.Text = hoTen;
                 txtNCC_SDT.Text = sdt;
                 txtNCC_DiaChi.Text = address;
-                numNCC_SoLuongDN.Value = sldn;
-                cbNCC_TK_MaNCC.Text = trangThai;
+                cbNCC_TrangThai.Text = trangThai;
                 txtNCC_MaNCC.ReadOnly = true;
             }
         }
@@ -128,18 +128,19 @@ namespace FormQLKH
                 {
                     cbNCC_TK_MaNCC.SelectedIndex = 0;
                 }
-
-                //Load cbNCC_TrangThai
-                cbNCC_TrangThai.Items.AddRange(new object[] { "Hoạt động", "Không hoạt động" });
-
-                cbNCC_TrangThai.SelectedIndex = 0;
-                cbNCC_TrangThai.DropDownStyle = ComboBoxStyle.DropDownList;
-
             }
             catch (Exception ex)
             {
                 MessageBox.Show($"Lỗi: {ex.Message}", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+        }
+        private void LoadCbTrangThai()
+        {
+            //Load cbNCC_TrangThai
+            cbNCC_TrangThai.Items.AddRange(new object[] { "Hoạt động", "Không hoạt động" });
+
+            cbNCC_TrangThai.SelectedIndex = 0;
+            cbNCC_TrangThai.DropDownStyle = ComboBoxStyle.DropDownList;
         }
         private string TaoMaNCCTuDong()
         {
@@ -201,7 +202,6 @@ namespace FormQLKH
             string tenNCC = txtNCC_TenNCC.Text.Trim();
             string sdt = txtNCC_SDT.Text.Trim();
             string diaChi = txtNCC_DiaChi.Text.Trim();
-            int soLuong = Convert.ToInt32(numNCC_SoLuongDN.Value);
             string trangThai = cbNCC_TrangThai.Text.Trim();
 
             string roleID = StateManager.RoleID?.Trim();
@@ -232,7 +232,6 @@ namespace FormQLKH
                     NCC_Name = tenNCC,
                     NCC_Address = diaChi,
                     NCC_Phone = sdt,
-                    Quantity = soLuong,
                     NCC_Status = trangThai
                 }
             };
@@ -298,7 +297,6 @@ namespace FormQLKH
             string tenNCC = txtNCC_TenNCC.Text.Trim();
             string sdt = txtNCC_SDT.Text.Trim();
             string diaChi = txtNCC_DiaChi.Text.Trim();
-            int soLuong = Convert.ToInt32(numNCC_SoLuongDN.Value);
             string trangThai = cbNCC_TrangThai.Text.Trim();
 
             string roleID = StateManager.RoleID?.Trim();
@@ -331,7 +329,6 @@ namespace FormQLKH
                     NCC_Address = diaChi,
                     NCC_Phone = sdt,
                     NCC_Name = tenNCC,
-                    Quantity = soLuong,
                     NCC_Status = trangThai
                 };
 
@@ -434,13 +431,6 @@ namespace FormQLKH
             if (e.KeyCode == Keys.Enter)
             {
                 btnNCC_TK.PerformClick();
-            }
-        }
-        private void numNCC_SoLuongDN_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
-            {
-                e.Handled = true;
             }
         }
     }

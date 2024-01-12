@@ -35,9 +35,7 @@
             splQLT_CN_HT = new SplitContainer();
             grbQLT_TK = new GroupBox();
             btnQLT_Them = new Button();
-            btnQLT_Export = new Button();
             btnQLT_Sua = new Button();
-            btnQLT_Import = new Button();
             btnQLT_Xoa = new Button();
             grbQLT_HT = new GroupBox();
             dgvQLT = new DataGridView();
@@ -54,6 +52,7 @@
             lbQLT_TenThuoc = new Label();
             lbQLT_MaThuoc = new Label();
             grbQLT_CN = new GroupBox();
+            linkQLT_CTT = new LinkLabel();
             cbQLT_TK_MaNhom = new ComboBox();
             cbQLT_TK_MaThuoc = new ComboBox();
             lbQLT_TK_MaNhom = new Label();
@@ -78,7 +77,7 @@
             // 
             // tlpQLT
             // 
-            tlpQLT.BackColor = SystemColors.Control;
+            tlpQLT.BackColor = Color.Transparent;
             tlpQLT.ColumnCount = 1;
             tlpQLT.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
             tlpQLT.Controls.Add(pnQLT, 0, 0);
@@ -119,6 +118,7 @@
             // 
             // splQLT_CN_HT
             // 
+            splQLT_CN_HT.BackColor = Color.Transparent;
             splQLT_CN_HT.Dock = DockStyle.Fill;
             splQLT_CN_HT.Location = new Point(3, 82);
             splQLT_CN_HT.Name = "splQLT_CN_HT";
@@ -137,10 +137,9 @@
             // 
             // grbQLT_TK
             // 
+            grbQLT_TK.BackColor = Color.Transparent;
             grbQLT_TK.Controls.Add(btnQLT_Them);
-            grbQLT_TK.Controls.Add(btnQLT_Export);
             grbQLT_TK.Controls.Add(btnQLT_Sua);
-            grbQLT_TK.Controls.Add(btnQLT_Import);
             grbQLT_TK.Controls.Add(btnQLT_Xoa);
             grbQLT_TK.Dock = DockStyle.Fill;
             grbQLT_TK.Location = new Point(0, 0);
@@ -167,22 +166,6 @@
             btnQLT_Them.UseVisualStyleBackColor = false;
             btnQLT_Them.Click += btnQLT_Them_Click;
             // 
-            // btnQLT_Export
-            // 
-            btnQLT_Export.BackColor = SystemColors.ButtonHighlight;
-            btnQLT_Export.FlatAppearance.BorderSize = 0;
-            btnQLT_Export.FlatStyle = FlatStyle.Popup;
-            btnQLT_Export.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
-            btnQLT_Export.ForeColor = SystemColors.ControlText;
-            btnQLT_Export.Image = Properties.Resources.export;
-            btnQLT_Export.ImageAlign = ContentAlignment.MiddleLeft;
-            btnQLT_Export.Location = new Point(1216, 54);
-            btnQLT_Export.Name = "btnQLT_Export";
-            btnQLT_Export.Size = new Size(169, 64);
-            btnQLT_Export.TabIndex = 9;
-            btnQLT_Export.Text = "Export";
-            btnQLT_Export.UseVisualStyleBackColor = false;
-            // 
             // btnQLT_Sua
             // 
             btnQLT_Sua.BackColor = SystemColors.ButtonHighlight;
@@ -192,29 +175,13 @@
             btnQLT_Sua.ForeColor = SystemColors.ControlText;
             btnQLT_Sua.Image = Properties.Resources.update;
             btnQLT_Sua.ImageAlign = ContentAlignment.MiddleLeft;
-            btnQLT_Sua.Location = new Point(346, 54);
+            btnQLT_Sua.Location = new Point(624, 54);
             btnQLT_Sua.Name = "btnQLT_Sua";
             btnQLT_Sua.Size = new Size(169, 64);
             btnQLT_Sua.TabIndex = 11;
             btnQLT_Sua.Text = "Sửa";
             btnQLT_Sua.UseVisualStyleBackColor = false;
             btnQLT_Sua.Click += btnQLT_Sua_Click;
-            // 
-            // btnQLT_Import
-            // 
-            btnQLT_Import.BackColor = SystemColors.ButtonHighlight;
-            btnQLT_Import.FlatAppearance.BorderSize = 0;
-            btnQLT_Import.FlatStyle = FlatStyle.Popup;
-            btnQLT_Import.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
-            btnQLT_Import.ForeColor = SystemColors.ControlText;
-            btnQLT_Import.Image = Properties.Resources.import;
-            btnQLT_Import.ImageAlign = ContentAlignment.MiddleLeft;
-            btnQLT_Import.Location = new Point(926, 54);
-            btnQLT_Import.Name = "btnQLT_Import";
-            btnQLT_Import.Size = new Size(169, 64);
-            btnQLT_Import.TabIndex = 10;
-            btnQLT_Import.Text = "Import";
-            btnQLT_Import.UseVisualStyleBackColor = false;
             // 
             // btnQLT_Xoa
             // 
@@ -225,7 +192,7 @@
             btnQLT_Xoa.ForeColor = SystemColors.ControlText;
             btnQLT_Xoa.Image = Properties.Resources.delete;
             btnQLT_Xoa.ImageAlign = ContentAlignment.MiddleLeft;
-            btnQLT_Xoa.Location = new Point(636, 54);
+            btnQLT_Xoa.Location = new Point(1217, 54);
             btnQLT_Xoa.Name = "btnQLT_Xoa";
             btnQLT_Xoa.Size = new Size(169, 64);
             btnQLT_Xoa.TabIndex = 7;
@@ -302,7 +269,6 @@
             // splQLT_TT_TK
             // 
             splQLT_TT_TK.BackColor = Color.Transparent;
-            splQLT_TT_TK.BackgroundImage = Properties.Resources.bg;
             splQLT_TT_TK.Dock = DockStyle.Fill;
             splQLT_TT_TK.Location = new Point(0, 0);
             splQLT_TT_TK.Name = "splQLT_TT_TK";
@@ -394,6 +360,7 @@
             // 
             // grbQLT_CN
             // 
+            grbQLT_CN.Controls.Add(linkQLT_CTT);
             grbQLT_CN.Controls.Add(cbQLT_TK_MaNhom);
             grbQLT_CN.Controls.Add(cbQLT_TK_MaThuoc);
             grbQLT_CN.Controls.Add(lbQLT_TK_MaNhom);
@@ -406,10 +373,21 @@
             grbQLT_CN.TabStop = false;
             grbQLT_CN.Text = "Tìm kiếm";
             // 
+            // linkQLT_CTT
+            // 
+            linkQLT_CTT.AutoSize = true;
+            linkQLT_CTT.Location = new Point(359, 259);
+            linkQLT_CTT.Name = "linkQLT_CTT";
+            linkQLT_CTT.Size = new Size(176, 37);
+            linkQLT_CTT.TabIndex = 8;
+            linkQLT_CTT.TabStop = true;
+            linkQLT_CTT.Text = "Chi tiết thuốc";
+            linkQLT_CTT.Click += linkQLT_CTT_Click;
+            // 
             // cbQLT_TK_MaNhom
             // 
             cbQLT_TK_MaNhom.FormattingEnabled = true;
-            cbQLT_TK_MaNhom.Location = new Point(242, 212);
+            cbQLT_TK_MaNhom.Location = new Point(242, 166);
             cbQLT_TK_MaNhom.Name = "cbQLT_TK_MaNhom";
             cbQLT_TK_MaNhom.Size = new Size(297, 45);
             cbQLT_TK_MaNhom.TabIndex = 7;
@@ -430,7 +408,7 @@
             lbQLT_TK_MaNhom.BackColor = SystemColors.Control;
             lbQLT_TK_MaNhom.BorderStyle = BorderStyle.Fixed3D;
             lbQLT_TK_MaNhom.Font = new Font("Segoe UI Semibold", 10.125F, FontStyle.Bold, GraphicsUnit.Point);
-            lbQLT_TK_MaNhom.Location = new Point(59, 212);
+            lbQLT_TK_MaNhom.Location = new Point(59, 166);
             lbQLT_TK_MaNhom.Name = "lbQLT_TK_MaNhom";
             lbQLT_TK_MaNhom.Size = new Size(137, 39);
             lbQLT_TK_MaNhom.TabIndex = 5;
@@ -452,6 +430,8 @@
             // 
             AutoScaleDimensions = new SizeF(13F, 32F);
             AutoScaleMode = AutoScaleMode.Font;
+            BackColor = Color.Transparent;
+            BackgroundImage = Properties.Resources.bg;
             Controls.Add(tlpQLT);
             Name = "UC_QLThuoc";
             Size = new Size(1448, 1082);
@@ -496,9 +476,7 @@
         private Label lbQLT_MaThuoc;
         private GroupBox grbQLT_CN;
         private Button btnQLT_Sua;
-        private Button btnQLT_Export;
         private Button btnQLT_Them;
-        private Button btnQLT_Import;
         private Button btnQLT_Xoa;
         private Label lbQLT_TK_MaNhom;
         private Label lbQLT_TK_MaThuoc;
@@ -508,5 +486,6 @@
         private ComboBox cbQLT_TK_MaThuoc;
         private ComboBox cbQLT_MaNhom;
         private ComboBox cbQLT_TK_MaNhom;
+        private LinkLabel linkQLT_CTT;
     }
 }

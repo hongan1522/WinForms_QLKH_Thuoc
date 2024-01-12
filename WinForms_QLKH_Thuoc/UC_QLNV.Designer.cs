@@ -74,9 +74,7 @@
             lbQLNV_TK_HoTen = new Label();
             lbQLNV_TK_MaNV = new Label();
             grbQLNV_CN = new GroupBox();
-            btnQLNV_Export = new Button();
             btnQLNV_Them = new Button();
-            btnQLNV_Import = new Button();
             btnQLNV_Sua = new Button();
             btnQLNV_Xoa = new Button();
             tlpQLNV.SuspendLayout();
@@ -589,9 +587,7 @@
             // 
             // grbQLNV_CN
             // 
-            grbQLNV_CN.Controls.Add(btnQLNV_Export);
             grbQLNV_CN.Controls.Add(btnQLNV_Them);
-            grbQLNV_CN.Controls.Add(btnQLNV_Import);
             grbQLNV_CN.Controls.Add(btnQLNV_Sua);
             grbQLNV_CN.Controls.Add(btnQLNV_Xoa);
             grbQLNV_CN.Dock = DockStyle.Fill;
@@ -602,22 +598,6 @@
             grbQLNV_CN.TabStop = false;
             grbQLNV_CN.Text = "Chức năng";
             // 
-            // btnQLNV_Export
-            // 
-            btnQLNV_Export.BackColor = SystemColors.ButtonHighlight;
-            btnQLNV_Export.FlatAppearance.BorderColor = Color.Gainsboro;
-            btnQLNV_Export.FlatAppearance.BorderSize = 0;
-            btnQLNV_Export.FlatStyle = FlatStyle.Popup;
-            btnQLNV_Export.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
-            btnQLNV_Export.Image = Properties.Resources.export;
-            btnQLNV_Export.ImageAlign = ContentAlignment.MiddleLeft;
-            btnQLNV_Export.Location = new Point(467, 145);
-            btnQLNV_Export.Name = "btnQLNV_Export";
-            btnQLNV_Export.Size = new Size(169, 58);
-            btnQLNV_Export.TabIndex = 11;
-            btnQLNV_Export.Text = "Export";
-            btnQLNV_Export.UseVisualStyleBackColor = false;
-            // 
             // btnQLNV_Them
             // 
             btnQLNV_Them.BackColor = SystemColors.ButtonHighlight;
@@ -627,29 +607,13 @@
             btnQLNV_Them.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
             btnQLNV_Them.Image = Properties.Resources.add;
             btnQLNV_Them.ImageAlign = ContentAlignment.MiddleLeft;
-            btnQLNV_Them.Location = new Point(45, 56);
+            btnQLNV_Them.Location = new Point(54, 103);
             btnQLNV_Them.Name = "btnQLNV_Them";
             btnQLNV_Them.Size = new Size(169, 58);
             btnQLNV_Them.TabIndex = 7;
             btnQLNV_Them.Text = " Thêm";
             btnQLNV_Them.UseVisualStyleBackColor = false;
             btnQLNV_Them.Click += btnQLNV_Them_Click;
-            // 
-            // btnQLNV_Import
-            // 
-            btnQLNV_Import.BackColor = SystemColors.ButtonHighlight;
-            btnQLNV_Import.FlatAppearance.BorderColor = Color.Gainsboro;
-            btnQLNV_Import.FlatAppearance.BorderSize = 0;
-            btnQLNV_Import.FlatStyle = FlatStyle.Popup;
-            btnQLNV_Import.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
-            btnQLNV_Import.Image = Properties.Resources.import;
-            btnQLNV_Import.ImageAlign = ContentAlignment.MiddleLeft;
-            btnQLNV_Import.Location = new Point(184, 145);
-            btnQLNV_Import.Name = "btnQLNV_Import";
-            btnQLNV_Import.Size = new Size(169, 58);
-            btnQLNV_Import.TabIndex = 10;
-            btnQLNV_Import.Text = "Import";
-            btnQLNV_Import.UseVisualStyleBackColor = false;
             // 
             // btnQLNV_Sua
             // 
@@ -660,7 +624,7 @@
             btnQLNV_Sua.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
             btnQLNV_Sua.Image = Properties.Resources.update;
             btnQLNV_Sua.ImageAlign = ContentAlignment.MiddleLeft;
-            btnQLNV_Sua.Location = new Point(322, 56);
+            btnQLNV_Sua.Location = new Point(331, 103);
             btnQLNV_Sua.Name = "btnQLNV_Sua";
             btnQLNV_Sua.Size = new Size(169, 58);
             btnQLNV_Sua.TabIndex = 8;
@@ -677,7 +641,7 @@
             btnQLNV_Xoa.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
             btnQLNV_Xoa.Image = Properties.Resources.delete;
             btnQLNV_Xoa.ImageAlign = ContentAlignment.MiddleLeft;
-            btnQLNV_Xoa.Location = new Point(599, 56);
+            btnQLNV_Xoa.Location = new Point(608, 103);
             btnQLNV_Xoa.Name = "btnQLNV_Xoa";
             btnQLNV_Xoa.Size = new Size(169, 58);
             btnQLNV_Xoa.TabIndex = 9;
@@ -745,9 +709,7 @@
         private GroupBox grbQLNV_TK;
         private TextBox txtQLNV_TK_TenNV;
         private GroupBox grbQLNV_CN;
-        private Button btnQLNV_Export;
         private Button btnQLNV_Them;
-        private Button btnQLNV_Import;
         private Button btnQLNV_Sua;
         private Button btnQLNV_Xoa;
         private Label lbQLNV_TK_HoTen;

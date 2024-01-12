@@ -49,20 +49,18 @@
             lbQLTK_TK_UserID = new Label();
             lbQLTK_TK_RoleID = new Label();
             grbQLTK_CN = new GroupBox();
-            btnQLTK_Export = new Button();
-            btnQLTK_Import = new Button();
             btnQLTK_Xoa = new Button();
             btnQLTK_Sua = new Button();
             btnQLTK_Them = new Button();
             grbQLTK_HT = new GroupBox();
             dgvQLTK = new DataGridView();
-            pnQLTK = new Panel();
-            lbQLTK = new Label();
             UserID = new DataGridViewTextBoxColumn();
             RoleID = new DataGridViewTextBoxColumn();
             UserName = new DataGridViewTextBoxColumn();
             GhiChu = new DataGridViewTextBoxColumn();
             Password = new DataGridViewTextBoxColumn();
+            pnQLTK = new Panel();
+            lbQLTK = new Label();
             tlpQLTK.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)splQLTK_TTTK_CN).BeginInit();
             splQLTK_TTTK_CN.Panel1.SuspendLayout();
@@ -314,8 +312,6 @@
             // 
             // grbQLTK_CN
             // 
-            grbQLTK_CN.Controls.Add(btnQLTK_Export);
-            grbQLTK_CN.Controls.Add(btnQLTK_Import);
             grbQLTK_CN.Controls.Add(btnQLTK_Xoa);
             grbQLTK_CN.Controls.Add(btnQLTK_Sua);
             grbQLTK_CN.Controls.Add(btnQLTK_Them);
@@ -326,34 +322,6 @@
             grbQLTK_CN.TabStop = false;
             grbQLTK_CN.Text = "Chức năng";
             // 
-            // btnQLTK_Export
-            // 
-            btnQLTK_Export.BackColor = SystemColors.ButtonHighlight;
-            btnQLTK_Export.FlatStyle = FlatStyle.Popup;
-            btnQLTK_Export.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
-            btnQLTK_Export.Image = Properties.Resources.export;
-            btnQLTK_Export.ImageAlign = ContentAlignment.MiddleLeft;
-            btnQLTK_Export.Location = new Point(36, 433);
-            btnQLTK_Export.Name = "btnQLTK_Export";
-            btnQLTK_Export.Size = new Size(169, 64);
-            btnQLTK_Export.TabIndex = 14;
-            btnQLTK_Export.Text = "Export";
-            btnQLTK_Export.UseVisualStyleBackColor = false;
-            // 
-            // btnQLTK_Import
-            // 
-            btnQLTK_Import.BackColor = SystemColors.ButtonHighlight;
-            btnQLTK_Import.FlatStyle = FlatStyle.Popup;
-            btnQLTK_Import.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
-            btnQLTK_Import.Image = Properties.Resources.import;
-            btnQLTK_Import.ImageAlign = ContentAlignment.MiddleLeft;
-            btnQLTK_Import.Location = new Point(36, 338);
-            btnQLTK_Import.Name = "btnQLTK_Import";
-            btnQLTK_Import.Size = new Size(169, 64);
-            btnQLTK_Import.TabIndex = 13;
-            btnQLTK_Import.Text = "Import";
-            btnQLTK_Import.UseVisualStyleBackColor = false;
-            // 
             // btnQLTK_Xoa
             // 
             btnQLTK_Xoa.BackColor = SystemColors.ButtonHighlight;
@@ -361,7 +329,7 @@
             btnQLTK_Xoa.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
             btnQLTK_Xoa.Image = Properties.Resources.delete;
             btnQLTK_Xoa.ImageAlign = ContentAlignment.MiddleLeft;
-            btnQLTK_Xoa.Location = new Point(36, 243);
+            btnQLTK_Xoa.Location = new Point(36, 439);
             btnQLTK_Xoa.Name = "btnQLTK_Xoa";
             btnQLTK_Xoa.Size = new Size(169, 64);
             btnQLTK_Xoa.TabIndex = 12;
@@ -376,7 +344,7 @@
             btnQLTK_Sua.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
             btnQLTK_Sua.Image = Properties.Resources.update;
             btnQLTK_Sua.ImageAlign = ContentAlignment.MiddleLeft;
-            btnQLTK_Sua.Location = new Point(36, 147);
+            btnQLTK_Sua.Location = new Point(36, 259);
             btnQLTK_Sua.Name = "btnQLTK_Sua";
             btnQLTK_Sua.Size = new Size(169, 64);
             btnQLTK_Sua.TabIndex = 11;
@@ -391,7 +359,7 @@
             btnQLTK_Them.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
             btnQLTK_Them.Image = Properties.Resources.add;
             btnQLTK_Them.ImageAlign = ContentAlignment.MiddleLeft;
-            btnQLTK_Them.Location = new Point(36, 52);
+            btnQLTK_Them.Location = new Point(36, 79);
             btnQLTK_Them.Name = "btnQLTK_Them";
             btnQLTK_Them.Size = new Size(169, 64);
             btnQLTK_Them.TabIndex = 10;
@@ -435,27 +403,6 @@
             dgvQLTK.RowPostPaint += dgvQLTK_RowPostPaint;
             dgvQLTK.SelectionChanged += dgvQLTK_SelectionChanged;
             // 
-            // pnQLTK
-            // 
-            pnQLTK.BackColor = Color.FromArgb(15, 142, 219);
-            pnQLTK.Controls.Add(lbQLTK);
-            pnQLTK.Dock = DockStyle.Fill;
-            pnQLTK.Location = new Point(3, 3);
-            pnQLTK.Name = "pnQLTK";
-            pnQLTK.Size = new Size(1442, 87);
-            pnQLTK.TabIndex = 3;
-            // 
-            // lbQLTK
-            // 
-            lbQLTK.AutoSize = true;
-            lbQLTK.Font = new Font("Segoe UI", 13.875F, FontStyle.Bold, GraphicsUnit.Point);
-            lbQLTK.ForeColor = SystemColors.ButtonHighlight;
-            lbQLTK.Location = new Point(510, 15);
-            lbQLTK.Name = "lbQLTK";
-            lbQLTK.Size = new Size(394, 50);
-            lbQLTK.TabIndex = 0;
-            lbQLTK.Text = "QUẢN LÝ TÀI KHOẢN";
-            // 
             // UserID
             // 
             UserID.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
@@ -492,6 +439,27 @@
             Password.MinimumWidth = 10;
             Password.Name = "Password";
             Password.Visible = false;
+            // 
+            // pnQLTK
+            // 
+            pnQLTK.BackColor = Color.FromArgb(15, 142, 219);
+            pnQLTK.Controls.Add(lbQLTK);
+            pnQLTK.Dock = DockStyle.Fill;
+            pnQLTK.Location = new Point(3, 3);
+            pnQLTK.Name = "pnQLTK";
+            pnQLTK.Size = new Size(1442, 87);
+            pnQLTK.TabIndex = 3;
+            // 
+            // lbQLTK
+            // 
+            lbQLTK.AutoSize = true;
+            lbQLTK.Font = new Font("Segoe UI", 13.875F, FontStyle.Bold, GraphicsUnit.Point);
+            lbQLTK.ForeColor = SystemColors.ButtonHighlight;
+            lbQLTK.Location = new Point(510, 15);
+            lbQLTK.Name = "lbQLTK";
+            lbQLTK.Size = new Size(394, 50);
+            lbQLTK.TabIndex = 0;
+            lbQLTK.Text = "QUẢN LÝ TÀI KHOẢN";
             // 
             // UC_QLTaiKhoan
             // 
@@ -541,13 +509,10 @@
         private Label lbQLTK_RoleID;
         private Label lbQLTK_UserID;
         private GroupBox grbQLTK_CN;
-        private Button btnQLTK_Export;
-        private Button btnQLTK_Import;
         private Button btnQLTK_Xoa;
         private Button btnQLTK_Sua;
         private Button btnQLTK_Them;
         private ComboBox cbQLTK_RoleID;
-        private ComboBox comboBox2;
         private GroupBox grbQLTK_TK;
         private ComboBox cbQLTK_TK_RoleID;
         private Label lbQLTK_TK_UserID;

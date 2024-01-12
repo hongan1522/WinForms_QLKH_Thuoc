@@ -17,12 +17,6 @@ namespace WebAPI_QLKH.Controllers
         public string Kho_ID { get; set; }
     }
 
-    public class LoPut
-    {
-        public string Lo_Name { get; set; }
-        public string Lo_Position { get; set; }
-    }
-
     [Route("api/[controller]")]
     [ApiController]
     public class LoController : ControllerBase
@@ -36,10 +30,13 @@ namespace WebAPI_QLKH.Controllers
 
         // GET: api/Lo
         [HttpGet]
-        public IActionResult GetLo()
+        public async Task<ActionResult<IEnumerable<Lo>>> GetLo()
         {
-            var lo = _context.Lo.ToList();
-            return Ok(lo);
+            if (_context.Lo == null)
+            {
+                return NotFound();
+            }
+            return await _context.Lo.ToListAsync();
         }
 
         // GET: api/Lo/5
@@ -76,17 +73,12 @@ namespace WebAPI_QLKH.Controllers
 
         // PUT: api/Lo/5
         [HttpPut("{id}")]
-        public async Task<IActionResult> PutLo(string id, LoPut loPut)
+        public async Task<IActionResult> PutLo(string id, Lo lo)
         {
-            var lo = await _context.Lo.FindAsync(id);
-
-            if (lo == null)
+            if (id != lo.Lo_ID)
             {
-                return NotFound();
+                return BadRequest();
             }
-
-            lo.Lo_Name = loPut.Lo_Name;
-            lo.Lo_Position = loPut.Lo_Position;
 
             _context.Entry(lo).State = EntityState.Modified;
 

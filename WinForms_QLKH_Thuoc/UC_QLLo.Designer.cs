@@ -35,15 +35,13 @@
             splQLLo_HT_CN = new SplitContainer();
             gpbQLLo_HT = new GroupBox();
             dgvQLLo = new DataGridView();
-            MaLo = new DataGridViewTextBoxColumn();
-            MaKho = new DataGridViewTextBoxColumn();
-            TenLo = new DataGridViewTextBoxColumn();
-            ViTri = new DataGridViewTextBoxColumn();
+            Lo_ID = new DataGridViewTextBoxColumn();
+            Kho_ID = new DataGridViewTextBoxColumn();
+            Lo_Name = new DataGridViewTextBoxColumn();
+            Lo_Position = new DataGridViewTextBoxColumn();
             gpbQLLo_CN = new GroupBox();
             btnQLLo_Them = new Button();
-            btnQLLo_Export = new Button();
             btnQLLo_Sua = new Button();
-            btnQLLo_Import = new Button();
             btnQLLo_Xoa = new Button();
             splQLLo_TT_TK = new SplitContainer();
             gpbQLLo_TT = new GroupBox();
@@ -160,7 +158,7 @@
             dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
             dgvQLLo.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             dgvQLLo.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgvQLLo.Columns.AddRange(new DataGridViewColumn[] { MaLo, MaKho, TenLo, ViTri });
+            dgvQLLo.Columns.AddRange(new DataGridViewColumn[] { Lo_ID, Kho_ID, Lo_Name, Lo_Position });
             dgvQLLo.Dock = DockStyle.Fill;
             dgvQLLo.Location = new Point(3, 39);
             dgvQLLo.Name = "dgvQLLo";
@@ -172,40 +170,38 @@
             dgvQLLo.RowPostPaint += dgvQLLo_RowPostPaint;
             dgvQLLo.SelectionChanged += dgvQLLo_SelectionChanged;
             // 
-            // MaLo
+            // Lo_ID
             // 
-            MaLo.DataPropertyName = "Lo_ID";
-            MaLo.HeaderText = "Mã lô";
-            MaLo.MinimumWidth = 10;
-            MaLo.Name = "MaLo";
+            Lo_ID.DataPropertyName = "Lo_ID";
+            Lo_ID.HeaderText = "Mã lô";
+            Lo_ID.MinimumWidth = 10;
+            Lo_ID.Name = "Lo_ID";
             // 
-            // MaKho
+            // Kho_ID
             // 
-            MaKho.DataPropertyName = "Kho_ID";
-            MaKho.HeaderText = "Mã kho";
-            MaKho.MinimumWidth = 10;
-            MaKho.Name = "MaKho";
+            Kho_ID.DataPropertyName = "Kho_ID";
+            Kho_ID.HeaderText = "Mã kho";
+            Kho_ID.MinimumWidth = 10;
+            Kho_ID.Name = "Kho_ID";
             // 
-            // TenLo
+            // Lo_Name
             // 
-            TenLo.DataPropertyName = "Lo_Name";
-            TenLo.HeaderText = "Tên lô";
-            TenLo.MinimumWidth = 10;
-            TenLo.Name = "TenLo";
+            Lo_Name.DataPropertyName = "Lo_Name";
+            Lo_Name.HeaderText = "Tên lô";
+            Lo_Name.MinimumWidth = 10;
+            Lo_Name.Name = "Lo_Name";
             // 
-            // ViTri
+            // Lo_Position
             // 
-            ViTri.DataPropertyName = "Lo_Position";
-            ViTri.HeaderText = "Vị trí ";
-            ViTri.MinimumWidth = 10;
-            ViTri.Name = "ViTri";
+            Lo_Position.DataPropertyName = "Lo_Position";
+            Lo_Position.HeaderText = "Vị trí ";
+            Lo_Position.MinimumWidth = 10;
+            Lo_Position.Name = "Lo_Position";
             // 
             // gpbQLLo_CN
             // 
             gpbQLLo_CN.Controls.Add(btnQLLo_Them);
-            gpbQLLo_CN.Controls.Add(btnQLLo_Export);
             gpbQLLo_CN.Controls.Add(btnQLLo_Sua);
-            gpbQLLo_CN.Controls.Add(btnQLLo_Import);
             gpbQLLo_CN.Controls.Add(btnQLLo_Xoa);
             gpbQLLo_CN.Dock = DockStyle.Fill;
             gpbQLLo_CN.Location = new Point(0, 0);
@@ -223,28 +219,13 @@
             btnQLLo_Them.Font = new Font("Segoe UI", 10.125F, FontStyle.Bold, GraphicsUnit.Point);
             btnQLLo_Them.Image = Properties.Resources.add;
             btnQLLo_Them.ImageAlign = ContentAlignment.MiddleLeft;
-            btnQLLo_Them.Location = new Point(34, 62);
+            btnQLLo_Them.Location = new Point(32, 69);
             btnQLLo_Them.Name = "btnQLLo_Them";
             btnQLLo_Them.Size = new Size(182, 58);
             btnQLLo_Them.TabIndex = 24;
             btnQLLo_Them.Text = "Thêm";
             btnQLLo_Them.UseVisualStyleBackColor = false;
             btnQLLo_Them.Click += btnQLLo_Them_Click;
-            // 
-            // btnQLLo_Export
-            // 
-            btnQLLo_Export.BackColor = SystemColors.ButtonHighlight;
-            btnQLLo_Export.FlatAppearance.BorderSize = 0;
-            btnQLLo_Export.FlatStyle = FlatStyle.Popup;
-            btnQLLo_Export.Font = new Font("Segoe UI", 10.125F, FontStyle.Bold, GraphicsUnit.Point);
-            btnQLLo_Export.Image = Properties.Resources.export;
-            btnQLLo_Export.ImageAlign = ContentAlignment.MiddleLeft;
-            btnQLLo_Export.Location = new Point(34, 614);
-            btnQLLo_Export.Name = "btnQLLo_Export";
-            btnQLLo_Export.Size = new Size(182, 58);
-            btnQLLo_Export.TabIndex = 28;
-            btnQLLo_Export.Text = "Export";
-            btnQLLo_Export.UseVisualStyleBackColor = false;
             // 
             // btnQLLo_Sua
             // 
@@ -254,28 +235,13 @@
             btnQLLo_Sua.Font = new Font("Segoe UI", 10.125F, FontStyle.Bold, GraphicsUnit.Point);
             btnQLLo_Sua.Image = Properties.Resources.update;
             btnQLLo_Sua.ImageAlign = ContentAlignment.MiddleLeft;
-            btnQLLo_Sua.Location = new Point(34, 200);
+            btnQLLo_Sua.Location = new Point(32, 349);
             btnQLLo_Sua.Name = "btnQLLo_Sua";
             btnQLLo_Sua.Size = new Size(182, 58);
             btnQLLo_Sua.TabIndex = 25;
             btnQLLo_Sua.Text = "Sửa";
             btnQLLo_Sua.UseVisualStyleBackColor = false;
             btnQLLo_Sua.Click += btnQLLo_Sua_Click;
-            // 
-            // btnQLLo_Import
-            // 
-            btnQLLo_Import.BackColor = SystemColors.ButtonHighlight;
-            btnQLLo_Import.FlatAppearance.BorderSize = 0;
-            btnQLLo_Import.FlatStyle = FlatStyle.Popup;
-            btnQLLo_Import.Font = new Font("Segoe UI", 10.125F, FontStyle.Bold, GraphicsUnit.Point);
-            btnQLLo_Import.Image = Properties.Resources.import;
-            btnQLLo_Import.ImageAlign = ContentAlignment.MiddleLeft;
-            btnQLLo_Import.Location = new Point(34, 476);
-            btnQLLo_Import.Name = "btnQLLo_Import";
-            btnQLLo_Import.Size = new Size(182, 58);
-            btnQLLo_Import.TabIndex = 27;
-            btnQLLo_Import.Text = "Import";
-            btnQLLo_Import.UseVisualStyleBackColor = false;
             // 
             // btnQLLo_Xoa
             // 
@@ -285,7 +251,7 @@
             btnQLLo_Xoa.Font = new Font("Segoe UI", 10.125F, FontStyle.Bold, GraphicsUnit.Point);
             btnQLLo_Xoa.Image = Properties.Resources.delete;
             btnQLLo_Xoa.ImageAlign = ContentAlignment.MiddleLeft;
-            btnQLLo_Xoa.Location = new Point(34, 338);
+            btnQLLo_Xoa.Location = new Point(32, 629);
             btnQLLo_Xoa.Name = "btnQLLo_Xoa";
             btnQLLo_Xoa.Size = new Size(182, 58);
             btnQLLo_Xoa.TabIndex = 26;
@@ -515,18 +481,16 @@
         private Label lbQLLo_MaLo;
         private GroupBox gpbQLLo_TK;
         private Button btnQLLo_Them;
-        private Button btnQLLo_Export;
         private Button btnQLLo_Sua;
-        private Button btnQLLo_Import;
         private Button btnQLLo_Xoa;
         private Label lbQLLo_TK_MaKho;
         private Label lbQLLo_TK_MaLo;
         private ComboBox cbQLLo_MaKho;
-        private DataGridViewTextBoxColumn MaLo;
-        private DataGridViewTextBoxColumn MaKho;
-        private DataGridViewTextBoxColumn TenLo;
-        private DataGridViewTextBoxColumn ViTri;
         private ComboBox cbQLLo_TK_MaKho;
         private ComboBox cbQLLo_TK_MaLo;
+        private DataGridViewTextBoxColumn Lo_ID;
+        private DataGridViewTextBoxColumn Kho_ID;
+        private DataGridViewTextBoxColumn Lo_Name;
+        private DataGridViewTextBoxColumn Lo_Position;
     }
 }

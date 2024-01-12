@@ -16,7 +16,7 @@ namespace WebAPI_QLKH.Services
             _restClient = new RestClient(baseUrl);
         }
 
-        public async Task<List<Lo>> LayDanhSachLo()
+        public List<Lo> LayDSLo()
         {
             var request = new RestRequest("api/Lo", Method.Get);
             var response = _restClient.Execute<List<Lo>>(request);
@@ -38,12 +38,11 @@ namespace WebAPI_QLKH.Services
 
             return await _restClient.ExecuteAsync(request);
         }
-        public async Task<RestResponse> CapNhatLo(string id, LoPut loPut)
+        public RestResponse CapNhatLo(string id, Lo payload)
         {
-            var request = new RestRequest($"api/Lo/{id}", Method.Put)
-                .AddJsonBody(loPut);
-
-            return await _restClient.ExecuteAsync(request);
+            var request = new RestRequest($"api/Lo/{id}", Method.Put);
+            request.AddJsonBody(payload);
+            return _restClient.Execute(request);
         }
         public RestResponse XoaLo(string id)
         {
