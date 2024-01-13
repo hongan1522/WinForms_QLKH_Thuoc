@@ -21,8 +21,8 @@ namespace FormQLKH
         {
             if (e.CloseReason == CloseReason.UserClosing)
             {
-                e.Cancel = true; 
-                Hide(); 
+                e.Cancel = true;
+                Hide();
             }
         }
 

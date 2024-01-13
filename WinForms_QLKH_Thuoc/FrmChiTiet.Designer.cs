@@ -39,7 +39,7 @@
             MaximizeBox = false;
             MinimizeBox = false;
             Name = "FrmChiTiet";
-            Text = "Frm_ChiTiet";
+            Text = "Chi tiết";
             FormClosing += FrmChiTiet_FormClosing;
             ResumeLayout(false);
         }
