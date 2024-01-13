@@ -132,16 +132,6 @@ namespace WebAPI_QLKH.Controllers
 
             return NoContent();
         }
-        private void UpdateLo_ID(string currentID, string newID)
-        {
-            _context.ChiTietDonNhap.Where(ctdn => ctdn.Lo_ID == currentID)
-                .ToList()
-                .ForEach(ctdn => ctdn.Lo_ID = newID);
-
-            _context.ChiTietThuoc.Where(ctt => ctt.Lo_ID == currentID)
-                .ToList()
-                .ForEach(ctt => ctt.Lo_ID = newID);
-        }
 
         private bool LoExists(string id)
         {
