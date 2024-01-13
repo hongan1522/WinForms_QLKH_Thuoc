@@ -13,6 +13,7 @@
 ![z5069067047988_786971ce2f32e1bb474213c1b820ad44](https://github.com/hongan1522/WinForms_QLKH_Thuoc/assets/95673805/573be5c6-7a4b-48e7-a5e9-43e909b7935e)
 
 Nhấn vào "Configure Startup Projects..." -> chọn "Multiple Startup Projects" -> đặt Action hai project "FromQLKH", "WebAPI_QLKH" là "Start"
+
 8. Trong file "appsetting.json" ở project "WebAPI_QLKH", thay đổi đường dẫn liên kết tới cơ sở dữ liệu MyConnection: "Data Source = Tên Sever Name SQL Server của bạn;"
 9. Xong các bước trên thì bạn có thể chạy ứng dụng
 
