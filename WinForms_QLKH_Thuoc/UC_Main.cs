@@ -370,6 +370,30 @@ namespace FormQLKH
         {
             ToggleQLNV();
         }
+
+        private void ToggleQLCT()
+        {
+            if (isSubMenuVisible)
+            {
+                pnlSubMenuQLCT.Visible = false;
+                pbArrowQLCT.Image = Properties.Resources.up_arrow;
+            }
+            else
+            {
+                pnlSubMenuQLCT.Visible = true;
+                pbArrowQLCT.Image = Properties.Resources.down_arrow;
+            }
+
+            isSubMenuVisible = !isSubMenuVisible;
+        }
+        private void pbArrowQLCT_Click(object sender, EventArgs e)
+        {
+            ToggleQLCT();
+        }
+        private void btnQLCT_Click(object sender, EventArgs e)
+        {
+            ToggleQLCT();
+        }
         public void ShowUserNameLabel(string userName, string roleID)
         {
             string greeting = "";

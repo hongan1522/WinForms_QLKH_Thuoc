@@ -34,7 +34,7 @@
             pnlTitleBar = new Panel();
             label1 = new Label();
             pnlDSQL = new Panel();
-            panel4 = new Panel();
+            pnlSubMenuQLCT = new Panel();
             btnCTT = new Button();
             btnCTDX = new Button();
             btnCTDN = new Button();
@@ -77,7 +77,7 @@
             tlpFrmMain.SuspendLayout();
             pnlTitleBar.SuspendLayout();
             pnlDSQL.SuspendLayout();
-            panel4.SuspendLayout();
+            pnlSubMenuQLCT.SuspendLayout();
             panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pbArrowQLCT).BeginInit();
             panel1.SuspendLayout();
@@ -157,7 +157,7 @@
             // 
             pnlDSQL.BackColor = Color.FromArgb(64, 64, 64);
             pnlDSQL.BorderStyle = BorderStyle.FixedSingle;
-            pnlDSQL.Controls.Add(panel4);
+            pnlDSQL.Controls.Add(pnlSubMenuQLCT);
             pnlDSQL.Controls.Add(panel3);
             pnlDSQL.Controls.Add(panel1);
             pnlDSQL.Controls.Add(pnLogOut);
@@ -177,19 +177,19 @@
             pnlDSQL.Size = new Size(466, 1337);
             pnlDSQL.TabIndex = 1;
             // 
-            // panel4
+            // pnlSubMenuQLCT
             // 
-            panel4.AutoScroll = true;
-            panel4.AutoSize = true;
-            panel4.Controls.Add(btnCTT);
-            panel4.Controls.Add(btnCTDX);
-            panel4.Controls.Add(btnCTDN);
-            panel4.Dock = DockStyle.Top;
-            panel4.Location = new Point(0, 995);
-            panel4.Margin = new Padding(4);
-            panel4.Name = "panel4";
-            panel4.Size = new Size(464, 205);
-            panel4.TabIndex = 18;
+            pnlSubMenuQLCT.AutoScroll = true;
+            pnlSubMenuQLCT.AutoSize = true;
+            pnlSubMenuQLCT.Controls.Add(btnCTT);
+            pnlSubMenuQLCT.Controls.Add(btnCTDX);
+            pnlSubMenuQLCT.Controls.Add(btnCTDN);
+            pnlSubMenuQLCT.Dock = DockStyle.Top;
+            pnlSubMenuQLCT.Location = new Point(0, 995);
+            pnlSubMenuQLCT.Margin = new Padding(4);
+            pnlSubMenuQLCT.Name = "pnlSubMenuQLCT";
+            pnlSubMenuQLCT.Size = new Size(464, 205);
+            pnlSubMenuQLCT.TabIndex = 18;
             // 
             // btnCTT
             // 
@@ -270,6 +270,7 @@
             pbArrowQLCT.SizeMode = PictureBoxSizeMode.CenterImage;
             pbArrowQLCT.TabIndex = 1;
             pbArrowQLCT.TabStop = false;
+            pbArrowQLCT.Click += pbArrowQLCT_Click;
             // 
             // btnQLCT
             // 
@@ -291,6 +292,7 @@
             btnQLCT.TabIndex = 0;
             btnQLCT.Text = "Quản lý chi tiết";
             btnQLCT.UseVisualStyleBackColor = false;
+            btnQLCT.Click += btnQLCT_Click;
             // 
             // panel1
             // 
@@ -788,6 +790,9 @@
             // 
             btnUserInfo.BackColor = Color.Transparent;
             btnUserInfo.Dock = DockStyle.Left;
+            btnUserInfo.FlatAppearance.BorderSize = 0;
+            btnUserInfo.FlatAppearance.MouseDownBackColor = Color.DarkGray;
+            btnUserInfo.FlatAppearance.MouseOverBackColor = Color.DarkGray;
             btnUserInfo.FlatStyle = FlatStyle.Flat;
             btnUserInfo.Image = Properties.Resources.userInfo;
             btnUserInfo.Location = new Point(0, 0);
@@ -834,7 +839,7 @@
             pnlTitleBar.ResumeLayout(false);
             pnlDSQL.ResumeLayout(false);
             pnlDSQL.PerformLayout();
-            panel4.ResumeLayout(false);
+            pnlSubMenuQLCT.ResumeLayout(false);
             panel3.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)pbArrowQLCT).EndInit();
             panel1.ResumeLayout(false);
@@ -898,7 +903,7 @@
         private Panel panel3;
         private PictureBox pbArrowQLCT;
         private Button btnQLCT;
-        private Panel panel4;
+        private Panel pnlSubMenuQLCT;
         private Button btnCTT;
         private Button btnCTDX;
         private Button btnCTDN;
