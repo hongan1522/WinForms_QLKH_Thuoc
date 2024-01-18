@@ -36,14 +36,14 @@
             uC_Main1.Dock = DockStyle.Fill;
             uC_Main1.Location = new Point(0, 0);
             uC_Main1.Name = "uC_Main1";
-            uC_Main1.Size = new Size(1914, 1159);
+            uC_Main1.Size = new Size(1914, 1412);
             uC_Main1.TabIndex = 0;
             // 
             // FrmMain
             // 
             AutoScaleDimensions = new SizeF(13F, 32F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1914, 1159);
+            ClientSize = new Size(1914, 1412);
             Controls.Add(uC_Main1);
             FormBorderStyle = FormBorderStyle.Fixed3D;
             Margin = new Padding(4);

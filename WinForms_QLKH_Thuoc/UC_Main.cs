@@ -374,18 +374,18 @@ namespace FormQLKH
         {
             string greeting = "";
 
-            switch (roleID)
-            {
-                case "Role1":
-                    greeting = "Admin, ";
-                    break;
-                case "Role2":
-                    greeting = "NV, ";
-                    break;
-                default:
-                    greeting = "";
-                    break;
-            }
+            //switch (roleID)
+            //{
+            //    case "Role1":
+            //        greeting = "Admin, ";
+            //        break;
+            //    case "Role2":
+            //        greeting = "NV, ";
+            //        break;
+            //    default:
+            //        greeting = "";
+            //        break;
+            //}
 
             lbUserName.Text = greeting + userName;
         }
