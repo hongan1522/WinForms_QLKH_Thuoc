@@ -394,24 +394,9 @@ namespace FormQLKH
         {
             ToggleQLCT();
         }
-        public void ShowUserNameLabel(string userName, string roleID)
+        public void ShowUserNameLabel(string userName)
         {
-            string greeting = "";
-
-            //switch (roleID)
-            //{
-            //    case "Role1":
-            //        greeting = "Admin, ";
-            //        break;
-            //    case "Role2":
-            //        greeting = "NV, ";
-            //        break;
-            //    default:
-            //        greeting = "";
-            //        break;
-            //}
-
-            lbUserName.Text = greeting + userName;
+            lbUserName.Text = userName;
         }
     }
 }

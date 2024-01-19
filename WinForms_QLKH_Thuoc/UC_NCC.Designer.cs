@@ -32,17 +32,6 @@
             tlpNCC = new TableLayoutPanel();
             pnNCC = new Panel();
             lbNCC = new Label();
-            splNCC_HT_CN = new SplitContainer();
-            grbNCC_HT = new GroupBox();
-            dgvNCC = new DataGridView();
-            NCC_ID = new DataGridViewTextBoxColumn();
-            NCC_Name = new DataGridViewTextBoxColumn();
-            NCC_Phone = new DataGridViewTextBoxColumn();
-            NCC_Address = new DataGridViewTextBoxColumn();
-            NCC_Status = new DataGridViewTextBoxColumn();
-            grbNCC_CN = new GroupBox();
-            btnNCC_Sua = new Button();
-            btnNCC_Them = new Button();
             splNCC_TK_TT = new SplitContainer();
             grbNCC_TK = new GroupBox();
             pnNCC_TK = new Panel();
@@ -62,15 +51,21 @@
             lbNCC_SDT = new Label();
             lbNCC_TenNCC = new Label();
             lbNCC_MaNCC = new Label();
+            pnlNCC_CN = new Panel();
+            pictureBox1 = new PictureBox();
+            grbNCC_CN = new GroupBox();
+            btnNCC_Sua = new Button();
+            btnNCC_Them = new Button();
+            pnlNCC_HT = new Panel();
+            grbNCC_HT = new GroupBox();
+            dgvNCC = new DataGridView();
+            NCC_ID = new DataGridViewTextBoxColumn();
+            NCC_Name = new DataGridViewTextBoxColumn();
+            NCC_Phone = new DataGridViewTextBoxColumn();
+            NCC_Address = new DataGridViewTextBoxColumn();
+            NCC_Status = new DataGridViewTextBoxColumn();
             tlpNCC.SuspendLayout();
             pnNCC.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)splNCC_HT_CN).BeginInit();
-            splNCC_HT_CN.Panel1.SuspendLayout();
-            splNCC_HT_CN.Panel2.SuspendLayout();
-            splNCC_HT_CN.SuspendLayout();
-            grbNCC_HT.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)dgvNCC).BeginInit();
-            grbNCC_CN.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)splNCC_TK_TT).BeginInit();
             splNCC_TK_TT.Panel1.SuspendLayout();
             splNCC_TK_TT.Panel2.SuspendLayout();
@@ -78,24 +73,33 @@
             grbNCC_TK.SuspendLayout();
             pnNCC_TK.SuspendLayout();
             grbNCC_TT.SuspendLayout();
+            pnlNCC_CN.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
+            grbNCC_CN.SuspendLayout();
+            pnlNCC_HT.SuspendLayout();
+            grbNCC_HT.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)dgvNCC).BeginInit();
             SuspendLayout();
             // 
             // tlpNCC
             // 
-            tlpNCC.BackColor = SystemColors.Control;
+            tlpNCC.BackColor = Color.Transparent;
+            tlpNCC.BackgroundImage = Properties.Resources.bg;
             tlpNCC.ColumnCount = 1;
             tlpNCC.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
             tlpNCC.Controls.Add(pnNCC, 0, 0);
-            tlpNCC.Controls.Add(splNCC_HT_CN, 0, 1);
             tlpNCC.Controls.Add(splNCC_TK_TT, 0, 2);
+            tlpNCC.Controls.Add(pnlNCC_CN, 0, 3);
+            tlpNCC.Controls.Add(pnlNCC_HT, 0, 1);
             tlpNCC.Dock = DockStyle.Fill;
             tlpNCC.Location = new Point(0, 0);
             tlpNCC.Name = "tlpNCC";
-            tlpNCC.RowCount = 3;
+            tlpNCC.RowCount = 4;
             tlpNCC.RowStyles.Add(new RowStyle(SizeType.Absolute, 83F));
             tlpNCC.RowStyles.Add(new RowStyle(SizeType.Absolute, 665F));
-            tlpNCC.RowStyles.Add(new RowStyle(SizeType.Absolute, 8F));
-            tlpNCC.Size = new Size(1448, 1082);
+            tlpNCC.RowStyles.Add(new RowStyle(SizeType.Absolute, 330F));
+            tlpNCC.RowStyles.Add(new RowStyle(SizeType.Absolute, 70F));
+            tlpNCC.Size = new Size(1448, 1337);
             tlpNCC.TabIndex = 1;
             // 
             // pnNCC
@@ -120,147 +124,10 @@
             lbNCC.TabIndex = 0;
             lbNCC.Text = "QUẢN LÝ NHÀ CUNG CẤP";
             // 
-            // splNCC_HT_CN
-            // 
-            splNCC_HT_CN.BackColor = Color.Transparent;
-            splNCC_HT_CN.BackgroundImage = Properties.Resources.bg;
-            splNCC_HT_CN.Dock = DockStyle.Fill;
-            splNCC_HT_CN.Font = new Font("Segoe UI", 10.125F, FontStyle.Regular, GraphicsUnit.Point);
-            splNCC_HT_CN.Location = new Point(3, 86);
-            splNCC_HT_CN.Name = "splNCC_HT_CN";
-            // 
-            // splNCC_HT_CN.Panel1
-            // 
-            splNCC_HT_CN.Panel1.Controls.Add(grbNCC_HT);
-            // 
-            // splNCC_HT_CN.Panel2
-            // 
-            splNCC_HT_CN.Panel2.Controls.Add(grbNCC_CN);
-            splNCC_HT_CN.Size = new Size(1442, 659);
-            splNCC_HT_CN.SplitterDistance = 1242;
-            splNCC_HT_CN.TabIndex = 1;
-            // 
-            // grbNCC_HT
-            // 
-            grbNCC_HT.Controls.Add(dgvNCC);
-            grbNCC_HT.Dock = DockStyle.Fill;
-            grbNCC_HT.Location = new Point(0, 0);
-            grbNCC_HT.Name = "grbNCC_HT";
-            grbNCC_HT.Size = new Size(1242, 659);
-            grbNCC_HT.TabIndex = 2;
-            grbNCC_HT.TabStop = false;
-            grbNCC_HT.Text = "Hiển thị";
-            // 
-            // dgvNCC
-            // 
-            dgvNCC.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-            dgvNCC.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
-            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle1.BackColor = SystemColors.Control;
-            dataGridViewCellStyle1.Font = new Font("Segoe UI", 10.125F, FontStyle.Regular, GraphicsUnit.Point);
-            dataGridViewCellStyle1.ForeColor = SystemColors.WindowText;
-            dataGridViewCellStyle1.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
-            dgvNCC.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
-            dgvNCC.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgvNCC.Columns.AddRange(new DataGridViewColumn[] { NCC_ID, NCC_Name, NCC_Phone, NCC_Address, NCC_Status });
-            dgvNCC.Dock = DockStyle.Fill;
-            dgvNCC.Location = new Point(3, 39);
-            dgvNCC.Name = "dgvNCC";
-            dgvNCC.RowHeadersWidth = 82;
-            dgvNCC.RowTemplate.Height = 41;
-            dgvNCC.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dgvNCC.Size = new Size(1236, 617);
-            dgvNCC.TabIndex = 0;
-            dgvNCC.RowPostPaint += dgvNCC_RowPostPaint;
-            dgvNCC.SelectionChanged += dgvNCC_SelectionChanged;
-            // 
-            // NCC_ID
-            // 
-            NCC_ID.DataPropertyName = "NCC_ID";
-            NCC_ID.HeaderText = "Mã NCC";
-            NCC_ID.MinimumWidth = 10;
-            NCC_ID.Name = "NCC_ID";
-            // 
-            // NCC_Name
-            // 
-            NCC_Name.DataPropertyName = "NCC_Name";
-            NCC_Name.HeaderText = "Tên NCC";
-            NCC_Name.MinimumWidth = 10;
-            NCC_Name.Name = "NCC_Name";
-            // 
-            // NCC_Phone
-            // 
-            NCC_Phone.DataPropertyName = "NCC_Phone";
-            NCC_Phone.HeaderText = "SĐT";
-            NCC_Phone.MinimumWidth = 10;
-            NCC_Phone.Name = "NCC_Phone";
-            // 
-            // NCC_Address
-            // 
-            NCC_Address.DataPropertyName = "NCC_Address";
-            NCC_Address.HeaderText = "Địa chỉ";
-            NCC_Address.MinimumWidth = 10;
-            NCC_Address.Name = "NCC_Address";
-            // 
-            // NCC_Status
-            // 
-            NCC_Status.DataPropertyName = "NCC_Status";
-            NCC_Status.HeaderText = "Trạng thái ";
-            NCC_Status.MinimumWidth = 10;
-            NCC_Status.Name = "NCC_Status";
-            NCC_Status.Resizable = DataGridViewTriState.True;
-            // 
-            // grbNCC_CN
-            // 
-            grbNCC_CN.Controls.Add(btnNCC_Sua);
-            grbNCC_CN.Controls.Add(btnNCC_Them);
-            grbNCC_CN.Dock = DockStyle.Fill;
-            grbNCC_CN.Location = new Point(0, 0);
-            grbNCC_CN.Name = "grbNCC_CN";
-            grbNCC_CN.Size = new Size(196, 659);
-            grbNCC_CN.TabIndex = 0;
-            grbNCC_CN.TabStop = false;
-            grbNCC_CN.Text = "Chức năng";
-            // 
-            // btnNCC_Sua
-            // 
-            btnNCC_Sua.BackColor = SystemColors.ButtonHighlight;
-            btnNCC_Sua.FlatAppearance.BorderSize = 0;
-            btnNCC_Sua.FlatStyle = FlatStyle.Popup;
-            btnNCC_Sua.Font = new Font("Segoe UI", 10.125F, FontStyle.Bold, GraphicsUnit.Point);
-            btnNCC_Sua.Image = Properties.Resources.update;
-            btnNCC_Sua.ImageAlign = ContentAlignment.MiddleLeft;
-            btnNCC_Sua.Location = new Point(19, 398);
-            btnNCC_Sua.Name = "btnNCC_Sua";
-            btnNCC_Sua.Size = new Size(157, 58);
-            btnNCC_Sua.TabIndex = 1;
-            btnNCC_Sua.Text = "Sửa";
-            btnNCC_Sua.UseVisualStyleBackColor = false;
-            btnNCC_Sua.Click += btnNCC_Sua_Click;
-            // 
-            // btnNCC_Them
-            // 
-            btnNCC_Them.BackColor = SystemColors.ButtonHighlight;
-            btnNCC_Them.FlatAppearance.BorderSize = 0;
-            btnNCC_Them.FlatStyle = FlatStyle.Popup;
-            btnNCC_Them.Font = new Font("Segoe UI", 10.125F, FontStyle.Bold, GraphicsUnit.Point);
-            btnNCC_Them.Image = Properties.Resources.add;
-            btnNCC_Them.ImageAlign = ContentAlignment.MiddleLeft;
-            btnNCC_Them.Location = new Point(19, 227);
-            btnNCC_Them.Name = "btnNCC_Them";
-            btnNCC_Them.Size = new Size(157, 58);
-            btnNCC_Them.TabIndex = 0;
-            btnNCC_Them.Text = "Thêm";
-            btnNCC_Them.UseVisualStyleBackColor = false;
-            btnNCC_Them.Click += btnNCC_Them_Click;
-            // 
             // splNCC_TK_TT
             // 
             splNCC_TK_TT.BackColor = Color.Transparent;
-            splNCC_TK_TT.BackgroundImage = Properties.Resources.bg;
-            splNCC_TK_TT.Dock = DockStyle.Bottom;
+            splNCC_TK_TT.Dock = DockStyle.Top;
             splNCC_TK_TT.Font = new Font("Segoe UI", 10.125F, FontStyle.Regular, GraphicsUnit.Point);
             splNCC_TK_TT.Location = new Point(3, 751);
             splNCC_TK_TT.Name = "splNCC_TK_TT";
@@ -272,7 +139,7 @@
             // splNCC_TK_TT.Panel2
             // 
             splNCC_TK_TT.Panel2.Controls.Add(grbNCC_TT);
-            splNCC_TK_TT.Size = new Size(1442, 328);
+            splNCC_TK_TT.Size = new Size(1442, 324);
             splNCC_TK_TT.SplitterDistance = 488;
             splNCC_TK_TT.TabIndex = 2;
             // 
@@ -285,7 +152,7 @@
             grbNCC_TK.Dock = DockStyle.Fill;
             grbNCC_TK.Location = new Point(0, 0);
             grbNCC_TK.Name = "grbNCC_TK";
-            grbNCC_TK.Size = new Size(488, 328);
+            grbNCC_TK.Size = new Size(488, 324);
             grbNCC_TK.TabIndex = 0;
             grbNCC_TK.TabStop = false;
             grbNCC_TK.Text = "Tìm kiếm";
@@ -371,7 +238,7 @@
             grbNCC_TT.Dock = DockStyle.Fill;
             grbNCC_TT.Location = new Point(0, 0);
             grbNCC_TT.Name = "grbNCC_TT";
-            grbNCC_TT.Size = new Size(950, 328);
+            grbNCC_TT.Size = new Size(950, 324);
             grbNCC_TT.TabIndex = 0;
             grbNCC_TT.TabStop = false;
             grbNCC_TT.Text = "Thông tin";
@@ -474,23 +341,161 @@
             lbNCC_MaNCC.TabIndex = 0;
             lbNCC_MaNCC.Text = "Mã NCC";
             // 
+            // pnlNCC_CN
+            // 
+            pnlNCC_CN.Controls.Add(pictureBox1);
+            pnlNCC_CN.Controls.Add(grbNCC_CN);
+            pnlNCC_CN.Dock = DockStyle.Fill;
+            pnlNCC_CN.Location = new Point(3, 1081);
+            pnlNCC_CN.Name = "pnlNCC_CN";
+            pnlNCC_CN.Size = new Size(1442, 253);
+            pnlNCC_CN.TabIndex = 3;
+            // 
+            // pictureBox1
+            // 
+            pictureBox1.Dock = DockStyle.Fill;
+            pictureBox1.Image = Properties.Resources.bgNgang;
+            pictureBox1.Location = new Point(275, 0);
+            pictureBox1.Name = "pictureBox1";
+            pictureBox1.Size = new Size(1167, 253);
+            pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
+            pictureBox1.TabIndex = 2;
+            pictureBox1.TabStop = false;
+            // 
+            // grbNCC_CN
+            // 
+            grbNCC_CN.Controls.Add(btnNCC_Sua);
+            grbNCC_CN.Controls.Add(btnNCC_Them);
+            grbNCC_CN.Dock = DockStyle.Left;
+            grbNCC_CN.Location = new Point(0, 0);
+            grbNCC_CN.Margin = new Padding(3, 3, 0, 3);
+            grbNCC_CN.Name = "grbNCC_CN";
+            grbNCC_CN.Size = new Size(275, 253);
+            grbNCC_CN.TabIndex = 1;
+            grbNCC_CN.TabStop = false;
+            grbNCC_CN.Text = "Chức năng";
+            // 
+            // btnNCC_Sua
+            // 
+            btnNCC_Sua.BackColor = SystemColors.ButtonHighlight;
+            btnNCC_Sua.FlatAppearance.BorderSize = 0;
+            btnNCC_Sua.FlatStyle = FlatStyle.Popup;
+            btnNCC_Sua.Font = new Font("Segoe UI", 10.125F, FontStyle.Bold, GraphicsUnit.Point);
+            btnNCC_Sua.Image = Properties.Resources.update;
+            btnNCC_Sua.ImageAlign = ContentAlignment.MiddleLeft;
+            btnNCC_Sua.Location = new Point(57, 167);
+            btnNCC_Sua.Name = "btnNCC_Sua";
+            btnNCC_Sua.Size = new Size(148, 58);
+            btnNCC_Sua.TabIndex = 1;
+            btnNCC_Sua.Text = "Sửa";
+            btnNCC_Sua.UseVisualStyleBackColor = false;
+            // 
+            // btnNCC_Them
+            // 
+            btnNCC_Them.BackColor = SystemColors.ButtonHighlight;
+            btnNCC_Them.FlatAppearance.BorderSize = 0;
+            btnNCC_Them.FlatStyle = FlatStyle.Popup;
+            btnNCC_Them.Font = new Font("Segoe UI", 10.125F, FontStyle.Bold, GraphicsUnit.Point);
+            btnNCC_Them.Image = Properties.Resources.add;
+            btnNCC_Them.ImageAlign = ContentAlignment.MiddleLeft;
+            btnNCC_Them.Location = new Point(57, 61);
+            btnNCC_Them.Name = "btnNCC_Them";
+            btnNCC_Them.Size = new Size(148, 58);
+            btnNCC_Them.TabIndex = 0;
+            btnNCC_Them.Text = "Thêm";
+            btnNCC_Them.UseVisualStyleBackColor = false;
+            // 
+            // pnlNCC_HT
+            // 
+            pnlNCC_HT.Controls.Add(grbNCC_HT);
+            pnlNCC_HT.Dock = DockStyle.Fill;
+            pnlNCC_HT.Location = new Point(3, 86);
+            pnlNCC_HT.Name = "pnlNCC_HT";
+            pnlNCC_HT.Size = new Size(1442, 659);
+            pnlNCC_HT.TabIndex = 4;
+            // 
+            // grbNCC_HT
+            // 
+            grbNCC_HT.Controls.Add(dgvNCC);
+            grbNCC_HT.Dock = DockStyle.Fill;
+            grbNCC_HT.Font = new Font("Segoe UI", 10.125F, FontStyle.Regular, GraphicsUnit.Point);
+            grbNCC_HT.Location = new Point(0, 0);
+            grbNCC_HT.Name = "grbNCC_HT";
+            grbNCC_HT.Padding = new Padding(3, 10, 3, 3);
+            grbNCC_HT.Size = new Size(1442, 659);
+            grbNCC_HT.TabIndex = 3;
+            grbNCC_HT.TabStop = false;
+            grbNCC_HT.Text = "Hiển thị";
+            // 
+            // dgvNCC
+            // 
+            dgvNCC.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dgvNCC.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
+            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.BackColor = SystemColors.Control;
+            dataGridViewCellStyle1.Font = new Font("Segoe UI", 10.125F, FontStyle.Regular, GraphicsUnit.Point);
+            dataGridViewCellStyle1.ForeColor = SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
+            dgvNCC.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dgvNCC.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dgvNCC.Columns.AddRange(new DataGridViewColumn[] { NCC_ID, NCC_Name, NCC_Phone, NCC_Address, NCC_Status });
+            dgvNCC.Dock = DockStyle.Fill;
+            dgvNCC.Location = new Point(3, 46);
+            dgvNCC.Name = "dgvNCC";
+            dgvNCC.RowHeadersWidth = 82;
+            dgvNCC.RowTemplate.Height = 41;
+            dgvNCC.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            dgvNCC.Size = new Size(1436, 610);
+            dgvNCC.TabIndex = 0;
+            // 
+            // NCC_ID
+            // 
+            NCC_ID.DataPropertyName = "NCC_ID";
+            NCC_ID.HeaderText = "Mã NCC";
+            NCC_ID.MinimumWidth = 10;
+            NCC_ID.Name = "NCC_ID";
+            // 
+            // NCC_Name
+            // 
+            NCC_Name.DataPropertyName = "NCC_Name";
+            NCC_Name.HeaderText = "Tên NCC";
+            NCC_Name.MinimumWidth = 10;
+            NCC_Name.Name = "NCC_Name";
+            // 
+            // NCC_Phone
+            // 
+            NCC_Phone.DataPropertyName = "NCC_Phone";
+            NCC_Phone.HeaderText = "SĐT";
+            NCC_Phone.MinimumWidth = 10;
+            NCC_Phone.Name = "NCC_Phone";
+            // 
+            // NCC_Address
+            // 
+            NCC_Address.DataPropertyName = "NCC_Address";
+            NCC_Address.HeaderText = "Địa chỉ";
+            NCC_Address.MinimumWidth = 10;
+            NCC_Address.Name = "NCC_Address";
+            // 
+            // NCC_Status
+            // 
+            NCC_Status.DataPropertyName = "NCC_Status";
+            NCC_Status.HeaderText = "Trạng thái ";
+            NCC_Status.MinimumWidth = 10;
+            NCC_Status.Name = "NCC_Status";
+            NCC_Status.Resizable = DataGridViewTriState.True;
+            // 
             // UC_NCC
             // 
             AutoScaleDimensions = new SizeF(13F, 32F);
             AutoScaleMode = AutoScaleMode.Font;
             Controls.Add(tlpNCC);
             Name = "UC_NCC";
-            Size = new Size(1448, 1082);
+            Size = new Size(1448, 1337);
             tlpNCC.ResumeLayout(false);
             pnNCC.ResumeLayout(false);
             pnNCC.PerformLayout();
-            splNCC_HT_CN.Panel1.ResumeLayout(false);
-            splNCC_HT_CN.Panel2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)splNCC_HT_CN).EndInit();
-            splNCC_HT_CN.ResumeLayout(false);
-            grbNCC_HT.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)dgvNCC).EndInit();
-            grbNCC_CN.ResumeLayout(false);
             splNCC_TK_TT.Panel1.ResumeLayout(false);
             splNCC_TK_TT.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)splNCC_TK_TT).EndInit();
@@ -501,6 +506,12 @@
             pnNCC_TK.PerformLayout();
             grbNCC_TT.ResumeLayout(false);
             grbNCC_TT.PerformLayout();
+            pnlNCC_CN.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
+            grbNCC_CN.ResumeLayout(false);
+            pnlNCC_HT.ResumeLayout(false);
+            grbNCC_HT.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)dgvNCC).EndInit();
             ResumeLayout(false);
         }
 
@@ -509,12 +520,6 @@
         private TableLayoutPanel tlpNCC;
         private Panel pnNCC;
         private Label lbNCC;
-        private SplitContainer splNCC_HT_CN;
-        private GroupBox grbNCC_HT;
-        private DataGridView dgvNCC;
-        private GroupBox grbNCC_CN;
-        private Button btnNCC_Sua;
-        private Button btnNCC_Them;
         private SplitContainer splNCC_TK_TT;
         private GroupBox grbNCC_TK;
         private TextBox txtNCC_TK_TenNCC;
@@ -534,10 +539,18 @@
         private Button btnNCC_TK;
         private Label lbNCC_TrangThai;
         private ComboBox cbNCC_TrangThai;
+        private Panel pnlNCC_CN;
+        private GroupBox grbNCC_CN;
+        private Button btnNCC_Sua;
+        private Button btnNCC_Them;
+        private Panel pnlNCC_HT;
+        private GroupBox grbNCC_HT;
+        private DataGridView dgvNCC;
         private DataGridViewTextBoxColumn NCC_ID;
         private DataGridViewTextBoxColumn NCC_Name;
         private DataGridViewTextBoxColumn NCC_Phone;
         private DataGridViewTextBoxColumn NCC_Address;
         private DataGridViewTextBoxColumn NCC_Status;
+        private PictureBox pictureBox1;
     }
 }

@@ -47,7 +47,7 @@
             tableLayoutPanel1.Name = "tableLayoutPanel1";
             tableLayoutPanel1.RowCount = 1;
             tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 50F));
-            tableLayoutPanel1.Size = new Size(1422, 1109);
+            tableLayoutPanel1.Size = new Size(1448, 1337);
             tableLayoutPanel1.TabIndex = 0;
             // 
             // panel1
@@ -57,14 +57,14 @@
             panel1.Dock = DockStyle.Fill;
             panel1.Location = new Point(3, 3);
             panel1.Name = "panel1";
-            panel1.Size = new Size(1416, 1103);
+            panel1.Size = new Size(1442, 1331);
             panel1.TabIndex = 0;
             // 
             // lbLoad
             // 
             lbLoad.AutoSize = true;
             lbLoad.Font = new Font("Segoe UI", 19.875F, FontStyle.Bold, GraphicsUnit.Point);
-            lbLoad.Location = new Point(306, 757);
+            lbLoad.Location = new Point(300, 911);
             lbLoad.Name = "lbLoad";
             lbLoad.Size = new Size(805, 71);
             lbLoad.TabIndex = 1;
@@ -74,9 +74,9 @@
             // 
             pcLoad.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             pcLoad.Image = Properties.Resources.loading;
-            pcLoad.Location = new Point(425, 141);
+            pcLoad.Location = new Point(401, 294);
             pcLoad.Name = "pcLoad";
-            pcLoad.Size = new Size(518, 448);
+            pcLoad.Size = new Size(610, 533);
             pcLoad.SizeMode = PictureBoxSizeMode.StretchImage;
             pcLoad.TabIndex = 0;
             pcLoad.TabStop = false;
@@ -88,7 +88,7 @@
             BackColor = Color.White;
             Controls.Add(tableLayoutPanel1);
             Name = "UC_Loading";
-            Size = new Size(1422, 1109);
+            Size = new Size(1448, 1337);
             tableLayoutPanel1.ResumeLayout(false);
             panel1.ResumeLayout(false);
             panel1.PerformLayout();

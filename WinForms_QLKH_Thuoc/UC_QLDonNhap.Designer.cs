@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
             tlpQLDN = new TableLayoutPanel();
             grbQLDN_TT = new GroupBox();
             linkLb_CTDN = new LinkLabel();
@@ -61,6 +61,7 @@
             btnQLDN_Xoa = new Button();
             btnQLDN_Sua = new Button();
             btnQLDN_Them = new Button();
+            pictureBox1 = new PictureBox();
             tlpQLDN.SuspendLayout();
             grbQLDN_TT.SuspendLayout();
             pnQLDN.SuspendLayout();
@@ -72,6 +73,7 @@
             splQLDN_TK_CN.SuspendLayout();
             grbQLDN_TK.SuspendLayout();
             grbQLDN_CN.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
             // 
             // tlpQLDN
@@ -89,10 +91,10 @@
             tlpQLDN.Name = "tlpQLDN";
             tlpQLDN.RowCount = 4;
             tlpQLDN.RowStyles.Add(new RowStyle(SizeType.Absolute, 78F));
-            tlpQLDN.RowStyles.Add(new RowStyle(SizeType.Absolute, 503F));
-            tlpQLDN.RowStyles.Add(new RowStyle(SizeType.Absolute, 257F));
-            tlpQLDN.RowStyles.Add(new RowStyle(SizeType.Absolute, 12F));
-            tlpQLDN.Size = new Size(1448, 1082);
+            tlpQLDN.RowStyles.Add(new RowStyle(SizeType.Absolute, 710F));
+            tlpQLDN.RowStyles.Add(new RowStyle(SizeType.Absolute, 295F));
+            tlpQLDN.RowStyles.Add(new RowStyle(SizeType.Absolute, 42F));
+            tlpQLDN.Size = new Size(1448, 1337);
             tlpQLDN.TabIndex = 1;
             // 
             // grbQLDN_TT
@@ -110,9 +112,9 @@
             grbQLDN_TT.Controls.Add(lbQLDN_MaNV);
             grbQLDN_TT.Controls.Add(lbQLDN_MaDN);
             grbQLDN_TT.Dock = DockStyle.Fill;
-            grbQLDN_TT.Location = new Point(3, 584);
+            grbQLDN_TT.Location = new Point(3, 791);
             grbQLDN_TT.Name = "grbQLDN_TT";
-            grbQLDN_TT.Size = new Size(1442, 251);
+            grbQLDN_TT.Size = new Size(1442, 289);
             grbQLDN_TT.TabIndex = 6;
             grbQLDN_TT.TabStop = false;
             grbQLDN_TT.Text = "Thông tin";
@@ -120,7 +122,7 @@
             // linkLb_CTDN
             // 
             linkLb_CTDN.AutoSize = true;
-            linkLb_CTDN.Location = new Point(1142, 191);
+            linkLb_CTDN.Location = new Point(1162, 214);
             linkLb_CTDN.Name = "linkLb_CTDN";
             linkLb_CTDN.Size = new Size(223, 37);
             linkLb_CTDN.TabIndex = 36;
@@ -131,14 +133,14 @@
             // cbQLDN_MaNCC
             // 
             cbQLDN_MaNCC.FormattingEnabled = true;
-            cbQLDN_MaNCC.Location = new Point(1036, 49);
+            cbQLDN_MaNCC.Location = new Point(1056, 55);
             cbQLDN_MaNCC.Name = "cbQLDN_MaNCC";
             cbQLDN_MaNCC.Size = new Size(329, 45);
             cbQLDN_MaNCC.TabIndex = 35;
             // 
             // txtQLDN_TenDN
             // 
-            txtQLDN_TenDN.Location = new Point(313, 188);
+            txtQLDN_TenDN.Location = new Point(303, 211);
             txtQLDN_TenDN.Multiline = true;
             txtQLDN_TenDN.Name = "txtQLDN_TenDN";
             txtQLDN_TenDN.Size = new Size(381, 57);
@@ -147,7 +149,7 @@
             // cbQLDN_MaNV
             // 
             cbQLDN_MaNV.FormattingEnabled = true;
-            cbQLDN_MaNV.Location = new Point(313, 117);
+            cbQLDN_MaNV.Location = new Point(303, 132);
             cbQLDN_MaNV.Name = "cbQLDN_MaNV";
             cbQLDN_MaNV.Size = new Size(381, 45);
             cbQLDN_MaNV.TabIndex = 33;
@@ -156,7 +158,7 @@
             // 
             dtpQLDN_NgayNhap.CustomFormat = "dd/MM/yyyy";
             dtpQLDN_NgayNhap.Format = DateTimePickerFormat.Custom;
-            dtpQLDN_NgayNhap.Location = new Point(1036, 119);
+            dtpQLDN_NgayNhap.Location = new Point(1056, 133);
             dtpQLDN_NgayNhap.Name = "dtpQLDN_NgayNhap";
             dtpQLDN_NgayNhap.Size = new Size(329, 43);
             dtpQLDN_NgayNhap.TabIndex = 32;
@@ -167,7 +169,7 @@
             lbQLDN_TenDN.BackColor = SystemColors.Control;
             lbQLDN_TenDN.BorderStyle = BorderStyle.Fixed3D;
             lbQLDN_TenDN.Font = new Font("Segoe UI Semibold", 10.125F, FontStyle.Bold, GraphicsUnit.Point);
-            lbQLDN_TenDN.Location = new Point(57, 188);
+            lbQLDN_TenDN.Location = new Point(56, 210);
             lbQLDN_TenDN.Name = "lbQLDN_TenDN";
             lbQLDN_TenDN.Size = new Size(186, 39);
             lbQLDN_TenDN.TabIndex = 22;
@@ -175,7 +177,7 @@
             // 
             // txtQLDN_MaDN
             // 
-            txtQLDN_MaDN.Location = new Point(313, 48);
+            txtQLDN_MaDN.Location = new Point(303, 55);
             txtQLDN_MaDN.Name = "txtQLDN_MaDN";
             txtQLDN_MaDN.Size = new Size(381, 43);
             txtQLDN_MaDN.TabIndex = 29;
@@ -186,7 +188,7 @@
             lbQLDN_NgayNhap.BackColor = SystemColors.Control;
             lbQLDN_NgayNhap.BorderStyle = BorderStyle.Fixed3D;
             lbQLDN_NgayNhap.Font = new Font("Segoe UI Semibold", 10.125F, FontStyle.Bold, GraphicsUnit.Point);
-            lbQLDN_NgayNhap.Location = new Point(782, 120);
+            lbQLDN_NgayNhap.Location = new Point(781, 138);
             lbQLDN_NgayNhap.Name = "lbQLDN_NgayNhap";
             lbQLDN_NgayNhap.Size = new Size(153, 39);
             lbQLDN_NgayNhap.TabIndex = 23;
@@ -198,7 +200,7 @@
             lbQLDN_MaNCC.BackColor = SystemColors.Control;
             lbQLDN_MaNCC.BorderStyle = BorderStyle.Fixed3D;
             lbQLDN_MaNCC.Font = new Font("Segoe UI Semibold", 10.125F, FontStyle.Bold, GraphicsUnit.Point);
-            lbQLDN_MaNCC.Location = new Point(782, 45);
+            lbQLDN_MaNCC.Location = new Point(781, 55);
             lbQLDN_MaNCC.Name = "lbQLDN_MaNCC";
             lbQLDN_MaNCC.Size = new Size(229, 39);
             lbQLDN_MaNCC.TabIndex = 19;
@@ -210,7 +212,7 @@
             lbQLDN_MaNV.BackColor = SystemColors.Control;
             lbQLDN_MaNV.BorderStyle = BorderStyle.Fixed3D;
             lbQLDN_MaNV.Font = new Font("Segoe UI Semibold", 10.125F, FontStyle.Bold, GraphicsUnit.Point);
-            lbQLDN_MaNV.Location = new Point(57, 117);
+            lbQLDN_MaNV.Location = new Point(56, 131);
             lbQLDN_MaNV.Name = "lbQLDN_MaNV";
             lbQLDN_MaNV.Size = new Size(185, 39);
             lbQLDN_MaNV.TabIndex = 18;
@@ -222,7 +224,7 @@
             lbQLDN_MaDN.BackColor = SystemColors.Control;
             lbQLDN_MaDN.BorderStyle = BorderStyle.Fixed3D;
             lbQLDN_MaDN.Font = new Font("Segoe UI Semibold", 10.125F, FontStyle.Bold, GraphicsUnit.Point);
-            lbQLDN_MaDN.Location = new Point(59, 49);
+            lbQLDN_MaDN.Location = new Point(58, 55);
             lbQLDN_MaDN.Name = "lbQLDN_MaDN";
             lbQLDN_MaDN.Size = new Size(183, 39);
             lbQLDN_MaDN.TabIndex = 17;
@@ -258,7 +260,7 @@
             grbQLDN_HT.Dock = DockStyle.Fill;
             grbQLDN_HT.Location = new Point(3, 81);
             grbQLDN_HT.Name = "grbQLDN_HT";
-            grbQLDN_HT.Size = new Size(1442, 497);
+            grbQLDN_HT.Size = new Size(1442, 704);
             grbQLDN_HT.TabIndex = 7;
             grbQLDN_HT.TabStop = false;
             grbQLDN_HT.Text = "Hiển thị";
@@ -267,14 +269,14 @@
             // 
             dgvQLDN.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dgvQLDN.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
-            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle1.BackColor = SystemColors.Control;
-            dataGridViewCellStyle1.Font = new Font("Segoe UI", 10.125F, FontStyle.Regular, GraphicsUnit.Point);
-            dataGridViewCellStyle1.ForeColor = SystemColors.WindowText;
-            dataGridViewCellStyle1.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
-            dgvQLDN.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle2.BackColor = SystemColors.Control;
+            dataGridViewCellStyle2.Font = new Font("Segoe UI", 10.125F, FontStyle.Regular, GraphicsUnit.Point);
+            dataGridViewCellStyle2.ForeColor = SystemColors.WindowText;
+            dataGridViewCellStyle2.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = DataGridViewTriState.True;
+            dgvQLDN.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             dgvQLDN.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dgvQLDN.Columns.AddRange(new DataGridViewColumn[] { DNhap_ID, NV_ID, NCC_ID, DN_Name, DN_Datetime });
             dgvQLDN.Dock = DockStyle.Fill;
@@ -283,7 +285,7 @@
             dgvQLDN.RowHeadersWidth = 82;
             dgvQLDN.RowTemplate.Height = 41;
             dgvQLDN.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dgvQLDN.Size = new Size(1436, 455);
+            dgvQLDN.Size = new Size(1436, 662);
             dgvQLDN.TabIndex = 0;
             dgvQLDN.RowPostPaint += dgvQLDN_RowPostPaint;
             dgvQLDN.SelectionChanged += dgvQLDN_SelectionChanged;
@@ -327,7 +329,7 @@
             // 
             splQLDN_TK_CN.BackgroundImage = Properties.Resources.bg;
             splQLDN_TK_CN.Dock = DockStyle.Bottom;
-            splQLDN_TK_CN.Location = new Point(3, 841);
+            splQLDN_TK_CN.Location = new Point(3, 1096);
             splQLDN_TK_CN.Name = "splQLDN_TK_CN";
             // 
             // splQLDN_TK_CN.Panel1
@@ -401,6 +403,7 @@
             // 
             // grbQLDN_CN
             // 
+            grbQLDN_CN.Controls.Add(pictureBox1);
             grbQLDN_CN.Controls.Add(btnQLDN_Xoa);
             grbQLDN_CN.Controls.Add(btnQLDN_Sua);
             grbQLDN_CN.Controls.Add(btnQLDN_Them);
@@ -421,9 +424,9 @@
             btnQLDN_Xoa.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
             btnQLDN_Xoa.Image = Properties.Resources.delete;
             btnQLDN_Xoa.ImageAlign = ContentAlignment.MiddleLeft;
-            btnQLDN_Xoa.Location = new Point(545, 110);
+            btnQLDN_Xoa.Location = new Point(552, 59);
             btnQLDN_Xoa.Name = "btnQLDN_Xoa";
-            btnQLDN_Xoa.Size = new Size(169, 58);
+            btnQLDN_Xoa.Size = new Size(156, 58);
             btnQLDN_Xoa.TabIndex = 2;
             btnQLDN_Xoa.Text = "Xóa";
             btnQLDN_Xoa.UseVisualStyleBackColor = false;
@@ -438,9 +441,9 @@
             btnQLDN_Sua.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
             btnQLDN_Sua.Image = Properties.Resources.update;
             btnQLDN_Sua.ImageAlign = ContentAlignment.MiddleLeft;
-            btnQLDN_Sua.Location = new Point(293, 110);
+            btnQLDN_Sua.Location = new Point(300, 59);
             btnQLDN_Sua.Name = "btnQLDN_Sua";
-            btnQLDN_Sua.Size = new Size(169, 58);
+            btnQLDN_Sua.Size = new Size(156, 58);
             btnQLDN_Sua.TabIndex = 1;
             btnQLDN_Sua.Text = "Sửa";
             btnQLDN_Sua.UseVisualStyleBackColor = false;
@@ -455,13 +458,24 @@
             btnQLDN_Them.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
             btnQLDN_Them.Image = Properties.Resources.add;
             btnQLDN_Them.ImageAlign = ContentAlignment.MiddleLeft;
-            btnQLDN_Them.Location = new Point(41, 110);
+            btnQLDN_Them.Location = new Point(48, 59);
             btnQLDN_Them.Name = "btnQLDN_Them";
-            btnQLDN_Them.Size = new Size(169, 58);
+            btnQLDN_Them.Size = new Size(156, 58);
             btnQLDN_Them.TabIndex = 0;
             btnQLDN_Them.Text = " Thêm";
             btnQLDN_Them.UseVisualStyleBackColor = false;
             btnQLDN_Them.Click += btnQLDN_Them_Click;
+            // 
+            // pictureBox1
+            // 
+            pictureBox1.Dock = DockStyle.Bottom;
+            pictureBox1.Image = Properties.Resources.bgNgang;
+            pictureBox1.Location = new Point(3, 135);
+            pictureBox1.Name = "pictureBox1";
+            pictureBox1.Size = new Size(748, 100);
+            pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
+            pictureBox1.TabIndex = 3;
+            pictureBox1.TabStop = false;
             // 
             // UC_QLDonNhap
             // 
@@ -469,7 +483,7 @@
             AutoScaleMode = AutoScaleMode.Font;
             Controls.Add(tlpQLDN);
             Name = "UC_QLDonNhap";
-            Size = new Size(1448, 1082);
+            Size = new Size(1448, 1337);
             tlpQLDN.ResumeLayout(false);
             grbQLDN_TT.ResumeLayout(false);
             grbQLDN_TT.PerformLayout();
@@ -484,6 +498,7 @@
             grbQLDN_TK.ResumeLayout(false);
             grbQLDN_TK.PerformLayout();
             grbQLDN_CN.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ResumeLayout(false);
         }
 
@@ -521,5 +536,6 @@
         private DataGridViewTextBoxColumn DN_Name;
         private DataGridViewTextBoxColumn DN_Datetime;
         private LinkLabel linkLb_CTDN;
+        private PictureBox pictureBox1;
     }
 }

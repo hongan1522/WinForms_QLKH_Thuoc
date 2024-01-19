@@ -95,13 +95,13 @@
             tlpQLTK.RowStyles.Add(new RowStyle(SizeType.Absolute, 93F));
             tlpQLTK.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
             tlpQLTK.RowStyles.Add(new RowStyle());
-            tlpQLTK.Size = new Size(1448, 1082);
+            tlpQLTK.Size = new Size(1448, 1337);
             tlpQLTK.TabIndex = 1;
             // 
             // splQLTK_TTTK_CN
             // 
             splQLTK_TTTK_CN.Dock = DockStyle.Fill;
-            splQLTK_TTTK_CN.Location = new Point(3, 544);
+            splQLTK_TTTK_CN.Location = new Point(3, 799);
             splQLTK_TTTK_CN.Name = "splQLTK_TTTK_CN";
             // 
             // splQLTK_TTTK_CN.Panel1
@@ -131,7 +131,7 @@
             // 
             splQLTK_TT_TK.Panel2.Controls.Add(grbQLTK_TK);
             splQLTK_TT_TK.Size = new Size(1190, 535);
-            splQLTK_TT_TK.SplitterDistance = 341;
+            splQLTK_TT_TK.SplitterDistance = 338;
             splQLTK_TT_TK.TabIndex = 0;
             // 
             // grbQLTK_TT
@@ -149,7 +149,7 @@
             grbQLTK_TT.Dock = DockStyle.Fill;
             grbQLTK_TT.Location = new Point(0, 0);
             grbQLTK_TT.Name = "grbQLTK_TT";
-            grbQLTK_TT.Size = new Size(1190, 341);
+            grbQLTK_TT.Size = new Size(1190, 338);
             grbQLTK_TT.TabIndex = 2;
             grbQLTK_TT.TabStop = false;
             grbQLTK_TT.Text = "Thông tin";
@@ -263,7 +263,7 @@
             grbQLTK_TK.Dock = DockStyle.Fill;
             grbQLTK_TK.Location = new Point(0, 0);
             grbQLTK_TK.Name = "grbQLTK_TK";
-            grbQLTK_TK.Size = new Size(1190, 190);
+            grbQLTK_TK.Size = new Size(1190, 193);
             grbQLTK_TK.TabIndex = 5;
             grbQLTK_TK.TabStop = false;
             grbQLTK_TK.Text = "Tìm kiếm";
@@ -373,7 +373,7 @@
             grbQLTK_HT.Dock = DockStyle.Fill;
             grbQLTK_HT.Location = new Point(3, 96);
             grbQLTK_HT.Name = "grbQLTK_HT";
-            grbQLTK_HT.Size = new Size(1442, 442);
+            grbQLTK_HT.Size = new Size(1442, 697);
             grbQLTK_HT.TabIndex = 0;
             grbQLTK_HT.TabStop = false;
             grbQLTK_HT.Text = "Hiển thị";
@@ -398,7 +398,7 @@
             dgvQLTK.RowHeadersWidth = 82;
             dgvQLTK.RowTemplate.Height = 41;
             dgvQLTK.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dgvQLTK.Size = new Size(1436, 400);
+            dgvQLTK.Size = new Size(1436, 655);
             dgvQLTK.TabIndex = 0;
             dgvQLTK.RowPostPaint += dgvQLTK_RowPostPaint;
             dgvQLTK.SelectionChanged += dgvQLTK_SelectionChanged;
@@ -467,7 +467,7 @@
             AutoScaleMode = AutoScaleMode.Font;
             Controls.Add(tlpQLTK);
             Name = "UC_QLTaiKhoan";
-            Size = new Size(1448, 1082);
+            Size = new Size(1448, 1337);
             tlpQLTK.ResumeLayout(false);
             splQLTK_TTTK_CN.Panel1.ResumeLayout(false);
             splQLTK_TTTK_CN.Panel2.ResumeLayout(false);

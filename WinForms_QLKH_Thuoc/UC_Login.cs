@@ -173,7 +173,7 @@ namespace FormQLKH
                             UC_Main ucMain = quanLyForm.Controls.OfType<UC_Main>().FirstOrDefault();
                             if (ucMain != null)
                             {
-                                ucMain.ShowUserNameLabel(StateManager.UserName, StateManager.RoleID.Trim());
+                                ucMain.ShowUserNameLabel(StateManager.UserName);
                             }
 
                             Form parentForm = FindForm();

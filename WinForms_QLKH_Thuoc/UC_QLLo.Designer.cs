@@ -28,21 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
             tlpQLLo = new TableLayoutPanel();
-            pnQLLo = new Panel();
-            lbQLLo = new Label();
-            splQLLo_HT_CN = new SplitContainer();
-            gpbQLLo_HT = new GroupBox();
-            dgvQLLo = new DataGridView();
-            Lo_ID = new DataGridViewTextBoxColumn();
-            Kho_ID = new DataGridViewTextBoxColumn();
-            Lo_Name = new DataGridViewTextBoxColumn();
-            Lo_Position = new DataGridViewTextBoxColumn();
-            gpbQLLo_CN = new GroupBox();
-            btnQLLo_Them = new Button();
-            btnQLLo_Sua = new Button();
-            btnQLLo_Xoa = new Button();
             splQLLo_TT_TK = new SplitContainer();
             gpbQLLo_TT = new GroupBox();
             cbQLLo_MaKho = new ComboBox();
@@ -58,213 +45,62 @@
             cbQLLo_TK_MaKho = new ComboBox();
             lbQLLo_TK_MaKho = new Label();
             lbQLLo_TK_MaLo = new Label();
+            BnlQLLo_CN = new Panel();
+            gpbQLLo_CN = new GroupBox();
+            btnQLLo_Them = new Button();
+            btnQLLo_Sua = new Button();
+            btnQLLo_Xoa = new Button();
+            lbQLLo = new Label();
+            pnQLLo = new Panel();
+            gpbQLLo_HT = new GroupBox();
+            dgvQLLo = new DataGridView();
+            Lo_ID = new DataGridViewTextBoxColumn();
+            Kho_ID = new DataGridViewTextBoxColumn();
+            Lo_Name = new DataGridViewTextBoxColumn();
+            Lo_Position = new DataGridViewTextBoxColumn();
+            pcbQLLo_CN = new PictureBox();
             tlpQLLo.SuspendLayout();
-            pnQLLo.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)splQLLo_HT_CN).BeginInit();
-            splQLLo_HT_CN.Panel1.SuspendLayout();
-            splQLLo_HT_CN.Panel2.SuspendLayout();
-            splQLLo_HT_CN.SuspendLayout();
-            gpbQLLo_HT.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)dgvQLLo).BeginInit();
-            gpbQLLo_CN.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)splQLLo_TT_TK).BeginInit();
             splQLLo_TT_TK.Panel1.SuspendLayout();
             splQLLo_TT_TK.Panel2.SuspendLayout();
             splQLLo_TT_TK.SuspendLayout();
             gpbQLLo_TT.SuspendLayout();
             gpbQLLo_TK.SuspendLayout();
+            BnlQLLo_CN.SuspendLayout();
+            gpbQLLo_CN.SuspendLayout();
+            pnQLLo.SuspendLayout();
+            gpbQLLo_HT.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)dgvQLLo).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pcbQLLo_CN).BeginInit();
             SuspendLayout();
             // 
             // tlpQLLo
             // 
-            tlpQLLo.BackColor = SystemColors.Control;
+            tlpQLLo.BackColor = Color.Transparent;
+            tlpQLLo.BackgroundImage = Properties.Resources.bg;
             tlpQLLo.ColumnCount = 1;
             tlpQLLo.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
+            tlpQLLo.Controls.Add(gpbQLLo_HT, 0, 1);
             tlpQLLo.Controls.Add(pnQLLo, 0, 0);
-            tlpQLLo.Controls.Add(splQLLo_HT_CN, 0, 1);
             tlpQLLo.Controls.Add(splQLLo_TT_TK, 0, 2);
+            tlpQLLo.Controls.Add(BnlQLLo_CN, 0, 3);
             tlpQLLo.Dock = DockStyle.Fill;
             tlpQLLo.Font = new Font("Segoe UI", 10.125F, FontStyle.Regular, GraphicsUnit.Point);
             tlpQLLo.Location = new Point(0, 0);
             tlpQLLo.Name = "tlpQLLo";
-            tlpQLLo.RowCount = 3;
+            tlpQLLo.RowCount = 4;
             tlpQLLo.RowStyles.Add(new RowStyle(SizeType.Absolute, 84F));
             tlpQLLo.RowStyles.Add(new RowStyle(SizeType.Absolute, 727F));
-            tlpQLLo.RowStyles.Add(new RowStyle(SizeType.Absolute, 8F));
-            tlpQLLo.Size = new Size(1448, 1082);
+            tlpQLLo.RowStyles.Add(new RowStyle(SizeType.Absolute, 240F));
+            tlpQLLo.RowStyles.Add(new RowStyle(SizeType.Absolute, 68F));
+            tlpQLLo.Size = new Size(1448, 1337);
             tlpQLLo.TabIndex = 2;
-            // 
-            // pnQLLo
-            // 
-            pnQLLo.BackColor = Color.FromArgb(15, 142, 219);
-            pnQLLo.Controls.Add(lbQLLo);
-            pnQLLo.Dock = DockStyle.Fill;
-            pnQLLo.Location = new Point(3, 3);
-            pnQLLo.Name = "pnQLLo";
-            pnQLLo.Size = new Size(1442, 78);
-            pnQLLo.TabIndex = 0;
-            // 
-            // lbQLLo
-            // 
-            lbQLLo.AutoSize = true;
-            lbQLLo.Font = new Font("Segoe UI", 13.875F, FontStyle.Bold, GraphicsUnit.Point);
-            lbQLLo.ForeColor = SystemColors.ButtonHighlight;
-            lbQLLo.Location = new Point(590, 13);
-            lbQLLo.Name = "lbQLLo";
-            lbQLLo.Size = new Size(237, 50);
-            lbQLLo.TabIndex = 0;
-            lbQLLo.Text = "QUẢN LÝ LÔ";
-            // 
-            // splQLLo_HT_CN
-            // 
-            splQLLo_HT_CN.BackColor = Color.Transparent;
-            splQLLo_HT_CN.BackgroundImage = Properties.Resources.bg;
-            splQLLo_HT_CN.Dock = DockStyle.Fill;
-            splQLLo_HT_CN.Location = new Point(3, 87);
-            splQLLo_HT_CN.Name = "splQLLo_HT_CN";
-            // 
-            // splQLLo_HT_CN.Panel1
-            // 
-            splQLLo_HT_CN.Panel1.Controls.Add(gpbQLLo_HT);
-            // 
-            // splQLLo_HT_CN.Panel2
-            // 
-            splQLLo_HT_CN.Panel2.Controls.Add(gpbQLLo_CN);
-            splQLLo_HT_CN.Size = new Size(1442, 721);
-            splQLLo_HT_CN.SplitterDistance = 1190;
-            splQLLo_HT_CN.TabIndex = 1;
-            // 
-            // gpbQLLo_HT
-            // 
-            gpbQLLo_HT.Controls.Add(dgvQLLo);
-            gpbQLLo_HT.Dock = DockStyle.Fill;
-            gpbQLLo_HT.Location = new Point(0, 0);
-            gpbQLLo_HT.Name = "gpbQLLo_HT";
-            gpbQLLo_HT.Size = new Size(1190, 721);
-            gpbQLLo_HT.TabIndex = 0;
-            gpbQLLo_HT.TabStop = false;
-            gpbQLLo_HT.Text = "Hiển thị";
-            // 
-            // dgvQLLo
-            // 
-            dgvQLLo.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-            dgvQLLo.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
-            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle1.BackColor = SystemColors.Control;
-            dataGridViewCellStyle1.Font = new Font("Segoe UI", 10.125F, FontStyle.Regular, GraphicsUnit.Point);
-            dataGridViewCellStyle1.ForeColor = SystemColors.WindowText;
-            dataGridViewCellStyle1.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
-            dgvQLLo.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
-            dgvQLLo.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgvQLLo.Columns.AddRange(new DataGridViewColumn[] { Lo_ID, Kho_ID, Lo_Name, Lo_Position });
-            dgvQLLo.Dock = DockStyle.Fill;
-            dgvQLLo.Location = new Point(3, 39);
-            dgvQLLo.Name = "dgvQLLo";
-            dgvQLLo.RowHeadersWidth = 82;
-            dgvQLLo.RowTemplate.Height = 41;
-            dgvQLLo.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dgvQLLo.Size = new Size(1184, 679);
-            dgvQLLo.TabIndex = 0;
-            dgvQLLo.RowPostPaint += dgvQLLo_RowPostPaint;
-            dgvQLLo.SelectionChanged += dgvQLLo_SelectionChanged;
-            // 
-            // Lo_ID
-            // 
-            Lo_ID.DataPropertyName = "Lo_ID";
-            Lo_ID.HeaderText = "Mã lô";
-            Lo_ID.MinimumWidth = 10;
-            Lo_ID.Name = "Lo_ID";
-            // 
-            // Kho_ID
-            // 
-            Kho_ID.DataPropertyName = "Kho_ID";
-            Kho_ID.HeaderText = "Mã kho";
-            Kho_ID.MinimumWidth = 10;
-            Kho_ID.Name = "Kho_ID";
-            // 
-            // Lo_Name
-            // 
-            Lo_Name.DataPropertyName = "Lo_Name";
-            Lo_Name.HeaderText = "Tên lô";
-            Lo_Name.MinimumWidth = 10;
-            Lo_Name.Name = "Lo_Name";
-            // 
-            // Lo_Position
-            // 
-            Lo_Position.DataPropertyName = "Lo_Position";
-            Lo_Position.HeaderText = "Vị trí ";
-            Lo_Position.MinimumWidth = 10;
-            Lo_Position.Name = "Lo_Position";
-            // 
-            // gpbQLLo_CN
-            // 
-            gpbQLLo_CN.Controls.Add(btnQLLo_Them);
-            gpbQLLo_CN.Controls.Add(btnQLLo_Sua);
-            gpbQLLo_CN.Controls.Add(btnQLLo_Xoa);
-            gpbQLLo_CN.Dock = DockStyle.Fill;
-            gpbQLLo_CN.Location = new Point(0, 0);
-            gpbQLLo_CN.Name = "gpbQLLo_CN";
-            gpbQLLo_CN.Size = new Size(248, 721);
-            gpbQLLo_CN.TabIndex = 1;
-            gpbQLLo_CN.TabStop = false;
-            gpbQLLo_CN.Text = "Chức năng";
-            // 
-            // btnQLLo_Them
-            // 
-            btnQLLo_Them.BackColor = SystemColors.ButtonHighlight;
-            btnQLLo_Them.FlatAppearance.BorderSize = 0;
-            btnQLLo_Them.FlatStyle = FlatStyle.Popup;
-            btnQLLo_Them.Font = new Font("Segoe UI", 10.125F, FontStyle.Bold, GraphicsUnit.Point);
-            btnQLLo_Them.Image = Properties.Resources.add;
-            btnQLLo_Them.ImageAlign = ContentAlignment.MiddleLeft;
-            btnQLLo_Them.Location = new Point(32, 69);
-            btnQLLo_Them.Name = "btnQLLo_Them";
-            btnQLLo_Them.Size = new Size(182, 58);
-            btnQLLo_Them.TabIndex = 24;
-            btnQLLo_Them.Text = "Thêm";
-            btnQLLo_Them.UseVisualStyleBackColor = false;
-            btnQLLo_Them.Click += btnQLLo_Them_Click;
-            // 
-            // btnQLLo_Sua
-            // 
-            btnQLLo_Sua.BackColor = SystemColors.ButtonHighlight;
-            btnQLLo_Sua.FlatAppearance.BorderSize = 0;
-            btnQLLo_Sua.FlatStyle = FlatStyle.Popup;
-            btnQLLo_Sua.Font = new Font("Segoe UI", 10.125F, FontStyle.Bold, GraphicsUnit.Point);
-            btnQLLo_Sua.Image = Properties.Resources.update;
-            btnQLLo_Sua.ImageAlign = ContentAlignment.MiddleLeft;
-            btnQLLo_Sua.Location = new Point(32, 349);
-            btnQLLo_Sua.Name = "btnQLLo_Sua";
-            btnQLLo_Sua.Size = new Size(182, 58);
-            btnQLLo_Sua.TabIndex = 25;
-            btnQLLo_Sua.Text = "Sửa";
-            btnQLLo_Sua.UseVisualStyleBackColor = false;
-            btnQLLo_Sua.Click += btnQLLo_Sua_Click;
-            // 
-            // btnQLLo_Xoa
-            // 
-            btnQLLo_Xoa.BackColor = SystemColors.ButtonHighlight;
-            btnQLLo_Xoa.FlatAppearance.BorderSize = 0;
-            btnQLLo_Xoa.FlatStyle = FlatStyle.Popup;
-            btnQLLo_Xoa.Font = new Font("Segoe UI", 10.125F, FontStyle.Bold, GraphicsUnit.Point);
-            btnQLLo_Xoa.Image = Properties.Resources.delete;
-            btnQLLo_Xoa.ImageAlign = ContentAlignment.MiddleLeft;
-            btnQLLo_Xoa.Location = new Point(32, 629);
-            btnQLLo_Xoa.Name = "btnQLLo_Xoa";
-            btnQLLo_Xoa.Size = new Size(182, 58);
-            btnQLLo_Xoa.TabIndex = 26;
-            btnQLLo_Xoa.Text = "Xóa";
-            btnQLLo_Xoa.UseVisualStyleBackColor = false;
-            btnQLLo_Xoa.Click += btnQLLo_Xoa_Click;
             // 
             // splQLLo_TT_TK
             // 
             splQLLo_TT_TK.BackColor = Color.Transparent;
-            splQLLo_TT_TK.BackgroundImage = Properties.Resources.bg;
-            splQLLo_TT_TK.Dock = DockStyle.Bottom;
-            splQLLo_TT_TK.Location = new Point(3, 821);
+            splQLLo_TT_TK.Dock = DockStyle.Fill;
+            splQLLo_TT_TK.Location = new Point(3, 814);
             splQLLo_TT_TK.Name = "splQLLo_TT_TK";
             // 
             // splQLLo_TT_TK.Panel1
@@ -276,7 +112,7 @@
             // 
             splQLLo_TT_TK.Panel2.BackColor = Color.Transparent;
             splQLLo_TT_TK.Panel2.Controls.Add(gpbQLLo_TK);
-            splQLLo_TT_TK.Size = new Size(1442, 258);
+            splQLLo_TT_TK.Size = new Size(1442, 234);
             splQLLo_TT_TK.SplitterDistance = 877;
             splQLLo_TT_TK.TabIndex = 2;
             // 
@@ -293,7 +129,7 @@
             gpbQLLo_TT.Dock = DockStyle.Fill;
             gpbQLLo_TT.Location = new Point(0, 0);
             gpbQLLo_TT.Name = "gpbQLLo_TT";
-            gpbQLLo_TT.Size = new Size(877, 258);
+            gpbQLLo_TT.Size = new Size(877, 234);
             gpbQLLo_TT.TabIndex = 0;
             gpbQLLo_TT.TabStop = false;
             gpbQLLo_TT.Text = "Thông tin";
@@ -386,7 +222,7 @@
             gpbQLLo_TK.Dock = DockStyle.Fill;
             gpbQLLo_TK.Location = new Point(0, 0);
             gpbQLLo_TK.Name = "gpbQLLo_TK";
-            gpbQLLo_TK.Size = new Size(561, 258);
+            gpbQLLo_TK.Size = new Size(561, 234);
             gpbQLLo_TK.TabIndex = 0;
             gpbQLLo_TK.TabStop = false;
             gpbQLLo_TK.Text = "Tìm kiếm";
@@ -433,23 +269,178 @@
             lbQLLo_TK_MaLo.TabIndex = 6;
             lbQLLo_TK_MaLo.Text = "Mã lô";
             // 
+            // BnlQLLo_CN
+            // 
+            BnlQLLo_CN.Controls.Add(pcbQLLo_CN);
+            BnlQLLo_CN.Controls.Add(gpbQLLo_CN);
+            BnlQLLo_CN.Dock = DockStyle.Fill;
+            BnlQLLo_CN.Location = new Point(3, 1054);
+            BnlQLLo_CN.Name = "BnlQLLo_CN";
+            BnlQLLo_CN.Size = new Size(1442, 280);
+            BnlQLLo_CN.TabIndex = 3;
+            // 
+            // gpbQLLo_CN
+            // 
+            gpbQLLo_CN.Controls.Add(btnQLLo_Them);
+            gpbQLLo_CN.Controls.Add(btnQLLo_Sua);
+            gpbQLLo_CN.Controls.Add(btnQLLo_Xoa);
+            gpbQLLo_CN.Dock = DockStyle.Left;
+            gpbQLLo_CN.Location = new Point(0, 0);
+            gpbQLLo_CN.Name = "gpbQLLo_CN";
+            gpbQLLo_CN.Padding = new Padding(3, 3, 0, 3);
+            gpbQLLo_CN.Size = new Size(437, 280);
+            gpbQLLo_CN.TabIndex = 2;
+            gpbQLLo_CN.TabStop = false;
+            gpbQLLo_CN.Text = "Chức năng";
+            // 
+            // btnQLLo_Them
+            // 
+            btnQLLo_Them.BackColor = SystemColors.ButtonHighlight;
+            btnQLLo_Them.FlatAppearance.BorderSize = 0;
+            btnQLLo_Them.FlatStyle = FlatStyle.Popup;
+            btnQLLo_Them.Font = new Font("Segoe UI", 10.125F, FontStyle.Bold, GraphicsUnit.Point);
+            btnQLLo_Them.Image = Properties.Resources.add;
+            btnQLLo_Them.ImageAlign = ContentAlignment.MiddleLeft;
+            btnQLLo_Them.Location = new Point(30, 78);
+            btnQLLo_Them.Name = "btnQLLo_Them";
+            btnQLLo_Them.Size = new Size(154, 58);
+            btnQLLo_Them.TabIndex = 24;
+            btnQLLo_Them.Text = "Thêm";
+            btnQLLo_Them.UseVisualStyleBackColor = false;
+            // 
+            // btnQLLo_Sua
+            // 
+            btnQLLo_Sua.BackColor = SystemColors.ButtonHighlight;
+            btnQLLo_Sua.FlatAppearance.BorderSize = 0;
+            btnQLLo_Sua.FlatStyle = FlatStyle.Popup;
+            btnQLLo_Sua.Font = new Font("Segoe UI", 10.125F, FontStyle.Bold, GraphicsUnit.Point);
+            btnQLLo_Sua.Image = Properties.Resources.update;
+            btnQLLo_Sua.ImageAlign = ContentAlignment.MiddleLeft;
+            btnQLLo_Sua.Location = new Point(260, 78);
+            btnQLLo_Sua.Name = "btnQLLo_Sua";
+            btnQLLo_Sua.Size = new Size(154, 58);
+            btnQLLo_Sua.TabIndex = 25;
+            btnQLLo_Sua.Text = "Sửa";
+            btnQLLo_Sua.UseVisualStyleBackColor = false;
+            // 
+            // btnQLLo_Xoa
+            // 
+            btnQLLo_Xoa.BackColor = SystemColors.ButtonHighlight;
+            btnQLLo_Xoa.FlatAppearance.BorderSize = 0;
+            btnQLLo_Xoa.FlatStyle = FlatStyle.Popup;
+            btnQLLo_Xoa.Font = new Font("Segoe UI", 10.125F, FontStyle.Bold, GraphicsUnit.Point);
+            btnQLLo_Xoa.Image = Properties.Resources.delete;
+            btnQLLo_Xoa.ImageAlign = ContentAlignment.MiddleLeft;
+            btnQLLo_Xoa.Location = new Point(147, 194);
+            btnQLLo_Xoa.Name = "btnQLLo_Xoa";
+            btnQLLo_Xoa.Size = new Size(154, 58);
+            btnQLLo_Xoa.TabIndex = 26;
+            btnQLLo_Xoa.Text = "Xóa";
+            btnQLLo_Xoa.UseVisualStyleBackColor = false;
+            // 
+            // lbQLLo
+            // 
+            lbQLLo.AutoSize = true;
+            lbQLLo.Font = new Font("Segoe UI", 13.875F, FontStyle.Bold, GraphicsUnit.Point);
+            lbQLLo.ForeColor = SystemColors.ButtonHighlight;
+            lbQLLo.Location = new Point(590, 13);
+            lbQLLo.Name = "lbQLLo";
+            lbQLLo.Size = new Size(237, 50);
+            lbQLLo.TabIndex = 0;
+            lbQLLo.Text = "QUẢN LÝ LÔ";
+            // 
+            // pnQLLo
+            // 
+            pnQLLo.BackColor = Color.FromArgb(15, 142, 219);
+            pnQLLo.Controls.Add(lbQLLo);
+            pnQLLo.Dock = DockStyle.Fill;
+            pnQLLo.Location = new Point(3, 3);
+            pnQLLo.Name = "pnQLLo";
+            pnQLLo.Size = new Size(1442, 78);
+            pnQLLo.TabIndex = 0;
+            // 
+            // gpbQLLo_HT
+            // 
+            gpbQLLo_HT.Controls.Add(dgvQLLo);
+            gpbQLLo_HT.Dock = DockStyle.Fill;
+            gpbQLLo_HT.Location = new Point(3, 87);
+            gpbQLLo_HT.Name = "gpbQLLo_HT";
+            gpbQLLo_HT.Padding = new Padding(3, 10, 3, 3);
+            gpbQLLo_HT.Size = new Size(1442, 721);
+            gpbQLLo_HT.TabIndex = 4;
+            gpbQLLo_HT.TabStop = false;
+            gpbQLLo_HT.Text = "Hiển thị";
+            // 
+            // dgvQLLo
+            // 
+            dgvQLLo.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dgvQLLo.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
+            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle2.BackColor = SystemColors.Control;
+            dataGridViewCellStyle2.Font = new Font("Segoe UI", 10.125F, FontStyle.Regular, GraphicsUnit.Point);
+            dataGridViewCellStyle2.ForeColor = SystemColors.WindowText;
+            dataGridViewCellStyle2.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = DataGridViewTriState.True;
+            dgvQLLo.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            dgvQLLo.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dgvQLLo.Columns.AddRange(new DataGridViewColumn[] { Lo_ID, Kho_ID, Lo_Name, Lo_Position });
+            dgvQLLo.Dock = DockStyle.Fill;
+            dgvQLLo.Location = new Point(3, 46);
+            dgvQLLo.Name = "dgvQLLo";
+            dgvQLLo.RowHeadersWidth = 82;
+            dgvQLLo.RowTemplate.Height = 41;
+            dgvQLLo.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            dgvQLLo.Size = new Size(1436, 672);
+            dgvQLLo.TabIndex = 0;
+            // 
+            // Lo_ID
+            // 
+            Lo_ID.DataPropertyName = "Lo_ID";
+            Lo_ID.HeaderText = "Mã lô";
+            Lo_ID.MinimumWidth = 10;
+            Lo_ID.Name = "Lo_ID";
+            // 
+            // Kho_ID
+            // 
+            Kho_ID.DataPropertyName = "Kho_ID";
+            Kho_ID.HeaderText = "Mã kho";
+            Kho_ID.MinimumWidth = 10;
+            Kho_ID.Name = "Kho_ID";
+            // 
+            // Lo_Name
+            // 
+            Lo_Name.DataPropertyName = "Lo_Name";
+            Lo_Name.HeaderText = "Tên lô";
+            Lo_Name.MinimumWidth = 10;
+            Lo_Name.Name = "Lo_Name";
+            // 
+            // Lo_Position
+            // 
+            Lo_Position.DataPropertyName = "Lo_Position";
+            Lo_Position.HeaderText = "Vị trí ";
+            Lo_Position.MinimumWidth = 10;
+            Lo_Position.Name = "Lo_Position";
+            // 
+            // pcbQLLo_CN
+            // 
+            pcbQLLo_CN.Dock = DockStyle.Fill;
+            pcbQLLo_CN.Image = Properties.Resources.bgNgang;
+            pcbQLLo_CN.Location = new Point(437, 0);
+            pcbQLLo_CN.Name = "pcbQLLo_CN";
+            pcbQLLo_CN.Size = new Size(1005, 280);
+            pcbQLLo_CN.SizeMode = PictureBoxSizeMode.StretchImage;
+            pcbQLLo_CN.TabIndex = 3;
+            pcbQLLo_CN.TabStop = false;
+            // 
             // UC_QLLo
             // 
             AutoScaleDimensions = new SizeF(13F, 32F);
             AutoScaleMode = AutoScaleMode.Font;
             Controls.Add(tlpQLLo);
             Name = "UC_QLLo";
-            Size = new Size(1448, 1082);
+            Size = new Size(1448, 1337);
             tlpQLLo.ResumeLayout(false);
-            pnQLLo.ResumeLayout(false);
-            pnQLLo.PerformLayout();
-            splQLLo_HT_CN.Panel1.ResumeLayout(false);
-            splQLLo_HT_CN.Panel2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)splQLLo_HT_CN).EndInit();
-            splQLLo_HT_CN.ResumeLayout(false);
-            gpbQLLo_HT.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)dgvQLLo).EndInit();
-            gpbQLLo_CN.ResumeLayout(false);
             splQLLo_TT_TK.Panel1.ResumeLayout(false);
             splQLLo_TT_TK.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)splQLLo_TT_TK).EndInit();
@@ -458,18 +449,19 @@
             gpbQLLo_TT.PerformLayout();
             gpbQLLo_TK.ResumeLayout(false);
             gpbQLLo_TK.PerformLayout();
+            BnlQLLo_CN.ResumeLayout(false);
+            gpbQLLo_CN.ResumeLayout(false);
+            pnQLLo.ResumeLayout(false);
+            pnQLLo.PerformLayout();
+            gpbQLLo_HT.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)dgvQLLo).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pcbQLLo_CN).EndInit();
             ResumeLayout(false);
         }
 
         #endregion
 
         private TableLayoutPanel tlpQLLo;
-        private Panel pnQLLo;
-        private Label lbQLLo;
-        private SplitContainer splQLLo_HT_CN;
-        private GroupBox gpbQLLo_HT;
-        private DataGridView dgvQLLo;
-        private GroupBox gpbQLLo_CN;
         private SplitContainer splQLLo_TT_TK;
         private GroupBox gpbQLLo_TT;
         private ComboBox cbQLLo_ViTri;
@@ -480,17 +472,24 @@
         private TextBox txtQLLo_MaLo;
         private Label lbQLLo_MaLo;
         private GroupBox gpbQLLo_TK;
-        private Button btnQLLo_Them;
-        private Button btnQLLo_Sua;
-        private Button btnQLLo_Xoa;
         private Label lbQLLo_TK_MaKho;
         private Label lbQLLo_TK_MaLo;
         private ComboBox cbQLLo_MaKho;
         private ComboBox cbQLLo_TK_MaKho;
         private ComboBox cbQLLo_TK_MaLo;
+        private Panel BnlQLLo_CN;
+        private GroupBox gpbQLLo_CN;
+        private Button btnQLLo_Them;
+        private Button btnQLLo_Sua;
+        private Button btnQLLo_Xoa;
+        private GroupBox gpbQLLo_HT;
+        private DataGridView dgvQLLo;
         private DataGridViewTextBoxColumn Lo_ID;
         private DataGridViewTextBoxColumn Kho_ID;
         private DataGridViewTextBoxColumn Lo_Name;
         private DataGridViewTextBoxColumn Lo_Position;
+        private Panel pnQLLo;
+        private Label lbQLLo;
+        private PictureBox pcbQLLo_CN;
     }
 }

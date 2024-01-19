@@ -108,10 +108,10 @@
             tlpQLNV.Name = "tlpQLNV";
             tlpQLNV.RowCount = 4;
             tlpQLNV.RowStyles.Add(new RowStyle(SizeType.Absolute, 82F));
-            tlpQLNV.RowStyles.Add(new RowStyle(SizeType.Absolute, 448F));
-            tlpQLNV.RowStyles.Add(new RowStyle(SizeType.Absolute, 319F));
-            tlpQLNV.RowStyles.Add(new RowStyle(SizeType.Absolute, 11F));
-            tlpQLNV.Size = new Size(1448, 1082);
+            tlpQLNV.RowStyles.Add(new RowStyle(SizeType.Absolute, 693F));
+            tlpQLNV.RowStyles.Add(new RowStyle(SizeType.Absolute, 328F));
+            tlpQLNV.RowStyles.Add(new RowStyle(SizeType.Absolute, 19F));
+            tlpQLNV.Size = new Size(1448, 1337);
             tlpQLNV.TabIndex = 1;
             // 
             // pnQLNV
@@ -144,7 +144,8 @@
             grbQLNV_HT.Dock = DockStyle.Fill;
             grbQLNV_HT.Location = new Point(3, 85);
             grbQLNV_HT.Name = "grbQLNV_HT";
-            grbQLNV_HT.Size = new Size(1442, 442);
+            grbQLNV_HT.Padding = new Padding(3, 10, 3, 3);
+            grbQLNV_HT.Size = new Size(1442, 687);
             grbQLNV_HT.TabIndex = 3;
             grbQLNV_HT.TabStop = false;
             grbQLNV_HT.Text = "Hiển thị";
@@ -164,12 +165,12 @@
             dgvNV.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dgvNV.Columns.AddRange(new DataGridViewColumn[] { NV_ID, UserID, CN_ID, NV_Name, BirthDay, Sex, Phone, Email, Address });
             dgvNV.Dock = DockStyle.Fill;
-            dgvNV.Location = new Point(3, 39);
+            dgvNV.Location = new Point(3, 46);
             dgvNV.Name = "dgvNV";
             dgvNV.RowHeadersWidth = 82;
             dgvNV.RowTemplate.Height = 41;
             dgvNV.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dgvNV.Size = new Size(1436, 400);
+            dgvNV.Size = new Size(1436, 638);
             dgvNV.TabIndex = 1;
             dgvNV.RowPostPaint += dgvNV_RowPostPaint;
             dgvNV.SelectionChanged += dgvNV_SelectionChanged;
@@ -242,9 +243,9 @@
             pnQLNV_TT.BackColor = Color.Transparent;
             pnQLNV_TT.Controls.Add(grbQLNV_TT);
             pnQLNV_TT.Dock = DockStyle.Fill;
-            pnQLNV_TT.Location = new Point(3, 533);
+            pnQLNV_TT.Location = new Point(3, 778);
             pnQLNV_TT.Name = "pnQLNV_TT";
-            pnQLNV_TT.Size = new Size(1442, 313);
+            pnQLNV_TT.Size = new Size(1442, 322);
             pnQLNV_TT.TabIndex = 4;
             // 
             // grbQLNV_TT
@@ -272,7 +273,7 @@
             grbQLNV_TT.Dock = DockStyle.Fill;
             grbQLNV_TT.Location = new Point(0, 0);
             grbQLNV_TT.Name = "grbQLNV_TT";
-            grbQLNV_TT.Size = new Size(1442, 313);
+            grbQLNV_TT.Size = new Size(1442, 322);
             grbQLNV_TT.TabIndex = 0;
             grbQLNV_TT.TabStop = false;
             grbQLNV_TT.Text = "Thông tin";
@@ -490,7 +491,7 @@
             splQLNV_TK_CN.BackColor = Color.Transparent;
             splQLNV_TK_CN.BackgroundImage = Properties.Resources.bg;
             splQLNV_TK_CN.Dock = DockStyle.Bottom;
-            splQLNV_TK_CN.Location = new Point(3, 852);
+            splQLNV_TK_CN.Location = new Point(3, 1107);
             splQLNV_TK_CN.Name = "splQLNV_TK_CN";
             // 
             // splQLNV_TK_CN.Panel1
@@ -655,7 +656,7 @@
             AutoScaleMode = AutoScaleMode.Font;
             Controls.Add(tlpQLNV);
             Name = "UC_QLNV";
-            Size = new Size(1448, 1082);
+            Size = new Size(1448, 1337);
             tlpQLNV.ResumeLayout(false);
             pnQLNV.ResumeLayout(false);
             pnQLNV.PerformLayout();

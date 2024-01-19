@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
             tlpQLT = new TableLayoutPanel();
             pnQLT = new Panel();
             lbQLT = new Label();
@@ -89,9 +89,9 @@
             tlpQLT.Name = "tlpQLT";
             tlpQLT.RowCount = 3;
             tlpQLT.RowStyles.Add(new RowStyle(SizeType.Absolute, 79F));
-            tlpQLT.RowStyles.Add(new RowStyle(SizeType.Absolute, 675F));
-            tlpQLT.RowStyles.Add(new RowStyle(SizeType.Absolute, 16F));
-            tlpQLT.Size = new Size(1448, 1082);
+            tlpQLT.RowStyles.Add(new RowStyle(SizeType.Absolute, 942F));
+            tlpQLT.RowStyles.Add(new RowStyle(SizeType.Absolute, 8F));
+            tlpQLT.Size = new Size(1448, 1337);
             tlpQLT.TabIndex = 1;
             // 
             // pnQLT
@@ -131,8 +131,8 @@
             // splQLT_CN_HT.Panel2
             // 
             splQLT_CN_HT.Panel2.Controls.Add(grbQLT_HT);
-            splQLT_CN_HT.Size = new Size(1442, 669);
-            splQLT_CN_HT.SplitterDistance = 135;
+            splQLT_CN_HT.Size = new Size(1442, 936);
+            splQLT_CN_HT.SplitterDistance = 147;
             splQLT_CN_HT.TabIndex = 1;
             // 
             // grbQLT_TK
@@ -144,7 +144,7 @@
             grbQLT_TK.Dock = DockStyle.Fill;
             grbQLT_TK.Location = new Point(0, 0);
             grbQLT_TK.Name = "grbQLT_TK";
-            grbQLT_TK.Size = new Size(1442, 135);
+            grbQLT_TK.Size = new Size(1442, 147);
             grbQLT_TK.TabIndex = 0;
             grbQLT_TK.TabStop = false;
             grbQLT_TK.Text = "Chức năng";
@@ -206,7 +206,7 @@
             grbQLT_HT.Dock = DockStyle.Fill;
             grbQLT_HT.Location = new Point(0, 0);
             grbQLT_HT.Name = "grbQLT_HT";
-            grbQLT_HT.Size = new Size(1442, 530);
+            grbQLT_HT.Size = new Size(1442, 785);
             grbQLT_HT.TabIndex = 0;
             grbQLT_HT.TabStop = false;
             grbQLT_HT.Text = "Hiển thị";
@@ -215,14 +215,14 @@
             // 
             dgvQLT.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dgvQLT.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
-            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle2.BackColor = SystemColors.Control;
-            dataGridViewCellStyle2.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
-            dataGridViewCellStyle2.ForeColor = SystemColors.WindowText;
-            dataGridViewCellStyle2.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = DataGridViewTriState.True;
-            dgvQLT.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.BackColor = SystemColors.Control;
+            dataGridViewCellStyle1.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
+            dataGridViewCellStyle1.ForeColor = SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
+            dgvQLT.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             dgvQLT.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dgvQLT.Columns.AddRange(new DataGridViewColumn[] { Thuoc_ID, Nhom_ID, Thuoc_Name });
             dgvQLT.Dock = DockStyle.Fill;
@@ -231,7 +231,7 @@
             dgvQLT.RowHeadersWidth = 82;
             dgvQLT.RowTemplate.Height = 41;
             dgvQLT.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dgvQLT.Size = new Size(1436, 488);
+            dgvQLT.Size = new Size(1436, 743);
             dgvQLT.TabIndex = 0;
             dgvQLT.RowPostPaint += dgvQLT_RowPostPaint;
             dgvQLT.SelectionChanged += dgvQLT_SelectionChanged;
@@ -261,9 +261,9 @@
             // 
             pnQLT_TT_CN.Controls.Add(splQLT_TT_TK);
             pnQLT_TT_CN.Dock = DockStyle.Bottom;
-            pnQLT_TT_CN.Location = new Point(3, 757);
+            pnQLT_TT_CN.Location = new Point(3, 1024);
             pnQLT_TT_CN.Name = "pnQLT_TT_CN";
-            pnQLT_TT_CN.Size = new Size(1442, 322);
+            pnQLT_TT_CN.Size = new Size(1442, 310);
             pnQLT_TT_CN.TabIndex = 2;
             // 
             // splQLT_TT_TK
@@ -280,7 +280,7 @@
             // splQLT_TT_TK.Panel2
             // 
             splQLT_TT_TK.Panel2.Controls.Add(grbQLT_CN);
-            splQLT_TT_TK.Size = new Size(1442, 322);
+            splQLT_TT_TK.Size = new Size(1442, 310);
             splQLT_TT_TK.SplitterDistance = 793;
             splQLT_TT_TK.TabIndex = 3;
             // 
@@ -295,7 +295,7 @@
             grbQLT_TT.Dock = DockStyle.Fill;
             grbQLT_TT.Location = new Point(0, 0);
             grbQLT_TT.Name = "grbQLT_TT";
-            grbQLT_TT.Size = new Size(793, 322);
+            grbQLT_TT.Size = new Size(793, 310);
             grbQLT_TT.TabIndex = 0;
             grbQLT_TT.TabStop = false;
             grbQLT_TT.Text = "Thông tin";
@@ -368,7 +368,7 @@
             grbQLT_CN.Dock = DockStyle.Fill;
             grbQLT_CN.Location = new Point(0, 0);
             grbQLT_CN.Name = "grbQLT_CN";
-            grbQLT_CN.Size = new Size(645, 322);
+            grbQLT_CN.Size = new Size(645, 310);
             grbQLT_CN.TabIndex = 0;
             grbQLT_CN.TabStop = false;
             grbQLT_CN.Text = "Tìm kiếm";
@@ -434,7 +434,7 @@
             BackgroundImage = Properties.Resources.bg;
             Controls.Add(tlpQLT);
             Name = "UC_QLThuoc";
-            Size = new Size(1448, 1082);
+            Size = new Size(1448, 1337);
             tlpQLT.ResumeLayout(false);
             pnQLT.ResumeLayout(false);
             pnQLT.PerformLayout();

@@ -93,6 +93,16 @@ namespace FormQLKH.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap bgNgang {
+            get {
+                object obj = ResourceManager.GetObject("bgNgang", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap bgThuoc1 {
             get {
                 object obj = ResourceManager.GetObject("bgThuoc1", resourceCulture);
